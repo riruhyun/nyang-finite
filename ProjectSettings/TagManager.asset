@@ -2,8 +2,9 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - Dead
   layers:
   - Default
   - TransparentFX
@@ -41,3 +42,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 830670821
+    locked: 0
+  - name: Floor
+    uniqueID: 667370565
+    locked: 0
+  - name: Player
+    uniqueID: 2853468547
+    locked: 0
+  m_RenderingLayers:
+  - Default
