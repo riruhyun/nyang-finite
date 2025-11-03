@@ -1,214 +1,464 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-// PlayerController는 플레이어 캐릭터로서 Player 게임 오브젝트를 제어한다.
 public class PlayerController : MonoBehaviour {
-   public AudioClip deathClip; // 사망시 재생할 오디오 클립
-   public float jumpForce = 700f; // 점프 힘
-   public float moveSpeed = 5f; // 이동 속도
-   public float baseMomentum = 0.5f; // 기본 관성값
-   public float maxMomentum = 2.0f; // 최대 관성값 (2로 제한)
-   public float momentumBuildTime = 1.0f; // 관성 증가 시간
-   public float momentumDecayAmount = 2.5f; // 관성 감소량 (2.0씩 감소)
+   private enum AnimationState {
+       Idle,
+       Walk,
+       Jump,
+       Die
+   }
 
-   private int jumpCount = 0; // 누적 점프 횟수
-   private bool isGrounded = false; // 바닥에 닿았는지 나타냄
-   private bool isDead = false; // 사망 상태
-   private bool hasJumped = false; // 점프 애니메이션 트리거 발동 여부
+   [Header("Audio Settings")]
+   public AudioClip deathClip;
    
-   private float leftMomentum = 0f; // 왼쪽 방향 관성값
-   private float rightMomentum = 0f; // 오른쪽 방향 관성값
-   private float leftKeyHoldTime = 0f; // 왼쪽 키를 누른 시간
-   private float rightKeyHoldTime = 0f; // 오른쪽 키를 누른 시간
+   [Header("Movement Settings")]
+   public float jumpForce = 700f;
+   public float moveSpeed = 5f;
+   
+   [Header("Momentum Settings")]
+   public float baseMomentum = 0.5f;
+   public float maxMomentum = 2.0f;
+   public float momentumBuildTime = 1.0f;
+   public float momentumDecayAmount = 2.5f;
+   
+   [Header("Animation Settings")]
+   public float walkMomentumThreshold = 0.5f;
 
-   private Rigidbody2D playerRigidbody; // 사용할 리지드바디 컴포넌트
-   private Animator animator; // 사용할 애니메이터 컴포넌트
-   private AudioSource playerAudio; // 사용할 오디오 소스 컴포넌트
+   [SerializeField] private LayerMask groundLayer;
 
-    private void Start() {
-        playerRigidbody = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        playerAudio = GetComponent<AudioSource>();
+   // 물리 상태
+   private bool isGrounded = false;
+   private bool isDead = false;
+   
+   // 관성 시스템
+   private float leftMomentum = 0f;
+   private float rightMomentum = 0f;
+   private float leftKeyHoldTime = 0f;
+   private float rightKeyHoldTime = 0f;
+    
+   // 벽 충돌 상태
+   private bool isCollidingLeftWall = false;
+   private bool isCollidingRightWall = false;
+    
+   // 점프 grace time (점프 직후 착지 감지 무시)
+   private float jumpGraceTime = 0.1f;
+   private float lastJumpTime = -1f;
+
+   // 애니메이션 상태 관리
+   private AnimationState currentAnimState = AnimationState.Idle;
+   private AnimationState previousAnimState = AnimationState.Idle;
+   private float animationTransitionDelay = 0.1f;
+   private float lastAnimationChangeTime = 0f;
+
+   // 컴포넌트
+   private Rigidbody2D playerRigidbody;
+   private Animator animator;
+   private AudioSource playerAudio;
+   
+   // 애니메이터 파라미터 해시
+   private static readonly int GroundedHash = Animator.StringToHash("Grounded");
+   private static readonly int IsMovingHash = Animator.StringToHash("IsMoving");
+   private static readonly int JumpHash = Animator.StringToHash("Jump");
+   private static readonly int DieHash = Animator.StringToHash("Die");
+
+   private void Start() {
+       SetupColliders();
+       playerRigidbody = GetComponent<Rigidbody2D>();
+       animator = GetComponent<Animator>();
+       playerAudio = GetComponent<AudioSource>();
+       
+       if (animator == null) {
+           Debug.LogError("Animator component not found on " + gameObject.name);
+       }
+       if (playerRigidbody == null) {
+           Debug.LogError("Rigidbody2D component not found on " + gameObject.name);
+       }
+       
+       SetAnimationState(AnimationState.Idle);
+   }
+
+private void SetupColliders()
+    {
+        Transform oldHead = transform.Find("HeadCollider");
+        Transform oldBody = transform.Find("BodyCollider");
+        Transform oldFeet = transform.Find("FeetCollider");
         
-        // 애니메이터가 없으면 경고
-        if (animator == null) {
-            Debug.LogWarning("Animator component not found on " + gameObject.name);
+        if (oldHead != null) DestroyImmediate(oldHead.gameObject);
+        if (oldBody != null) DestroyImmediate(oldBody.gameObject);
+        if (oldFeet != null) DestroyImmediate(oldFeet.gameObject);
+        
+        CapsuleCollider2D capsuleCollider = GetComponent<CapsuleCollider2D>();
+        if (capsuleCollider != null)
+        {
+            capsuleCollider.size = new Vector2(0.12f, 0.18f);
+            capsuleCollider.offset = new Vector2(0, -0.01f);
+            capsuleCollider.direction = CapsuleDirection2D.Vertical;
+            
+            // Physics Material 생성 (경사면에서 적당히 미끄러지도록)
+            if (capsuleCollider.sharedMaterial == null)
+            {
+                PhysicsMaterial2D physicsMat = new PhysicsMaterial2D("PlayerPhysics");
+                physicsMat.friction = 0.3f;  // 0.4 -> 0.3으로 감소 (경사면에서 미끄러지도록)
+                physicsMat.bounciness = 0f;
+                capsuleCollider.sharedMaterial = physicsMat;
+            }
+        }
+        
+        Debug.Log("플레이어 충돌체 최적화 완료 (friction=0.3, 55도 경사면 지원)");
+    }
+
+   private void Update() {
+       if (isDead) {
+           return;
+       }
+
+       HandleMovementInput();
+       HandleJumpInput();
+       UpdateAnimationState();
+   }
+
+   private void HandleMovementInput() {
+       bool isPressingLeft = Input.GetKey(KeyCode.A);
+       bool isPressingRight = Input.GetKey(KeyCode.D);
+       
+       // 떨어지는 상태인지 확인 (공중 + 하강)
+       bool isFalling = !isGrounded && playerRigidbody.linearVelocity.y < -0.1f;
+       
+       // 왼쪽 키 처리 (왼쪽 벽에 붙어있거나 떨어지는 중이면 무시)
+       if (isPressingLeft && !isCollidingLeftWall && !isFalling) {
+           leftKeyHoldTime += Time.deltaTime;
+           float momentumProgress = Mathf.Clamp01(leftKeyHoldTime / momentumBuildTime);
+           leftMomentum = Mathf.Lerp(baseMomentum, maxMomentum, momentumProgress);
+           transform.localScale = new Vector3(-5f, 5f, 5f);
+       } else {
+           if (leftMomentum > 0) {
+               leftMomentum -= momentumDecayAmount * Time.deltaTime * 10f;
+               leftMomentum = Mathf.Max(leftMomentum, 0f);
+           }
+           leftKeyHoldTime = 0f;
+       }
+       
+       // 오른쪽 키 처리 (오른쪽 벽에 붙어있거나 떨어지는 중이면 무시)
+       if (isPressingRight && !isCollidingRightWall && !isFalling) {
+           rightKeyHoldTime += Time.deltaTime;
+           float momentumProgress = Mathf.Clamp01(rightKeyHoldTime / momentumBuildTime);
+           rightMomentum = Mathf.Lerp(baseMomentum, maxMomentum, momentumProgress);
+           transform.localScale = new Vector3(5f, 5f, 5f);
+       } else {
+           if (rightMomentum > 0) {
+               rightMomentum -= momentumDecayAmount * Time.deltaTime * 10f;
+               rightMomentum = Mathf.Max(rightMomentum, 0f);
+           }
+           rightKeyHoldTime = 0f;
+       }
+       
+       ApplyMovement();
+   }
+
+   private void ApplyMovement() {
+       float finalHorizontalSpeed = 0f;
+       
+       if (leftMomentum > 0) {
+           finalHorizontalSpeed -= moveSpeed * leftMomentum;
+       }
+       
+       if (rightMomentum > 0) {
+           finalHorizontalSpeed += moveSpeed * rightMomentum;
+       }
+       
+       if (leftMomentum > 0 || rightMomentum > 0) {
+           Vector2 movement = new Vector2(finalHorizontalSpeed, playerRigidbody.linearVelocity.y);
+           playerRigidbody.linearVelocity = movement;
+       }
+   }
+
+    private void HandleJumpInput()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            bool onSlope = IsOnJumpableSlope();
+
+            // 경사면에선 y가 음수로 찍혀도 점프 허용하고 싶으면 이거 아예 빼도 됨
+            bool isFallingFromCliff = playerRigidbody.linearVelocity.y < -0.1f && IsOnFlatGround();
+
+            bool canJump = (isGrounded || onSlope) && !isFallingFromCliff;
+
+            Debug.Log($"[JUMP INPUT] W! grounded={isGrounded}, onSlope={onSlope}, velY={playerRigidbody.linearVelocity.y:F2}, canJump={canJump}");
+
+            if (canJump)
+            {
+                PerformJump();
+            }
+        }
+        else if (Input.GetKeyUp(KeyCode.W) && playerRigidbody.linearVelocity.y > 0)
+        {
+            playerRigidbody.linearVelocity = new Vector2(
+                playerRigidbody.linearVelocity.x,
+                playerRigidbody.linearVelocity.y * 0.5f
+            );
         }
     }
 
-    private void Update() {
-        if (isDead) {
-            return;
+    private Vector2 GetFeetPos()
+    {
+        CapsuleCollider2D col = GetComponent<CapsuleCollider2D>();
+        if (col != null)
+        {
+            return (Vector2)col.bounds.center + Vector2.down * (col.bounds.extents.y + 0.02f);
+        }
+        // 혹시 콜라이더 없으면 대충
+        return (Vector2)transform.position + Vector2.down * 0.15f;
+    }
+
+    /// <summary>
+    /// 55도 이하 경사면 위에 있으면 true
+    /// </summary>
+    private bool IsOnJumpableSlope()
+    {
+        Vector2 origin = GetFeetPos();
+        float dist = 0.6f; // 살짝 여유
+
+        RaycastHit2D hit = Physics2D.Raycast(
+            origin,
+            Vector2.down,
+            dist,
+            groundLayer
+        );
+
+        // 디버그 찍어보면 바로 느낌 옴
+        if (hit.collider != null)
+        {
+            float ny = hit.normal.y;
+            // 55도 이하 → normal.y > cos(55°) ≈ 0.57
+            bool ok = ny > 0.57f;
+            // Debug.DrawRay(origin, Vector2.down * dist, ok ? Color.green : Color.yellow, 0.2f);
+            return ok;
         }
 
-        // 좌우 이동 (A, D 키만 허용, 화살표키 차단)
-        bool isPressingLeft = Input.GetKey(KeyCode.A);
-        bool isPressingRight = Input.GetKey(KeyCode.D);
-        
-        // 왼쪽 키 처리
-        if (isPressingLeft) {
-            leftKeyHoldTime += Time.deltaTime;
-            float momentumProgress = Mathf.Clamp01(leftKeyHoldTime / momentumBuildTime);
-            leftMomentum = Mathf.Lerp(baseMomentum, maxMomentum, momentumProgress);
-            // 왼쪽으로 이동할 때 스프라이트 뒤집기
-            transform.localScale = new Vector3(-4f, 4f, 4f);
-        } else {
-            // 왼쪽 키를 놓으면 관성 감소 (1.5씩 더 빠르게 감소)
-            if (leftMomentum > 0) {
-                leftMomentum -= momentumDecayAmount * Time.deltaTime * 10f; // 10배 더 빠르게
-                if (leftMomentum < 0) leftMomentum = 0;
-            }
-            leftKeyHoldTime = 0f;
-        }
-        
-        // 오른쪽 키 처리
-        if (isPressingRight) {
-            rightKeyHoldTime += Time.deltaTime;
-            float momentumProgress = Mathf.Clamp01(rightKeyHoldTime / momentumBuildTime);
-            rightMomentum = Mathf.Lerp(baseMomentum, maxMomentum, momentumProgress);
-            // 오른쪽으로 이동할 때 스프라이트 정방향
-            transform.localScale = new Vector3(4f, 4f, 4f);
-        } else {
-            // 오른쪽 키를 놓으면 관성 감소 (1.5씩 더 빠르게 감소)
-            if (rightMomentum > 0) {
-                rightMomentum -= momentumDecayAmount * Time.deltaTime * 10f; // 10배 더 빠르게
-                if (rightMomentum < 0) rightMomentum = 0;
-            }
-            rightKeyHoldTime = 0f;
-        }
-        
-        // 실제 이동 적용 (각 방향의 관성이 독립적으로 작용)
-        float finalHorizontalSpeed = 0f;
-        
-        // 왼쪽 관성 적용 (왼쪽 키를 누르지 않아도 관성이 남아있으면 계속 왼쪽으로 밀림)
-        if (leftMomentum > 0) {
-            float leftForce = moveSpeed * leftMomentum;
-            finalHorizontalSpeed -= leftForce;
-        }
-        
-        // 오른쪽 관성 적용 (오른쪽 키를 누르지 않아도 관성이 남아있으면 계속 오른쪽으로 밀림)
-        if (rightMomentum > 0) {
-            float rightForce = moveSpeed * rightMomentum;
-            finalHorizontalSpeed += rightForce;
-        }
-        
-        // 최종 이동 적용 (관성이 있으면 항상 이동)
-        if (leftMomentum > 0 || rightMomentum > 0) {
-            Vector2 movement = new Vector2(finalHorizontalSpeed, playerRigidbody.linearVelocity.y);
-            playerRigidbody.linearVelocity = movement;
+        return false;
+    }
+
+
+    private bool IsOnFlatGround()
+    {
+        Vector2 origin = GetFeetPos();
+        RaycastHit2D hit = Physics2D.Raycast(
+            origin,
+            Vector2.down,
+            0.25f,
+            groundLayer
+        );
+
+        if (hit.collider != null)
+        {
+            return hit.normal.y > 0.95f;
         }
 
-        // 점프 (W 키)
-        if (Input.GetKeyDown(KeyCode.W) && jumpCount < 1 && !hasJumped && isGrounded) {
-            jumpCount++;
-            hasJumped = true; // 점프 애니메이션 트리거 플래그 설정
-            
-            // 점프 시 즉시 Grounded를 false로 설정
-            isGrounded = false;
+        return false;
+    }
 
-            playerRigidbody.linearVelocity = new Vector2(playerRigidbody.linearVelocity.x, 0);
 
-            playerRigidbody.AddForce(new Vector2(0, jumpForce));
+    private void PerformJump() {
+       isGrounded = false;
+       lastJumpTime = Time.time;
 
-            playerAudio.Play();
-            
-            // 점프 애니메이션 트리거 및 파라미터 설정
-            if (animator != null) {
-                // 파라미터를 먼저 설정 (Jump 상태로 전환되도록)
-                animator.SetBool("Grounded", false);
-                animator.SetBool("IsMoving", false);
+       playerRigidbody.linearVelocity = new Vector2(playerRigidbody.linearVelocity.x, 0);
+       playerRigidbody.AddForce(new Vector2(0, jumpForce));
+
+       if (playerAudio != null) {
+           playerAudio.Play();
+       }
+       
+       SetAnimationState(AnimationState.Jump);
+       Debug.Log($"[JUMP] 점프 실행! Time={Time.time:F3}");
+   }
+
+   private void UpdateAnimationState() {
+       if (animator == null || isDead) return;
+
+       AnimationState targetState = DetermineAnimationState();
+       
+       if (targetState != currentAnimState) {
+           if (Time.time - lastAnimationChangeTime >= animationTransitionDelay) {
+               SetAnimationState(targetState);
+           }
+       }
+   }
+
+   private AnimationState DetermineAnimationState() {
+       if (isDead) {
+           return AnimationState.Die;
+       }
+
+       if (!isGrounded) {
+           return AnimationState.Jump;
+       }
+
+       float maxMomentum = Mathf.Max(leftMomentum, rightMomentum);
+       if (maxMomentum > walkMomentumThreshold) {
+           return AnimationState.Walk;
+       }
+
+       return AnimationState.Idle;
+   }
+
+   private void SetAnimationState(AnimationState newState) {
+       if (animator == null || newState == currentAnimState) return;
+
+       previousAnimState = currentAnimState;
+       currentAnimState = newState;
+       lastAnimationChangeTime = Time.time;
+
+       animator.ResetTrigger(JumpHash);
+       animator.ResetTrigger(DieHash);
+
+       switch (currentAnimState) {
+           case AnimationState.Idle:
+               animator.SetBool(GroundedHash, true);
+               animator.SetBool(IsMovingHash, false);
+               break;
+
+           case AnimationState.Walk:
+               animator.SetBool(GroundedHash, true);
+               animator.SetBool(IsMovingHash, true);
+               break;
+
+           case AnimationState.Jump:
+               animator.SetBool(GroundedHash, false);
+               animator.SetBool(IsMovingHash, false);
+               animator.SetTrigger(JumpHash);
+               break;
+
+           case AnimationState.Die:
+               animator.SetBool(GroundedHash, false);
+               animator.SetBool(IsMovingHash, false);
+               animator.SetTrigger(DieHash);
+               break;
+       }
+   }
+
+   private void Die() {
+       if (isDead) return;
+
+       isDead = true;
+       
+       SetAnimationState(AnimationState.Die);
+
+       if (playerAudio != null && deathClip != null) {
+           playerAudio.clip = deathClip;
+           playerAudio.Play();
+       }
+
+       if (playerRigidbody != null) {
+           playerRigidbody.linearVelocity = Vector2.zero;
+           playerRigidbody.bodyType = RigidbodyType2D.Static;
+       }
+
+       if (GameManager.instance != null) {
+           GameManager.instance.OnPlayerDead();
+       }
+   }
+
+   private void OnTriggerEnter2D(Collider2D other) {
+       if (other.CompareTag("Dead") && !isDead) {
+           Die();
+       }
+   }
+
+   private void OnCollisionEnter2D(Collision2D collision) {
+       CheckGroundContact(collision);
+       CheckWallCollision(collision);
+   }
+
+   private void OnCollisionStay2D(Collision2D collision) {
+       CheckGroundContact(collision);
+       CheckWallCollision(collision);
+   }
+   
+   private void OnCollisionExit2D(Collision2D collision) {
+       if (!IsContactingGround()) {
+           isGrounded = false;
+           Debug.Log("[GROUND] 공중 상태");
+       }
+       
+       CheckWallCollisionExit(collision);
+   }
+
+private void CheckGroundContact(Collision2D collision) {
+        foreach (ContactPoint2D contact in collision.contacts) {
+            // 위쪽으로 향한 충돌면만 바닥으로 인식 (normal.y > 0.57 = 약 55도 이상)
+            if (contact.normal.y > 0.4f) {  // 0.7 -> 0.57로 변경 (55도)
+                // 평평한 바닥인지 경사면인지 판단
+                bool isFlat = contact.normal.y > 0.95f;
                 
-                // 그 다음 Jump 트리거 설정
-                string beforeState = animator.GetCurrentAnimatorStateInfo(0).IsName("Jump") ? "Jump" : 
-                                     animator.GetCurrentAnimatorStateInfo(0).IsName("Walk") ? "Walk" : "Idle";
-                animator.SetTrigger("Jump");
-                Debug.Log($"Jump trigger set! Before state: {beforeState}, isGrounded: {isGrounded}");
-            }
-        } else if (Input.GetKeyUp(KeyCode.W) && playerRigidbody.linearVelocity.y > 0) {
-            playerRigidbody.linearVelocity = new Vector2(playerRigidbody.linearVelocity.x, playerRigidbody.linearVelocity.y * 0.5f);
-        }
-        
-        // 애니메이션 파라미터 설정
-        if (animator != null) {
-            // 현재 애니메이션 상태 확인
-            bool isCurrentlyInJumpState = animator.GetCurrentAnimatorStateInfo(0).IsName("Jump");
-            
-            // 점프 직후에는 파라미터 업데이트 건너뛰기 (Jump 상태로 전환되도록 함)
-            if (hasJumped && !isGrounded && !isCurrentlyInJumpState) {
-                // 점프 직후이고 아직 Jump 상태가 아니면 파라미터 업데이트 건너뛰기
-                // Jump 트리거가 설정되어 Jump 상태로 전환되도록 함
-            } else if (isCurrentlyInJumpState) {
-                // Jump 상태일 때는 Grounded만 업데이트 (땅에 닿았는지 확인용)
-                // IsMoving은 절대 업데이트하지 않음! (Jump 모션이 유지되도록)
-                animator.SetBool("Grounded", isGrounded);
-            } else {
-                // Jump 상태가 아닐 때만 모든 파라미터 업데이트
-                animator.SetBool("Grounded", isGrounded);
-                
-                // 이동 상태에 따른 애니메이션 설정
-                if (isGrounded) {
-                    // 땅에 닿았을 때 - 관성이 0.5보다 크면 Walk, 0.5 이하이거나 없으면 Idle
-                    float maxMomentum = Mathf.Max(leftMomentum, rightMomentum);
-                    bool isMoving = (maxMomentum > 0.5f || (isPressingLeft && leftMomentum > 0.5f) || (isPressingRight && rightMomentum > 0.5f));
-                    animator.SetBool("IsMoving", isMoving);
-                } else {
-                    // 공중에 있을 때는 IsMoving을 false로 설정
-                    animator.SetBool("IsMoving", false);
+                if (isFlat) {
+                    // 평평한 바닥: grace time 체크
+                    float timeSinceJump = Time.time - lastJumpTime;
+                    if (timeSinceJump < jumpGraceTime) {
+                        Debug.Log($"[GRACE] Grace time 중 ({timeSinceJump:F3}s < {jumpGraceTime}s)");
+                        return;
+                    }
                 }
+                // 경사면은 grace time 무시하고 즉시 착지!
                 
-                // Jump 트리거 리셋 (Jump 상태가 아닐 때만)
-                animator.ResetTrigger("Jump");
-            }
-            
-            // 디버그 로그 추가
-            if (Time.frameCount % 60 == 0) { // 1초마다 로그 출력
-                string currentState = animator.GetCurrentAnimatorStateInfo(0).IsName("Jump") ? "Jump" : 
-                                      animator.GetCurrentAnimatorStateInfo(0).IsName("Walk") ? "Walk" : "Idle";
-                float maxMomentum = Mathf.Max(leftMomentum, rightMomentum);
-                bool isMoving = isGrounded && (maxMomentum > 0.5f || (isPressingLeft && leftMomentum > 0.5f) || (isPressingRight && rightMomentum > 0.5f));
-                bool animatorGrounded = animator.GetBool("Grounded");
-                bool animatorIsMoving = animator.GetBool("IsMoving");
-                Debug.Log($"State: {currentState}, isGrounded: {isGrounded}, animatorGrounded: {animatorGrounded}, animatorIsMoving: {animatorIsMoving}, IsMoving: {isMoving}, MaxMomentum: {maxMomentum:F2}, hasJumped: {hasJumped}");
+                // 착지!
+                if (!isGrounded) {
+                    Debug.Log($"[GROUND] 착지! (normal.y={contact.normal.y:F2}, flat={isFlat}, angle={(Mathf.Acos(contact.normal.y) * Mathf.Rad2Deg):F1}°)");
+                }
+                isGrounded = true;
+                return;
             }
         }
     }
 
-    private void Die() {
-        if (animator != null) {
-            animator.SetTrigger("Die");
-        }
-
-        playerAudio.clip = deathClip;
-
-        playerAudio.Play();
-
-        playerRigidbody.linearVelocity = Vector2.zero;
-
-        isDead = true;
-
-        GameManager.instance.OnPlayerDead();
+    private bool IsContactingGround()
+    {
+        Vector2 origin = GetFeetPos();
+        RaycastHit2D hit = Physics2D.Raycast(
+            origin,
+            Vector2.down,
+            0.2f,
+            groundLayer
+        );
+        return hit.collider != null && hit.normal.y > 0.3f; // 너무 빡빡하게 안 함
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "Dead" && !isDead) {
-            Die();
-        }
-    }
+    private void CheckWallCollision(Collision2D collision) {
+       bool foundLeftWall = false;
+       bool foundRightWall = false;
+       
+       foreach (ContactPoint2D contact in collision.contacts) {
+           if (contact.normal.x > 0.7f) {
+               foundLeftWall = true;
+               leftMomentum = 0f;
+               leftKeyHoldTime = 0f;
+               if (playerRigidbody.linearVelocity.x < 0) {
+                   playerRigidbody.linearVelocity = new Vector2(0, playerRigidbody.linearVelocity.y);
+               }
+           }
+           else if (contact.normal.x < -0.7f) {
+               foundRightWall = true;
+               rightMomentum = 0f;
+               rightKeyHoldTime = 0f;
+               if (playerRigidbody.linearVelocity.x > 0) {
+                   playerRigidbody.linearVelocity = new Vector2(0, playerRigidbody.linearVelocity.y);
+               }
+           }
+       }
+       
+       isCollidingLeftWall = foundLeftWall;
+       isCollidingRightWall = foundRightWall;
+   }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.contacts[0].normal.y > 0.7f) {
-            isGrounded = true;
-            jumpCount = 0;
-            hasJumped = false; // 바닥에 닿으면 점프 플래그 리셋
-            
-            // Jump 트리거 리셋 (땅에 닿으면 확실히 리셋)
-            if (animator != null) {
-                animator.ResetTrigger("Jump");
-                Debug.Log("Landing detected! Jump trigger reset. Grounded: true");
-            }
-        }
-    }
+   private void CheckWallCollisionExit(Collision2D collision) {
+       isCollidingLeftWall = false;
+       isCollidingRightWall = false;
+   }
 
-    private void OnCollisionExit2D(Collision2D collision) {
-        isGrounded = false;
-    }
+   private void OnDrawGizmosSelected() {
+       if (playerRigidbody != null) {
+           Gizmos.color = isGrounded ? Color.green : Color.red;
+           Gizmos.DrawWireSphere(transform.position, 0.5f);
+       }
+   }
 }
