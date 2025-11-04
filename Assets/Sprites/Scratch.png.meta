@@ -1,7 +1,25 @@
 fileFormatVersion: 2
-guid: b8869513dfb8cf44db17165db393f168
+guid: ad0cfe29a7c7c1e49acf2ad66e13ba7f
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -8540397549773956295
+    second: Scratch_0
+  - first:
+      213: -1860524887900267798
+    second: Scratch_1
+  - first:
+      213: -4811104093488692306
+    second: Scratch_2
+  - first:
+      213: -3949757772788844897
+    second: Scratch_3
+  - first:
+      213: -7599132192566816011
+    second: Scratch_4
+  - first:
+      213: 6520173864561419036
+    second: Scratch_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -65,7 +83,7 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
@@ -85,7 +103,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,12 +115,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Jump_0
+      name: Scratch_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 3
         y: 0
-        width: 34
+        width: 26
         height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -110,21 +128,21 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f63fdb7b598678760800000000000000
-      internalID: 7460046300004610927
+      spriteID: 93b5b1d6da96a7980800000000000000
+      internalID: -8540397549773956295
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_1
+      name: Scratch_1
       rect:
         serializedVersion: 2
-        x: 46
+        x: 36
         y: 0
-        width: 34
+        width: 26
         height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -132,21 +150,21 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7ffd4217aadfe9160800000000000000
-      internalID: 7034338576483803127
+      spriteID: aea5ee0d8761e26e0800000000000000
+      internalID: -1860524887900267798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_2
+      name: Scratch_2
       rect:
         serializedVersion: 2
-        x: 93
+        x: 69
         y: 0
-        width: 34
+        width: 26
         height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -154,21 +172,21 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ec35e2de34d150450800000000000000
-      internalID: 6054277451648750542
+      spriteID: ea3cd2a31568b3db0800000000000000
+      internalID: -4811104093488692306
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_3
+      name: Scratch_3
       rect:
         serializedVersion: 2
-        x: 143
+        x: 100
         y: 0
-        width: 34
+        width: 30
         height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -176,54 +194,54 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5b5b81156e3f64060800000000000000
-      internalID: 6937500446539429301
+      spriteID: f96351c7b34af29c0800000000000000
+      internalID: -3949757772788844897
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_4
+      name: Scratch_4
       rect:
         serializedVersion: 2
-        x: 191
+        x: 134
         y: 0
-        width: 34
+        width: 31
         height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: eeffd98fab50fa130800000000000000
-      internalID: 3580086529375993838
+      spriteID: 5f2d1d468857a8690800000000000000
+      internalID: -7599132192566816011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_5
+      name: Scratch_5
       rect:
         serializedVersion: 2
-        x: 238
+        x: 170
         y: 0
-        width: 34
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 27
+        height: 22
+      alignment: 9
+      pivot: {x: 0.3, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 6cc0e5596ebf06230800000000000000
-      internalID: 3630178267427638470
+      spriteID: c1328fe959f4c7a50800000000000000
+      internalID: 6520173864561419036
       vertices: []
       indices: 
       edges: []
@@ -232,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 1ecffe50c5757a74692030e68529e634
     internalID: 0
     vertices: []
     indices: 
@@ -242,13 +260,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Jump_0: 7460046300004610927
-      Jump_1: 7034338576483803127
-      Jump_2: 6054277451648750542
-      Jump_3: 6937500446539429301
-      Jump_4: 3580086529375993838
-      Jump_5: 3630178267427638470
-      Jump_6: -612525199
+      Scratch_0: -8540397549773956295
+      Scratch_1: -1860524887900267798
+      Scratch_2: -4811104093488692306
+      Scratch_3: -3949757772788844897
+      Scratch_4: -7599132192566816011
+      Scratch_5: 6520173864561419036
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

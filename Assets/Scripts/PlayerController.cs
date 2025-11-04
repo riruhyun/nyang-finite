@@ -91,7 +91,7 @@ private void SetupColliders()
         if (capsuleCollider != null)
         {
             capsuleCollider.size = new Vector2(0.12f, 0.18f);
-            capsuleCollider.offset = new Vector2(0, -0.01f);
+            capsuleCollider.offset = new Vector2(0, 0f);
             capsuleCollider.direction = CapsuleDirection2D.Vertical;
             
             // Physics Material 생성 (경사면에서 적당히 미끄러지도록)

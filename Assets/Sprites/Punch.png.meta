@@ -1,7 +1,25 @@
 fileFormatVersion: 2
-guid: b8869513dfb8cf44db17165db393f168
+guid: 3958361351a6460449d5b2031460af80
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -4335222134116007343
+    second: Punch_0
+  - first:
+      213: -5313627634084164227
+    second: Punch_1
+  - first:
+      213: 3163940477569658373
+    second: Punch_2
+  - first:
+      213: -7795563826625877672
+    second: Punch_3
+  - first:
+      213: 6766305641077335316
+    second: Punch_4
+  - first:
+      213: 4705998927709936230
+    second: Punch_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -65,7 +83,7 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
@@ -85,7 +103,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,12 +115,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Jump_0
+      name: Punch_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 3
         y: 0
-        width: 34
+        width: 27
         height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -110,21 +128,21 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f63fdb7b598678760800000000000000
-      internalID: 7460046300004610927
+      spriteID: 152ca91207236d3c0800000000000000
+      internalID: -4335222134116007343
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_1
+      name: Punch_1
       rect:
         serializedVersion: 2
-        x: 46
+        x: 36
         y: 0
-        width: 34
+        width: 27
         height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -132,21 +150,21 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7ffd4217aadfe9160800000000000000
-      internalID: 7034338576483803127
+      spriteID: d7dc6b1d1d33246b0800000000000000
+      internalID: -5313627634084164227
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_2
+      name: Punch_2
       rect:
         serializedVersion: 2
-        x: 93
+        x: 69
         y: 0
-        width: 34
+        width: 27
         height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -154,21 +172,21 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ec35e2de34d150450800000000000000
-      internalID: 6054277451648750542
+      spriteID: 50ee400e91398eb20800000000000000
+      internalID: 3163940477569658373
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_3
+      name: Punch_3
       rect:
         serializedVersion: 2
-        x: 143
+        x: 102
         y: 0
-        width: 34
+        width: 27
         height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -176,21 +194,21 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5b5b81156e3f64060800000000000000
-      internalID: 6937500446539429301
+      spriteID: 859641a900890d390800000000000000
+      internalID: -7795563826625877672
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_4
+      name: Punch_4
       rect:
         serializedVersion: 2
-        x: 191
+        x: 133
         y: 0
-        width: 34
+        width: 29
         height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -198,32 +216,32 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: eeffd98fab50fa130800000000000000
-      internalID: 3580086529375993838
+      spriteID: 415e222912fb6ed50800000000000000
+      internalID: 6766305641077335316
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_5
+      name: Punch_5
       rect:
         serializedVersion: 2
-        x: 238
+        x: 165
         y: 0
-        width: 34
-        height: 20
+        width: 29
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 6cc0e5596ebf06230800000000000000
-      internalID: 3630178267427638470
+      spriteID: 66a158f57111f4140800000000000000
+      internalID: 4705998927709936230
       vertices: []
       indices: 
       edges: []
@@ -232,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 3f7b17e1f0aa0904c9c7697db5faa336
     internalID: 0
     vertices: []
     indices: 
@@ -242,13 +260,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Jump_0: 7460046300004610927
-      Jump_1: 7034338576483803127
-      Jump_2: 6054277451648750542
-      Jump_3: 6937500446539429301
-      Jump_4: 3580086529375993838
-      Jump_5: 3630178267427638470
-      Jump_6: -612525199
+      Punch_0: -4335222134116007343
+      Punch_1: -5313627634084164227
+      Punch_2: 3163940477569658373
+      Punch_3: -7795563826625877672
+      Punch_4: 6766305641077335316
+      Punch_5: 4705998927709936230
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
