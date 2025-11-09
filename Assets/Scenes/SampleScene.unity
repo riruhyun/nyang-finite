@@ -1099,6 +1099,7 @@ GameObject:
   - component: {fileID: 1146666811}
   - component: {fileID: 1146666810}
   - component: {fileID: 1146666809}
+  - component: {fileID: 1146666812}
   m_Layer: 0
   m_Name: Dog
   m_TagString: Untagged
@@ -1266,6 +1267,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!111 &1146666812
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146666806}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: bc7dc02e55d036142b0e924a5736e349, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0
 --- !u!1 &1381841006
 GameObject:
   m_ObjectHideFlags: 0
@@ -1800,6 +1818,7 @@ MonoBehaviour:
   momentumBuildTime: 2
   momentumDecayAmount: 0.1
   walkMomentumThreshold: 0.5
+  dashDuration: 0.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 0

@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour
         Idle,
         Walk,
         Jump,
-        Die
+        Die,
+        Dash
     }
 
     [Header("Audio Settings")]
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Animation Settings")]
     public float walkMomentumThreshold = 0.5f;
+    public float dashDuration = 0.5f; // Dash 애니메이션 지속 시간
 
     [SerializeField] private LayerMask groundLayer;
 
@@ -59,6 +61,10 @@ public class PlayerController : MonoBehaviour
     private float animationTransitionDelay = 0.1f;
     private float lastAnimationChangeTime = 0f;
 
+    // Dash 상태 관리
+    private bool isDashing = false;
+    private float dashStartTime = 0f;
+
     // 컴포넌트
     private Rigidbody2D playerRigidbody;
     private Animator animator;
@@ -69,6 +75,7 @@ public class PlayerController : MonoBehaviour
     private static readonly int IsMovingHash = Animator.StringToHash("IsMoving");
     private static readonly int JumpHash = Animator.StringToHash("Jump");
     private static readonly int DieHash = Animator.StringToHash("Die");
+    private static readonly int DashHash = Animator.StringToHash("Dash");
 
     private void Start()
     {
@@ -131,6 +138,7 @@ public class PlayerController : MonoBehaviour
 
         HandleMovementInput();
         HandleJumpInput();
+        HandleDashInput();
         UpdateAnimationState();
     }
 
@@ -226,6 +234,25 @@ public class PlayerController : MonoBehaviour
                 playerRigidbody.linearVelocity.x,
                 playerRigidbody.linearVelocity.y * 0.5f
             );
+        }
+    }
+
+    private void HandleDashInput()
+    {
+        // R 키를 누르고 현재 Dash 중이 아닐 때만 실행
+        if (Input.GetKeyDown(KeyCode.R) && !isDashing)
+        {
+            isDashing = true;
+            dashStartTime = Time.time;
+            SetAnimationState(AnimationState.Dash);
+            Debug.Log("[DASH] 돌진 애니메이션 실행!");
+        }
+
+        // Dash 지속 시간이 끝나면 Dash 상태 해제
+        if (isDashing && Time.time - dashStartTime >= dashDuration)
+        {
+            isDashing = false;
+            Debug.Log("[DASH] 돌진 애니메이션 종료!");
         }
     }
 
@@ -327,6 +354,12 @@ public class PlayerController : MonoBehaviour
             return AnimationState.Die;
         }
 
+        // Dash 중일 때는 Dash 상태 유지
+        if (isDashing)
+        {
+            return AnimationState.Dash;
+        }
+
         if (!isGrounded)
         {
             return AnimationState.Jump;
@@ -351,6 +384,7 @@ public class PlayerController : MonoBehaviour
 
         animator.ResetTrigger(JumpHash);
         animator.ResetTrigger(DieHash);
+        animator.ResetTrigger(DashHash);
 
         switch (currentAnimState)
         {
@@ -374,6 +408,10 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool(GroundedHash, false);
                 animator.SetBool(IsMovingHash, false);
                 animator.SetTrigger(DieHash);
+                break;
+
+            case AnimationState.Dash:
+                animator.SetTrigger(DashHash);
                 break;
         }
     }
