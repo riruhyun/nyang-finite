@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         CreateHearts();
     }
 
-    void CreateHearts()
+void CreateHearts()
     {
         if (heartPrefab == null)
         {
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         Transform healthBar = heartPrefab.transform.parent;
 
         Vector3 startPosition = heartPrefab.transform.localPosition;
-        float heartSpacing = 90f;
+        float heartSpacing = 50f; // 70에서 50으로 간격 축소
 
         hearts[0] = heartPrefab;
 

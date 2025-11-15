@@ -20,6 +20,9 @@ TextureImporter:
   - first:
       213: 4705998927709936230
     second: Punch_5
+  - first:
+      213: 3661561310044129345
+    second: Punch_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -111,6 +114,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -118,10 +134,10 @@ TextureImporter:
       name: Punch_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 0
-        width: 27
-        height: 22
+        x: 1
+        y: 5
+        width: 25
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,10 +156,10 @@ TextureImporter:
       name: Punch_1
       rect:
         serializedVersion: 2
-        x: 36
-        y: 0
-        width: 27
-        height: 22
+        x: 33
+        y: 5
+        width: 25
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +178,10 @@ TextureImporter:
       name: Punch_2
       rect:
         serializedVersion: 2
-        x: 69
-        y: 0
-        width: 27
-        height: 22
+        x: 65
+        y: 5
+        width: 25
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,10 +200,10 @@ TextureImporter:
       name: Punch_3
       rect:
         serializedVersion: 2
-        x: 102
-        y: 0
+        x: 96
+        y: 5
         width: 27
-        height: 22
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,10 +222,10 @@ TextureImporter:
       name: Punch_4
       rect:
         serializedVersion: 2
-        x: 133
-        y: 0
-        width: 29
-        height: 22
+        x: 128
+        y: 5
+        width: 27
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,10 +244,10 @@ TextureImporter:
       name: Punch_5
       rect:
         serializedVersion: 2
-        x: 165
-        y: 0
-        width: 29
-        height: 22
+        x: 157
+        y: 5
+        width: 32
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,11 +262,33 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Punch_6
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 5
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1488e789c9a70d230800000000000000
+      internalID: 3661561310044129345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3f7b17e1f0aa0904c9c7697db5faa336
+    spriteID: 41d14d73e3a8fd64b9f3deb58520b0a9
     internalID: 0
     vertices: []
     indices: 
@@ -266,6 +304,7 @@ TextureImporter:
       Punch_3: -7795563826625877672
       Punch_4: 6766305641077335316
       Punch_5: 4705998927709936230
+      Punch_6: 3661561310044129345
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

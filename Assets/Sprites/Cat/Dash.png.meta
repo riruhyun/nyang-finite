@@ -93,7 +93,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,6 +103,19 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -124,7 +137,7 @@ TextureImporter:
         x: 4
         y: 0
         width: 27
-        height: 20
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,10 +156,10 @@ TextureImporter:
       name: Dash_1
       rect:
         serializedVersion: 2
-        x: 53
+        x: 52
         y: 0
-        width: 30
-        height: 21
+        width: 31
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,10 +178,10 @@ TextureImporter:
       name: Dash_2
       rect:
         serializedVersion: 2
-        x: 104
+        x: 95
         y: 2
-        width: 32
-        height: 23
+        width: 41
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,10 +200,10 @@ TextureImporter:
       name: Dash_3
       rect:
         serializedVersion: 2
-        x: 150
+        x: 143
         y: 0
-        width: 36
-        height: 23
+        width: 43
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,12 +222,12 @@ TextureImporter:
       name: Dash_4
       rect:
         serializedVersion: 2
-        x: 198
+        x: 194
         y: 0
-        width: 36
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 40
+        height: 25
+      alignment: 9
+      pivot: {x: 0.46433565, y: 0.50000006}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -231,10 +244,10 @@ TextureImporter:
       name: Dash_5
       rect:
         serializedVersion: 2
-        x: 253
+        x: 249
         y: 0
-        width: 30
-        height: 25
+        width: 34
+        height: 31
       alignment: 9
       pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,12 +266,12 @@ TextureImporter:
       name: Dash_6
       rect:
         serializedVersion: 2
-        x: 303
+        x: 298
         y: 0
-        width: 31
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 36
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4645408}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
