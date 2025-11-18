@@ -1,0 +1,3653 @@
+fileFormatVersion: 2
+guid: 6b90f032ad66a15479ecf66c5075148d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1079612009081749095
+    second: Jam_toast_0
+  - first:
+      213: -1277753551926254021
+    second: Jam_toast_1
+  - first:
+      213: -5869784744328207831
+    second: Jam_toast_2
+  - first:
+      213: 2387304649607655026
+    second: Jam_toast_3
+  - first:
+      213: 3385933999594361500
+    second: Jam_toast_4
+  - first:
+      213: -1065387329277524065
+    second: Jam_toast_5
+  - first:
+      213: -3367817446538372286
+    second: Jam_toast_6
+  - first:
+      213: 4527428066270923625
+    second: Jam_toast_7
+  - first:
+      213: 912412689100725740
+    second: Jam_toast_8
+  - first:
+      213: 5610571218083656472
+    second: Jam_toast_9
+  - first:
+      213: 2715482337705481045
+    second: Jam_toast_10
+  - first:
+      213: -8254127272210249084
+    second: Jam_toast_11
+  - first:
+      213: -1961312072803353368
+    second: Jam_toast_12
+  - first:
+      213: 2008169170202697591
+    second: Jam_toast_13
+  - first:
+      213: -3034897817553735054
+    second: Jam_toast_14
+  - first:
+      213: 7630962203979891380
+    second: Jam_toast_15
+  - first:
+      213: -4516824671196360405
+    second: Jam_toast_16
+  - first:
+      213: -2708759523949467556
+    second: Jam_toast_17
+  - first:
+      213: -7524757592442072852
+    second: Jam_toast_18
+  - first:
+      213: -6310935243516028609
+    second: Jam_toast_19
+  - first:
+      213: 4649309756779962219
+    second: Jam_toast_20
+  - first:
+      213: -4229711682570152863
+    second: Jam_toast_21
+  - first:
+      213: 7936332772367175720
+    second: Jam_toast_22
+  - first:
+      213: 7832011547477430960
+    second: Jam_toast_23
+  - first:
+      213: -5940286095244760521
+    second: Jam_toast_24
+  - first:
+      213: 8412318018274334775
+    second: Jam_toast_25
+  - first:
+      213: -6861020358151929780
+    second: Jam_toast_26
+  - first:
+      213: 5820381011226211333
+    second: Jam_toast_27
+  - first:
+      213: 1395418052318753238
+    second: Jam_toast_28
+  - first:
+      213: 7284597670692935963
+    second: Jam_toast_29
+  - first:
+      213: 1156234055669586104
+    second: Jam_toast_30
+  - first:
+      213: 1370353984550960634
+    second: Jam_toast_31
+  - first:
+      213: -1896097929815747976
+    second: Jam_toast_32
+  - first:
+      213: -6135424288461004423
+    second: Jam_toast_33
+  - first:
+      213: -2103458089815723109
+    second: Jam_toast_34
+  - first:
+      213: -3454581038035378320
+    second: Jam_toast_35
+  - first:
+      213: 2151276068420057690
+    second: Jam_toast_36
+  - first:
+      213: -6290643204939672483
+    second: Jam_toast_37
+  - first:
+      213: 4321236007524408192
+    second: Jam_toast_38
+  - first:
+      213: 5351270166846058508
+    second: Jam_toast_39
+  - first:
+      213: 4772361924027380252
+    second: Jam_toast_40
+  - first:
+      213: -7726214557010432339
+    second: Jam_toast_41
+  - first:
+      213: -5280017007606120080
+    second: Jam_toast_42
+  - first:
+      213: -3940495338321878570
+    second: Jam_toast_43
+  - first:
+      213: -7464433769613920862
+    second: Jam_toast_44
+  - first:
+      213: -7750633662462866676
+    second: Jam_toast_45
+  - first:
+      213: 7469735813517785888
+    second: Jam_toast_46
+  - first:
+      213: 3260546457020817820
+    second: Jam_toast_47
+  - first:
+      213: -5558674245351793992
+    second: Jam_toast_48
+  - first:
+      213: 1323478836847562135
+    second: Jam_toast_49
+  - first:
+      213: 5310063599712857268
+    second: Jam_toast_50
+  - first:
+      213: -6359308693963141679
+    second: Jam_toast_51
+  - first:
+      213: 2362579794833340820
+    second: Jam_toast_52
+  - first:
+      213: -2941679596576407427
+    second: Jam_toast_53
+  - first:
+      213: 1331959018479488404
+    second: Jam_toast_54
+  - first:
+      213: -840785327716413532
+    second: Jam_toast_55
+  - first:
+      213: 823501946614277985
+    second: Jam_toast_56
+  - first:
+      213: 8967110021826730736
+    second: Jam_toast_57
+  - first:
+      213: 5831020633554052949
+    second: Jam_toast_58
+  - first:
+      213: -5474711382505193146
+    second: Jam_toast_59
+  - first:
+      213: 3063331128411035995
+    second: Jam_toast_60
+  - first:
+      213: 2656852631147184504
+    second: Jam_toast_61
+  - first:
+      213: -5150970718096707357
+    second: Jam_toast_62
+  - first:
+      213: -7582528544927284045
+    second: Jam_toast_63
+  - first:
+      213: 5955717427511647099
+    second: Jam_toast_64
+  - first:
+      213: 6324132439946393600
+    second: Jam_toast_65
+  - first:
+      213: 1840922751075357925
+    second: Jam_toast_66
+  - first:
+      213: 4322833119283405155
+    second: Jam_toast_67
+  - first:
+      213: 7083320756191894474
+    second: Jam_toast_68
+  - first:
+      213: -1285478464284231917
+    second: Jam_toast_69
+  - first:
+      213: 5407641625370375732
+    second: Jam_toast_70
+  - first:
+      213: -1999736313039785245
+    second: Jam_toast_71
+  - first:
+      213: 4863310530481378611
+    second: Jam_toast_72
+  - first:
+      213: 1595189192117994908
+    second: Jam_toast_73
+  - first:
+      213: 3930469844043025594
+    second: Jam_toast_74
+  - first:
+      213: -6316098723668994238
+    second: Jam_toast_75
+  - first:
+      213: -6394670336948066608
+    second: Jam_toast_76
+  - first:
+      213: -2262362409076667705
+    second: Jam_toast_77
+  - first:
+      213: -5231715887441269383
+    second: Jam_toast_78
+  - first:
+      213: -825791332617462445
+    second: Jam_toast_79
+  - first:
+      213: -8589010924321302260
+    second: Jam_toast_80
+  - first:
+      213: 9002195978727294107
+    second: Jam_toast_81
+  - first:
+      213: 6156841246648204273
+    second: Jam_toast_82
+  - first:
+      213: 4492421606150325883
+    second: Jam_toast_83
+  - first:
+      213: 4284283553377920301
+    second: Jam_toast_84
+  - first:
+      213: -3530883249687255767
+    second: Jam_toast_85
+  - first:
+      213: -866437183236803170
+    second: Jam_toast_86
+  - first:
+      213: -5096189781576017433
+    second: Jam_toast_87
+  - first:
+      213: -170967120265141697
+    second: Jam_toast_88
+  - first:
+      213: -4530974268561605725
+    second: Jam_toast_89
+  - first:
+      213: -1475951693636159593
+    second: Jam_toast_90
+  - first:
+      213: 2730197222695116062
+    second: Jam_toast_91
+  - first:
+      213: 3202038469676300878
+    second: Jam_toast_92
+  - first:
+      213: 6069627860371886647
+    second: Jam_toast_93
+  - first:
+      213: 3392238617547882346
+    second: Jam_toast_94
+  - first:
+      213: 1938505881106135073
+    second: Jam_toast_95
+  - first:
+      213: 4587243104704694292
+    second: Jam_toast_96
+  - first:
+      213: 1849774503914707037
+    second: Jam_toast_97
+  - first:
+      213: -6588287011780778932
+    second: Jam_toast_98
+  - first:
+      213: 8481896724706310979
+    second: Jam_toast_99
+  - first:
+      213: -8496396221123480538
+    second: Jam_toast_100
+  - first:
+      213: 5536290357764546910
+    second: Jam_toast_101
+  - first:
+      213: -2051400735188989159
+    second: Jam_toast_102
+  - first:
+      213: 4816226384840650283
+    second: Jam_toast_103
+  - first:
+      213: -5118706245440320915
+    second: Jam_toast_104
+  - first:
+      213: -5445483244541831976
+    second: Jam_toast_105
+  - first:
+      213: -6448570129402967285
+    second: Jam_toast_106
+  - first:
+      213: 1971855160034834959
+    second: Jam_toast_107
+  - first:
+      213: 9182916772155799428
+    second: Jam_toast_108
+  - first:
+      213: 2557361637267092134
+    second: Jam_toast_109
+  - first:
+      213: -7729523604759219091
+    second: Jam_toast_110
+  - first:
+      213: 2517510449697177133
+    second: Jam_toast_111
+  - first:
+      213: 8170078735138694370
+    second: Jam_toast_112
+  - first:
+      213: -208766136744189263
+    second: Jam_toast_113
+  - first:
+      213: -2717317199876851430
+    second: Jam_toast_114
+  - first:
+      213: 6423030621097704232
+    second: Jam_toast_115
+  - first:
+      213: 1550583998354869980
+    second: Jam_toast_116
+  - first:
+      213: 4550312475299504390
+    second: Jam_toast_117
+  - first:
+      213: 5270732991965588480
+    second: Jam_toast_118
+  - first:
+      213: 2734301967008344093
+    second: Jam_toast_119
+  - first:
+      213: -6502920111200887927
+    second: Jam_toast_120
+  - first:
+      213: 5549937146580090001
+    second: Jam_toast_121
+  - first:
+      213: -4009292692791237231
+    second: Jam_toast_122
+  - first:
+      213: 5786673637658207609
+    second: Jam_toast_123
+  - first:
+      213: 4757261586230184096
+    second: Jam_toast_124
+  - first:
+      213: -830776401022601074
+    second: Jam_toast_125
+  - first:
+      213: -306278076300478397
+    second: Jam_toast_126
+  - first:
+      213: 2993432901667123654
+    second: Jam_toast_127
+  - first:
+      213: 5560115938247112933
+    second: Jam_toast_128
+  - first:
+      213: 3621563581948205651
+    second: Jam_toast_129
+  - first:
+      213: -1500383403957403808
+    second: Jam_toast_130
+  - first:
+      213: -3870329461405760472
+    second: Jam_toast_131
+  - first:
+      213: 5039007620444859280
+    second: Jam_toast_132
+  - first:
+      213: -139061165898351165
+    second: Jam_toast_133
+  - first:
+      213: -5584251859425324181
+    second: Jam_toast_134
+  - first:
+      213: -6516223618323129373
+    second: Jam_toast_135
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Jam_toast_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 741
+        height: 741
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 991cf6709927401f0800000000000000
+      internalID: -1079612009081749095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_1
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 734
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3621f21ae1844ee0800000000000000
+      internalID: -1277753551926254021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_2
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 736
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9226f4edfd55a8ea0800000000000000
+      internalID: -5869784744328207831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_3
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 703
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27ea08a2ee8612120800000000000000
+      internalID: 2387304649607655026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_4
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 730
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c925dbe78014dfe20800000000000000
+      internalID: 3385933999594361500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_5
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 735
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9706326edbf631f0800000000000000
+      internalID: -1065387329277524065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_6
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 725
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24b97b630eb1341d0800000000000000
+      internalID: -3367817446538372286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_7
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 728
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96b4634c6d7a4de30800000000000000
+      internalID: 4527428066270923625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_8
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 735
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ced586ea18a89ac00800000000000000
+      internalID: 912412689100725740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_9
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 730
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81338e8fbc0ccdd40800000000000000
+      internalID: 5610571218083656472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_10
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 729
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55358c48cc45fa520800000000000000
+      internalID: 2715482337705481045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_11
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 736
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48a4b096af2737d80800000000000000
+      internalID: -8254127272210249084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_12
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 732
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ecfedeaf0508c4e0800000000000000
+      internalID: -1961312072803353368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_13
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 721
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77f92d678337edb10800000000000000
+      internalID: 2008169170202697591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_14
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 734
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 272f917b380e1e5d0800000000000000
+      internalID: -3034897817553735054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_15
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 722
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b247a6a1bf96e960800000000000000
+      internalID: 7630962203979891380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_16
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 736
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b21de9884e30151c0800000000000000
+      internalID: -4516824671196360405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_17
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 736
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c582909809d886ad0800000000000000
+      internalID: -2708759523949467556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_18
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 732
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce0119966d0b29790800000000000000
+      internalID: -7524757592442072852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_19
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 719
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f39dbb135dd0b68a0800000000000000
+      internalID: -6310935243516028609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_20
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 728
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6f90a7379aa58040800000000000000
+      internalID: 4649309756779962219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_21
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 727
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 164161a72ab0d45c0800000000000000
+      internalID: -4229711682570152863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_22
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 733
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8209c34ab94832e60800000000000000
+      internalID: 7936332772367175720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_23
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 736
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b25624b105e0bc60800000000000000
+      internalID: 7832011547477430960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_24
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 731
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73a6eb4f44ddf8da0800000000000000
+      internalID: -5940286095244760521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_25
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 733
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7381cd0daae8eb470800000000000000
+      internalID: 8412318018274334775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_26
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 732
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4081a3e552c8c0a0800000000000000
+      internalID: -6861020358151929780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_27
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 733
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 504319721b526c050800000000000000
+      internalID: 5820381011226211333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_28
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 729
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d170a943558d5310800000000000000
+      internalID: 1395418052318753238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_29
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 719
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b195a4d6cf6181560800000000000000
+      internalID: 7284597670692935963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_30
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 733
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b815656fb4cb0010800000000000000
+      internalID: 1156234055669586104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_31
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 730
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afd73b140b9740310800000000000000
+      internalID: 1370353984550960634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_32
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 729
+        width: 18
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8729af19af4bfa5e0800000000000000
+      internalID: -1896097929815747976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_33
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 736
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9716af3dd189adaa0800000000000000
+      internalID: -6135424288461004423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_34
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 727
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b93bc9c03040fc2e0800000000000000
+      internalID: -2103458089815723109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_35
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 736
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07fd91c59dcde00d0800000000000000
+      internalID: -3454581038035378320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_36
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 723
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5af9ffaf2edadd10800000000000000
+      internalID: 2151276068420057690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_37
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 736
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5498d8955523b8a0800000000000000
+      internalID: -6290643204939672483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_38
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 736
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08b9e13014d18fb30800000000000000
+      internalID: 4321236007524408192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_39
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 733
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0031005dd7834a40800000000000000
+      internalID: 5351270166846058508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_40
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 732
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c12704582e5da3240800000000000000
+      internalID: 4772361924027380252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_41
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 719
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daee0feabc8f6c490800000000000000
+      internalID: -7726214557010432339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_42
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 728
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 071cd9d918c99b6b0800000000000000
+      internalID: -5280017007606120080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_43
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 727
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d1ed301e5c8059c0800000000000000
+      internalID: -3940495338321878570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_44
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 733
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a57bb8e801096890800000000000000
+      internalID: -7464433769613920862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_45
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 736
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0b47b4afb7307490800000000000000
+      internalID: -7750633662462866676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_46
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 714
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02bbdb26525d9a760800000000000000
+      internalID: 7469735813517785888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_47
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 730
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9162604ab9cf3d20800000000000000
+      internalID: 3260546457020817820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_48
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 730
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ba91b7993f9bd2b0800000000000000
+      internalID: -5558674245351793992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_49
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 735
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79dcb027df0fd5210800000000000000
+      internalID: 1323478836847562135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_50
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 725
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bced93c5b221b940800000000000000
+      internalID: 5310063599712857268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_51
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 728
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dd06479f623fb7a0800000000000000
+      internalID: -6359308693963141679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_52
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 735
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4997e805ec199c020800000000000000
+      internalID: 2362579794833340820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_53
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 730
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d708c0b1efd0d27d0800000000000000
+      internalID: -2941679596576407427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_54
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 729
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49d09d79ba11c7210800000000000000
+      internalID: 1331959018479488404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_55
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 736
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4af4a19f23ee454f0800000000000000
+      internalID: -840785327716413532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_56
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 732
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16769c748aaad6b00800000000000000
+      internalID: 823501946614277985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_57
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 730
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fad3d81e03917c70800000000000000
+      internalID: 8967110021826730736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_58
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 734
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55766f44f52fbe050800000000000000
+      internalID: 5831020633554052949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_59
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 726
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6418dfdf00be504b0800000000000000
+      internalID: -5474711382505193146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 676
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b59165a5e63238a20800000000000000
+      internalID: 3063331128411035995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_61
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 657
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 871071434690fd420800000000000000
+      internalID: 2656852631147184504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_62
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 601
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e038634c631488b0800000000000000
+      internalID: -5150970718096707357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 585
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b4895c567275c690800000000000000
+      internalID: -7582528544927284045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_64
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 573
+        width: 25
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7b5f611275f6a250800000000000000
+      internalID: 5955717427511647099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_65
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 562
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 008778b82f4d3c750800000000000000
+      internalID: 6324132439946393600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_66
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 549
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e418cc0d754c8910800000000000000
+      internalID: 1840922751075357925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_67
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 6
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3616e2291d9cdfb30800000000000000
+      internalID: 4322833119283405155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_68
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 497
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acb18fed2b20d4260800000000000000
+      internalID: 7083320756191894474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_69
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 469
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3177ce1c520192ee0800000000000000
+      internalID: -1285478464284231917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 458
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43631d8486dcb0b40800000000000000
+      internalID: 5407641625370375732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_71
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 420
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e270d81b628f34e0800000000000000
+      internalID: -1999736313039785245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 412
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33552c91923fd7340800000000000000
+      internalID: 4863310530481378611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_73
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 346
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c954cb95e10432610800000000000000
+      internalID: 1595189192117994908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_74
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 329
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abcc196af75db8630800000000000000
+      internalID: 3930469844043025594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_75
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 319
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2475969cca5b858a0800000000000000
+      internalID: -6316098723668994238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_76
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 293
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d6ab7e75319147a0800000000000000
+      internalID: -6394670336948066608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_77
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 6
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cac9cd10697a90e0800000000000000
+      internalID: -2262362409076667705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_78
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 241
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97dab438e163567b0800000000000000
+      internalID: -5231715887441269383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_79
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 213
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35d5db088233a84f0800000000000000
+      internalID: -825791332617462445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 202
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0911e32214bdc880800000000000000
+      internalID: -8589010924321302260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_81
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 164
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b948d760c893eec70800000000000000
+      internalID: 9002195978727294107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_82
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 152
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fb70f45e7e717550800000000000000
+      internalID: 6156841246648204273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_83
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 89
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7641ef16a9485e30800000000000000
+      internalID: 4492421606150325883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_84
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 73
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d25a3245135d47b30800000000000000
+      internalID: 4284283553377920301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_85
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 61
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 925a30f4468cffec0800000000000000
+      internalID: -3530883249687255767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_86
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 50
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e95faf0f8fbc9f3f0800000000000000
+      internalID: -866437183236803170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_87
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 37
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e99f29f462b649b0800000000000000
+      internalID: -5096189781576017433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_88
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 0
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3223585f4a90adf0800000000000000
+      internalID: -170967120265141697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_89
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 3
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ab33fba8eebe11c0800000000000000
+      internalID: -4530974268561605725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_90
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 0
+        width: 11
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7973e2b21cd548be0800000000000000
+      internalID: -1475951693636159593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_91
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 3
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1d1089a8eb93e520800000000000000
+      internalID: 2730197222695116062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_92
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 0
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4af036e50def6c20800000000000000
+      internalID: 3202038469676300878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_93
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 3
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 732d7487166ab3450800000000000000
+      internalID: 6069627860371886647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_94
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6fbd40cc07a31f20800000000000000
+      internalID: 3392238617547882346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_95
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 0
+        width: 54
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 128365604d4f6ea10800000000000000
+      internalID: 1938505881106135073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_96
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 0
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 418884aac4929af30800000000000000
+      internalID: 4587243104704694292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_97
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 0
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d58196c5c18bba910800000000000000
+      internalID: 1849774503914707037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_98
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 0
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c44ac787ed3b194a0800000000000000
+      internalID: -6588287011780778932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_99
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 0
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34b3ba1d120c5b570800000000000000
+      internalID: 8481896724706310979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_100
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 0
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 624b6f817acb61a80800000000000000
+      internalID: -8496396221123480538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_101
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 3
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e51e9f37fbad4dc40800000000000000
+      internalID: 5536290357764546910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_102
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 0
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91bc51f66e5f783e0800000000000000
+      internalID: -2051400735188989159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_103
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 0
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2e6a4a216ca6d240800000000000000
+      internalID: 4816226384840650283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_104
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 0
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6ac4f23ac3b6f8b0800000000000000
+      internalID: -5118706245440320915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_105
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 0
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d41eba27d1cd64b0800000000000000
+      internalID: -5445483244541831976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_106
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 2
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0bcdbf12a31286a0800000000000000
+      internalID: -6448570129402967285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_107
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 0
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0ab56a12df6d5b10800000000000000
+      internalID: 1971855160034834959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_108
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 0
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 487b25ea626407f70800000000000000
+      internalID: 9182916772155799428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_109
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 0
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a2348f0cd29d7320800000000000000
+      internalID: 2557361637267092134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_110
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d647457fb373bb490800000000000000
+      internalID: -7729523604759219091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_111
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 0
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2eb8886a6effe220800000000000000
+      internalID: 2517510449697177133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_112
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 0
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e42aea9253f16170800000000000000
+      internalID: 8170078735138694370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_113
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 0
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b26b320e405a1df0800000000000000
+      internalID: -208766136744189263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_114
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a19f74757662a4ad0800000000000000
+      internalID: -2717317199876851430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_115
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 0
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82b3cf7b150332950800000000000000
+      internalID: 6423030621097704232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_116
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdec8506ee7c48510800000000000000
+      internalID: 1550583998354869980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_117
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 0
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60161437615f52f30800000000000000
+      internalID: 4550312475299504390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_118
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 0
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00c6a0c0bb7652940800000000000000
+      internalID: 5270732991965588480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_119
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 0
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d182f2ce62132f520800000000000000
+      internalID: 2734301967008344093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_120
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 0
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98b9021ec9cf0c5a0800000000000000
+      internalID: -6502920111200887927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_121
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 0
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19cb6a31e66550d40800000000000000
+      internalID: 5549937146580090001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_122
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 0
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 195eb9db9812c58c0800000000000000
+      internalID: -4009292692791237231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_123
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 0
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9752cbba3056e4050800000000000000
+      internalID: 5786673637658207609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_124
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 2
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a88cd62530350240800000000000000
+      internalID: 4757261586230184096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_125
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 0
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e883541d34d7874f0800000000000000
+      internalID: -830776401022601074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_126
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 0
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 348be9b56b1efbbf0800000000000000
+      internalID: -306278076300478397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_127
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 0
+        width: 11
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c1f5da3d5fca8920800000000000000
+      internalID: 2993432901667123654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_128
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 0
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e8f431bcff792d40800000000000000
+      internalID: 5560115938247112933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_129
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 0
+        width: 29
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35a9381d3e0624230800000000000000
+      internalID: 3621563581948205651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_130
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 0
+        width: 50
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06f3a345e319d2be0800000000000000
+      internalID: -1500383403957403808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_131
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 0
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8244e295cd3d94ac0800000000000000
+      internalID: -3870329461405760472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_132
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 0
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09b2a15abb62ee540800000000000000
+      internalID: 5039007620444859280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_133
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 0
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cdb39c3b94f11ef0800000000000000
+      internalID: -139061165898351165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_134
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 0
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6393ae3580c082b0800000000000000
+      internalID: -5584251859425324181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jam_toast_135
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 2
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ebd6d0c429b195a0800000000000000
+      internalID: -6516223618323129373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Jam_toast_0: -1079612009081749095
+      Jam_toast_1: -1277753551926254021
+      Jam_toast_10: 2715482337705481045
+      Jam_toast_100: -8496396221123480538
+      Jam_toast_101: 5536290357764546910
+      Jam_toast_102: -2051400735188989159
+      Jam_toast_103: 4816226384840650283
+      Jam_toast_104: -5118706245440320915
+      Jam_toast_105: -5445483244541831976
+      Jam_toast_106: -6448570129402967285
+      Jam_toast_107: 1971855160034834959
+      Jam_toast_108: 9182916772155799428
+      Jam_toast_109: 2557361637267092134
+      Jam_toast_11: -8254127272210249084
+      Jam_toast_110: -7729523604759219091
+      Jam_toast_111: 2517510449697177133
+      Jam_toast_112: 8170078735138694370
+      Jam_toast_113: -208766136744189263
+      Jam_toast_114: -2717317199876851430
+      Jam_toast_115: 6423030621097704232
+      Jam_toast_116: 1550583998354869980
+      Jam_toast_117: 4550312475299504390
+      Jam_toast_118: 5270732991965588480
+      Jam_toast_119: 2734301967008344093
+      Jam_toast_12: -1961312072803353368
+      Jam_toast_120: -6502920111200887927
+      Jam_toast_121: 5549937146580090001
+      Jam_toast_122: -4009292692791237231
+      Jam_toast_123: 5786673637658207609
+      Jam_toast_124: 4757261586230184096
+      Jam_toast_125: -830776401022601074
+      Jam_toast_126: -306278076300478397
+      Jam_toast_127: 2993432901667123654
+      Jam_toast_128: 5560115938247112933
+      Jam_toast_129: 3621563581948205651
+      Jam_toast_13: 2008169170202697591
+      Jam_toast_130: -1500383403957403808
+      Jam_toast_131: -3870329461405760472
+      Jam_toast_132: 5039007620444859280
+      Jam_toast_133: -139061165898351165
+      Jam_toast_134: -5584251859425324181
+      Jam_toast_135: -6516223618323129373
+      Jam_toast_14: -3034897817553735054
+      Jam_toast_15: 7630962203979891380
+      Jam_toast_16: -4516824671196360405
+      Jam_toast_17: -2708759523949467556
+      Jam_toast_18: -7524757592442072852
+      Jam_toast_19: -6310935243516028609
+      Jam_toast_2: -5869784744328207831
+      Jam_toast_20: 4649309756779962219
+      Jam_toast_21: -4229711682570152863
+      Jam_toast_22: 7936332772367175720
+      Jam_toast_23: 7832011547477430960
+      Jam_toast_24: -5940286095244760521
+      Jam_toast_25: 8412318018274334775
+      Jam_toast_26: -6861020358151929780
+      Jam_toast_27: 5820381011226211333
+      Jam_toast_28: 1395418052318753238
+      Jam_toast_29: 7284597670692935963
+      Jam_toast_3: 2387304649607655026
+      Jam_toast_30: 1156234055669586104
+      Jam_toast_31: 1370353984550960634
+      Jam_toast_32: -1896097929815747976
+      Jam_toast_33: -6135424288461004423
+      Jam_toast_34: -2103458089815723109
+      Jam_toast_35: -3454581038035378320
+      Jam_toast_36: 2151276068420057690
+      Jam_toast_37: -6290643204939672483
+      Jam_toast_38: 4321236007524408192
+      Jam_toast_39: 5351270166846058508
+      Jam_toast_4: 3385933999594361500
+      Jam_toast_40: 4772361924027380252
+      Jam_toast_41: -7726214557010432339
+      Jam_toast_42: -5280017007606120080
+      Jam_toast_43: -3940495338321878570
+      Jam_toast_44: -7464433769613920862
+      Jam_toast_45: -7750633662462866676
+      Jam_toast_46: 7469735813517785888
+      Jam_toast_47: 3260546457020817820
+      Jam_toast_48: -5558674245351793992
+      Jam_toast_49: 1323478836847562135
+      Jam_toast_5: -1065387329277524065
+      Jam_toast_50: 5310063599712857268
+      Jam_toast_51: -6359308693963141679
+      Jam_toast_52: 2362579794833340820
+      Jam_toast_53: -2941679596576407427
+      Jam_toast_54: 1331959018479488404
+      Jam_toast_55: -840785327716413532
+      Jam_toast_56: 823501946614277985
+      Jam_toast_57: 8967110021826730736
+      Jam_toast_58: 5831020633554052949
+      Jam_toast_59: -5474711382505193146
+      Jam_toast_6: -3367817446538372286
+      Jam_toast_60: 3063331128411035995
+      Jam_toast_61: 2656852631147184504
+      Jam_toast_62: -5150970718096707357
+      Jam_toast_63: -7582528544927284045
+      Jam_toast_64: 5955717427511647099
+      Jam_toast_65: 6324132439946393600
+      Jam_toast_66: 1840922751075357925
+      Jam_toast_67: 4322833119283405155
+      Jam_toast_68: 7083320756191894474
+      Jam_toast_69: -1285478464284231917
+      Jam_toast_7: 4527428066270923625
+      Jam_toast_70: 5407641625370375732
+      Jam_toast_71: -1999736313039785245
+      Jam_toast_72: 4863310530481378611
+      Jam_toast_73: 1595189192117994908
+      Jam_toast_74: 3930469844043025594
+      Jam_toast_75: -6316098723668994238
+      Jam_toast_76: -6394670336948066608
+      Jam_toast_77: -2262362409076667705
+      Jam_toast_78: -5231715887441269383
+      Jam_toast_79: -825791332617462445
+      Jam_toast_8: 912412689100725740
+      Jam_toast_80: -8589010924321302260
+      Jam_toast_81: 9002195978727294107
+      Jam_toast_82: 6156841246648204273
+      Jam_toast_83: 4492421606150325883
+      Jam_toast_84: 4284283553377920301
+      Jam_toast_85: -3530883249687255767
+      Jam_toast_86: -866437183236803170
+      Jam_toast_87: -5096189781576017433
+      Jam_toast_88: -170967120265141697
+      Jam_toast_89: -4530974268561605725
+      Jam_toast_9: 5610571218083656472
+      Jam_toast_90: -1475951693636159593
+      Jam_toast_91: 2730197222695116062
+      Jam_toast_92: 3202038469676300878
+      Jam_toast_93: 6069627860371886647
+      Jam_toast_94: 3392238617547882346
+      Jam_toast_95: 1938505881106135073
+      Jam_toast_96: 4587243104704694292
+      Jam_toast_97: 1849774503914707037
+      Jam_toast_98: -6588287011780778932
+      Jam_toast_99: 8481896724706310979
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

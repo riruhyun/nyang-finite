@@ -8,12 +8,17 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance; // 싱글톤을 할당할 전역 변수
 
-    public GameObject heartPrefab; // Heart1 오브젝트를 참조할 변수
     public bool isGameover = false; // 게임 오버 상태
     public Text scoreText; // 점수를 출력할 UI 텍스트
     public GameObject gameoverUI; // 게임 오버시 활성화 할 UI 게임 오브젝트
-    private GameObject[] hearts = new GameObject[9]; // 생성된 하트들을 저장할 배열
-    private int currentHeartCount = 9; // 현재 표시되는 하트 수
+
+    [Header("HP Bar Settings")]
+    public SpriteRenderer hpBar; // HP 바 (SpriteRenderer)
+    public int maxHealth = 9; // 최대 체력
+    private float maxHpBarWidth; // HP 바의 최대 X 스케일 (초기값 저장)
+
+    // InfoBar는 Frame.png로 칸을 나누는 껍데기
+    // 1칸 = maxHealth의 1/9
 
     private int score = 0; // 게임 점수
 
@@ -39,35 +44,12 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        CreateHearts();
-    }
-
-void CreateHearts()
-    {
-        if (heartPrefab == null)
+        // HP 바 초기화
+        if (hpBar != null)
         {
-            Debug.LogError("Heart1 프리팹이 할당되지 않았습니다!");
-            return;
-        }
-
-        Transform healthBar = heartPrefab.transform.parent;
-
-        Vector3 startPosition = heartPrefab.transform.localPosition;
-        float heartSpacing = 50f; // 70에서 50으로 간격 축소
-
-        hearts[0] = heartPrefab;
-
-        for (int i = 1; i < 9; i++)
-        {
-            GameObject newHeart = Instantiate(heartPrefab, healthBar);
-            newHeart.name = "Heart" + (i + 1);
-
-
-            Vector3 newPosition = startPosition;
-            newPosition.x += heartSpacing * i;
-            newHeart.transform.localPosition = newPosition;
-
-            hearts[i] = newHeart;
+            // 초기 스케일 저장 (최대 체력일 때의 스케일)
+            maxHpBarWidth = hpBar.transform.localScale.x;
+            Debug.Log($"HP 바 초기화: 초기 X 스케일={maxHpBarWidth}");
         }
     }
 
@@ -97,28 +79,22 @@ void CreateHearts()
         gameoverUI.SetActive(true);
     }
 
-    // 플레이어의 체력이 변경되었을 때 하트 UI를 업데이트하는 메서드
+    // 플레이어의 체력이 변경되었을 때 HP 바 UI를 업데이트하는 메서드
     public void UpdateHealth(int health)
     {
-        // 체력이 현재 하트 수보다 적으면 하트를 제거
-        while (currentHeartCount > health && currentHeartCount > 0)
+        // HP 바 시스템 업데이트
+        if (hpBar != null)
         {
-            currentHeartCount--;
-            if (hearts[currentHeartCount] != null)
-            {
-                hearts[currentHeartCount].SetActive(false);
-                Debug.Log($"하트 제거: Heart{currentHeartCount + 1}, 남은 체력: {health}");
-            }
-        }
+            // InfoBar는 9칸으로 나뉘어져 있음
+            // health가 0~9 사이의 값일 때, X 스케일을 비례적으로 조정
+            float healthRatio = Mathf.Clamp01((float)health / maxHealth);
 
-        // 체력이 현재 하트 수보다 많으면 하트를 추가 (회복 시)
-        while (currentHeartCount < health && currentHeartCount < 9)
-        {
-            if (hearts[currentHeartCount] != null)
-            {
-                hearts[currentHeartCount].SetActive(true);
-            }
-            currentHeartCount++;
+            // Transform의 localScale.x를 조정하여 가로 길이 변경
+            Vector3 newScale = hpBar.transform.localScale;
+            newScale.x = maxHpBarWidth * healthRatio;
+            hpBar.transform.localScale = newScale;
+
+            Debug.Log($"HP 바 업데이트: 체력={health}/{maxHealth}, X 스케일={newScale.x}/{maxHpBarWidth}");
         }
     }
 }

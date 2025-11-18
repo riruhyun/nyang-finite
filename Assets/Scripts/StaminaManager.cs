@@ -1,9 +1,8 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 /// <summary>
 /// 플레이어의 스태미나를 관리하고 UI로 표시하는 매니저
-/// 자동으로 초당 1씩 회복
+/// 자동으로 초당 staminaRegenRate만큼 회복
 /// </summary>
 public class StaminaManager : MonoBehaviour
 {
@@ -14,11 +13,9 @@ public class StaminaManager : MonoBehaviour
     [SerializeField] private float currentStamina = 0f;
     [SerializeField] private float staminaRegenRate = 2f;
 
-    [Header("UI Settings")]
-    [SerializeField] private Image staminaBarFill; // Fill 이미지
-    
-    private RectTransform staminaBarBGRect; // 스태미나 BG RectTransform 캠싱
-[SerializeField] private Text staminaText; // 스태미나 수치 텍스트 (옵션)
+    [Header("Stamina Bar Settings")]
+    [SerializeField] private SpriteRenderer staminaBar; // 스태미나 바 (SpriteRenderer)
+    private float maxStaminaBarWidth = 1f; // 스태미나 바의 최대 X 스케일 (항상 1)
 
     private void Awake()
     {
@@ -34,25 +31,24 @@ public class StaminaManager : MonoBehaviour
         }
     }
 
-private void Start()
+    private void Start()
     {
         currentStamina = 0f; // 0부터 시작
-        
-        // StaminaBarBG RectTransform 캠싱
-        if (staminaBarFill != null)
+
+        // 스태미나 바 초기화 (X 스케일을 0으로 시작)
+        if (staminaBar != null)
         {
-            Transform bgTransform = staminaBarFill.transform.parent;
-            if (bgTransform != null)
-            {
-                staminaBarBGRect = bgTransform.GetComponent<RectTransform>();
-            }
+            Vector3 scale = staminaBar.transform.localScale;
+            scale.x = 0f; // 초기값 0 (스태미나가 0이므로)
+            staminaBar.transform.localScale = scale;
+            Debug.Log($"스태미나 바 초기화: 최대 X 스케일={maxStaminaBarWidth}, 현재={scale.x}");
         }
-        
+
         UpdateStaminaUI();
         Debug.Log($"[스태미나] 초기화: {currentStamina}/{maxStamina}");
     }
 
-private void Update()
+    private void Update()
     {
         // 자동 회복
         if (currentStamina < maxStamina)
@@ -60,13 +56,13 @@ private void Update()
             float previousStamina = currentStamina;
             currentStamina += staminaRegenRate * Time.deltaTime;
             currentStamina = Mathf.Min(currentStamina, maxStamina);
-            
+
             // 1이 차면 로그 출력 (디버그용)
             if (Mathf.FloorToInt(previousStamina) < Mathf.FloorToInt(currentStamina))
             {
                 Debug.Log($"[스태미나] 회복: {Mathf.FloorToInt(currentStamina)}/{maxStamina}");
             }
-            
+
             UpdateStaminaUI();
         }
     }
@@ -102,27 +98,17 @@ private void Update()
     /// <summary>
     /// UI 업데이트
     /// </summary>
-private void UpdateStaminaUI()
+    private void UpdateStaminaUI()
     {
-        if (staminaBarFill != null)
-        {
-            staminaBarFill.fillAmount = currentStamina / maxStamina;
-        }
-        
-        // StaminaBarBG의 가로 길이만 변경 (위치는 고정)
-        if (staminaBarBGRect != null)
-        {
-            // 최대 길이 400, 최소 길이 0
-            float maxWidth = 400f;
-            float newWidth = (currentStamina / maxStamina) * maxWidth;
-            
-            // 크기만 변경 (위치는 그대로)
-            staminaBarBGRect.sizeDelta = new Vector2(newWidth, staminaBarBGRect.sizeDelta.y);
-        }
+        float staminaRatio = currentStamina / maxStamina;
 
-        if (staminaText != null)
+        // 스태미나 바 업데이트 (SpriteRenderer)
+        if (staminaBar != null)
         {
-            staminaText.text = $"{Mathf.CeilToInt(currentStamina)} / {maxStamina}";
+            // Transform의 localScale.x를 조정하여 가로 길이 변경
+            Vector3 newScale = staminaBar.transform.localScale;
+            newScale.x = maxStaminaBarWidth * staminaRatio;
+            staminaBar.transform.localScale = newScale;
         }
     }
 

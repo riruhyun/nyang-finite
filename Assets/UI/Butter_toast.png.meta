@@ -1,0 +1,3653 @@
+fileFormatVersion: 2
+guid: bb6c4eac06a88644c8b52687f6887f3c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7946967801742293786
+    second: Butter_toast_0
+  - first:
+      213: 914418250943956432
+    second: Butter_toast_1
+  - first:
+      213: 2572525507190531942
+    second: Butter_toast_2
+  - first:
+      213: -3781474322497226133
+    second: Butter_toast_3
+  - first:
+      213: -8502048902148790597
+    second: Butter_toast_4
+  - first:
+      213: -4177506511340337436
+    second: Butter_toast_5
+  - first:
+      213: 5594075546565598204
+    second: Butter_toast_6
+  - first:
+      213: -1259962727467652951
+    second: Butter_toast_7
+  - first:
+      213: -1042390376960044667
+    second: Butter_toast_8
+  - first:
+      213: -6359949370303538801
+    second: Butter_toast_9
+  - first:
+      213: 5748922159696995824
+    second: Butter_toast_10
+  - first:
+      213: 3838938925061912129
+    second: Butter_toast_11
+  - first:
+      213: 3938074589318900568
+    second: Butter_toast_12
+  - first:
+      213: -1621174619565781010
+    second: Butter_toast_13
+  - first:
+      213: -1769432059443019837
+    second: Butter_toast_14
+  - first:
+      213: -2120951210999800215
+    second: Butter_toast_15
+  - first:
+      213: -4195012950174096435
+    second: Butter_toast_16
+  - first:
+      213: -4097388201792782066
+    second: Butter_toast_17
+  - first:
+      213: 1021642478349371402
+    second: Butter_toast_18
+  - first:
+      213: -1678253312603816220
+    second: Butter_toast_19
+  - first:
+      213: -2820232125215962256
+    second: Butter_toast_20
+  - first:
+      213: 3785482047841050795
+    second: Butter_toast_21
+  - first:
+      213: -2447169206980688450
+    second: Butter_toast_22
+  - first:
+      213: -1616258197400172080
+    second: Butter_toast_23
+  - first:
+      213: 7427485047265665532
+    second: Butter_toast_24
+  - first:
+      213: 8246132455159493342
+    second: Butter_toast_25
+  - first:
+      213: -5997737693191920486
+    second: Butter_toast_26
+  - first:
+      213: 8272069378994031747
+    second: Butter_toast_27
+  - first:
+      213: 390278295218451903
+    second: Butter_toast_28
+  - first:
+      213: 8397598464471527271
+    second: Butter_toast_29
+  - first:
+      213: -4860353510641668385
+    second: Butter_toast_30
+  - first:
+      213: 2466168480564030479
+    second: Butter_toast_31
+  - first:
+      213: 8023646746660660838
+    second: Butter_toast_32
+  - first:
+      213: 4204392565002949625
+    second: Butter_toast_33
+  - first:
+      213: -8180181679783494482
+    second: Butter_toast_34
+  - first:
+      213: -4436328639053496610
+    second: Butter_toast_35
+  - first:
+      213: 2331362646939877792
+    second: Butter_toast_36
+  - first:
+      213: -5403553658264139359
+    second: Butter_toast_37
+  - first:
+      213: -2842117235241350088
+    second: Butter_toast_38
+  - first:
+      213: -659243678357472631
+    second: Butter_toast_39
+  - first:
+      213: -3112918087920497708
+    second: Butter_toast_40
+  - first:
+      213: 6534316389464129392
+    second: Butter_toast_41
+  - first:
+      213: 1639684186842410342
+    second: Butter_toast_42
+  - first:
+      213: -3236737615499250388
+    second: Butter_toast_43
+  - first:
+      213: 6114104714824718404
+    second: Butter_toast_44
+  - first:
+      213: 7124072137395839797
+    second: Butter_toast_45
+  - first:
+      213: 6123977548155731090
+    second: Butter_toast_46
+  - first:
+      213: -3845110644371856185
+    second: Butter_toast_47
+  - first:
+      213: -6474926688258295468
+    second: Butter_toast_48
+  - first:
+      213: 6995354670515314262
+    second: Butter_toast_49
+  - first:
+      213: -8910355991907006316
+    second: Butter_toast_50
+  - first:
+      213: 8020721734074799579
+    second: Butter_toast_51
+  - first:
+      213: 2650427640512343672
+    second: Butter_toast_52
+  - first:
+      213: 60758844400180083
+    second: Butter_toast_53
+  - first:
+      213: -8886430802573751362
+    second: Butter_toast_54
+  - first:
+      213: 544234402416840599
+    second: Butter_toast_55
+  - first:
+      213: -5983517209338463945
+    second: Butter_toast_56
+  - first:
+      213: 8845226490739063820
+    second: Butter_toast_57
+  - first:
+      213: -8476095513743478814
+    second: Butter_toast_58
+  - first:
+      213: -5808434517076582952
+    second: Butter_toast_59
+  - first:
+      213: 6969052675070791340
+    second: Butter_toast_60
+  - first:
+      213: 1877105743062926547
+    second: Butter_toast_61
+  - first:
+      213: 6783799990989263364
+    second: Butter_toast_62
+  - first:
+      213: 3814743418474199849
+    second: Butter_toast_63
+  - first:
+      213: -191856351666087953
+    second: Butter_toast_64
+  - first:
+      213: 3512665197969613970
+    second: Butter_toast_65
+  - first:
+      213: -221917195211753872
+    second: Butter_toast_66
+  - first:
+      213: 2523686891893806303
+    second: Butter_toast_67
+  - first:
+      213: 5567144120491484347
+    second: Butter_toast_68
+  - first:
+      213: -5326611448837663551
+    second: Butter_toast_69
+  - first:
+      213: -336824658886211650
+    second: Butter_toast_70
+  - first:
+      213: -4831602587894574266
+    second: Butter_toast_71
+  - first:
+      213: 11098261884140767
+    second: Butter_toast_72
+  - first:
+      213: 3159204048587413384
+    second: Butter_toast_73
+  - first:
+      213: 2779424583043724323
+    second: Butter_toast_74
+  - first:
+      213: -4673161103452624336
+    second: Butter_toast_75
+  - first:
+      213: 7933632113784056665
+    second: Butter_toast_76
+  - first:
+      213: -6117309143889683777
+    second: Butter_toast_77
+  - first:
+      213: -6326739458763735093
+    second: Butter_toast_78
+  - first:
+      213: 7289526229980784578
+    second: Butter_toast_79
+  - first:
+      213: -6740133718281137355
+    second: Butter_toast_80
+  - first:
+      213: 5606270172029728089
+    second: Butter_toast_81
+  - first:
+      213: -6447915668022119070
+    second: Butter_toast_82
+  - first:
+      213: -5954083667436500842
+    second: Butter_toast_83
+  - first:
+      213: -8583367685187198211
+    second: Butter_toast_84
+  - first:
+      213: 4525021084724215071
+    second: Butter_toast_85
+  - first:
+      213: -7324566725687034947
+    second: Butter_toast_86
+  - first:
+      213: -656383410827404808
+    second: Butter_toast_87
+  - first:
+      213: 1724799400549472118
+    second: Butter_toast_88
+  - first:
+      213: 5191937657781070700
+    second: Butter_toast_89
+  - first:
+      213: -2840749549359693352
+    second: Butter_toast_90
+  - first:
+      213: -8851486131425002468
+    second: Butter_toast_91
+  - first:
+      213: -1108887878856369281
+    second: Butter_toast_92
+  - first:
+      213: -7740625653254820502
+    second: Butter_toast_93
+  - first:
+      213: -3617826010403680067
+    second: Butter_toast_94
+  - first:
+      213: 5977080737480099833
+    second: Butter_toast_95
+  - first:
+      213: 2251534889305287163
+    second: Butter_toast_96
+  - first:
+      213: -5217017107829999997
+    second: Butter_toast_97
+  - first:
+      213: 361224390911430392
+    second: Butter_toast_98
+  - first:
+      213: 1201062396993493745
+    second: Butter_toast_99
+  - first:
+      213: -1642882726616287076
+    second: Butter_toast_100
+  - first:
+      213: -8164612742625191261
+    second: Butter_toast_101
+  - first:
+      213: -7841209450066150025
+    second: Butter_toast_102
+  - first:
+      213: -7339215205203107457
+    second: Butter_toast_103
+  - first:
+      213: -8756229664759471111
+    second: Butter_toast_104
+  - first:
+      213: 6554797620107269026
+    second: Butter_toast_105
+  - first:
+      213: -5975115316413499914
+    second: Butter_toast_106
+  - first:
+      213: 2262682076848229438
+    second: Butter_toast_107
+  - first:
+      213: -8463019052008154974
+    second: Butter_toast_108
+  - first:
+      213: -244528207054980613
+    second: Butter_toast_109
+  - first:
+      213: -3303936951138829675
+    second: Butter_toast_110
+  - first:
+      213: 776592528494920303
+    second: Butter_toast_111
+  - first:
+      213: -8941589464830125232
+    second: Butter_toast_112
+  - first:
+      213: -6243792320553755469
+    second: Butter_toast_113
+  - first:
+      213: -8859805328949113348
+    second: Butter_toast_114
+  - first:
+      213: -419600215454130982
+    second: Butter_toast_115
+  - first:
+      213: 854554464547381614
+    second: Butter_toast_116
+  - first:
+      213: 7012413936998462301
+    second: Butter_toast_117
+  - first:
+      213: -8694538849221583467
+    second: Butter_toast_118
+  - first:
+      213: -8796378837471045263
+    second: Butter_toast_119
+  - first:
+      213: -324059571359763360
+    second: Butter_toast_120
+  - first:
+      213: 4967032826106277299
+    second: Butter_toast_121
+  - first:
+      213: -8386955773981803197
+    second: Butter_toast_122
+  - first:
+      213: 4529894182786748819
+    second: Butter_toast_123
+  - first:
+      213: -7810053073576135960
+    second: Butter_toast_124
+  - first:
+      213: -6774601022946487272
+    second: Butter_toast_125
+  - first:
+      213: 5943295798005018682
+    second: Butter_toast_126
+  - first:
+      213: -8057808644912941035
+    second: Butter_toast_127
+  - first:
+      213: -943281569337097085
+    second: Butter_toast_128
+  - first:
+      213: -2610900089069401948
+    second: Butter_toast_129
+  - first:
+      213: 5197337127219252379
+    second: Butter_toast_130
+  - first:
+      213: -5922242354623496325
+    second: Butter_toast_131
+  - first:
+      213: 8970441132574045448
+    second: Butter_toast_132
+  - first:
+      213: 914421502861062827
+    second: Butter_toast_133
+  - first:
+      213: 3230063528680379542
+    second: Butter_toast_134
+  - first:
+      213: 8564918758118959567
+    second: Butter_toast_135
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Butter_toast_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 741
+        height: 741
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e40faf93e2b6b190800000000000000
+      internalID: -7946967801742293786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_1
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 734
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d506afed8aa0bc00800000000000000
+      internalID: 914418250943956432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_2
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 736
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66729b7a15273b320800000000000000
+      internalID: 2572525507190531942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_3
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 703
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6aba488321858bc0800000000000000
+      internalID: -3781474322497226133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_4
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 730
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb6eb6cb197a20a80800000000000000
+      internalID: -8502048902148790597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_5
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 735
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e68da816f38606c0800000000000000
+      internalID: -4177506511340337436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_6
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 725
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfbddb7221622ad40800000000000000
+      internalID: 5594075546565598204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_7
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 728
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a8ee0f2396b38ee0800000000000000
+      internalID: -1259962727467652951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_8
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 735
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 581d208997fa881f0800000000000000
+      internalID: -1042390376960044667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_9
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 730
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8996918ebbecb7a0800000000000000
+      internalID: -6359949370303538801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_10
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 729
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f56c12ce3648cf40800000000000000
+      internalID: 5748922159696995824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_11
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 736
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1463cbedc96a64530800000000000000
+      internalID: 3838938925061912129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_12
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 732
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85b685369f9d6a630800000000000000
+      internalID: 3938074589318900568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_13
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 721
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eef07e9d54e6089e0800000000000000
+      internalID: -1621174619565781010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_14
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 734
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cff5b2bae6b177e0800000000000000
+      internalID: -1769432059443019837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_15
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 722
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96e1c626c1ed092e0800000000000000
+      internalID: -2120951210999800215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_16
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 736
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc3a5bca2f158c5c0800000000000000
+      internalID: -4195012950174096435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_17
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 736
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e01c34da3272327c0800000000000000
+      internalID: -4097388201792782066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_18
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 732
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a08c671db6a9d2e00800000000000000
+      internalID: 1021642478349371402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_19
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 719
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ee70230185a5b8e0800000000000000
+      internalID: -1678253312603816220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_20
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 728
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07b8b5803d58cd8d0800000000000000
+      internalID: -2820232125215962256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_21
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 727
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba02f2dbddbb88430800000000000000
+      internalID: 3785482047841050795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_22
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 733
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb544a86298e90ed0800000000000000
+      internalID: -2447169206980688450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_23
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 736
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d946a69bb5e199e0800000000000000
+      internalID: -1616258197400172080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_24
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 731
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf1abc84c4ab31760800000000000000
+      internalID: 7427485047265665532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_25
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 733
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed2f99037c5207270800000000000000
+      internalID: 8246132455159493342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_26
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 732
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a94235d6851c3cca0800000000000000
+      internalID: -5997737693191920486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_27
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 733
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38c435cd54b4cc270800000000000000
+      internalID: 8272069378994031747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_28
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 729
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb57a0eaa0c8a6500800000000000000
+      internalID: 390278295218451903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_29
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 719
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76fe031af434a8470800000000000000
+      internalID: 8397598464471527271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_30
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 733
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fde616bbb3e8c8cb0800000000000000
+      internalID: -4860353510641668385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_31
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 730
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0ca840ba27993220800000000000000
+      internalID: 2466168480564030479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_32
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 729
+        width: 18
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6666de97438b95f60800000000000000
+      internalID: 8023646746660660838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_33
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 736
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f35b4513c0095a30800000000000000
+      internalID: 4204392565002949625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_34
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 727
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eacb85a4a182a7e80800000000000000
+      internalID: -8180181679783494482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_35
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 736
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edef2528b9efe62c0800000000000000
+      internalID: -4436328639053496610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_36
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 723
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a1477da9f9aa5020800000000000000
+      internalID: 2331362646939877792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_37
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 736
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a9476ab398b205b0800000000000000
+      internalID: -5403553658264139359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_38
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 736
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83c8c67ce65ce88d0800000000000000
+      internalID: -2842117235241350088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_39
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 733
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98ab41b0e55e9d6f0800000000000000
+      internalID: -659243678357472631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_40
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 732
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4db4c92fd71bcc4d0800000000000000
+      internalID: -3112918087920497708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_41
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 719
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07fb50cc22e8eaa50800000000000000
+      internalID: 6534316389464129392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_42
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 728
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66d219c941451c610800000000000000
+      internalID: 1639684186842410342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_43
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 727
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c25b505a94cc413d0800000000000000
+      internalID: -3236737615499250388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_44
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 733
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4481bae18d9a9d450800000000000000
+      internalID: 6114104714824718404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_45
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 736
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 533acbf2dd9cdd260800000000000000
+      internalID: 7124072137395839797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_46
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 714
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29c3a42422dbcf450800000000000000
+      internalID: 6123977548155731090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_47
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 730
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c46420cd3c63aac0800000000000000
+      internalID: -3845110644371856185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_48
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 730
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 459faaf8b707426a0800000000000000
+      internalID: -6474926688258295468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_49
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 735
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65e5fe5820e741160800000000000000
+      internalID: 6995354670515314262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_50
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 725
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4980c183f6e085480800000000000000
+      internalID: -8910355991907006316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_51
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 728
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd598c9ebe35f4f60800000000000000
+      internalID: 8020721734074799579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_52
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 735
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87e6d9f75e538c420800000000000000
+      internalID: 2650427640512343672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_53
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 730
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37b9f69d8dbd7d000800000000000000
+      internalID: 60758844400180083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_54
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 729
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebb8083744e0da480800000000000000
+      internalID: -8886430802573751362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_55
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 736
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79f4a963e428d8700800000000000000
+      internalID: 544234402416840599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_56
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 732
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 739b1f5dcc646fca0800000000000000
+      internalID: -5983517209338463945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_57
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 730
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0c706a11ae80ca70800000000000000
+      internalID: 8845226490739063820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_58
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 734
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2efa90dd90cde5a80800000000000000
+      internalID: -8476095513743478814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_59
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 726
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dd5884c49b446fa0800000000000000
+      internalID: -5808434517076582952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 676
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cae849efb7c07b060800000000000000
+      internalID: 6969052675070791340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_61
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 657
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d48c1d5ab1dc0a10800000000000000
+      internalID: 1877105743062926547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_62
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 601
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40296325626e42e50800000000000000
+      internalID: 6783799990989263364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 585
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92bf96f7de0b0f430800000000000000
+      internalID: 3814743418474199849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_64
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 573
+        width: 25
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe75a072aa3665df0800000000000000
+      internalID: -191856351666087953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_65
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 562
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2942bdbf26e7fb030800000000000000
+      internalID: 3512665197969613970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_66
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 549
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0763ad99c779becf0800000000000000
+      internalID: -221917195211753872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_67
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 6
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd4d3ab6bdfe50320800000000000000
+      internalID: 2523686891893806303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_68
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 497
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb4ac43e418724d40800000000000000
+      internalID: 5567144120491484347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_69
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 469
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c4908fdb131416b0800000000000000
+      internalID: -5326611448837663551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 458
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb7ce7fd1cb535bf0800000000000000
+      internalID: -336824658886211650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_71
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 420
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6439fa49b03b2fcb0800000000000000
+      internalID: -4831602587894574266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 412
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdc7a357fcd672000800000000000000
+      internalID: 11098261884140767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_73
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 346
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8875701185fb7db20800000000000000
+      internalID: 3159204048587413384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_74
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 329
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3243f48aeef729620800000000000000
+      internalID: 2779424583043724323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_75
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 319
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03aa8826cb8952fb0800000000000000
+      internalID: -4673161103452624336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_76
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 293
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95beab09f5ce91e60800000000000000
+      internalID: 7933632113784056665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_77
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 6
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbad4399eb3fa1ba0800000000000000
+      internalID: -6117309143889683777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_78
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 241
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcfb0f59bf7e238a0800000000000000
+      internalID: -6326739458763735093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_79
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 213
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c7a5ee0c79992560800000000000000
+      internalID: 7289526229980784578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 202
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 533583f081c3672a0800000000000000
+      internalID: -6740133718281137355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_81
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 164
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95533b6a4097dcd40800000000000000
+      internalID: 5606270172029728089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_82
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 152
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 265bdd9ccd66486a0800000000000000
+      internalID: -6447915668022119070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_83
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 89
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6980e775378de5da0800000000000000
+      internalID: -5954083667436500842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_84
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 73
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df2a9d32190c1e880800000000000000
+      internalID: -8583367685187198211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_85
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 61
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1db324b3ba1cce30800000000000000
+      internalID: 4525021084724215071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_86
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 50
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbb37c5ce59e95a90800000000000000
+      internalID: -7324566725687034947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_87
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 37
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f95c29f3ce04e6f0800000000000000
+      internalID: -656383410827404808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_88
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 0
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 677de8a9ae7bfe710800000000000000
+      internalID: 1724799400549472118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_89
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 3
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6ba30caac77d0840800000000000000
+      internalID: 5191937657781070700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_90
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 0
+        width: 11
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d18096f551a398d0800000000000000
+      internalID: -2840749549359693352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_91
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 3
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1cbd1ab244392580800000000000000
+      internalID: -8851486131425002468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_92
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 0
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7b970d69507c90f0800000000000000
+      internalID: -1108887878856369281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_93
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 3
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6d687edaf5c39490800000000000000
+      internalID: -7740625653254820502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_94
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db058be5966eacdc0800000000000000
+      internalID: -3617826010403680067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_95
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 0
+        width: 54
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f7c457434bd2f250800000000000000
+      internalID: 5977080737480099833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_96
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 0
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf9a07c7d0f0f3f10800000000000000
+      internalID: 2251534889305287163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_97
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 0
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38638a4d49e6997b0800000000000000
+      internalID: -5217017107829999997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_98
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 0
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fe8b707ba3530500800000000000000
+      internalID: 361224390911430392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_99
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 0
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fa50e5f2e70ba010800000000000000
+      internalID: 1201062396993493745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_100
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 0
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9839605dde4339e0800000000000000
+      internalID: -1642882726616287076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_101
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 3
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aa9233f7f771be80800000000000000
+      internalID: -8164612742625191261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_102
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 0
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77dfe57bc8d6e2390800000000000000
+      internalID: -7841209450066150025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_103
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 0
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7129bbd7aed52a90800000000000000
+      internalID: -7339215205203107457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_104
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 0
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f3264c238f9b7680800000000000000
+      internalID: -8756229664759471111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_105
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 0
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a3d119e4b157fa50800000000000000
+      internalID: 6554797620107269026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_106
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 2
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f57d29f640241da0800000000000000
+      internalID: -5975115316413499914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_107
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 0
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3c8e265c59a66f10800000000000000
+      internalID: 2262682076848229438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_108
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 0
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a8d0bdd2015d8a80800000000000000
+      internalID: -8463019052008154974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_109
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 0
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf9bce824e24b9cf0800000000000000
+      internalID: -244528207054980613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_110
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59a351319de0622d0800000000000000
+      internalID: -3303936951138829675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_111
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 0
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6289244ac207ca00800000000000000
+      internalID: 776592528494920303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_112
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 0
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05bdc6d91c719e380800000000000000
+      internalID: -8941589464830125232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_113
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 0
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bcd41a27f79959a0800000000000000
+      internalID: -6243792320553755469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_114
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfd00ec9ef5ab0580800000000000000
+      internalID: -8859805328949113348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_115
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 0
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adcdd22c3d74d2af0800000000000000
+      internalID: -419600215454130982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_116
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e61229402ccfbdb00800000000000000
+      internalID: 854554464547381614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_117
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 0
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d53bac48259115160800000000000000
+      internalID: 7012413936998462301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_118
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 0
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59d50567bfac65780800000000000000
+      internalID: -8694538849221583467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_119
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 0
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17956c27d0cfce580800000000000000
+      internalID: -8796378837471045263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_120
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 0
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 064390b6985b08bf0800000000000000
+      internalID: -324059571359763360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_121
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 0
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bde4c3f9027ee440800000000000000
+      internalID: 4967032826106277299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_122
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 0
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34d37e8d82c8b9b80800000000000000
+      internalID: -8386955773981803197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_123
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 0
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 391dc1342ca6dde30800000000000000
+      internalID: 4529894182786748819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_124
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 2
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e2fb88eb1e1d9390800000000000000
+      internalID: -7810053073576135960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_125
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 0
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 814d6445348cbf1a0800000000000000
+      internalID: -6774601022946487272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_126
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 0
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3039231a04da7250800000000000000
+      internalID: 5943295798005018682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_127
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 0
+        width: 11
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51874e3cab9ec2090800000000000000
+      internalID: -8057808644912941035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_128
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 0
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3844d70196ac8e2f0800000000000000
+      internalID: -943281569337097085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_129
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 0
+        width: 29
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a88bfeb33834cbd0800000000000000
+      internalID: -2610900089069401948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_130
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 0
+        width: 50
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9c4add9496a02840800000000000000
+      internalID: 5197337127219252379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_131
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 0
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7fb4e2b4f7ffcda0800000000000000
+      internalID: -5922242354623496325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_132
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 0
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 805f0a1cea86d7c70800000000000000
+      internalID: 8970441132574045448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_133
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 0
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba23305138da0bc00800000000000000
+      internalID: 914421502861062827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_134
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 0
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69450fc6aad73dc20800000000000000
+      internalID: 3230063528680379542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Butter_toast_135
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 2
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc9a2cb4b34bcd670800000000000000
+      internalID: 8564918758118959567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Butter_toast_0: -7946967801742293786
+      Butter_toast_1: 914418250943956432
+      Butter_toast_10: 5748922159696995824
+      Butter_toast_100: -1642882726616287076
+      Butter_toast_101: -8164612742625191261
+      Butter_toast_102: -7841209450066150025
+      Butter_toast_103: -7339215205203107457
+      Butter_toast_104: -8756229664759471111
+      Butter_toast_105: 6554797620107269026
+      Butter_toast_106: -5975115316413499914
+      Butter_toast_107: 2262682076848229438
+      Butter_toast_108: -8463019052008154974
+      Butter_toast_109: -244528207054980613
+      Butter_toast_11: 3838938925061912129
+      Butter_toast_110: -3303936951138829675
+      Butter_toast_111: 776592528494920303
+      Butter_toast_112: -8941589464830125232
+      Butter_toast_113: -6243792320553755469
+      Butter_toast_114: -8859805328949113348
+      Butter_toast_115: -419600215454130982
+      Butter_toast_116: 854554464547381614
+      Butter_toast_117: 7012413936998462301
+      Butter_toast_118: -8694538849221583467
+      Butter_toast_119: -8796378837471045263
+      Butter_toast_12: 3938074589318900568
+      Butter_toast_120: -324059571359763360
+      Butter_toast_121: 4967032826106277299
+      Butter_toast_122: -8386955773981803197
+      Butter_toast_123: 4529894182786748819
+      Butter_toast_124: -7810053073576135960
+      Butter_toast_125: -6774601022946487272
+      Butter_toast_126: 5943295798005018682
+      Butter_toast_127: -8057808644912941035
+      Butter_toast_128: -943281569337097085
+      Butter_toast_129: -2610900089069401948
+      Butter_toast_13: -1621174619565781010
+      Butter_toast_130: 5197337127219252379
+      Butter_toast_131: -5922242354623496325
+      Butter_toast_132: 8970441132574045448
+      Butter_toast_133: 914421502861062827
+      Butter_toast_134: 3230063528680379542
+      Butter_toast_135: 8564918758118959567
+      Butter_toast_14: -1769432059443019837
+      Butter_toast_15: -2120951210999800215
+      Butter_toast_16: -4195012950174096435
+      Butter_toast_17: -4097388201792782066
+      Butter_toast_18: 1021642478349371402
+      Butter_toast_19: -1678253312603816220
+      Butter_toast_2: 2572525507190531942
+      Butter_toast_20: -2820232125215962256
+      Butter_toast_21: 3785482047841050795
+      Butter_toast_22: -2447169206980688450
+      Butter_toast_23: -1616258197400172080
+      Butter_toast_24: 7427485047265665532
+      Butter_toast_25: 8246132455159493342
+      Butter_toast_26: -5997737693191920486
+      Butter_toast_27: 8272069378994031747
+      Butter_toast_28: 390278295218451903
+      Butter_toast_29: 8397598464471527271
+      Butter_toast_3: -3781474322497226133
+      Butter_toast_30: -4860353510641668385
+      Butter_toast_31: 2466168480564030479
+      Butter_toast_32: 8023646746660660838
+      Butter_toast_33: 4204392565002949625
+      Butter_toast_34: -8180181679783494482
+      Butter_toast_35: -4436328639053496610
+      Butter_toast_36: 2331362646939877792
+      Butter_toast_37: -5403553658264139359
+      Butter_toast_38: -2842117235241350088
+      Butter_toast_39: -659243678357472631
+      Butter_toast_4: -8502048902148790597
+      Butter_toast_40: -3112918087920497708
+      Butter_toast_41: 6534316389464129392
+      Butter_toast_42: 1639684186842410342
+      Butter_toast_43: -3236737615499250388
+      Butter_toast_44: 6114104714824718404
+      Butter_toast_45: 7124072137395839797
+      Butter_toast_46: 6123977548155731090
+      Butter_toast_47: -3845110644371856185
+      Butter_toast_48: -6474926688258295468
+      Butter_toast_49: 6995354670515314262
+      Butter_toast_5: -4177506511340337436
+      Butter_toast_50: -8910355991907006316
+      Butter_toast_51: 8020721734074799579
+      Butter_toast_52: 2650427640512343672
+      Butter_toast_53: 60758844400180083
+      Butter_toast_54: -8886430802573751362
+      Butter_toast_55: 544234402416840599
+      Butter_toast_56: -5983517209338463945
+      Butter_toast_57: 8845226490739063820
+      Butter_toast_58: -8476095513743478814
+      Butter_toast_59: -5808434517076582952
+      Butter_toast_6: 5594075546565598204
+      Butter_toast_60: 6969052675070791340
+      Butter_toast_61: 1877105743062926547
+      Butter_toast_62: 6783799990989263364
+      Butter_toast_63: 3814743418474199849
+      Butter_toast_64: -191856351666087953
+      Butter_toast_65: 3512665197969613970
+      Butter_toast_66: -221917195211753872
+      Butter_toast_67: 2523686891893806303
+      Butter_toast_68: 5567144120491484347
+      Butter_toast_69: -5326611448837663551
+      Butter_toast_7: -1259962727467652951
+      Butter_toast_70: -336824658886211650
+      Butter_toast_71: -4831602587894574266
+      Butter_toast_72: 11098261884140767
+      Butter_toast_73: 3159204048587413384
+      Butter_toast_74: 2779424583043724323
+      Butter_toast_75: -4673161103452624336
+      Butter_toast_76: 7933632113784056665
+      Butter_toast_77: -6117309143889683777
+      Butter_toast_78: -6326739458763735093
+      Butter_toast_79: 7289526229980784578
+      Butter_toast_8: -1042390376960044667
+      Butter_toast_80: -6740133718281137355
+      Butter_toast_81: 5606270172029728089
+      Butter_toast_82: -6447915668022119070
+      Butter_toast_83: -5954083667436500842
+      Butter_toast_84: -8583367685187198211
+      Butter_toast_85: 4525021084724215071
+      Butter_toast_86: -7324566725687034947
+      Butter_toast_87: -656383410827404808
+      Butter_toast_88: 1724799400549472118
+      Butter_toast_89: 5191937657781070700
+      Butter_toast_9: -6359949370303538801
+      Butter_toast_90: -2840749549359693352
+      Butter_toast_91: -8851486131425002468
+      Butter_toast_92: -1108887878856369281
+      Butter_toast_93: -7740625653254820502
+      Butter_toast_94: -3617826010403680067
+      Butter_toast_95: 5977080737480099833
+      Butter_toast_96: 2251534889305287163
+      Butter_toast_97: -5217017107829999997
+      Butter_toast_98: 361224390911430392
+      Butter_toast_99: 1201062396993493745
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

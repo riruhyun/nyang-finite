@@ -1,0 +1,3653 @@
+fileFormatVersion: 2
+guid: 87053ca553d328946bf0535ac9016981
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4558457496212834123
+    second: Raven_toast_0
+  - first:
+      213: 6384521342531996798
+    second: Raven_toast_1
+  - first:
+      213: 4821959782166255883
+    second: Raven_toast_2
+  - first:
+      213: 4961582789949461638
+    second: Raven_toast_3
+  - first:
+      213: 697718338149779270
+    second: Raven_toast_4
+  - first:
+      213: 705696097877977231
+    second: Raven_toast_5
+  - first:
+      213: 1720669510386364887
+    second: Raven_toast_6
+  - first:
+      213: -6920500332647957815
+    second: Raven_toast_7
+  - first:
+      213: -1989286074763141774
+    second: Raven_toast_8
+  - first:
+      213: -8260377559417602596
+    second: Raven_toast_9
+  - first:
+      213: 4187696104702672970
+    second: Raven_toast_10
+  - first:
+      213: 7625844453347567989
+    second: Raven_toast_11
+  - first:
+      213: -2872960012872202799
+    second: Raven_toast_12
+  - first:
+      213: -6708118183743879060
+    second: Raven_toast_13
+  - first:
+      213: -7369036955490702100
+    second: Raven_toast_14
+  - first:
+      213: -221098217552315405
+    second: Raven_toast_15
+  - first:
+      213: 6668672479644402758
+    second: Raven_toast_16
+  - first:
+      213: -1414870332242673571
+    second: Raven_toast_17
+  - first:
+      213: 4682425918395987343
+    second: Raven_toast_18
+  - first:
+      213: 4012575142781244419
+    second: Raven_toast_19
+  - first:
+      213: 4306018804834380064
+    second: Raven_toast_20
+  - first:
+      213: -2714947772274661871
+    second: Raven_toast_21
+  - first:
+      213: 186966977016139973
+    second: Raven_toast_22
+  - first:
+      213: 8468556257872526558
+    second: Raven_toast_23
+  - first:
+      213: 1759900068181378637
+    second: Raven_toast_24
+  - first:
+      213: -861644479458447695
+    second: Raven_toast_25
+  - first:
+      213: 4061513460359817379
+    second: Raven_toast_26
+  - first:
+      213: -1504921490103889192
+    second: Raven_toast_27
+  - first:
+      213: 1453085103547351792
+    second: Raven_toast_28
+  - first:
+      213: 4727423278779231806
+    second: Raven_toast_29
+  - first:
+      213: 1257486188447589580
+    second: Raven_toast_30
+  - first:
+      213: -5865066263939191743
+    second: Raven_toast_31
+  - first:
+      213: 3144358612174842543
+    second: Raven_toast_32
+  - first:
+      213: -3380504866036327009
+    second: Raven_toast_33
+  - first:
+      213: -193533372926145665
+    second: Raven_toast_34
+  - first:
+      213: 3540524248456748487
+    second: Raven_toast_35
+  - first:
+      213: -1266758116366925686
+    second: Raven_toast_36
+  - first:
+      213: -856956985630800585
+    second: Raven_toast_37
+  - first:
+      213: -5721704570466765754
+    second: Raven_toast_38
+  - first:
+      213: 4616465047220825919
+    second: Raven_toast_39
+  - first:
+      213: -2465464526708271373
+    second: Raven_toast_40
+  - first:
+      213: 6466183370597994657
+    second: Raven_toast_41
+  - first:
+      213: -4683569974616857660
+    second: Raven_toast_42
+  - first:
+      213: 245404059762747116
+    second: Raven_toast_43
+  - first:
+      213: 6463628360510242455
+    second: Raven_toast_44
+  - first:
+      213: -5365569055275303063
+    second: Raven_toast_45
+  - first:
+      213: 4939597405184495078
+    second: Raven_toast_46
+  - first:
+      213: 1341927724882800834
+    second: Raven_toast_47
+  - first:
+      213: -7932616069885559788
+    second: Raven_toast_48
+  - first:
+      213: -8642976700427035628
+    second: Raven_toast_49
+  - first:
+      213: 740156518867835450
+    second: Raven_toast_50
+  - first:
+      213: 2081485230317529393
+    second: Raven_toast_51
+  - first:
+      213: 8590628746520943809
+    second: Raven_toast_52
+  - first:
+      213: -6603657078704732642
+    second: Raven_toast_53
+  - first:
+      213: -3534326584852306237
+    second: Raven_toast_54
+  - first:
+      213: -1150677033188309937
+    second: Raven_toast_55
+  - first:
+      213: -7213166976337504819
+    second: Raven_toast_56
+  - first:
+      213: 7164889748706681635
+    second: Raven_toast_57
+  - first:
+      213: -8673590710314885778
+    second: Raven_toast_58
+  - first:
+      213: 3031873665042991779
+    second: Raven_toast_59
+  - first:
+      213: 8990829080556944717
+    second: Raven_toast_60
+  - first:
+      213: 696465686251398733
+    second: Raven_toast_61
+  - first:
+      213: -5704861503858116351
+    second: Raven_toast_62
+  - first:
+      213: -4639046862549854535
+    second: Raven_toast_63
+  - first:
+      213: -4602247023528586230
+    second: Raven_toast_64
+  - first:
+      213: 3108931234461317757
+    second: Raven_toast_65
+  - first:
+      213: 3275144153854845500
+    second: Raven_toast_66
+  - first:
+      213: 5077300264869423886
+    second: Raven_toast_67
+  - first:
+      213: 5361762938621488348
+    second: Raven_toast_68
+  - first:
+      213: -7374186074191272097
+    second: Raven_toast_69
+  - first:
+      213: -2070217377928009053
+    second: Raven_toast_70
+  - first:
+      213: -683442918657747805
+    second: Raven_toast_71
+  - first:
+      213: 8651238858127514047
+    second: Raven_toast_72
+  - first:
+      213: -7504041189616008200
+    second: Raven_toast_73
+  - first:
+      213: -2628058517983978093
+    second: Raven_toast_74
+  - first:
+      213: 2127748139768913620
+    second: Raven_toast_75
+  - first:
+      213: 706163333214917132
+    second: Raven_toast_76
+  - first:
+      213: 3725742130579645697
+    second: Raven_toast_77
+  - first:
+      213: 5098814131436494318
+    second: Raven_toast_78
+  - first:
+      213: -4150825989301949986
+    second: Raven_toast_79
+  - first:
+      213: -3723463240407316121
+    second: Raven_toast_80
+  - first:
+      213: -6895634788373867861
+    second: Raven_toast_81
+  - first:
+      213: -1872368206693127738
+    second: Raven_toast_82
+  - first:
+      213: -4888112280874772798
+    second: Raven_toast_83
+  - first:
+      213: -1720976583980680962
+    second: Raven_toast_84
+  - first:
+      213: -2730812547575807808
+    second: Raven_toast_85
+  - first:
+      213: -108490626431617744
+    second: Raven_toast_86
+  - first:
+      213: 774939135968633239
+    second: Raven_toast_87
+  - first:
+      213: 1005415423701835689
+    second: Raven_toast_88
+  - first:
+      213: 1583525080903797441
+    second: Raven_toast_89
+  - first:
+      213: 5554515297659826539
+    second: Raven_toast_90
+  - first:
+      213: 3734049942312155032
+    second: Raven_toast_91
+  - first:
+      213: 3650448405322622489
+    second: Raven_toast_92
+  - first:
+      213: 3236560752946243802
+    second: Raven_toast_93
+  - first:
+      213: 8698555154594600391
+    second: Raven_toast_94
+  - first:
+      213: -8476327374233604752
+    second: Raven_toast_95
+  - first:
+      213: -1516122978224718979
+    second: Raven_toast_96
+  - first:
+      213: 3783675562549752746
+    second: Raven_toast_97
+  - first:
+      213: -7047061455748243220
+    second: Raven_toast_98
+  - first:
+      213: 2208765911256754531
+    second: Raven_toast_99
+  - first:
+      213: -1322337488101010598
+    second: Raven_toast_100
+  - first:
+      213: -5658876596907187405
+    second: Raven_toast_101
+  - first:
+      213: 6943189969646701535
+    second: Raven_toast_102
+  - first:
+      213: -5934692227692627790
+    second: Raven_toast_103
+  - first:
+      213: 3960477785439017414
+    second: Raven_toast_104
+  - first:
+      213: -5429105315223531500
+    second: Raven_toast_105
+  - first:
+      213: 1677134970460139182
+    second: Raven_toast_106
+  - first:
+      213: -3652742821289422143
+    second: Raven_toast_107
+  - first:
+      213: 7054606433535593092
+    second: Raven_toast_108
+  - first:
+      213: -3052866208055335168
+    second: Raven_toast_109
+  - first:
+      213: -1860909950639302140
+    second: Raven_toast_110
+  - first:
+      213: -9022408236444329147
+    second: Raven_toast_111
+  - first:
+      213: 7482233891616065955
+    second: Raven_toast_112
+  - first:
+      213: -3835990919779042947
+    second: Raven_toast_113
+  - first:
+      213: -1738128358926247695
+    second: Raven_toast_114
+  - first:
+      213: -7424652532408167555
+    second: Raven_toast_115
+  - first:
+      213: 7437966634023247804
+    second: Raven_toast_116
+  - first:
+      213: 4943173928739845747
+    second: Raven_toast_117
+  - first:
+      213: 967206917497061558
+    second: Raven_toast_118
+  - first:
+      213: -5227722621080809200
+    second: Raven_toast_119
+  - first:
+      213: 1190370655227394533
+    second: Raven_toast_120
+  - first:
+      213: 8818621419359853373
+    second: Raven_toast_121
+  - first:
+      213: 5465746040566858389
+    second: Raven_toast_122
+  - first:
+      213: -4040306320228040169
+    second: Raven_toast_123
+  - first:
+      213: -6892472524286697983
+    second: Raven_toast_124
+  - first:
+      213: 2589172323655880221
+    second: Raven_toast_125
+  - first:
+      213: -5954785090510399204
+    second: Raven_toast_126
+  - first:
+      213: -2730516457170535417
+    second: Raven_toast_127
+  - first:
+      213: 8933950144403816845
+    second: Raven_toast_128
+  - first:
+      213: 6482834824540761162
+    second: Raven_toast_129
+  - first:
+      213: -4395408217721106177
+    second: Raven_toast_130
+  - first:
+      213: -6353394659613552477
+    second: Raven_toast_131
+  - first:
+      213: 8641087731492256701
+    second: Raven_toast_132
+  - first:
+      213: 6587249274014778441
+    second: Raven_toast_133
+  - first:
+      213: 119683198509340721
+    second: Raven_toast_134
+  - first:
+      213: -2048341791812979399
+    second: Raven_toast_135
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Raven_toast_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 741
+        height: 741
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b874861f0b1db0c0800000000000000
+      internalID: -4558457496212834123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_1
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 734
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7c058a95506a9850800000000000000
+      internalID: 6384521342531996798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_2
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 736
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b095d31cfda0be240800000000000000
+      internalID: 4821959782166255883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_3
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 703
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68411a682451bd440800000000000000
+      internalID: 4961582789949461638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_4
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 730
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64781b2c12bcea900800000000000000
+      internalID: 697718338149779270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_5
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 735
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f886561bcd22bc900800000000000000
+      internalID: 705696097877977231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_6
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 725
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d1bc6e9dcb01e710800000000000000
+      internalID: 1720669510386364887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_7
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 728
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cabb842d9175ff90800000000000000
+      internalID: -6920500332647957815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_8
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 735
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27d9c1dcad2a464e0800000000000000
+      internalID: -1989286074763141774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_9
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 730
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdd3e44006e3d5d80800000000000000
+      internalID: -8260377559417602596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_10
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 729
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a40071c7b6fad1a30800000000000000
+      internalID: 4187696104702672970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_11
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 736
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5792a2a702174d960800000000000000
+      internalID: 7625844453347567989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_12
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 732
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d5c9d207123128d0800000000000000
+      internalID: -2872960012872202799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_13
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 721
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c688b929d0af7e2a0800000000000000
+      internalID: -6708118183743879060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_14
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 734
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cec204b8eebebb990800000000000000
+      internalID: -7369036955490702100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_15
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 722
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fb7252b7508eecf0800000000000000
+      internalID: -221098217552315405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_16
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 736
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 644c0a0c942eb8c50800000000000000
+      internalID: 6668672479644402758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_17
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 736
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d50cf6bddee5d5ce0800000000000000
+      internalID: -1414870332242673571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_18
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 732
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f85331170915bf040800000000000000
+      internalID: 4682425918395987343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_19
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 719
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 304d90435d78fa730800000000000000
+      internalID: 4012575142781244419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_20
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 728
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0292e4ae94d02cb30800000000000000
+      internalID: 4306018804834380064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_21
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 727
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 116a4d1b261925ad0800000000000000
+      internalID: -2714947772274661871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_22
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 733
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c096c9997d389200800000000000000
+      internalID: 186966977016139973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_23
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 736
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edc37e65c0b568570800000000000000
+      internalID: 8468556257872526558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_24
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 731
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d460324a9cb6c6810800000000000000
+      internalID: 1759900068181378637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_25
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 733
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bee33f39e2da04f0800000000000000
+      internalID: -861644479458447695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_26
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 732
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a8e63f29f46d5830800000000000000
+      internalID: 4061513460359817379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_27
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 733
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d2918fc0e17d1be0800000000000000
+      internalID: -1504921490103889192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_28
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 729
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f20a51f3356a2410800000000000000
+      internalID: 1453085103547351792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_29
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 719
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3e6c82dc6e2b9140800000000000000
+      internalID: 4727423278779231806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_30
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 733
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc4e064a60d737110800000000000000
+      internalID: 1257486188447589580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_31
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 730
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14ce6c1be491b9ea0800000000000000
+      internalID: -5865066263939191743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_32
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 729
+        width: 18
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faa2f1d8f7103ab20800000000000000
+      internalID: 3144358612174842543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_33
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 736
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9ddc6a2cb80611d0800000000000000
+      internalID: -3380504866036327009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_34
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 727
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7bcd863c6e605df0800000000000000
+      internalID: -193533372926145665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_35
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 736
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cddbe3ab08722130800000000000000
+      internalID: 3540524248456748487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_36
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 723
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a804b9964329b6ee0800000000000000
+      internalID: -1266758116366925686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_37
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 736
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 735cfa3792a7b14f0800000000000000
+      internalID: -856956985630800585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_38
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 736
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 644799f020c6890b0800000000000000
+      internalID: -5721704570466765754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_39
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 733
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3faa99508af01040800000000000000
+      internalID: 4616465047220825919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_40
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 732
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f61a375319e8cdd0800000000000000
+      internalID: -2465464526708271373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_41
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 719
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a01809248f7cb950800000000000000
+      internalID: 6466183370597994657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_42
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 728
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c3e6463ced900fb0800000000000000
+      internalID: -4683569974616857660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_43
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 727
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce6e89031b9d76300800000000000000
+      internalID: 245404059762747116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_44
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 733
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79e7a548fbb63b950800000000000000
+      internalID: 6463628360510242455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_45
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 736
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96fbc7a4f5ba985b0800000000000000
+      internalID: -5365569055275303063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_46
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 714
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ed867d3ba9fc8440800000000000000
+      internalID: 4939597405184495078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_47
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 730
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c033ebe72c7f9210800000000000000
+      internalID: 1341927724882800834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_48
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 730
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41c7ae696bfa9e190800000000000000
+      internalID: -7932616069885559788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_49
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 735
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41c9111cb7afd0880800000000000000
+      internalID: -8642976700427035628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_50
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 725
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3a9e41be60954a00800000000000000
+      internalID: 740156518867835450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_51
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 728
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1396c4ee9cbe2ec10800000000000000
+      internalID: 2081485230317529393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_52
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 735
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ccd3a1745b083770800000000000000
+      internalID: 8590628746520943809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_53
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 730
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e168f45efd81b54a0800000000000000
+      internalID: -6603657078704732642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_54
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 729
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c6a8ad52bc83fec0800000000000000
+      internalID: -3534326584852306237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_55
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 736
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f444c99b559f700f0800000000000000
+      internalID: -1150677033188309937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_56
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 732
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc513dd1adea5eb90800000000000000
+      internalID: -7213166976337504819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_57
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 730
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 323ef76e34dce6360800000000000000
+      internalID: 7164889748706681635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_58
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 734
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6d9d80243731a780800000000000000
+      internalID: -8673590710314885778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_59
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 726
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aacfb8e801631a20800000000000000
+      internalID: 3031873665042991779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 676
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4d39dec967d5cc70800000000000000
+      internalID: 8990829080556944717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_61
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 657
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4663430ad75aa900800000000000000
+      internalID: 696465686251398733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_62
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 601
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1097cb910b244d0b0800000000000000
+      internalID: -5704861503858116351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 585
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b6535d057bce9fb0800000000000000
+      internalID: -4639046862549854535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_64
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 573
+        width: 25
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a04daf147b88120c0800000000000000
+      internalID: -4602247023528586230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_65
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 562
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7afe256c74252b20800000000000000
+      internalID: 3108931234461317757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_66
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 549
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3227b66146a37d20800000000000000
+      internalID: 3275144153854845500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_67
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 6
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0be981b0b1367640800000000000000
+      internalID: 5077300264869423886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_68
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 497
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdc636e1cfec86a40800000000000000
+      internalID: 5361762938621488348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_69
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 469
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f57623ce5d0a9a990800000000000000
+      internalID: -7374186074191272097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 458
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aaa2c4634c1543e0800000000000000
+      internalID: -2070217377928009053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_71
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 420
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a41629594ce386f0800000000000000
+      internalID: -683442918657747805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 412
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb91fbdb7ef5f0870800000000000000
+      internalID: 8651238858127514047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_73
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 346
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f3c901db4a4cd790800000000000000
+      internalID: -7504041189616008200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_74
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 329
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39d10a2b3b2478bd0800000000000000
+      internalID: -2628058517983978093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_75
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 319
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4de9c6ae8a7478d10800000000000000
+      internalID: 2127748139768913620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_76
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 293
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c025ea56fcbccc900800000000000000
+      internalID: 706163333214917132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_77
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 6
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10528e95abe74b330800000000000000
+      internalID: 3725742130579645697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_78
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 241
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eed93081070a2c640800000000000000
+      internalID: 5098814131436494318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_79
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 213
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed9a23731cd4566c0800000000000000
+      internalID: -4150825989301949986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 202
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7690c4d19e9935cc0800000000000000
+      internalID: -3723463240407316121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_81
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 164
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba25622d1b8cd40a0800000000000000
+      internalID: -6895634788373867861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_82
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 152
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c9225749030406e0800000000000000
+      internalID: -1872368206693127738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_83
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 89
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c61c3467cfe92cb0800000000000000
+      internalID: -4888112280874772798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_84
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 73
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef8f01d3aecdd18e0800000000000000
+      internalID: -1720976583980680962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_85
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 61
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c08099d4743a1ad0800000000000000
+      internalID: -2730812547575807808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_86
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 50
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 035751e99509e7ef0800000000000000
+      internalID: -108490626431617744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_87
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 37
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79165f1d90321ca00800000000000000
+      internalID: 774939135968633239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_88
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 0
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9af527d3004f3fd00800000000000000
+      internalID: 1005415423701835689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_89
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 3
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ca4134dbafc9f510800000000000000
+      internalID: 1583525080903797441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_90
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 0
+        width: 11
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b61bc70fb3a951d40800000000000000
+      internalID: 5554515297659826539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_91
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 3
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 897751183a202d330800000000000000
+      internalID: 3734049942312155032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_92
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 0
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9166526db7ff8a230800000000000000
+      internalID: 3650448405322622489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_93
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 3
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad8e4555bd29aec20800000000000000
+      internalID: 3236560752946243802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_94
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c511c083d977b870800000000000000
+      internalID: 8698555154594600391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_95
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 0
+        width: 54
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07de2e2a9290e5a80800000000000000
+      internalID: -8476327374233604752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_96
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 0
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7bbb1f1f26a5fae0800000000000000
+      internalID: -1516122978224718979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_97
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 0
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa3ba1b90e0528430800000000000000
+      internalID: 3783675562549752746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_98
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 0
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce067c361fec33e90800000000000000
+      internalID: -7047061455748243220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_99
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 0
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 369637cc4ec17ae10800000000000000
+      internalID: 2208765911256754531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_100
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 0
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a539e848f0d16ade0800000000000000
+      internalID: -1322337488101010598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_101
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 3
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 333639597b1a771b0800000000000000
+      internalID: -5658876596907187405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_102
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 0
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdbc8d4ad7a2b5060800000000000000
+      internalID: 6943189969646701535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_103
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 0
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b8fb1dbcdcb3ada0800000000000000
+      internalID: -5934692227692627790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_104
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 0
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c91be5ff8176f630800000000000000
+      internalID: 3960477785439017414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_105
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 0
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4109aedfa71f7a4b0800000000000000
+      internalID: -5429105315223531500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_106
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 2
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eae69aaae51664710800000000000000
+      internalID: 1677134970460139182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_107
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 0
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c29f21d1c9de4dc0800000000000000
+      internalID: -3652742821289422143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_108
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 0
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48a0315ac2ff6e160800000000000000
+      internalID: 7054606433535593092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_109
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 0
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 007611acb5a02a5d0800000000000000
+      internalID: -3052866208055335168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_110
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40a97296248bc26e0800000000000000
+      internalID: -1860909950639302140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_111
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 0
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54b5d200387f9c280800000000000000
+      internalID: -9022408236444329147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_112
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 0
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a90a24f41c36d760800000000000000
+      internalID: 7482233891616065955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_113
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 0
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7932f81592d3cac0800000000000000
+      internalID: -3835990919779042947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_114
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f81b20777de0e7e0800000000000000
+      internalID: -1738128358926247695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_115
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 0
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d735b19fbd556f890800000000000000
+      internalID: -7424652532408167555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_116
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbfd920ee37f83760800000000000000
+      internalID: 7437966634023247804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_117
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 0
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 376b2858f7ea99440800000000000000
+      internalID: 4943173928739845747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_118
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 0
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b086b521953c6d00800000000000000
+      internalID: 967206917497061558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_119
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 0
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 011543a49f56377b0800000000000000
+      internalID: -5227722621080809200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_120
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 0
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e9b0e7ddcb058010800000000000000
+      internalID: 1190370655227394533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_121
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 0
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3b58953579026a70800000000000000
+      internalID: 8818621419359853373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_122
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 0
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5924c7ca01b3adb40800000000000000
+      internalID: 5465746040566858389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_123
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 0
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 712ca07eec2fde7c0800000000000000
+      internalID: -4040306320228040169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_124
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 2
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10e50cdc1c40950a0800000000000000
+      internalID: -6892472524286697983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_125
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 0
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1e08c5a2869ee320800000000000000
+      internalID: 2589172323655880221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_126
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 0
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c19d55e828a5c5da0800000000000000
+      internalID: -5954785090510399204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_127
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 0
+        width: 11
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70cfdf4cfb14b1ad0800000000000000
+      internalID: -2730516457170535417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_128
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 0
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d814d3e7254cbfb70800000000000000
+      internalID: 8933950144403816845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_129
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 0
+        width: 29
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4ca846ece7a7f950800000000000000
+      internalID: 6482834824540761162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_130
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 0
+        width: 50
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff096eb838f5003c0800000000000000
+      internalID: -4395408217721106177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_131
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 0
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a0ded3083534d7a0800000000000000
+      internalID: -6353394659613552477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_132
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 0
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbbf494628f4be770800000000000000
+      internalID: 8641087731492256701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_133
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 0
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 944c990605c9a6b50800000000000000
+      internalID: 6587249274014778441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_134
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 0
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1385bb42c3339a100800000000000000
+      internalID: 119683198509340721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raven_toast_135
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 2
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93576603ef3d293e0800000000000000
+      internalID: -2048341791812979399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Raven_toast_0: -4558457496212834123
+      Raven_toast_1: 6384521342531996798
+      Raven_toast_10: 4187696104702672970
+      Raven_toast_100: -1322337488101010598
+      Raven_toast_101: -5658876596907187405
+      Raven_toast_102: 6943189969646701535
+      Raven_toast_103: -5934692227692627790
+      Raven_toast_104: 3960477785439017414
+      Raven_toast_105: -5429105315223531500
+      Raven_toast_106: 1677134970460139182
+      Raven_toast_107: -3652742821289422143
+      Raven_toast_108: 7054606433535593092
+      Raven_toast_109: -3052866208055335168
+      Raven_toast_11: 7625844453347567989
+      Raven_toast_110: -1860909950639302140
+      Raven_toast_111: -9022408236444329147
+      Raven_toast_112: 7482233891616065955
+      Raven_toast_113: -3835990919779042947
+      Raven_toast_114: -1738128358926247695
+      Raven_toast_115: -7424652532408167555
+      Raven_toast_116: 7437966634023247804
+      Raven_toast_117: 4943173928739845747
+      Raven_toast_118: 967206917497061558
+      Raven_toast_119: -5227722621080809200
+      Raven_toast_12: -2872960012872202799
+      Raven_toast_120: 1190370655227394533
+      Raven_toast_121: 8818621419359853373
+      Raven_toast_122: 5465746040566858389
+      Raven_toast_123: -4040306320228040169
+      Raven_toast_124: -6892472524286697983
+      Raven_toast_125: 2589172323655880221
+      Raven_toast_126: -5954785090510399204
+      Raven_toast_127: -2730516457170535417
+      Raven_toast_128: 8933950144403816845
+      Raven_toast_129: 6482834824540761162
+      Raven_toast_13: -6708118183743879060
+      Raven_toast_130: -4395408217721106177
+      Raven_toast_131: -6353394659613552477
+      Raven_toast_132: 8641087731492256701
+      Raven_toast_133: 6587249274014778441
+      Raven_toast_134: 119683198509340721
+      Raven_toast_135: -2048341791812979399
+      Raven_toast_14: -7369036955490702100
+      Raven_toast_15: -221098217552315405
+      Raven_toast_16: 6668672479644402758
+      Raven_toast_17: -1414870332242673571
+      Raven_toast_18: 4682425918395987343
+      Raven_toast_19: 4012575142781244419
+      Raven_toast_2: 4821959782166255883
+      Raven_toast_20: 4306018804834380064
+      Raven_toast_21: -2714947772274661871
+      Raven_toast_22: 186966977016139973
+      Raven_toast_23: 8468556257872526558
+      Raven_toast_24: 1759900068181378637
+      Raven_toast_25: -861644479458447695
+      Raven_toast_26: 4061513460359817379
+      Raven_toast_27: -1504921490103889192
+      Raven_toast_28: 1453085103547351792
+      Raven_toast_29: 4727423278779231806
+      Raven_toast_3: 4961582789949461638
+      Raven_toast_30: 1257486188447589580
+      Raven_toast_31: -5865066263939191743
+      Raven_toast_32: 3144358612174842543
+      Raven_toast_33: -3380504866036327009
+      Raven_toast_34: -193533372926145665
+      Raven_toast_35: 3540524248456748487
+      Raven_toast_36: -1266758116366925686
+      Raven_toast_37: -856956985630800585
+      Raven_toast_38: -5721704570466765754
+      Raven_toast_39: 4616465047220825919
+      Raven_toast_4: 697718338149779270
+      Raven_toast_40: -2465464526708271373
+      Raven_toast_41: 6466183370597994657
+      Raven_toast_42: -4683569974616857660
+      Raven_toast_43: 245404059762747116
+      Raven_toast_44: 6463628360510242455
+      Raven_toast_45: -5365569055275303063
+      Raven_toast_46: 4939597405184495078
+      Raven_toast_47: 1341927724882800834
+      Raven_toast_48: -7932616069885559788
+      Raven_toast_49: -8642976700427035628
+      Raven_toast_5: 705696097877977231
+      Raven_toast_50: 740156518867835450
+      Raven_toast_51: 2081485230317529393
+      Raven_toast_52: 8590628746520943809
+      Raven_toast_53: -6603657078704732642
+      Raven_toast_54: -3534326584852306237
+      Raven_toast_55: -1150677033188309937
+      Raven_toast_56: -7213166976337504819
+      Raven_toast_57: 7164889748706681635
+      Raven_toast_58: -8673590710314885778
+      Raven_toast_59: 3031873665042991779
+      Raven_toast_6: 1720669510386364887
+      Raven_toast_60: 8990829080556944717
+      Raven_toast_61: 696465686251398733
+      Raven_toast_62: -5704861503858116351
+      Raven_toast_63: -4639046862549854535
+      Raven_toast_64: -4602247023528586230
+      Raven_toast_65: 3108931234461317757
+      Raven_toast_66: 3275144153854845500
+      Raven_toast_67: 5077300264869423886
+      Raven_toast_68: 5361762938621488348
+      Raven_toast_69: -7374186074191272097
+      Raven_toast_7: -6920500332647957815
+      Raven_toast_70: -2070217377928009053
+      Raven_toast_71: -683442918657747805
+      Raven_toast_72: 8651238858127514047
+      Raven_toast_73: -7504041189616008200
+      Raven_toast_74: -2628058517983978093
+      Raven_toast_75: 2127748139768913620
+      Raven_toast_76: 706163333214917132
+      Raven_toast_77: 3725742130579645697
+      Raven_toast_78: 5098814131436494318
+      Raven_toast_79: -4150825989301949986
+      Raven_toast_8: -1989286074763141774
+      Raven_toast_80: -3723463240407316121
+      Raven_toast_81: -6895634788373867861
+      Raven_toast_82: -1872368206693127738
+      Raven_toast_83: -4888112280874772798
+      Raven_toast_84: -1720976583980680962
+      Raven_toast_85: -2730812547575807808
+      Raven_toast_86: -108490626431617744
+      Raven_toast_87: 774939135968633239
+      Raven_toast_88: 1005415423701835689
+      Raven_toast_89: 1583525080903797441
+      Raven_toast_9: -8260377559417602596
+      Raven_toast_90: 5554515297659826539
+      Raven_toast_91: 3734049942312155032
+      Raven_toast_92: 3650448405322622489
+      Raven_toast_93: 3236560752946243802
+      Raven_toast_94: 8698555154594600391
+      Raven_toast_95: -8476327374233604752
+      Raven_toast_96: -1516122978224718979
+      Raven_toast_97: 3783675562549752746
+      Raven_toast_98: -7047061455748243220
+      Raven_toast_99: 2208765911256754531
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
