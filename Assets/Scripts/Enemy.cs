@@ -198,6 +198,13 @@ public class Enemy : MonoBehaviour
 
     rb.linearVelocity = new Vector2(direction.x * moveSpeed, rb.linearVelocity.y);
 
+    // 애니메이터 파라미터 업데이트 (이동 중인지)
+    if (animator != null)
+    {
+      bool isMoving = direction.magnitude > 0.01f;
+      animator.SetBool("IsWalking", isMoving);
+    }
+
     // 이동 방향에 따라 스프라이트 뒤집기
     if (direction.x != 0 && spriteRenderer != null)
     {
