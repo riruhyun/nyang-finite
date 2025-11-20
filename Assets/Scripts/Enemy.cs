@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
   protected bool isAlive = true;
 
   [Tooltip("현재 넉백 상태인지 여부")]
-  protected bool isKnockedBack = false;
+  public bool isKnockedBack = false;
 
   [Tooltip("마지막 공격 시간")]
   protected float lastAttackTime = 0f;

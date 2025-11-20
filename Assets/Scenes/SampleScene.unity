@@ -851,7 +851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   edgeDetectionDistance: 2
-  cameraMoveDistance: 20
+  cameraMoveDistance: 7
   yFollowSpeed: 5
   yOffset: 2
   transitionTime: 0.85
@@ -1275,7 +1275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: AstarPathfindingProject::AstarPath
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAABIIewauxgfXQIAABUFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VEtz2jAQ/iuMzk3HhkyA3lqHkB5ImNBOLr4IaY01yJJHDx7J8N+7km3s0qkvlr/9dvfbh/xJhLI1MKfN0gi+0hzItxEJZ/Jl1Buf4UR3Wm3EB3Scd8FdGUg0ct6oExrxNLhZXYEzgn1XOxnICYJeiUKbasF3kGnrLMIFlRbQZLQL3gqhzxE54etuHlzOeBpPw+kDT/NkdMEjA+XA9NSO2NEalldM0qoGHiT35HQ8aenpJPIUVtNSgnKmpRS2lULcuY6lZrS2HgtBAhcUS4v5k68hVgliV7ogdOj+WhQWXKvK0POjMNijJi75oZvGVdTuG2kHKn2UMJ5FVU3Q1T/2uzSaC6Or5y5vmoQcrhRs/0bPjFo36OwQfuylp7FDRyr3dCvhvQT1opdGe8XR6IwPrt7C+LH/vJaWlcD2Pd5IvQF9/f/5hBousfpTJkW1jZ28b4CN1LHjcfpgcDY/UXDcDduGQDSo+G3hF90Nl6g1PAljHZraKlWQt9XeBCpZxJ6FarzLtFEQ4VZ0DYpKd15jGHc7whvbIO2N5YmG69Imb23dLbhxiXDPT5Ib01ofr8OypT6uwJav3kmhoBcdDC/Yp0wr1WzYsCed28abgrKB284L/vdqEZpOaDJ9YA9zhs+W303pfHo/m03nE86nM5aSuHtCYZ1UrhuhbXtwaqoPrnDPur/IaGloHbedG3pcio9KD1ouVKE3zACo1ybCVTgYTIL3ki+4wAZtwDmh4rzJZ06kZnvg+TVQHitdnJyheR8lJ7U4aBeQnGTxt5GTAF93eW3gIOAYknfBLuTyB1BLAwQUAAAICAAASCHsDNfg22wAAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0UqKhcaKBuVmymWUyECSl6JonWpqbWFiYWxqnpJhbJBsqxQLVl1QWpPol5qZC9AQklmSkZealZOal67kXZaa4g4xWiq0FAFBLAQItABQAAAgIAABIIewauxgfXQIAABUFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAABIIewM1+DbbAAAAHgAAAAJACQAAAAAAAAAAAAAAKoCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAYQMAAAAA
+    dataString: UEsDBBQAAAgIAABIIexSWv/0YwIAABwFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1zmzAQ/SsenRsPJBljemudxOkhsSduJhcusrQYjYXESMKf4//elQBD3SkXr9++3X37AWcilK2AOW3mRvA3zYF8HxFvk2+j3vkKB7rRaiVO0HG+BHeFJ9HA+aBOaMRjH2Z1Cc4I9kNtpCdHCNZK5NqUz3wDM22dRTin0gK6jHY+WiF0HpED/tylPuSI1n3irRNaaTS6oMlAOTA9tSN2tIZVKyZpWQH3knvydDKOW346jlL/BLrCplpmNE58FS2lsK0m4o5V6HlVFWDAN80FxRaDjng8QaAAsSmcFzyMXuS5BdeqM/T4JAzOqklLfupmgCW120bijsraF4rvp0FWk/TtH/9dHNy50eVrVzeOfA1XCLb9oEdGrRtMeAg/DaSHSe2p3NK1hK8C1LueG10rjk5nah9aW7h/6v9eW5sVwLY93ki9Aevq/3vyPVxC94eZFOU6jP6xAVZSh4GHKwCDy/mFgsON2DYFol7Fp4XfdDM8ptbxIox16Gq7VF7eWtfGU8kLGn7yrHYzbRQEtNVcgaLSHZeYxd1u8MY3qHrjeaH+rWlrt77uZbgJCXDPj6Ib11Lvr7uyhd6/gS0WtZNCQS/aO95xTDOtVHNgw5F0Yava5JQNwja14H9fFqHxA42SCZukDJ81v0tomjxOp0n6wHkyZTEJpycU9knlshHajgeXpvrkCs+s+5iM5oZW4di5ofu5OJV6MHKhcr1iBkAtmgxX4WCwCL6X/JkLHNAKnBMqrJucMyI12wLPromy0OnzwRma9VkyUomddh7JyCx8PTLi4espLw3sBOx98S7ZhVz+AFBLAwQUAAAICAAASCHsDNfg22wAAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0UqKhcaKBuVmymWUyECSl6JonWpqbWFiYWxqnpJhbJBsqxQLVl1QWpPol5qZC9AQklmSkZealZOal67kXZaa4g4xWiq0FAFBLAQItABQAAAgIAABIIexSWv/0YwIAABwFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAABIIewM1+DbbAAAAHgAAAAJACQAAAAAAAAAAAAAALACAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAZwMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -1303,11 +1303,43 @@ MonoBehaviour:
     _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
     _AreaColors:
     - {r: 0, g: 0, b: 0, a: 0}
-  tagNames: []
+  tagNames:
+  - Basic Ground
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
   heuristic: 2
   heuristicScale: 1
   threadCount: 1
-  maxFrameTime: 1
+  maxFrameTime: 10
   batchGraphUpdates: 0
   graphUpdateBatchingInterval: 0.2
   euclideanEmbedding:
@@ -1423,6 +1455,7 @@ GameObject:
   - component: {fileID: 1146666815}
   - component: {fileID: 1146666817}
   - component: {fileID: 1146666818}
+  - component: {fileID: 1146666819}
   m_Layer: 0
   m_Name: Dog
   m_TagString: Untagged
@@ -1497,7 +1530,7 @@ Transform:
   m_GameObject: {fileID: 1146666806}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.14, y: -3.31, z: 0}
+  m_LocalPosition: {x: 0.74, y: -3.28, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1605,7 +1638,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146666806}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 847e82a09efaa894d90267f5ed791f68, type: 3}
   m_Name: 
@@ -1617,6 +1650,7 @@ MonoBehaviour:
   knockbackDistance: 2
   knockbackDuration: 0.2
   detectionRange: 10
+  isKnockedBack: 0
   chaseSpeedMultiplier: 1.5
   attackRange: 1.5
   patrolRange: 5
@@ -1680,8 +1714,8 @@ MonoBehaviour:
   version: 5
   radius: 0.5
   height: 2
-  canMove: 1
-  maxSpeed: 1
+  canMove: 0
+  maxSpeed: 3
   gravity: {x: 0, y: -30, z: 0}
   groundMask:
     serializedVersion: 2
@@ -1690,12 +1724,12 @@ MonoBehaviour:
   repathRateCompatibility: NaN
   canSearchCompability: 0
   orientation: 1
-  enableRotation: 1
+  enableRotation: 0
   autoRepath:
     mode: 2
     interval: 0.5
     sensitivity: 10
-    maximumInterval: 2
+    maximumInterval: 1
     visualizeSensitivity: 0
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
@@ -1707,6 +1741,33 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
+--- !u!114 &1146666819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146666806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c78fe5c964642d428941f68ee9cb8cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IntelligentDogMovement
+  moveSpeed: 3
+  maxSpeed: 5
+  jumpForce: 21
+  jumpHeightThreshold: 2
+  jumpDistanceThreshold: 2
+  jumpCooldown: 0.5
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  groundCheckDistance: 0.2
+  groundCheckOffset: {x: 0, y: -0.5}
+  waypointReachDistance: 0.5
+  lookAheadWaypoints: 2
+  useDirectMovementFallback: 1
+  obstacleDetectionDistance: 1.5
 --- !u!1 &1213610895
 GameObject:
   m_ObjectHideFlags: 0
@@ -2143,7 +2204,7 @@ Transform:
   m_GameObject: {fileID: 1819403697}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.112, y: -3.72, z: 0}
+  m_LocalPosition: {x: -5.74, y: -3.42, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -2463,63 +2524,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8552f1b67810e464c9e05e82ba96a2d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1973822746
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1973822749}
-  - component: {fileID: 1973822748}
-  - component: {fileID: 1973822747}
-  m_Layer: 0
-  m_Name: PathfindingSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1973822747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1973822746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 074f23dfc3bb6e84196e3a2409206a35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AStarPathfinding
---- !u!114 &1973822748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1973822746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca9ad3ec3ca65ca499e38825257c74de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GridManager
---- !u!4 &1973822749
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1973822746}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2068128195
 GameObject:
   m_ObjectHideFlags: 0
@@ -2679,4 +2683,3 @@ SceneRoots:
   - {fileID: 562325528}
   - {fileID: 1381841008}
   - {fileID: 1146666808}
-  - {fileID: 1973822749}
