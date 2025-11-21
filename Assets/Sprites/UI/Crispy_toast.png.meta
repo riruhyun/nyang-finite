@@ -1,0 +1,3666 @@
+fileFormatVersion: 2
+guid: bfa3522831619f74dbe965b789f5be0d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5746303921302559120
+    second: Crispy_toast_0
+  - first:
+      213: -7409407319985200787
+    second: Crispy_toast_1
+  - first:
+      213: 6209536939555970864
+    second: Crispy_toast_2
+  - first:
+      213: -4341547880810834939
+    second: Crispy_toast_3
+  - first:
+      213: -3835090681781589148
+    second: Crispy_toast_4
+  - first:
+      213: 6906160986946543539
+    second: Crispy_toast_5
+  - first:
+      213: -5379028270068020169
+    second: Crispy_toast_6
+  - first:
+      213: -7253008258010984498
+    second: Crispy_toast_7
+  - first:
+      213: 6456785768750985156
+    second: Crispy_toast_8
+  - first:
+      213: 6061679743893024209
+    second: Crispy_toast_9
+  - first:
+      213: 1785649493851443784
+    second: Crispy_toast_10
+  - first:
+      213: -2704470525677400242
+    second: Crispy_toast_11
+  - first:
+      213: 8589589573426679069
+    second: Crispy_toast_12
+  - first:
+      213: -1183836217994794265
+    second: Crispy_toast_13
+  - first:
+      213: 1445713050303995799
+    second: Crispy_toast_14
+  - first:
+      213: -1290215182311852981
+    second: Crispy_toast_15
+  - first:
+      213: 3347165930571843379
+    second: Crispy_toast_16
+  - first:
+      213: 8105224762249210799
+    second: Crispy_toast_17
+  - first:
+      213: 2688320380500613329
+    second: Crispy_toast_18
+  - first:
+      213: -5736861972096397564
+    second: Crispy_toast_19
+  - first:
+      213: 8596732925119594901
+    second: Crispy_toast_20
+  - first:
+      213: -6649425926177478382
+    second: Crispy_toast_21
+  - first:
+      213: -193794378449649938
+    second: Crispy_toast_22
+  - first:
+      213: -3884573771571741440
+    second: Crispy_toast_23
+  - first:
+      213: -2493197715779985638
+    second: Crispy_toast_24
+  - first:
+      213: 5370858876801453258
+    second: Crispy_toast_25
+  - first:
+      213: 8921536227271601467
+    second: Crispy_toast_26
+  - first:
+      213: 4113743534859017102
+    second: Crispy_toast_27
+  - first:
+      213: -4248742381574048505
+    second: Crispy_toast_28
+  - first:
+      213: -5864903517867609911
+    second: Crispy_toast_29
+  - first:
+      213: 2010102742192782338
+    second: Crispy_toast_30
+  - first:
+      213: 8074302131879322833
+    second: Crispy_toast_31
+  - first:
+      213: -2222415915549870691
+    second: Crispy_toast_32
+  - first:
+      213: -4003499966514005376
+    second: Crispy_toast_33
+  - first:
+      213: -6351105353292151410
+    second: Crispy_toast_34
+  - first:
+      213: 3152815658229986669
+    second: Crispy_toast_35
+  - first:
+      213: -2177581759143382321
+    second: Crispy_toast_36
+  - first:
+      213: -1427510280439210826
+    second: Crispy_toast_37
+  - first:
+      213: -4286306364067553277
+    second: Crispy_toast_38
+  - first:
+      213: -8219236438218556012
+    second: Crispy_toast_39
+  - first:
+      213: 495316872078138729
+    second: Crispy_toast_40
+  - first:
+      213: -2265594784586299363
+    second: Crispy_toast_41
+  - first:
+      213: 3482231988311001774
+    second: Crispy_toast_42
+  - first:
+      213: -8954402780340961261
+    second: Crispy_toast_43
+  - first:
+      213: 3348714242334619857
+    second: Crispy_toast_44
+  - first:
+      213: 1389878644947569563
+    second: Crispy_toast_45
+  - first:
+      213: -476911780906822652
+    second: Crispy_toast_46
+  - first:
+      213: -5364795148560582717
+    second: Crispy_toast_47
+  - first:
+      213: -1136202606779923827
+    second: Crispy_toast_48
+  - first:
+      213: -1636171591428847039
+    second: Crispy_toast_49
+  - first:
+      213: -4216600786862763045
+    second: Crispy_toast_50
+  - first:
+      213: 1931248325525574151
+    second: Crispy_toast_51
+  - first:
+      213: -7742316735211540724
+    second: Crispy_toast_52
+  - first:
+      213: 2887432803216121905
+    second: Crispy_toast_53
+  - first:
+      213: 1108893414814883605
+    second: Crispy_toast_54
+  - first:
+      213: -3268157821597764060
+    second: Crispy_toast_55
+  - first:
+      213: -9113840133940907983
+    second: Crispy_toast_56
+  - first:
+      213: 1820737501876040170
+    second: Crispy_toast_57
+  - first:
+      213: -836977174941599262
+    second: Crispy_toast_58
+  - first:
+      213: -5459728157593377577
+    second: Crispy_toast_59
+  - first:
+      213: 7335793041288854433
+    second: Crispy_toast_60
+  - first:
+      213: -1265200076936791109
+    second: Crispy_toast_61
+  - first:
+      213: 5215928240557121297
+    second: Crispy_toast_62
+  - first:
+      213: 9025912686509424022
+    second: Crispy_toast_63
+  - first:
+      213: 3018774377121234790
+    second: Crispy_toast_64
+  - first:
+      213: -8792033861858191036
+    second: Crispy_toast_65
+  - first:
+      213: -4505602171004665150
+    second: Crispy_toast_66
+  - first:
+      213: 1466290779419040222
+    second: Crispy_toast_67
+  - first:
+      213: 5199959835569064536
+    second: Crispy_toast_68
+  - first:
+      213: -268610351038474540
+    second: Crispy_toast_69
+  - first:
+      213: -4341828843549474650
+    second: Crispy_toast_70
+  - first:
+      213: 6280102738413621965
+    second: Crispy_toast_71
+  - first:
+      213: -2163603607561562760
+    second: Crispy_toast_72
+  - first:
+      213: 1099076569956603003
+    second: Crispy_toast_73
+  - first:
+      213: 6131834512637664490
+    second: Crispy_toast_74
+  - first:
+      213: -4180539622338933191
+    second: Crispy_toast_75
+  - first:
+      213: -8669722085991745949
+    second: Crispy_toast_76
+  - first:
+      213: 2728336686122070639
+    second: Crispy_toast_77
+  - first:
+      213: -5738137453331434513
+    second: Crispy_toast_78
+  - first:
+      213: -4362253888169097168
+    second: Crispy_toast_79
+  - first:
+      213: -7446953982823294303
+    second: Crispy_toast_80
+  - first:
+      213: -5226840027920199077
+    second: Crispy_toast_81
+  - first:
+      213: -2114233942464582408
+    second: Crispy_toast_82
+  - first:
+      213: -6117163100108998560
+    second: Crispy_toast_83
+  - first:
+      213: -5827672880468255020
+    second: Crispy_toast_84
+  - first:
+      213: -2165271673038832242
+    second: Crispy_toast_85
+  - first:
+      213: 1357493352187888950
+    second: Crispy_toast_86
+  - first:
+      213: -2236413266659819271
+    second: Crispy_toast_87
+  - first:
+      213: 3292764470965407572
+    second: Crispy_toast_88
+  - first:
+      213: -7670043051659145506
+    second: Crispy_toast_89
+  - first:
+      213: 1731023664725444754
+    second: Crispy_toast_90
+  - first:
+      213: 584809233987221594
+    second: Crispy_toast_91
+  - first:
+      213: -2451531866680936447
+    second: Crispy_toast_92
+  - first:
+      213: 1892760535889612989
+    second: Crispy_toast_93
+  - first:
+      213: -435267145689103131
+    second: Crispy_toast_94
+  - first:
+      213: 493595965533512213
+    second: Crispy_toast_95
+  - first:
+      213: 6596568248172827870
+    second: Crispy_toast_96
+  - first:
+      213: -6156230928516262116
+    second: Crispy_toast_97
+  - first:
+      213: 1360871180592961030
+    second: Crispy_toast_98
+  - first:
+      213: -4752690906105365127
+    second: Crispy_toast_99
+  - first:
+      213: -8998338020629961241
+    second: Crispy_toast_100
+  - first:
+      213: -4089858658313557836
+    second: Crispy_toast_101
+  - first:
+      213: 8862070008463336463
+    second: Crispy_toast_102
+  - first:
+      213: -1637287973945260676
+    second: Crispy_toast_103
+  - first:
+      213: -4459279706414026753
+    second: Crispy_toast_104
+  - first:
+      213: -4710759865562399934
+    second: Crispy_toast_105
+  - first:
+      213: -1402716351374180395
+    second: Crispy_toast_106
+  - first:
+      213: -3424079457443083350
+    second: Crispy_toast_107
+  - first:
+      213: 8812243540395308520
+    second: Crispy_toast_108
+  - first:
+      213: 9183962134066036964
+    second: Crispy_toast_109
+  - first:
+      213: -5189383114820948580
+    second: Crispy_toast_110
+  - first:
+      213: 1484660634706429182
+    second: Crispy_toast_111
+  - first:
+      213: -1311209944845648746
+    second: Crispy_toast_112
+  - first:
+      213: 1132552895756501657
+    second: Crispy_toast_113
+  - first:
+      213: 1825136751548536727
+    second: Crispy_toast_114
+  - first:
+      213: 1369468450970408456
+    second: Crispy_toast_115
+  - first:
+      213: 6629547100260551646
+    second: Crispy_toast_116
+  - first:
+      213: -417370112785090328
+    second: Crispy_toast_117
+  - first:
+      213: 2675307043873148482
+    second: Crispy_toast_118
+  - first:
+      213: 6767336702941584127
+    second: Crispy_toast_119
+  - first:
+      213: -8813698874730629635
+    second: Crispy_toast_120
+  - first:
+      213: 3970817659818664714
+    second: Crispy_toast_121
+  - first:
+      213: 4545960511220357332
+    second: Crispy_toast_122
+  - first:
+      213: 1531919376744871450
+    second: Crispy_toast_123
+  - first:
+      213: -8080004896526886623
+    second: Crispy_toast_124
+  - first:
+      213: -7177545176142567626
+    second: Crispy_toast_125
+  - first:
+      213: 4146774550951897242
+    second: Crispy_toast_126
+  - first:
+      213: 5583439870882709023
+    second: Crispy_toast_127
+  - first:
+      213: -4289764677417139723
+    second: Crispy_toast_128
+  - first:
+      213: 937416813599619848
+    second: Crispy_toast_129
+  - first:
+      213: -1968735812063028046
+    second: Crispy_toast_130
+  - first:
+      213: 3272203081607633747
+    second: Crispy_toast_131
+  - first:
+      213: -5869253890049979438
+    second: Crispy_toast_132
+  - first:
+      213: -4703431286529653624
+    second: Crispy_toast_133
+  - first:
+      213: -4464048413115428033
+    second: Crispy_toast_134
+  - first:
+      213: 266575889343487477
+    second: Crispy_toast_135
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Crispy_toast_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 741
+        height: 741
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 076a35f57070140b0800000000000000
+      internalID: -5746303921302559120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_1
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 734
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d616a189c4f7c2990800000000000000
+      internalID: -7409407319985200787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_2
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 736
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03f56ed62f4bc2650800000000000000
+      internalID: 6209536939555970864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_3
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 703
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5049be47439bfb3c0800000000000000
+      internalID: -4341547880810834939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_4
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 730
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46b6ff6185507cac0800000000000000
+      internalID: -3835090681781589148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_5
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 735
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bf1c94c3dc97df50800000000000000
+      internalID: 6906160986946543539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_6
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 725
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73ccfc5a94ad955b0800000000000000
+      internalID: -5379028270068020169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_7
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 728
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecfc74cda63285b90800000000000000
+      internalID: -7253008258010984498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_8
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 735
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cf2339727c1b9950800000000000000
+      internalID: 6456785768750985156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_9
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 730
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ddace46c996f1450800000000000000
+      internalID: 6061679743893024209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_10
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 729
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8421f5ef0c6e7c810800000000000000
+      internalID: 1785649493851443784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_11
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 736
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4f0c73c26ac77ad0800000000000000
+      internalID: -2704470525677400242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_12
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 732
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1d0f7a153a543770800000000000000
+      internalID: 8589589573426679069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_13
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 721
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7eaad226b3b229fe0800000000000000
+      internalID: -1183836217994794265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_14
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 734
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79f148a0c54301410800000000000000
+      internalID: 1445713050303995799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_15
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 722
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b447c76a02c381ee0800000000000000
+      internalID: -1290215182311852981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_16
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 736
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33746080ea5837e20800000000000000
+      internalID: 3347165930571843379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_17
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 736
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fab609a5afa8b7070800000000000000
+      internalID: 8105224762249210799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_18
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 732
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d89e2a8425de4520800000000000000
+      internalID: 2688320380500613329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_19
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 719
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40f4fbb7e629260b0800000000000000
+      internalID: -5736861972096397564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_20
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 728
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59188a64c0bbd4770800000000000000
+      internalID: 8596732925119594901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_21
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 727
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2192beda95e78b3a0800000000000000
+      internalID: -6649425926177478382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_22
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 733
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eee7a012a018f4df0800000000000000
+      internalID: -193794378449649938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_23
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 736
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00dbaa17cb8371ac0800000000000000
+      internalID: -3884573771571741440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_24
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 731
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1f5e1413e1666dd0800000000000000
+      internalID: -2493197715779985638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_25
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 733
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acc018241bf198a40800000000000000
+      internalID: 5370858876801453258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_26
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 732
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3d6d4d2ee9afcb70800000000000000
+      internalID: 8921536227271601467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_27
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 733
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8bd45c03f3f61930800000000000000
+      internalID: 4113743534859017102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_28
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 729
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 705b124905f6905c0800000000000000
+      internalID: -4248742381574048505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_29
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 719
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c0ff87f25dab9ea0800000000000000
+      internalID: -5864903517867609911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_30
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 733
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20c70764bc155eb10800000000000000
+      internalID: 2010102742192782338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_31
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 730
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d4a8db620fad0070800000000000000
+      internalID: 8074302131879322833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_32
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 729
+        width: 18
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d95b97aef746821e0800000000000000
+      internalID: -2222415915549870691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_33
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 736
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08af4adedf5b078c0800000000000000
+      internalID: -4003499966514005376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_34
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 727
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8580fda4575cd7a0800000000000000
+      internalID: -6351105353292151410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_35
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 736
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d657617032d01cb20800000000000000
+      internalID: 3152815658229986669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_36
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 723
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc273e86deca7c1e0800000000000000
+      internalID: -2177581759143382321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_37
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 736
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bcd33596f6703ce0800000000000000
+      internalID: -1427510280439210826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_38
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 736
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 300e14b521bf384c0800000000000000
+      internalID: -4286306364067553277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_39
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 733
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49d390fb1086fed80800000000000000
+      internalID: -8219236438218556012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_40
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 732
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96d99732218bfd600800000000000000
+      internalID: 495316872078138729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_41
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 719
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1881cb0c8dfe80e0800000000000000
+      internalID: -2265594784586299363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_42
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 728
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaa87c03b8f535030800000000000000
+      internalID: 3482231988311001774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_43
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 727
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 310c10e1d129bb380800000000000000
+      internalID: -8954402780340961261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_44
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 733
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d875a47cd5097e20800000000000000
+      internalID: 3348714242334619857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_45
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 736
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9b40018347d94310800000000000000
+      internalID: 1389878644947569563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_46
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 714
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40499d5134ba169f0800000000000000
+      internalID: -476911780906822652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_47
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 730
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c7be4d7c3b6c85b0800000000000000
+      internalID: -5364795148560582717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_48
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 730
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d82820ebfb56b30f0800000000000000
+      internalID: -1136202606779923827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_49
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 735
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14a4c4d3b962b49e0800000000000000
+      internalID: -1636171591428847039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_50
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 725
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd39963ccef9b75c0800000000000000
+      internalID: -4216600786862763045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_51
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 728
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7021500be1c2dca10800000000000000
+      internalID: 1931248325525574151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_52
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 735
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0f672b23f3cd8490800000000000000
+      internalID: -7742316735211540724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_53
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 730
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 130e18416d8321820800000000000000
+      internalID: 2887432803216121905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_54
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 729
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51f9fc38fa4936f00800000000000000
+      internalID: 1108893414814883605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_55
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 736
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42630c5d6cb25a2d0800000000000000
+      internalID: -3268157821597764060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_56
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 732
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 130f0c47fa2258180800000000000000
+      internalID: -9113840133940907983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_57
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 730
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae1bd8c7c1f844910800000000000000
+      internalID: 1820737501876040170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_58
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 734
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e9fe72a1b57264f0800000000000000
+      internalID: -836977174941599262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_59
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 726
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d4e274ea262b34b0800000000000000
+      internalID: -5459728157593377577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 676
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1abfdc387e8fdc560800000000000000
+      internalID: 7335793041288854433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_61
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 657
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbbb26cbb3b117ee0800000000000000
+      internalID: -1265200076936791109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_62
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 601
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11fd5508913b26840800000000000000
+      internalID: 5215928240557121297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 585
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69df51d54cb724d70800000000000000
+      internalID: 9025912686509424022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_64
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 573
+        width: 25
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66fbc554d47d4e920800000000000000
+      internalID: 3018774377121234790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_65
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 562
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4499cbae8cb6cf580800000000000000
+      internalID: -8792033861858191036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_66
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 549
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c2c90a72b2e871c0800000000000000
+      internalID: -4505602171004665150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_67
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 6
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed9d3b4f1bf495410800000000000000
+      internalID: 1466290779419040222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_68
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 497
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85a846d7be7f92840800000000000000
+      internalID: 5199959835569064536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_69
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 469
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d6db531f44b54cf0800000000000000
+      internalID: -268610351038474540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 458
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a040b8bba9beb3c0800000000000000
+      internalID: -4341828843549474650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_71
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 420
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc21a1cca28672750800000000000000
+      internalID: 6280102738413621965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 412
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8751a807bf559f1e0800000000000000
+      internalID: -2163603607561562760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_73
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 346
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b74d7353154b04f00800000000000000
+      internalID: 1099076569956603003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_74
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 329
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aec9f3b5007a81550800000000000000
+      internalID: 6131834512637664490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_75
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 319
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93eca09ec5dbbf5c0800000000000000
+      internalID: -4180539622338933191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_76
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 293
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3667a1b62b5fea780800000000000000
+      internalID: -8669722085991745949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_77
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 6
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f62f8fbb2cffcd520800000000000000
+      internalID: 2728336686122070639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_78
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 241
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe3b0dd536a0e50b0800000000000000
+      internalID: -5738137453331434513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_79
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 213
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0384d9f63392673c0800000000000000
+      internalID: -4362253888169097168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 202
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1aa132beeca17a890800000000000000
+      internalID: -7446953982823294303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_81
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 164
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b52160600b88677b0800000000000000
+      internalID: -5226840027920199077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_82
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 152
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fc23575e6bb8a2e0800000000000000
+      internalID: -2114233942464582408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_83
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 89
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06830e012987b1ba0800000000000000
+      internalID: -6117163100108998560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_84
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 73
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4de138c3462ff1fa0800000000000000
+      internalID: -5827672880468255020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_85
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 61
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8dfd4ea2e863f1e0800000000000000
+      internalID: -2165271673038832242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_86
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 50
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6350d12f209c6d210800000000000000
+      internalID: 1357493352187888950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_87
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 37
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f045c5abf9a6f0e0800000000000000
+      internalID: -2236413266659819271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_88
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 0
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45f8bec27df32bd20800000000000000
+      internalID: 3292764470965407572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_89
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 3
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ede47ed6b788e8590800000000000000
+      internalID: -7670043051659145506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_90
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 0
+        width: 11
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29841c90ad4d50810800000000000000
+      internalID: 1731023664725444754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_91
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 3
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a583d2d56e8ad1800800000000000000
+      internalID: 584809233987221594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_92
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 0
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 108beea81c86afdd0800000000000000
+      internalID: -2451531866680936447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_93
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 3
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db0149addaf644a10800000000000000
+      internalID: 1892760535889612989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_94
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e48dce46de95f9f0800000000000000
+      internalID: -435267145689103131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_95
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 0
+        width: 54
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 512e03c5aea99d600800000000000000
+      internalID: 493595965533512213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_96
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 0
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed456f02fd7bb8b50800000000000000
+      internalID: 6596568248172827870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_97
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 0
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c17d38e669ca09aa0800000000000000
+      internalID: -6156230928516262116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_98
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 0
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6065f48e029c2e210800000000000000
+      internalID: 1360871180592961030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_99
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 0
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97d3c5e3dcc0b0eb0800000000000000
+      internalID: -4752690906105365127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_100
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 0
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e5a577de3b7f1380800000000000000
+      internalID: -8998338020629961241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_101
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 3
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b82aa12837ed37c0800000000000000
+      internalID: -4089858658313557836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_102
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 0
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f04a91d28b56cfa70800000000000000
+      internalID: 8862070008463336463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_103
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 0
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7549fd234f2749e0800000000000000
+      internalID: -1637287973945260676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_104
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 0
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fff6519bbb47d12c0800000000000000
+      internalID: -4459279706414026753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_105
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 0
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24b7cf66cd400aeb0800000000000000
+      internalID: -4710759865562399934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_106
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 2
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dfb5bb09ec888ce0800000000000000
+      internalID: -1402716351374180395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_107
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 0
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aab846000e93b70d0800000000000000
+      internalID: -3424079457443083350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_108
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 0
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e53e7b8fc06b4a70800000000000000
+      internalID: 8812243540395308520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_109
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 0
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e005a7f6ecf37f70800000000000000
+      internalID: 9183962134066036964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_110
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9defa53d8b9bf7b0800000000000000
+      internalID: -5189383114820948580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_111
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 0
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef4ceaf2bf29a9410800000000000000
+      internalID: 1484660634706429182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_112
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 0
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69cf3839085adcde0800000000000000
+      internalID: -1311209944845648746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_113
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 0
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99208e0bbd2a7bf00800000000000000
+      internalID: 1132552895756501657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_114
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7979f8e9430345910800000000000000
+      internalID: 1825136751548536727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_115
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 0
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8061237ec44510310800000000000000
+      internalID: 1369468450970408456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_116
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edb40cc76f1e00c50800000000000000
+      internalID: 6629547100260551646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_117
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 0
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e8749ff714353af0800000000000000
+      internalID: -417370112785090328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_118
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 0
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24ec82ff499902520800000000000000
+      internalID: 2675307043873148482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_119
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 0
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffadb4e50e86aed50800000000000000
+      internalID: 6767336702941584127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_120
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 0
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df5bb6602937fa580800000000000000
+      internalID: -8813698874730629635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_121
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 0
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a03e6519f9d2b1730800000000000000
+      internalID: 3970817659818664714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_122
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 0
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d81e3adffe761f30800000000000000
+      internalID: 4545960511220357332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_123
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 0
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a167a638e88724510800000000000000
+      internalID: 1531919376744871450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_124
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 2
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12919173b5e0edf80800000000000000
+      internalID: -8080004896526886623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_125
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 0
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63724b8c0bc346c90800000000000000
+      internalID: -7177545176142567626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_126
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 0
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a982e19cb7d4c8930800000000000000
+      internalID: 4146774550951897242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_127
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 0
+        width: 11
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1e77b0fafc5c7d40800000000000000
+      internalID: 5583439870882709023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_128
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 0
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f1888801c1b774c0800000000000000
+      internalID: -4289764677417139723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_129
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 0
+        width: 29
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80b751510af520d00800000000000000
+      internalID: 937416813599619848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_130
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 0
+        width: 50
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bc9461b535ada4e0800000000000000
+      internalID: -1968735812063028046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_131
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 0
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35b5928ad53396d20800000000000000
+      internalID: 3272203081607633747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_132
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 0
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dbcdf20fa83c8ea0800000000000000
+      internalID: -5869253890049979438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_133
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 0
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88401fc2a2e0abeb0800000000000000
+      internalID: -4703431286529653624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_134
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 0
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f33db1cae938c02c0800000000000000
+      internalID: -4464048413115428033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crispy_toast_135
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 2
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fd9006eb5113b300800000000000000
+      internalID: 266575889343487477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Crispy_toast_0: -5746303921302559120
+      Crispy_toast_1: -7409407319985200787
+      Crispy_toast_10: 1785649493851443784
+      Crispy_toast_100: -8998338020629961241
+      Crispy_toast_101: -4089858658313557836
+      Crispy_toast_102: 8862070008463336463
+      Crispy_toast_103: -1637287973945260676
+      Crispy_toast_104: -4459279706414026753
+      Crispy_toast_105: -4710759865562399934
+      Crispy_toast_106: -1402716351374180395
+      Crispy_toast_107: -3424079457443083350
+      Crispy_toast_108: 8812243540395308520
+      Crispy_toast_109: 9183962134066036964
+      Crispy_toast_11: -2704470525677400242
+      Crispy_toast_110: -5189383114820948580
+      Crispy_toast_111: 1484660634706429182
+      Crispy_toast_112: -1311209944845648746
+      Crispy_toast_113: 1132552895756501657
+      Crispy_toast_114: 1825136751548536727
+      Crispy_toast_115: 1369468450970408456
+      Crispy_toast_116: 6629547100260551646
+      Crispy_toast_117: -417370112785090328
+      Crispy_toast_118: 2675307043873148482
+      Crispy_toast_119: 6767336702941584127
+      Crispy_toast_12: 8589589573426679069
+      Crispy_toast_120: -8813698874730629635
+      Crispy_toast_121: 3970817659818664714
+      Crispy_toast_122: 4545960511220357332
+      Crispy_toast_123: 1531919376744871450
+      Crispy_toast_124: -8080004896526886623
+      Crispy_toast_125: -7177545176142567626
+      Crispy_toast_126: 4146774550951897242
+      Crispy_toast_127: 5583439870882709023
+      Crispy_toast_128: -4289764677417139723
+      Crispy_toast_129: 937416813599619848
+      Crispy_toast_13: -1183836217994794265
+      Crispy_toast_130: -1968735812063028046
+      Crispy_toast_131: 3272203081607633747
+      Crispy_toast_132: -5869253890049979438
+      Crispy_toast_133: -4703431286529653624
+      Crispy_toast_134: -4464048413115428033
+      Crispy_toast_135: 266575889343487477
+      Crispy_toast_14: 1445713050303995799
+      Crispy_toast_15: -1290215182311852981
+      Crispy_toast_16: 3347165930571843379
+      Crispy_toast_17: 8105224762249210799
+      Crispy_toast_18: 2688320380500613329
+      Crispy_toast_19: -5736861972096397564
+      Crispy_toast_2: 6209536939555970864
+      Crispy_toast_20: 8596732925119594901
+      Crispy_toast_21: -6649425926177478382
+      Crispy_toast_22: -193794378449649938
+      Crispy_toast_23: -3884573771571741440
+      Crispy_toast_24: -2493197715779985638
+      Crispy_toast_25: 5370858876801453258
+      Crispy_toast_26: 8921536227271601467
+      Crispy_toast_27: 4113743534859017102
+      Crispy_toast_28: -4248742381574048505
+      Crispy_toast_29: -5864903517867609911
+      Crispy_toast_3: -4341547880810834939
+      Crispy_toast_30: 2010102742192782338
+      Crispy_toast_31: 8074302131879322833
+      Crispy_toast_32: -2222415915549870691
+      Crispy_toast_33: -4003499966514005376
+      Crispy_toast_34: -6351105353292151410
+      Crispy_toast_35: 3152815658229986669
+      Crispy_toast_36: -2177581759143382321
+      Crispy_toast_37: -1427510280439210826
+      Crispy_toast_38: -4286306364067553277
+      Crispy_toast_39: -8219236438218556012
+      Crispy_toast_4: -3835090681781589148
+      Crispy_toast_40: 495316872078138729
+      Crispy_toast_41: -2265594784586299363
+      Crispy_toast_42: 3482231988311001774
+      Crispy_toast_43: -8954402780340961261
+      Crispy_toast_44: 3348714242334619857
+      Crispy_toast_45: 1389878644947569563
+      Crispy_toast_46: -476911780906822652
+      Crispy_toast_47: -5364795148560582717
+      Crispy_toast_48: -1136202606779923827
+      Crispy_toast_49: -1636171591428847039
+      Crispy_toast_5: 6906160986946543539
+      Crispy_toast_50: -4216600786862763045
+      Crispy_toast_51: 1931248325525574151
+      Crispy_toast_52: -7742316735211540724
+      Crispy_toast_53: 2887432803216121905
+      Crispy_toast_54: 1108893414814883605
+      Crispy_toast_55: -3268157821597764060
+      Crispy_toast_56: -9113840133940907983
+      Crispy_toast_57: 1820737501876040170
+      Crispy_toast_58: -836977174941599262
+      Crispy_toast_59: -5459728157593377577
+      Crispy_toast_6: -5379028270068020169
+      Crispy_toast_60: 7335793041288854433
+      Crispy_toast_61: -1265200076936791109
+      Crispy_toast_62: 5215928240557121297
+      Crispy_toast_63: 9025912686509424022
+      Crispy_toast_64: 3018774377121234790
+      Crispy_toast_65: -8792033861858191036
+      Crispy_toast_66: -4505602171004665150
+      Crispy_toast_67: 1466290779419040222
+      Crispy_toast_68: 5199959835569064536
+      Crispy_toast_69: -268610351038474540
+      Crispy_toast_7: -7253008258010984498
+      Crispy_toast_70: -4341828843549474650
+      Crispy_toast_71: 6280102738413621965
+      Crispy_toast_72: -2163603607561562760
+      Crispy_toast_73: 1099076569956603003
+      Crispy_toast_74: 6131834512637664490
+      Crispy_toast_75: -4180539622338933191
+      Crispy_toast_76: -8669722085991745949
+      Crispy_toast_77: 2728336686122070639
+      Crispy_toast_78: -5738137453331434513
+      Crispy_toast_79: -4362253888169097168
+      Crispy_toast_8: 6456785768750985156
+      Crispy_toast_80: -7446953982823294303
+      Crispy_toast_81: -5226840027920199077
+      Crispy_toast_82: -2114233942464582408
+      Crispy_toast_83: -6117163100108998560
+      Crispy_toast_84: -5827672880468255020
+      Crispy_toast_85: -2165271673038832242
+      Crispy_toast_86: 1357493352187888950
+      Crispy_toast_87: -2236413266659819271
+      Crispy_toast_88: 3292764470965407572
+      Crispy_toast_89: -7670043051659145506
+      Crispy_toast_9: 6061679743893024209
+      Crispy_toast_90: 1731023664725444754
+      Crispy_toast_91: 584809233987221594
+      Crispy_toast_92: -2451531866680936447
+      Crispy_toast_93: 1892760535889612989
+      Crispy_toast_94: -435267145689103131
+      Crispy_toast_95: 493595965533512213
+      Crispy_toast_96: 6596568248172827870
+      Crispy_toast_97: -6156230928516262116
+      Crispy_toast_98: 1360871180592961030
+      Crispy_toast_99: -4752690906105365127
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

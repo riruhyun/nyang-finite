@@ -197,7 +197,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -681444959
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -8924102693037395688, guid: cc6b38bdb049cbe49b43e5c804d61155, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -426,7 +426,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 667370565
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -5113850848988359095, guid: 066617d9c706ffe4bae597df419e08c5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -448,7 +448,7 @@ Transform:
   m_GameObject: {fileID: 103964810}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.33, y: -2.17, z: 0}
+  m_LocalPosition: {x: -14.15, y: -1.7, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -517,7 +517,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1249462945
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 17cde2c3a213c364296674e9d6999a19, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -686,7 +686,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -681444959
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 1
   m_Sprite: {fileID: -6153703733979115561, guid: 3bb0074a222c1f04f951921dd6625fa7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -970,7 +970,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 667370565
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -5113850848988359095, guid: 066617d9c706ffe4bae597df419e08c5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1239,6 +1239,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1000767915}
   - component: {fileID: 1000767916}
+  - component: {fileID: 1000767917}
   m_Layer: 0
   m_Name: A*
   m_TagString: Untagged
@@ -1275,7 +1276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: AstarPathfindingProject::AstarPath
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAABIIewTZgK+cAIAACwFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VMFy2jAQ/RVG58LYQGLcW0sI6SEJU9rJxRchrbEGWfJIcoBk+PeuZBu7dOqL5d19u2/frvxJhLIVMKfN2gj+rDmQryPiz+TLqHc+wYnutdqKD+hi3gR3hQ+iIeYndUKjPfYwq0twRrBvai99cITGWolcm3LF97DU1lk051RaQJfRzqMVmj5H5ISvceohZzxNE3/6wFMajS54ZKAcmD50OpvctbHjaHKXhqeFNIhaMUnLCrin3wPTaJLETawHx7PJfB7iFXbYhkaTxdzX1FIK2zIk7lwFBbZVAQa8BFxQbDiwigObAsS+cJ7dEP2a5xZcq4eh5wdhULkmLfmuGzlLag8NyXcqa18oni4Crybp8z/+cRzcudHlU1c3jnwNVwh2+EnPjFo30HtofhhQD1odqTzQnYS3AtSLXhtdK45OZ2oPrS1MH/rPa2vLAtihtzdUb4x11Yvfjbcbru/hEro/LaUod0H7eWPYSh0EDzsBBqfzAwmHjbFtCrR6Fr8t/KL74Wq1jkdhrENX26Xy9Ha6Nj6UrIJmvpvaLbVRYIYZKlBUuvMG87jbGd74/o96pP4WtdVbX3c5biDB3MdH0Y1ro4/XadlCH5/BFq+1k0JBL7V3vKBQS61Us2LDljrYtjY5ZQPYvhb8790iNJ7RKLln9ynDZ8fHCU2T+WKRpDPOkwWLSVg+obBPKjcN0VYeHJvqkytctO7nMlobWoV154Ye1+Kj1LaPFCrXW2YA1GuT4UocDBbBq8lXXKBAW3BOqDBw8pkRqdkBeHZNlIVOVydnaNZnyUgl3rXzlowsw98kI958XeaNgXcBR1+8S3Yhlz9QSwMEFAAACAgAAEgh7AzX4NtsAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tFKioXGigblZspllMhAkpeiaJ1qam1hYmFsap6SYWyQbKsUC1ZdUFqT6JeamQvQEJJZkpGXmpWTmpeu5F2WmuIOMVoqtBQBQSwECLQAUAAAICAAASCHsE2YCvnACAAAsBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAASCHsDNfg22wAAAB4AAAACQAkAAAAAAAAAAAAAAC9AgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAHQDAAAAAA==
+    dataString: UEsDBBQAAAgIAABIIezQyfUAYwIAABoFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzk3GJkyA3logpIcEJjSTiy9CWtsaZMkjyXwO/70r2cYunXJBvH27+/ZpxYUIZUtgTpulEfxNcyDfB8SfybdBF3yFI8202ogztJwvwV3uSTRwPqgTGvHYp1ldgDOC/VCZ9OQIwUqJVJtiwTOYaesswimVFjBktPPZCqHLgBzx62HqU054Go796YynaTS44pGBcmA66rBltryaVikmaVEC95o7dhyNGnocPY4CU+FADSl6HD77FlpKYRtBxJ3KMPCmzMGAn5gLivMFEfHjBIEcRJY7L6afvUpTC65RZuhpLgwaVZclP3XtXkHtrpa3p7LyjeLhJOiqi779E3+IQzg1unht+8aR7+FywXYf9MSodT17+/C8Jz24dKByR7cSvnJQ73ppdKU4Bp2pfGplYTjvft5Gm+XAdh1eS70Dq7Kz/f6O/AzXMP1xJkWxDd6PamAjdTA8rAAYvJ1fKDgsiG0sRtSr+LTwm2b9TWoCL8JYh6FmSuXlbXVlPJUsgmd+msrNtFFg+hVKUFS60xrruPs7vIv9P+uF+kfTdG9i7Vu4Swlwx4+iu9BaH263ZXN9eAObryonhYLOah94R6NmWql6xfojtWmbyqSU9dKySvC/d4vQ+IlG42f2PGX42fKHMZ2OR5PJePrE+XjCYhKWTyick8p1LbSxB69NdcUVLpqvONfZYGloGbadG3pYinOhbUcUKtUbZgDUqi5w0w0Ge+DL5Asu0J8NOCdUuG9ySYjUbAc8uRVKwqCLozM06aokpBR77TySkFn470iIh2+7vDawF3DwzdtiV3L9A1BLAwQUAAAICAAASCHsDNfg22wAAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0UqKhcaKBuVmymWUyECSl6JonWpqbWFiYWxqnpJhbJBsqxQLVl1QWpPol5qZC9AQklmSkZealZOal67kXZaa4g4xWiq0FAFBLAQItABQAAAgIAABIIezQyfUAYwIAABoFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAABIIewM1+DbbAAAAHgAAAAJACQAAAAAAAAAAAAAALACAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAZwMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -1348,6 +1349,25 @@ MonoBehaviour:
     pivotPointRoot: {fileID: 0}
     spreadOutCount: 1
   showGraphs: 1
+--- !u!114 &1000767917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000767914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 702c74bd56383704e92a7612fff246ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AstarAutoRescan
+  rescanOnStart: 1
+  rescanDelay: 0.05
+  groundTag: Untagged
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  showDebugLogs: 0
 --- !u!1 &1013098764
 GameObject:
   m_ObjectHideFlags: 0
@@ -1425,7 +1445,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -681444959
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 1
   m_Sprite: {fileID: 7428336166433268821, guid: 87b01e1a45f9d5746a32abdaf417af5b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1508,7 +1528,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -782496337
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 4723107735738678597, guid: e5261e5055187af4a9d9e36c3ee49744, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1570,7 +1590,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.000000029802322, y: 0.015}
+  m_Offset: {x: 0.000000029802322, y: -0.005}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1580,7 +1600,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.28229266, y: 0.25061205}
+  m_Size: {x: 0.29, y: 0.25061205}
   m_EdgeRadius: 0
 --- !u!50 &1146666811
 Rigidbody2D:
@@ -1594,8 +1614,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1.5
-  m_LinearDamping: 0.5
+  m_Mass: 1
+  m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 3
   m_Material: {fileID: 0}
@@ -1643,10 +1663,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 847e82a09efaa894d90267f5ed791f68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 1
+  attackSpeed: 0.5
   maxHealth: 100
   moveSpeed: 3
-  jumpForce: 10
+  jumpForce: 500
   knockbackDistance: 2
   knockbackDuration: 0.2
   detectionRange: 10
@@ -1656,6 +1676,34 @@ MonoBehaviour:
   patrolRange: 5
   attackDamage: 1
   attackAnimationDuration: 0.5
+  jumpForce: 700
+  jumpHeightThreshold: 1
+  jumpCooldown: 0.5
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  groundCheck: {fileID: 198574016}
+  groundCheckRadius: 0.12
+  groundCoyoteTime: 0.05
+  debugJump: 1
+  chaseDirectionDeadzone: 0.2
+  chaseStopDistance: 0.05
+  verticalGapOffsetThreshold: 5
+  verticalGapXOffset: 10
+  jumpForwardImpulse: 2.5
+  jumpLaunchToleranceX: 0.5
+  jumpLeadTimeBase: 0.15
+  jumpLeadTimeBySpeed: 0.03
+  jumpLeadTimeMax: 0.35
+  jumpTimingOffset: 0.05
+  jumpLookAheadSegments: 3
+  steepSlopeRatio: 3
+  steepSlopeMinHeight: 0.15
+  noJumpWhenPlayerCloserThan: 0.6
+  airborneForwardBias: 3
+  debugDrawPath: 0
+  pathGizmoColor: {r: 0, g: 1, b: 1, a: 1}
+  pathPointRadius: 0.05
   patrolWaitTime: 2
 --- !u!114 &1146666815
 MonoBehaviour:
@@ -1684,7 +1732,7 @@ MonoBehaviour:
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
-    value: -1
+    value: 1
 --- !u!114 &1146666817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1712,8 +1760,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.AIPath
   version: 5
-  radius: 0.5
-  height: 2
+  radius: 0.3
+  height: 1.5
   canMove: 0
   maxSpeed: 3
   gravity: {x: 0, y: -30, z: 0}
@@ -1729,8 +1777,8 @@ MonoBehaviour:
     mode: 2
     interval: 0.5
     sensitivity: 10
-    maximumInterval: 1
-    visualizeSensitivity: 0
+    maximumInterval: 2
+    visualizeSensitivity: 1
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
@@ -1741,45 +1789,43 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
---- !u!114 &1146666819
-MonoBehaviour:
+--- !u!70 &1146666819
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146666806}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c78fe5c964642d428941f68ee9cb8cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IntelligentDogMovement
-  attackSpeed: 1
-  maxHealth: 100
-  moveSpeed: 2
-  jumpForce: 21
-  knockbackDistance: 3
-  knockbackDuration: 0.2
-  detectionRange: 10
-  isKnockedBack: 0
-  chaseSpeedMultiplier: 1.2
-  attackRange: 1.5
-  patrolRange: 5
-  attackDamage: 1
-  attackAnimationDuration: 0.5
-  maxSpeed: 4
-  jumpHeightThreshold: 2
-  jumpDistanceThreshold: 2
-  jumpCooldown: 0.5
-  groundLayer:
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 128
-  groundCheckDistance: 0.2
-  groundCheckOffset: {x: 0, y: -0.5}
-  waypointReachDistance: 0.5
-  lookAheadWaypoints: 2
-  useDirectMovementFallback: 1
-  obstacleDetectionDistance: 1.5
-  patrolWaitTime: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.004, y: -0.015}
+  m_Size: {x: 0.17, y: 0.35}
+  m_Direction: 1
 --- !u!1 &1213610895
 GameObject:
   m_ObjectHideFlags: 0
@@ -1858,7 +1904,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -681444959
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -1091202827376826289, guid: cddfc811f3519af47a48c4bf1305cb7a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2049,7 +2095,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 667370565
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -8078966772632430244, guid: d46939cf6590d964d98f758a2a4e1829, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2194,7 +2240,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1441498749
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 4723107735738678597, guid: 3ed3d5d79149e484b95701633ddde94a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2615,7 +2661,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -681444959
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 2
   m_Sprite: {fileID: -5668518402485374812, guid: f9c8ed5b416bb12479efb7da1794febf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

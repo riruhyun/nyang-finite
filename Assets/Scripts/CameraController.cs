@@ -17,7 +17,7 @@ public class CameraController : MonoBehaviour
 
     [Header("X-axis Settings")]
     [SerializeField] private float edgeDetectionDistance = 2f; // 가장자리 감지 거리
-    [SerializeField] private float cameraMoveDistance = 20f; // 카메라 이동 거리
+    [SerializeField] private float cameraMoveDistance = 7f; // 카메라 이동 거리
 
     [Header("Y-axis Settings")]
     [SerializeField] private float yFollowSpeed = 5f;

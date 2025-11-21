@@ -605,4 +605,13 @@ public class PlayerController : MonoBehaviour
             Gizmos.DrawWireSphere(transform.position, 0.5f);
         }
     }
+
+    // Shared jump physics for AI/enemies to reuse (vertical portion only)
+    public static void PerformJumpPhysics(Rigidbody2D body, float jumpForce)
+    {
+        if (body == null) return;
+        var v = body.linearVelocity;
+        body.linearVelocity = new Vector2(v.x, 0);
+        body.AddForce(new Vector2(0, jumpForce));
+    }
 }
