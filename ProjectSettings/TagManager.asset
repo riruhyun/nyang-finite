@@ -45,8 +45,8 @@ TagManager:
   - name: Background
     uniqueID: 830670821
     locked: 0
-  - name: BackBuilding
-    uniqueID: 2575888955
+  - name: Buildings
+    uniqueID: 3403872455
     locked: 0
   - name: Platform
     uniqueID: 667370565

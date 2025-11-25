@@ -84,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -105,6 +105,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -112,12 +125,12 @@ TextureImporter:
       name: Death_0
       rect:
         serializedVersion: 2
-        x: 5
+        x: 6
         y: 0
-        width: 31
+        width: 29
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -134,12 +147,12 @@ TextureImporter:
       name: Death_1
       rect:
         serializedVersion: 2
-        x: 53
+        x: 47
         y: 0
-        width: 38
-        height: 21
+        width: 43
+        height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -156,12 +169,12 @@ TextureImporter:
       name: Death_2
       rect:
         serializedVersion: 2
-        x: 101
+        x: 102
         y: 0
-        width: 40
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 38
+        height: 26
+      alignment: 9
+      pivot: {x: 0.38064837, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -178,12 +191,12 @@ TextureImporter:
       name: Death_3
       rect:
         serializedVersion: 2
-        x: 149
+        x: 150
         y: 0
-        width: 41
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 39
+        height: 26
+      alignment: 9
+      pivot: {x: 0.36396086, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -200,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 64479dfb6df66c74eb4cb23ce60d03fe
     internalID: 0
     vertices: []
     indices: 
@@ -208,12 +221,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Death_0: 6991849013916550155
       Death_1: -276728812324164698
       Death_2: 3156895337291164288
       Death_3: 1400002288684528572
+      Death_4: -1980197023
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

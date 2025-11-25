@@ -1,72 +1,111 @@
 using UnityEngine;
 using Pathfinding;
 
-/// <summary>
-/// Dog 적 캐릭터 - 지능적인 경로찾기와 전투 기능을 통합
-/// AIPath 컴포넌트를 활용하여 점프하고 이동하며, 플레이어를 추격/공격합니다.
-/// </summary>
 [RequireComponent(typeof(AIPath))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class IntelligentDogMovement : Enemy
 {
     [Header("Dog Specific Settings")]
-    [Tooltip("추격 속도 배율")]
+    [Tooltip("Chase speed multiplier")]
     [SerializeField] private float chaseSpeedMultiplier = 1.2f;
 
-    [Tooltip("공격 범위")]
+    [Tooltip("Attack range")]
     [SerializeField] private float attackRange = 1.5f;
 
-    [Tooltip("순찰 범위")]
+    [Tooltip("Patrol radius")]
     [SerializeField] private float patrolRange = 5f;
 
-    [Tooltip("공격 데미지 (하트 1칸 = 1)")]
-    [SerializeField] private int attackDamage = 1;
+    [Tooltip("Attack damage (1 tile = 1)")]
+    [SerializeField] private float attackDamage = 1f;
 
-    [Tooltip("공격 애니메이션 지속 시간")]
+    [Tooltip("Attack animation duration")]
     [SerializeField] private float attackAnimationDuration = 0.5f;
 
-    [Tooltip("최대 이동 속도")]
+    [Tooltip("Max horizontal speed")]
     [SerializeField] private float maxSpeed = 5f;
 
     [Header("Jump Settings")]
-    [Tooltip("경로상 다음 지점과의 높이 차이가 이 값보다 크면 점프")]
+    [Tooltip("Jump when vertical gap above this height")]
     [SerializeField] private float jumpHeightThreshold = 2f;
 
-    [Tooltip("경로상 다음 지점과의 수평 거리가 이 값보다 작으면 점프")]
+    [Tooltip("Jump when horizontal gap below this distance")]
     [SerializeField] private float jumpDistanceThreshold = 2f;
 
-    [Tooltip("점프 쿨다운 시간")]
+    [Tooltip("Jump cooldown")]
     [SerializeField] private float jumpCooldown = 0.5f;
 
     [Header("Ground Check")]
-    [Tooltip("지면 체크 레이어")]
+    [Tooltip("Layer mask used for ground checks")]
     [SerializeField] private LayerMask groundLayer;
 
-    [Tooltip("지면 체크 거리")]
+    [Tooltip("Ground check distance")]
     [SerializeField] private float groundCheckDistance = 0.2f;
 
-    [Tooltip("지면 체크 시작 오프셋")]
+    [Tooltip("Ground check offset from character pivot")]
     [SerializeField] private Vector2 groundCheckOffset = new Vector2(0f, -0.5f);
 
     [Header("Path Following")]
-    [Tooltip("경로상 다음 웨이포인트까지의 도달 거리")]
+    [Tooltip("Distance to consider waypoint reached")]
     [SerializeField] private float waypointReachDistance = 0.5f;
 
-    [Tooltip("경로를 얼마나 앞서 볼 것인지 (웨이포인트 개수)")]
+    [Tooltip("How many waypoints to look ahead for steering")]
     [SerializeField] private int lookAheadWaypoints = 2;
 
     [Header("Fallback Behavior")]
-    [Tooltip("경로가 없을 때 직선 이동 사용")]
+    [Tooltip("Use direct movement if path is unavailable")]
     [SerializeField] private bool useDirectMovementFallback = true;
 
-    [Tooltip("직선 이동 시 장애물 감지 거리")]
+    [Tooltip("Obstacle detection distance for fallback movement")]
     [SerializeField] private float obstacleDetectionDistance = 1.5f;
+
+    [Header("Backward Obstacle Bypass")]
+    [SerializeField] private float backOffset = 0.12f;
+    [SerializeField] private float verticalCheckMaxDistance = 1.5f;
+    [SerializeField] private float forwardBypassDuration = 0.35f;
+    [SerializeField] private float forwardBypassSpeedMultiplier = 1.1f;
+
+    [Header("Airborne Stuck Backoff")]
+    [SerializeField] private float backOffDuration = 0.2f;
+    [SerializeField] private float backOffSpeedMultiplier = 0.8f;
+    [SerializeField] private float stuckPosThreshold = 0.005f;
+    [SerializeField] private float stuckCheckInterval = 0.1f;
 
     [Header("Patrol Settings")]
     [SerializeField] private float patrolWaitTime = 2f;
 
+    [Header("Slope Handling")]
+    [SerializeField] private float slopeNormalMin = 0.4f;
+    [SerializeField] private float flatNormalThreshold = 0.95f;
+    [SerializeField] private float slopeSpeedMultiplier = 1.5f;
+    [SerializeField] private float slopeSpeedPadding = 3f;
+
+    [Header("Debug")]
+    [SerializeField] private bool debugDog = true;
+    [SerializeField] private float debugLogInterval = 0.3f;
+
+    [Header("Health UI")]
+    [SerializeField] private Sprite heartSprite;
+    [SerializeField] private Vector2 healthUiOffset = new Vector2(0f, 1.0f);
+    [SerializeField] private Vector3 healthUiScale = new Vector3(0.6f, 0.6f, 1f);
+    [SerializeField] private int healthUiSortingOrder = 5000;
+    [SerializeField] private Vector3 healthTextLocalPosition = new Vector3(0f, 0.1f, -2f);
+    [SerializeField] private float healthTextPadding = 1f;
+    [SerializeField] private int healthTextSortingOffset = 50;
+    [SerializeField] private Color healthTextColor = Color.white;
+    [SerializeField] private string healthUiSortingLayer = "UI";
+    [SerializeField] private Font healthFont;
+    [SerializeField] private float healthUiNormalAlpha = 0.4f;
+    [SerializeField] private float healthUiHitAlpha = 1f;
+    [SerializeField] private float healthUiHitDuration = 0.8f;
+
     // Components
     private AIPath aiPath;
+    private SpriteRenderer heartRenderer;
+    private TextMesh healthText;
+    private GameObject heartGO;
+    private GameObject textGO;
+    private bool healthUiInitialized = false;
+    private float healthUiShowUntil = -1f;
 
     // State
     private float lastJumpTime;
@@ -75,16 +114,28 @@ public class IntelligentDogMovement : Enemy
     private float attackAnimationTimer = 0f;
     private Vector2 spawnPosition;
     private float patrolTimer = 0f;
-    private int patrolDirection = 1; // 1: 오른쪽, -1: 왼쪽
+    // 무적 ?�간 관리용
+    private float invincibilityTime = 0.5f;
+    private float lastDamageTime = -10f;
+
+    private int patrolDirection = 1;
+    private Vector2 lastGroundNormal = Vector2.up;
+    private bool onSlope = false;
+    private float lastFacingDir = 1f;
+    private float forwardRunUntil = -1f;
+    private float forwardRunDir = 0f;
+    private float backOffUntil = -1f;
+    private float backOffDir = 0f;
+    private float lastPosX = 0f;
+    private float lastPosCheckTime = -1f;
 
     private enum DogState
     {
-        Patrol,     // 순찰
-        Chase,      // 추격
-        Attack,     // 공격
-        Idle        // 대기
+        Patrol,
+        Chase,
+        Attack,
+        Idle
     }
-
     private DogState currentState = DogState.Patrol;
 
     protected override void Awake()
@@ -92,25 +143,36 @@ public class IntelligentDogMovement : Enemy
         base.Awake();
         aiPath = GetComponent<AIPath>();
 
-        // AIPath의 자동 이동 비활성화
+        // Disable AIPath auto movement; we drive it manually
         if (aiPath != null)
         {
             aiPath.canMove = false;
         }
+
+        UpdateHealthUiAlphaState();
     }
 
     protected override void Start()
     {
         base.Start();
-        lastJumpTime = -jumpCooldown; // 시작 시 바로 점프 가능
+        lastJumpTime = -jumpCooldown; // allow immediate jump on start
         spawnPosition = transform.position;
+        lastPosX = transform.position.x;
+        lastPosCheckTime = Time.time;
+        
+        CreateHealthUI();
+        UpdateHealthUI();
+        
+        Debug.Log($"[Dog] Start - maxHealth: {maxHealth}, currentHealth: {currentHealth}, heartSprite: {heartSprite != null}");
     }
 
     protected override void Update()
     {
+        UpdateHealthUiAlphaState();
+
         if (!isAlive || isKnockedBack) return;
 
-        // 공격 애니메이션 중이면 타이머 업데이트
+        // Attack animation handling
         if (isAttacking)
         {
             attackAnimationTimer -= Time.deltaTime;
@@ -122,21 +184,18 @@ public class IntelligentDogMovement : Enemy
                     animator.SetBool("IsAttacking", false);
                 }
             }
-            return; // 공격 중에는 다른 행동 하지 않음
+            return; // during attack, skip other updates
         }
 
-        // 플레이어 감지 및 상태 전환
         CheckAndUpdateState();
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        // 넉백 중이거나 살아있지 않으면 이동하지 않음
         if (!isAlive || isKnockedBack) return;
 
         CheckGroundStatus();
 
-        // 상태에 따른 행동 처리
         switch (currentState)
         {
             case DogState.Patrol:
@@ -154,9 +213,6 @@ public class IntelligentDogMovement : Enemy
         }
     }
 
-    /// <summary>
-    /// 플레이어 위치에 따라 상태 업데이트
-    /// </summary>
     private void CheckAndUpdateState()
     {
         if (playerTransform == null) return;
@@ -173,25 +229,21 @@ public class IntelligentDogMovement : Enemy
         }
         else
         {
-            currentState = DogState.Patrol;
+            // ?�레?�어 감�? 범위�?벗어?�면 즉시 Idle
+            currentState = DogState.Idle;
         }
     }
 
-    /// <summary>
-    /// 순찰 행동
-    /// </summary>
     private void PatrolBehavior()
     {
         patrolTimer += Time.deltaTime;
 
-        // 일정 시간마다 방향 전환
         if (patrolTimer >= patrolWaitTime)
         {
             patrolDirection *= -1;
             patrolTimer = 0f;
         }
 
-        // 스폰 위치 기준 순찰 범위 체크
         float distanceFromSpawn = transform.position.x - spawnPosition.x;
         if (Mathf.Abs(distanceFromSpawn) >= patrolRange)
         {
@@ -201,63 +253,63 @@ public class IntelligentDogMovement : Enemy
         MoveInDirection(new Vector2(patrolDirection, 0));
     }
 
-    /// <summary>
-    /// 추격 행동
-    /// </summary>
     private void ChaseBehavior()
     {
         if (playerTransform == null) return;
 
-        // AIPath 목적지 설정
+        // Set AIPath destination
         if (aiPath != null)
         {
             aiPath.destination = playerTransform.position;
         }
 
-        // AIPath가 유효한 경로를 가지고 있는지 확인
+        // If AIPath has a valid path, follow it
         if (aiPath != null && aiPath.hasPath)
         {
             FollowPath();
         }
         else if (useDirectMovementFallback)
         {
-            // 경로가 없을 때 직접 이동
+            // Direct movement fallback
             Vector2 directionToPlayer = (playerTransform.position - transform.position).normalized;
             MoveInDirection(directionToPlayer * chaseSpeedMultiplier);
         }
     }
 
-    /// <summary>
-    /// 공격 행동
-    /// </summary>
     private void AttackBehavior()
     {
-        // 공격 실행
         Attack();
     }
 
-    /// <summary>
-    /// 대기 행동
-    /// </summary>
     private void IdleBehavior()
     {
-        // 대기 상태에서는 아무것도 하지 않음
     }
 
-    /// <summary>
-    /// 지면 상태 확인
-    /// </summary>
-    void CheckGroundStatus()
+    private void CheckGroundStatus()
     {
         Vector2 checkPosition = (Vector2)transform.position + groundCheckOffset;
-        isGrounded = Physics2D.Raycast(checkPosition, Vector2.down, groundCheckDistance, groundLayer) ||
-                     Physics2D.CircleCast(checkPosition, 0.1f, Vector2.down, groundCheckDistance, groundLayer);
+
+        RaycastHit2D hitRay = Physics2D.Raycast(checkPosition, Vector2.down, groundCheckDistance, groundLayer);
+        RaycastHit2D hitCircle = Physics2D.CircleCast(checkPosition, 0.1f, Vector2.down, groundCheckDistance, groundLayer);
+
+        bool hasRay = hitRay.collider != null;
+        bool hasCircle = hitCircle.collider != null;
+        isGrounded = hasRay || hasCircle;
+
+        RaycastHit2D chosen = hasRay ? hitRay : hitCircle;
+        if (chosen.collider != null)
+        {
+            lastGroundNormal = chosen.normal;
+            onSlope = lastGroundNormal.y > slopeNormalMin && lastGroundNormal.y < flatNormalThreshold;
+        }
+        else
+        {
+            lastGroundNormal = Vector2.up;
+            onSlope = false;
+        }
     }
 
-    /// <summary>
-    /// AIPath의 경로를 따라 이동
-    /// </summary>
-    void FollowPath()
+    private void FollowPath()
     {
         var path = new System.Collections.Generic.List<Vector3>();
         aiPath.GetRemainingPath(path, out bool stale);
@@ -269,27 +321,32 @@ public class IntelligentDogMovement : Enemy
 
         Vector2 direction = (nextWaypoint - transform.position).normalized;
 
-        // 공중에서 하강 중일 때 수평 이동
-        if (!isGrounded && direction.y < -0.1f)
+        // ?�쪽?�서 ?�레?�어까�???경로가 막혔?�시 ?�진 ?�회
+        TryBackwardObstacleBypass(direction);
+        if (forwardRunUntil > Time.time && Mathf.Abs(forwardRunDir) > 0.01f)
         {
-            if (Mathf.Abs(direction.x) > 0.01f)
-                MoveHorizontally(direction.x * Mathf.Max(3, moveSpeed));
+            MoveHorizontally(forwardRunDir);
             return;
         }
 
-        // 점프 판정 및 실행
+        // Airborne downward movement: keep a bit of horizontal motion
+        if (!isGrounded && direction.y < -0.1f)
+        {
+            if (Mathf.Abs(direction.x) > 0.01f)
+                MoveHorizontally(direction.x);
+            return;
+        }
+
+        // Jump if needed
         if (ShouldJump(transform.position, nextWaypoint, path) && CanJump())
             Jump();
 
-        // 수평 이동
+        // Horizontal movement
         if (Mathf.Abs(direction.x) > 0.01f)
             MoveHorizontally(direction.x);
     }
 
-    /// <summary>
-    /// 경로에서 다음 웨이포인트 가져오기
-    /// </summary>
-    Vector3 GetNextWaypoint(System.Collections.Generic.List<Vector3> path, Vector3 currentPosition)
+    private Vector3 GetNextWaypoint(System.Collections.Generic.List<Vector3> path, Vector3 currentPosition)
     {
         if (path.Count == 0) return Vector3.zero;
 
@@ -309,21 +366,35 @@ public class IntelligentDogMovement : Enemy
         return path[Mathf.Min(closestIndex + lookAheadWaypoints, path.Count - 1)];
     }
 
-    /// <summary>
-    /// 점프가 필요한지 판단
-    /// </summary>
-    bool ShouldJump(Vector3 currentPosition, Vector3 nextWaypoint, System.Collections.Generic.List<Vector3> path)
+    private bool ShouldJump(Vector3 currentPosition, Vector3 nextWaypoint, System.Collections.Generic.List<Vector3> path)
     {
         if (!isGrounded) return false;
+
+        // 바로 ??�?Ray) 2블럭 ?�내???�레?�어가 ?�을???�프 금�?
+        if (playerTransform != null)
+        {
+            Vector2 origin = transform.position;
+            Vector2 toPlayer = (Vector2)playerTransform.position - origin;
+            float distToPlayer = toPlayer.magnitude;
+            float angleToUp = Vector2.Angle(Vector2.up, toPlayer);
+            // ?�레?�어가 ?�쪽(60?�내)?�고 2블럭 ?�하�??�프 금�?
+            if (toPlayer.y > 0f && distToPlayer <= 4f && angleToUp <= 60f)
+            {
+                RaycastHit2D hitAbove = Physics2D.Raycast(origin, toPlayer.normalized, distToPlayer + 0.1f, groundLayer);
+                // ?�레?�어가 직접 ?�에 ?�는 경우??차단 (중간???�른 ?�애�??�을 ???�음)
+                if (hitAbove.collider == null || hitAbove.collider.transform == playerTransform)
+                {
+                    return false;
+                }
+            }
+        }
 
         float heightDiff = nextWaypoint.y - currentPosition.y;
         float horizontalDist = Mathf.Abs(nextWaypoint.x - currentPosition.x);
 
-        // 높이 차이가 크고 수평 거리가 적당하면 점프
         if (heightDiff > jumpHeightThreshold && horizontalDist < jumpDistanceThreshold)
             return true;
 
-        // 앞에 높은 장애물이 있으면 점프
         RaycastHit2D hit = Physics2D.Raycast(
             currentPosition,
             (nextWaypoint - currentPosition).normalized,
@@ -334,44 +405,56 @@ public class IntelligentDogMovement : Enemy
         return hit.collider != null && hit.point.y > currentPosition.y + 0.5f;
     }
 
-    /// <summary>
-    /// 점프 가능 여부 확인
-    /// </summary>
-    bool CanJump()
+    private bool CanJump()
     {
         return isGrounded && (Time.time - lastJumpTime) >= jumpCooldown;
     }
 
-    /// <summary>
-    /// 점프 실행 (Enemy 클래스의 Jump를 오버라이드하여 y 속도 리셋 및 쿨다운 추가)
-    /// </summary>
     protected override void Jump()
     {
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
-        base.Jump(); // Enemy 클래스의 jumpForce 사용
+        base.Jump(); // Enemy base jumpForce
         lastJumpTime = Time.time;
     }
 
-    /// <summary>
-    /// 수평 이동
-    /// </summary>
-    void MoveHorizontally(float directionX)
+    private void MoveHorizontally(float directionX)
     {
-        float targetVelocityX = Mathf.Clamp(directionX * moveSpeed, -maxSpeed, maxSpeed);
-        float newVelocityX = Mathf.MoveTowards(rb.linearVelocity.x, targetVelocityX, moveSpeed * Time.fixedDeltaTime * 10f);
-        rb.linearVelocity = new Vector2(newVelocityX, rb.linearVelocity.y);
+        bool slopeActive = isGrounded && (onSlope || (lastGroundNormal.y > 0.1f && lastGroundNormal.y < flatNormalThreshold));
+        float baseSpeed = slopeActive ? (moveSpeed + slopeSpeedPadding) : moveSpeed;
+        float speedMultiplier = slopeActive ? slopeSpeedMultiplier : 1f;
 
-        // 스프라이트 방향 설정
+        if (Mathf.Abs(directionX) > 0.01f)
+            lastFacingDir = Mathf.Sign(directionX);
+
+        // Airborne stuck detection: trying to move forward but X not changing
+        TryAirborneStuckBackoff(directionX);
+
+        // ?�회 ?�진???�성?�되?�을???�선 ?�용
+        if (forwardRunUntil > Time.time && Mathf.Abs(forwardRunDir) > 0.01f)
+        {
+            float forcedX = moveSpeed * forwardBypassSpeedMultiplier * forwardRunDir;
+            rb.linearVelocity = new Vector2(forcedX, rb.linearVelocity.y);
+        }
+        else if (backOffUntil > Time.time && Mathf.Abs(backOffDir) > 0.01f)
+        {
+            float backX = moveSpeed * backOffSpeedMultiplier * backOffDir;
+            rb.linearVelocity = new Vector2(backX, rb.linearVelocity.y);
+        }
+        else
+        {
+            float targetVelocityX = Mathf.Clamp(directionX * baseSpeed * speedMultiplier, -maxSpeed, maxSpeed);
+            float newVelocityX = Mathf.MoveTowards(rb.linearVelocity.x, targetVelocityX, baseSpeed * Time.fixedDeltaTime * 10f);
+            rb.linearVelocity = new Vector2(newVelocityX, rb.linearVelocity.y);
+        }
+
+        // Sprite facing
         if (Mathf.Abs(directionX) > 0.01f && spriteRenderer != null)
         {
             spriteRenderer.flipX = directionX < 0;
         }
     }
 
-    /// <summary>
-    /// 방향으로 이동 (Enemy 클래스의 Move 대신 사용)
-    /// </summary>
-    void MoveInDirection(Vector2 direction)
+    private void MoveInDirection(Vector2 direction)
     {
         if (isKnockedBack) return;
 
@@ -380,7 +463,6 @@ public class IntelligentDogMovement : Enemy
             MoveHorizontally(direction.x);
         }
 
-        // 애니메이터 파라미터 업데이트
         if (animator != null)
         {
             bool isMoving = direction.magnitude > 0.01f;
@@ -388,37 +470,27 @@ public class IntelligentDogMovement : Enemy
         }
     }
 
-    /// <summary>
-    /// 플레이어 감지 시 호출
-    /// </summary>
     protected override void OnPlayerDetected()
     {
         currentState = DogState.Chase;
     }
 
-    /// <summary>
-    /// 실제 공격 수행
-    /// </summary>
     protected override void PerformAttack()
     {
         if (playerTransform == null || isAttacking) return;
 
-        // 플레이어와의 거리 재확인
         float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
 
         if (distanceToPlayer <= attackRange)
         {
-            // 공격 상태 시작
             isAttacking = true;
             attackAnimationTimer = attackAnimationDuration;
 
-            // 공격 애니메이션 재생
             if (animator != null)
             {
                 animator.SetBool("IsAttacking", true);
             }
 
-            // 플레이어에게 데미지 전달
             PlayerController player = playerTransform.GetComponent<PlayerController>();
             if (player != null)
             {
@@ -427,19 +499,13 @@ public class IntelligentDogMovement : Enemy
         }
     }
 
-    /// <summary>
-    /// 넉백 상태 해제 시 순찰 상태로 복귀
-    /// </summary>
     protected override void ResetKnockback()
     {
         base.ResetKnockback();
         currentState = DogState.Patrol;
     }
 
-    /// <summary>
-    /// 장애물 우회를 위한 대체 방향 찾기
-    /// </summary>
-    Vector2 FindAlternativeDirection(Vector2 blockedDirection)
+    private Vector2 FindAlternativeDirection(Vector2 blockedDirection)
     {
         Vector2 upDirection = new Vector2(blockedDirection.x, 0.5f).normalized;
         if (!Physics2D.Raycast(transform.position, upDirection, obstacleDetectionDistance, groundLayer))
@@ -452,25 +518,265 @@ public class IntelligentDogMovement : Enemy
         return Vector2.zero;
     }
 
-    /// <summary>
-    /// 디버그용 시각화
-    /// </summary>
+    private void TryAirborneStuckBackoff(float inputX)
+    {
+        if (rb == null) return;
+        if (isGrounded) return;
+        if (Mathf.Abs(inputX) < 0.01f) return;
+
+        if (Time.time - lastPosCheckTime < stuckCheckInterval)
+            return;
+
+        float deltaX = Mathf.Abs(rb.position.x - lastPosX);
+        if (deltaX < stuckPosThreshold)
+        {
+            backOffDir = -Mathf.Sign(inputX);
+            backOffUntil = Time.time + backOffDuration;
+            if (debugDog)
+            {
+                Debug.Log($"[DOG][BACKOFF-AIR] stuck deltaX={deltaX:F4}, dir={backOffDir}, until={backOffUntil:F2}");
+            }
+        }
+
+        lastPosX = rb.position.x;
+        lastPosCheckTime = Time.time;
+    }
+
+    private void TryBackwardObstacleBypass(Vector2 steeringDir)
+    {
+        if (playerTransform == null) return;
+
+        float facingX = Mathf.Abs(lastFacingDir) > 0.01f
+            ? Mathf.Sign(lastFacingDir)
+            : (Mathf.Abs(steeringDir.x) > 0.01f ? Mathf.Sign(steeringDir.x) : 1f);
+        Vector2 facing = new Vector2(facingX, 0f);
+        Vector2 origin = (Vector2)transform.position - facing * backOffset;
+
+        Vector2 toPlayer = (Vector2)playerTransform.position - origin;
+        if (toPlayer.sqrMagnitude < 0.0001f) return;
+
+        float toPlayerDist = toPlayer.magnitude;
+        Vector2 dirToPlayer = toPlayer.normalized;
+        RaycastHit2D hitToPlayer = Physics2D.Raycast(origin, dirToPlayer, toPlayerDist, groundLayer);
+        if (debugDog)
+        {
+            Debug.DrawLine(origin, origin + dirToPlayer * toPlayerDist, hitToPlayer.collider == null ? Color.green : Color.red, 0.2f);
+        }
+        if (hitToPlayer.collider == null)
+            return; // not blocked
+
+        RaycastHit2D upHit = Physics2D.Raycast(origin, Vector2.up, verticalCheckMaxDistance, groundLayer);
+        if (debugDog)
+        {
+            Debug.DrawLine(origin, origin + Vector2.up * verticalCheckMaxDistance, upHit.collider == null ? Color.green : Color.yellow, 0.2f);
+        }
+        if (upHit.collider == null)
+            return; // free space above, no need to bypass
+
+        forwardRunDir = facingX;
+        forwardRunUntil = Time.time + forwardBypassDuration;
+        if (debugDog)
+        {
+            Debug.Log($"[DOG][BYPASS] blocked by {hitToPlayer.collider.name}, runDir={forwardRunDir}, until={forwardRunUntil:F2}");
+        }
+    }
+
+    private void SetHealthUiAlpha(float alpha)
+    {
+        if (heartRenderer != null)
+        {
+            Color heartColor = heartRenderer.color;
+            heartColor.a = alpha;
+            heartRenderer.color = heartColor;
+        }
+
+        if (healthText != null)
+        {
+            Color textColor = healthText.color;
+            textColor.a = alpha;
+            healthText.color = textColor;
+        }
+    }
+
+    private void UpdateHealthUiAlphaState()
+    {
+        if (!healthUiInitialized) return;
+
+        float targetAlpha = Time.time <= healthUiShowUntil ? healthUiHitAlpha : healthUiNormalAlpha;
+        SetHealthUiAlpha(targetAlpha);
+    }
+
+    private void CreateHealthUI()
+    {
+        if (heartSprite == null)
+        {
+            Debug.LogWarning("[Dog] heartSprite is null");
+            return;
+        }
+
+        if (heartGO != null) Destroy(heartGO);
+        if (textGO != null) Destroy(textGO);
+
+        heartGO = new GameObject("HealthHeart");
+        heartGO.transform.SetParent(transform);
+        heartGO.transform.localPosition = healthUiOffset;
+        heartGO.transform.localScale = healthUiScale;
+
+        heartRenderer = heartGO.AddComponent<SpriteRenderer>();
+        heartRenderer.sprite = heartSprite;
+        heartRenderer.sortingLayerName = healthUiSortingLayer;
+        heartRenderer.sortingOrder = healthUiSortingOrder;
+
+        // 텍스트 위치 설정 - padding을 기존 x 값에 추가
+        var textPos = healthTextLocalPosition;
+        float padding = healthTextPadding;
+        textPos.x = textPos.x + padding;  // 기존 x 값에 패딩을 더함
+        textPos.z = Mathf.Approximately(textPos.z, 0f) ? -2f : textPos.z;
+
+        int textSortingOffset = healthTextSortingOffset <= 0 ? 50 : healthTextSortingOffset;
+
+        textGO = new GameObject("HealthText");
+        textGO.transform.SetParent(heartGO.transform);
+        textGO.transform.localPosition = textPos;
+        textGO.transform.localScale = Vector3.one;
+        textGO.transform.localRotation = Quaternion.identity;
+
+        healthText = textGO.AddComponent<TextMesh>();
+        healthText.text = currentHealth.ToString("0.##");
+        healthText.anchor = TextAnchor.MiddleLeft;
+        healthText.alignment = TextAlignment.Left;
+        healthText.characterSize = 1f;
+        healthText.fontSize = 40;
+        healthText.color = healthTextColor;
+        healthText.font = healthFont != null
+            ? healthFont
+            : Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        healthText.richText = false;
+
+        var textRenderer = textGO.GetComponent<MeshRenderer>();
+        if (textRenderer != null)
+        {
+            textRenderer.sortingLayerName = healthUiSortingLayer;
+            textRenderer.sortingOrder = healthUiSortingOrder + textSortingOffset;
+            textRenderer.enabled = true;
+            textRenderer.material = healthText.font != null
+                ? healthText.font.material
+                : new Material(Shader.Find("GUI/Text Shader"));
+        }
+
+        SetHealthUiAlpha(healthUiNormalAlpha);
+        healthUiInitialized = true;
+        Debug.Log($"[Dog] Health UI 생성 - Heart: {heartGO.name}, Text: {healthText.text}, Pos: {textGO.transform.position}, Sorting:{textRenderer?.sortingOrder}");
+    }
+
+    private void UpdateHealthUI()
+    {
+        if (heartSprite != null && heartRenderer == null)
+        {
+            CreateHealthUI();
+        }
+
+        bool show = true;
+
+        if (heartGO != null)
+        {
+            heartGO.SetActive(show);
+        }
+        if (textGO != null)
+        {
+            textGO.SetActive(show);
+            var textPos = healthTextLocalPosition;
+            textPos.x += healthTextPadding;
+            textPos.z = Mathf.Approximately(textPos.z, 0f) ? -2f : textPos.z;
+            textGO.transform.localPosition = textPos;
+        }
+
+        if (healthText != null)
+        {
+            float hpValue = Mathf.Max(0f, currentHealth);
+            healthText.text = hpValue.ToString("0.##");
+            Debug.Log($"[Dog] Health UI update - HP: {hpValue}, Show: {show}, TextActive: {textGO?.activeSelf}");
+        }
+
+        UpdateHealthUiAlphaState();
+    }
+
+    public override void TakeDamage(float damage, Vector2 knockbackDirection)
+    {
+        if (!isAlive) return;
+
+        // 무적 ?�간 체크 추�?
+        if (Time.time - lastDamageTime < invincibilityTime)
+        {
+            Debug.Log($"[Dog] 무적 ?�간 �??��?지 무시 (?��? ?�간: {invincibilityTime - (Time.time - lastDamageTime):F2}s)");
+            return;
+        }
+
+        // 무적 ?�간 ?�데?�트
+        lastDamageTime = Time.time;
+
+        if (!healthUiInitialized)
+        {
+            CreateHealthUI();
+        }
+
+        currentHealth -= damage;
+        if (currentHealth < 0f) currentHealth = 0f;
+
+        Debug.Log($"[Dog] ?��?지 받음! {damage} (?�재 체력: {currentHealth}/{maxHealth})");
+
+        healthUiShowUntil = Time.time + healthUiHitDuration;
+        UpdateHealthUI();
+        SetHealthUiAlpha(healthUiHitAlpha);
+
+        if (currentHealth <= 0f)
+        {
+            Die();
+            return;
+        }
+
+        ApplyKnockback(knockbackDirection);
+    }
+
+    protected override void Die()
+    {
+        if (!isAlive) return;
+        isAlive = false;
+
+        UpdateHealthUI();
+
+        if (animator != null)
+        {
+            animator.SetTrigger("Die");
+        }
+
+        if (aiPath != null)
+        {
+            aiPath.canMove = false;
+            aiPath.isStopped = true;
+        }
+
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.bodyType = RigidbodyType2D.Kinematic;
+            rb.gravityScale = 0f;
+        }
+    }
+
     protected override void OnDrawGizmosSelected()
     {
         base.OnDrawGizmosSelected();
 
-        // 공격 범위
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, attackRange);
 
-        // 순찰 범위
         Gizmos.color = Color.blue;
         Vector3 spawnPos = Application.isPlaying ? spawnPosition : transform.position;
         Gizmos.DrawLine(spawnPos + (Vector3.left * patrolRange), spawnPos + (Vector3.right * patrolRange));
 
         if (aiPath == null || !aiPath.hasPath) return;
 
-        // 경로 그리기
         var path = new System.Collections.Generic.List<Vector3>();
         aiPath.GetRemainingPath(path, out bool stale);
 
@@ -482,7 +788,6 @@ public class IntelligentDogMovement : Enemy
                 Gizmos.DrawLine(path[i], path[i + 1]);
             }
 
-            // 다음 웨이포인트 표시
             Vector3 nextWaypoint = GetNextWaypoint(path, transform.position);
             if (nextWaypoint != Vector3.zero)
             {
@@ -492,7 +797,6 @@ public class IntelligentDogMovement : Enemy
             }
         }
 
-        // 지면 체크 시각화
         if (Application.isPlaying)
         {
             Vector2 checkPosition = (Vector2)transform.position + groundCheckOffset;

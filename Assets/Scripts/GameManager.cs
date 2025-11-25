@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     [Header("HP Bar Settings")]
     public SpriteRenderer hpBar; // HP 바 (SpriteRenderer)
-    public int maxHealth = 9; // 최대 체력
+    public float maxHealth = 9f; // 최대 체력
     private float maxHpBarWidth; // HP 바의 최대 X 스케일 (초기값 저장)
 
     // InfoBar는 Frame.png로 칸을 나누는 껍데기
@@ -80,14 +80,14 @@ public class GameManager : MonoBehaviour
     }
 
     // 플레이어의 체력이 변경되었을 때 HP 바 UI를 업데이트하는 메서드
-    public void UpdateHealth(int health)
+    public void UpdateHealth(float health)
     {
         // HP 바 시스템 업데이트
         if (hpBar != null)
         {
             // InfoBar는 9칸으로 나뉘어져 있음
             // health가 0~9 사이의 값일 때, X 스케일을 비례적으로 조정
-            float healthRatio = Mathf.Clamp01((float)health / maxHealth);
+            float healthRatio = Mathf.Clamp01(health / maxHealth);
 
             // Transform의 localScale.x를 조정하여 가로 길이 변경
             Vector3 newScale = hpBar.transform.localScale;

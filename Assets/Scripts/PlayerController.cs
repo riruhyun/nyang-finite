@@ -8,22 +8,29 @@ public class PlayerController : MonoBehaviour
         Walk,
         Jump,
         Die,
-        Dash
+        Dash,
+        Scratch
     }
 
     [Header("Audio Settings")]
     public AudioClip deathClip;
-    public AudioClip damageClip; // 데미지 받을 때 사운드
+    public AudioClip damageClip; // ?��?지 받을 ???�운??
 
     [Header("Health Settings")]
-    public int maxHealth = 9; // 최대 체력
-    private int currentHealth; // 현재 체력
-    public float invincibilityTime = 1.5f; // 무적 시간
-    private float lastDamageTime = -10f; // 마지막 데미지를 받은 시간
+    public float maxHealth = 9f; // 최�? 체력
+    private float currentHealth; // ?�재 체력
+    public float invincibilityTime = 1.5f; // 무적 ?�간
+    private float lastDamageTime = -10f; // 마�?�??��?지�?받�? ?�간
 
     [Header("Movement Settings")]
     public float jumpForce = 700f;
     public float moveSpeed = 5f;
+    [Header("Slope Handling")]
+    [SerializeField] private float slopeNormalMin = 0.4f; // 경사�?55???�함) ?�상?�면 바닥 취급
+    [SerializeField] private float slopeSpeedMultiplier = 1.2f;
+    [SerializeField] private float flatFriction = 0.3f;
+    [SerializeField] private float slopeFriction = 0f;
+    [SerializeField] private float flatNormalThreshold = 0.95f;
 
     [Header("Momentum Settings")]
     public float baseMomentum = 0.5f;
@@ -33,44 +40,64 @@ public class PlayerController : MonoBehaviour
 
     [Header("Animation Settings")]
     public float walkMomentumThreshold = 0.5f;
-    public float dashDuration = 0.5f; // Dash 애니메이션 지속 시간
+    public float dashDuration = 0.5f; // Dash ?�니메이??지???�간
 
     [SerializeField] private LayerMask groundLayer;
 
-    // 물리 상태
+    [Header("Scratch Settings")]
+    [SerializeField] private BoxCollider2D scratchHitbox;
+    [SerializeField] private LayerMask scratchDamageLayers;
+    [SerializeField] private float scratchDamage = 1.5f;
+    [SerializeField] private float scratchDuration = 0.78f; // Scratch.anim length
+    [SerializeField] private string scratchAnimationName = "Scratch";
+
+    // 물리 ?�태
     private bool isGrounded = false;
     private bool isDead = false;
+    private bool onSlope = false;
+    private bool isScratching = false;
 
-    // 관성 시스템
+    // 관???�스??
     private float leftMomentum = 0f;
     private float rightMomentum = 0f;
     private float leftKeyHoldTime = 0f;
     private float rightKeyHoldTime = 0f;
 
-    // 벽 충돌 상태
+    // �?충돌 ?�태
     private bool isCollidingLeftWall = false;
     private bool isCollidingRightWall = false;
 
-    // 점프 grace time (점프 직후 착지 감지 무시)
+    // ?�프 grace time (?�프 직후 착�? 감�? 무시)
     private float jumpGraceTime = 0.1f;
     private float lastJumpTime = -1f;
 
-    // 애니메이션 상태 관리
+    // ?�니메이???�태 관�?
     private AnimationState currentAnimState = AnimationState.Idle;
     private AnimationState previousAnimState = AnimationState.Idle;
     private float animationTransitionDelay = 0.1f;
     private float lastAnimationChangeTime = 0f;
+    private float pendingJumpResumeNormalizedTime = -1f;
 
-    // Dash 상태 관리
+    // Dash ?�태 관�?
     private bool isDashing = false;
     private float dashStartTime = 0f;
 
-    // 컴포넌트
+    // 컴포?�트
     private Rigidbody2D playerRigidbody;
     private Animator animator;
     private AudioSource playerAudio;
+    private readonly Collider2D[] scratchHits = new Collider2D[8];
+    private bool wasAirborneBeforeScratch = false;
+    private float savedJumpNormalizedTime = 0f;
+    private float savedJumpLength = 0.85f;
+    private float scratchEndTime = -1f;
+    private float scratchStartTime = -1f;
+    private bool scratchStoppedAnimator = false;
+    private AnimationClip scratchClip;
+    private PhysicsMaterial2D runtimeMaterial;
+    private bool wasOnSlope = false; // ?�전 ?�레?�에 경사�??��??��? 추적
 
-    // 애니메이터 파라미터 해시
+    // ?�니메이???�라미터 ?�시
     private static readonly int GroundedHash = Animator.StringToHash("Grounded");
     private static readonly int IsMovingHash = Animator.StringToHash("IsMoving");
     private static readonly int JumpHash = Animator.StringToHash("Jump");
@@ -83,9 +110,14 @@ public class PlayerController : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         playerAudio = GetComponent<AudioSource>();
+        CacheScratchClip();
 
-        // 체력 초기화
+        // ü�� �ʱ�ȭ
         currentHealth = maxHealth;
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.UpdateHealth(currentHealth);
+        }
 
         if (animator == null)
         {
@@ -116,17 +148,23 @@ public class PlayerController : MonoBehaviour
             capsuleCollider.offset = new Vector2(0, 0f);
             capsuleCollider.direction = CapsuleDirection2D.Vertical;
 
-            // Physics Material 생성 (경사면에서 적당히 미끄러지도록)
+            // Physics Material ?�성 (경사면에???�당??미끄?��??�록)
             if (capsuleCollider.sharedMaterial == null)
             {
                 PhysicsMaterial2D physicsMat = new PhysicsMaterial2D("PlayerPhysics");
-                physicsMat.friction = 0.3f;  // 0.4 -> 0.3으로 감소 (경사면에서 미끄러지도록)
+                physicsMat.friction = flatFriction;  // 기본 ?��? 마찰
                 physicsMat.bounciness = 0f;
                 capsuleCollider.sharedMaterial = physicsMat;
+                runtimeMaterial = physicsMat;
+            }
+            else
+            {
+                runtimeMaterial = capsuleCollider.sharedMaterial;
+                runtimeMaterial.friction = flatFriction;
             }
         }
 
-        Debug.Log("플레이어 충돌체 최적화 완료 (friction=0.3, 55도 경사면 지원)");
+        Debug.Log("?�레?�어 충돌�?최적???�료 (friction=0.3, 55??경사�?지??");
     }
 
     private void Update()
@@ -136,9 +174,15 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        HandleMovementInput();
-        HandleJumpInput();
-        HandleDashInput();
+        HandleScratchInput();
+        UpdateScratchState();
+        bool allowMovement = !isScratching;
+        if (allowMovement)
+        {
+            HandleMovementInput();
+            HandleJumpInput();
+            HandleDashInput();
+        }
         UpdateAnimationState();
     }
 
@@ -147,10 +191,10 @@ public class PlayerController : MonoBehaviour
         bool isPressingLeft = Input.GetKey(KeyCode.A);
         bool isPressingRight = Input.GetKey(KeyCode.D);
 
-        // 떨어지는 상태인지 확인 (공중 + 하강)
+        // ?�어지???�태?��? ?�인 (공중 + ?�강)
         bool isFalling = !isGrounded && playerRigidbody.linearVelocity.y < -0.1f;
 
-        // 왼쪽 키 처리 (왼쪽 벽에 붙어있거나 떨어지는 중이면 무시)
+        // ?�쪽 ??처리 (?�쪽 벽에 붙어?�거???�어지??중이�?무시)
         if (isPressingLeft && !isCollidingLeftWall && !isFalling)
         {
             leftKeyHoldTime += Time.deltaTime;
@@ -168,7 +212,7 @@ public class PlayerController : MonoBehaviour
             leftKeyHoldTime = 0f;
         }
 
-        // 오른쪽 키 처리 (오른쪽 벽에 붙어있거나 떨어지는 중이면 무시)
+        // ?�른�???처리 (?�른�?벽에 붙어?�거???�어지??중이�?무시)
         if (isPressingRight && !isCollidingRightWall && !isFalling)
         {
             rightKeyHoldTime += Time.deltaTime;
@@ -203,6 +247,11 @@ public class PlayerController : MonoBehaviour
             finalHorizontalSpeed += moveSpeed * rightMomentum;
         }
 
+        if (onSlope && isGrounded)
+        {
+            finalHorizontalSpeed *= slopeSpeedMultiplier;
+        }
+
         if (leftMomentum > 0 || rightMomentum > 0)
         {
             Vector2 movement = new Vector2(finalHorizontalSpeed, playerRigidbody.linearVelocity.y);
@@ -212,16 +261,21 @@ public class PlayerController : MonoBehaviour
 
     private void HandleJumpInput()
     {
+        if (isScratching)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.W))
         {
-            bool onSlope = IsOnJumpableSlope();
+            bool slopeGround = IsOnJumpableSlope();
 
-            // 경사면에선 y가 음수로 찍혀도 점프 허용하고 싶으면 이거 아예 빼도 됨
+            // 경사면에??y가 ?�수�?찍�????�프 ?�용?�고 ?�으�??�거 ?�예 빼도 ??
             bool isFallingFromCliff = playerRigidbody.linearVelocity.y < -0.1f && IsOnFlatGround();
 
-            bool canJump = (isGrounded || onSlope) && !isFallingFromCliff;
+            bool canJump = (isGrounded || slopeGround) && !isFallingFromCliff;
 
-            Debug.Log($"[JUMP INPUT] W! grounded={isGrounded}, onSlope={onSlope}, velY={playerRigidbody.linearVelocity.y:F2}, canJump={canJump}");
+            Debug.Log($"[JUMP INPUT] W! grounded={isGrounded}, onSlope={slopeGround}, velY={playerRigidbody.linearVelocity.y:F2}, canJump={canJump}");
 
             if (canJump)
             {
@@ -239,20 +293,24 @@ public class PlayerController : MonoBehaviour
 
     private void HandleDashInput()
     {
-        // R 키를 누르고 현재 Dash 중이 아닐 때만 실행
+        if (isScratching)
+        {
+            return;
+        }
+        // R ?��? ?�르�??�재 Dash 중이 ?�닐 ?�만 ?�행
         if (Input.GetKeyDown(KeyCode.R) && !isDashing)
         {
             isDashing = true;
             dashStartTime = Time.time;
             SetAnimationState(AnimationState.Dash);
-            Debug.Log("[DASH] 돌진 애니메이션 실행!");
+            Debug.Log("[DASH] ?�진 ?�니메이???�행!");
         }
 
-        // Dash 지속 시간이 끝나면 Dash 상태 해제
+        // Dash 지???�간???�나�?Dash ?�태 ?�제
         if (isDashing && Time.time - dashStartTime >= dashDuration)
         {
             isDashing = false;
-            Debug.Log("[DASH] 돌진 애니메이션 종료!");
+            Debug.Log("[DASH] ?�진 ?�니메이??종료!");
         }
     }
 
@@ -263,17 +321,17 @@ public class PlayerController : MonoBehaviour
         {
             return (Vector2)col.bounds.center + Vector2.down * (col.bounds.extents.y + 0.02f);
         }
-        // 혹시 콜라이더 없으면 대충
+        // ?�시 콜라?�더 ?�으�??��?
         return (Vector2)transform.position + Vector2.down * 0.15f;
     }
 
     /// <summary>
-    /// 55도 이하 경사면 위에 있으면 true
+    /// 55???�하 경사�??�에 ?�으�?true
     /// </summary>
     private bool IsOnJumpableSlope()
     {
         Vector2 origin = GetFeetPos();
-        float dist = 0.6f; // 살짝 여유
+        float dist = 0.6f; // ?�짝 ?�유
 
         RaycastHit2D hit = Physics2D.Raycast(
             origin,
@@ -282,11 +340,11 @@ public class PlayerController : MonoBehaviour
             groundLayer
         );
 
-        // 디버그 찍어보면 바로 느낌 옴
+        // ?�버�?찍어보면 바로 ?�낌 ??
         if (hit.collider != null)
         {
             float ny = hit.normal.y;
-            // 55도 이하 → normal.y > cos(55°) ≈ 0.57
+            // 55???�하 ??normal.y > cos(55°) ??0.57
             bool ok = ny > 0.57f;
             // Debug.DrawRay(origin, Vector2.down * dist, ok ? Color.green : Color.yellow, 0.2f);
             return ok;
@@ -329,12 +387,21 @@ public class PlayerController : MonoBehaviour
         }
 
         SetAnimationState(AnimationState.Jump);
-        Debug.Log($"[JUMP] 점프 실행! Time={Time.time:F3}");
+        Debug.Log($"[JUMP] ?�프 ?�행! Time={Time.time:F3}");
     }
 
     private void UpdateAnimationState()
     {
         if (animator == null || isDead) return;
+
+        if (isScratching)
+        {
+            if (currentAnimState != AnimationState.Scratch)
+            {
+                SetAnimationState(AnimationState.Scratch);
+            }
+            return;
+        }
 
         AnimationState targetState = DetermineAnimationState();
 
@@ -354,7 +421,7 @@ public class PlayerController : MonoBehaviour
             return AnimationState.Die;
         }
 
-        // Dash 중일 때는 Dash 상태 유지
+        // Dash 중일 ?�는 Dash ?�태 ?��?
         if (isDashing)
         {
             return AnimationState.Dash;
@@ -401,7 +468,16 @@ public class PlayerController : MonoBehaviour
             case AnimationState.Jump:
                 animator.SetBool(GroundedHash, false);
                 animator.SetBool(IsMovingHash, false);
-                animator.SetTrigger(JumpHash);
+                if (pendingJumpResumeNormalizedTime >= 0f)
+                {
+                    float resume = Mathf.Repeat(pendingJumpResumeNormalizedTime, 1f);
+                    animator.Play("Jump", 0, resume);
+                    pendingJumpResumeNormalizedTime = -1f;
+                }
+                else
+                {
+                    animator.SetTrigger(JumpHash);
+                }
                 break;
 
             case AnimationState.Die:
@@ -413,16 +489,21 @@ public class PlayerController : MonoBehaviour
             case AnimationState.Dash:
                 animator.SetTrigger(DashHash);
                 break;
+
+            case AnimationState.Scratch:
+                animator.Play(scratchAnimationName, 0, 0f);
+                scratchStoppedAnimator = false;
+                break;
         }
     }
 
-    // 데미지를 받는 메서드
-    public void TakeDamage(int damage)
+    // ?��?지�?받는 메서??
+    public void TakeDamage(float damage)
     {
-        // 무적 시간 체크
+        // 무적 ?�간 체크
         if (Time.time - lastDamageTime < invincibilityTime)
         {
-            Debug.Log("무적 시간 중! 데미지 무시");
+            Debug.Log("무적 ?�간 �? ?��?지 무시");
             return;
         }
 
@@ -431,25 +512,25 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        // 데미지 적용
+        // ?��?지 ?�용
         currentHealth -= damage;
         lastDamageTime = Time.time;
 
-        Debug.Log($"플레이어 데미지 받음! 현재 체력: {currentHealth}/{maxHealth}");
+        Debug.Log($"?�레?�어 ?��?지 받음! ?�재 체력: {currentHealth}/{maxHealth}");
 
-        // 데미지 사운드 재생
+        // ?��?지 ?�운???�생
         if (playerAudio != null && damageClip != null)
         {
             playerAudio.PlayOneShot(damageClip);
         }
 
-        // GameManager에 체력 업데이트 알림
+        // GameManager??체력 ?�데?�트 ?�림
         if (GameManager.instance != null)
         {
             GameManager.instance.UpdateHealth(currentHealth);
         }
 
-        // 체력이 0 이하면 사망
+        // 체력??0 ?�하�??�망
         if (currentHealth <= 0)
         {
             Die();
@@ -507,40 +588,56 @@ public class PlayerController : MonoBehaviour
         if (!IsContactingGround())
         {
             isGrounded = false;
-            Debug.Log("[GROUND] 공중 상태");
+            Debug.Log("[GROUND] 공중 ?�태");
+
+            // 경사면을 ?��??�라가??지면을 ?��? 경우?�만 모멘?�/?�평?�도 ?�거
+            if (wasOnSlope && playerRigidbody != null)
+            {
+                leftMomentum = 0f;
+                rightMomentum = 0f;
+                leftKeyHoldTime = 0f;
+                rightKeyHoldTime = 0f;
+                playerRigidbody.linearVelocity = new Vector2(0f, playerRigidbody.linearVelocity.y);
+            }
+            wasOnSlope = false;
         }
 
         CheckWallCollisionExit(collision);
+        onSlope = false;
+        ResetFrictionIfNeeded();
     }
 
     private void CheckGroundContact(Collision2D collision)
     {
         foreach (ContactPoint2D contact in collision.contacts)
         {
-            // 위쪽으로 향한 충돌면만 바닥으로 인식 (normal.y > 0.57 = 약 55도 이상)
-            if (contact.normal.y > 0.4f)
-            {  // 0.7 -> 0.57로 변경 (55도)
-                // 평평한 바닥인지 경사면인지 판단
+            // ?�쪽?�로 ?�한 충돌면만 바닥?�로 ?�식 (normal.y > slopeNormalMin)
+            if (contact.normal.y > slopeNormalMin)
+            {
+                // ?�평??바닥?��? 경사면인지 ?�단
                 bool isFlat = contact.normal.y > 0.95f;
 
                 if (isFlat)
                 {
-                    // 평평한 바닥: grace time 체크
+                    // ?�평??바닥: grace time 체크
                     float timeSinceJump = Time.time - lastJumpTime;
                     if (timeSinceJump < jumpGraceTime)
                     {
-                        Debug.Log($"[GRACE] Grace time 중 ({timeSinceJump:F3}s < {jumpGraceTime}s)");
+                        Debug.Log($"[GRACE] Grace time �?({timeSinceJump:F3}s < {jumpGraceTime}s)");
                         return;
                     }
                 }
-                // 경사면은 grace time 무시하고 즉시 착지!
+                // 경사면�? grace time 무시?�고 즉시 착�?!
 
-                // 착지!
+                // 착�?!
                 if (!isGrounded)
                 {
-                    Debug.Log($"[GROUND] 착지! (normal.y={contact.normal.y:F2}, flat={isFlat}, angle={(Mathf.Acos(contact.normal.y) * Mathf.Rad2Deg):F1}°)");
+                    Debug.Log($"[GROUND] 착�?! (normal.y={contact.normal.y:F2}, flat={isFlat}, angle={(Mathf.Acos(contact.normal.y) * Mathf.Rad2Deg):F1}°)");
                 }
                 isGrounded = true;
+                onSlope = !isFlat;
+                wasOnSlope = onSlope;
+                ApplySlopeFriction(contact.normal.y);
                 return;
             }
         }
@@ -555,7 +652,14 @@ public class PlayerController : MonoBehaviour
             0.2f,
             groundLayer
         );
-        return hit.collider != null && hit.normal.y > 0.3f; // 너무 빡빡하게 안 함
+        if (hit.collider != null && hit.normal.y > 0.3f)
+        {
+            onSlope = hit.normal.y <= 0.95f && hit.normal.y > slopeNormalMin;
+            wasOnSlope = onSlope;
+            ApplySlopeFriction(hit.normal.y);
+            return true;
+        }
+        return false;
     }
 
     private void CheckWallCollision(Collision2D collision)
@@ -565,6 +669,12 @@ public class PlayerController : MonoBehaviour
 
         foreach (ContactPoint2D contact in collision.contacts)
         {
+            if (contact.normal.y > slopeNormalMin)
+            {
+                onSlope = true;
+                ApplySlopeFriction(contact.normal.y);
+                continue;
+            }
             if (contact.normal.x > 0.7f)
             {
                 foundLeftWall = true;
@@ -597,6 +707,26 @@ public class PlayerController : MonoBehaviour
         isCollidingRightWall = false;
     }
 
+    private void ApplySlopeFriction(float normalY)
+    {
+        if (runtimeMaterial == null) return;
+        bool isSlope = normalY > slopeNormalMin && normalY < flatNormalThreshold;
+        float target = isSlope ? slopeFriction : flatFriction;
+        if (!Mathf.Approximately(runtimeMaterial.friction, target))
+        {
+            runtimeMaterial.friction = target;
+        }
+    }
+
+    private void ResetFrictionIfNeeded()
+    {
+        if (runtimeMaterial == null) return;
+        if (!Mathf.Approximately(runtimeMaterial.friction, flatFriction))
+        {
+            runtimeMaterial.friction = flatFriction;
+        }
+    }
+
     private void OnDrawGizmosSelected()
     {
         if (playerRigidbody != null)
@@ -614,4 +744,184 @@ public class PlayerController : MonoBehaviour
         body.linearVelocity = new Vector2(v.x, 0);
         body.AddForce(new Vector2(0, jumpForce));
     }
+
+    private void CacheScratchClip()
+    {
+        if (animator == null) return;
+        var controller = animator.runtimeAnimatorController;
+        if (controller == null) return;
+
+        foreach (var clip in controller.animationClips)
+        {
+            if (clip != null && clip.name == scratchAnimationName)
+            {
+                scratchClip = clip;
+                // 루프 ?�정?�라??1???�생?�도�?WrapMode 변�??�도
+                clip.wrapMode = WrapMode.Once;
+                if (scratchDuration < clip.length)
+                {
+                    scratchDuration = clip.length;
+                }
+                break;
+            }
+        }
+    }
+
+    private void HandleScratchInput()
+    {
+        if (isScratching || isDead)
+        {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            StartScratch();
+        }
+    }
+
+    private void StartScratch()
+    {
+        // ?�동/?�프/?�???�력 무시 ?�태�??�환
+        leftMomentum = 0f;
+        rightMomentum = 0f;
+        leftKeyHoldTime = 0f;
+        rightKeyHoldTime = 0f;
+
+        if (animator != null)
+        {
+            animator.speed = 1f; // ensure normal speed at start
+        }
+        isScratching = true;
+        scratchStartTime = Time.time;
+        float clipLen = scratchClip != null ? scratchClip.length : scratchDuration;
+        scratchEndTime = Time.time + Mathf.Max(scratchDuration, clipLen);
+        wasAirborneBeforeScratch = !isGrounded;
+        scratchStoppedAnimator = false;
+
+        // Animator가 ?�른 ?�태�?즉시 ??��?��? ?�도�??�재 ?�태�?리셋
+        if (animator != null)
+        {
+            animator.ResetTrigger(JumpHash);
+            animator.ResetTrigger(DieHash);
+            animator.ResetTrigger(DashHash);
+        }
+
+        if (wasAirborneBeforeScratch && animator != null)
+        {
+            AnimatorStateInfo jumpState = animator.GetCurrentAnimatorStateInfo(0);
+            savedJumpNormalizedTime = jumpState.normalizedTime;
+            savedJumpLength = Mathf.Max(0.01f, jumpState.length);
+        }
+
+        SetAnimationState(AnimationState.Scratch);
+        ApplyScratchDamage();
+    }
+
+    private void UpdateScratchState()
+    {
+        if (!isScratching)
+        {
+            return;
+        }
+
+        if (animator != null)
+        {
+            AnimatorStateInfo state = animator.GetCurrentAnimatorStateInfo(0);
+            // ?�니메이??1???�생 ??바로 종료
+            if (state.IsName(scratchAnimationName) && state.normalizedTime >= 1f)
+            {
+                EndScratch();
+                return;
+            }
+        }
+
+        if (Time.time >= scratchEndTime)
+        {
+            EndScratch();
+        }
+    }
+
+    private void EndScratch()
+    {
+        if (!isScratching) return;
+
+        isScratching = false;
+        if (scratchStoppedAnimator && animator != null)
+        {
+            animator.speed = 1f;
+        }
+        scratchStoppedAnimator = false;
+        scratchEndTime = -1f;
+
+        if (wasAirborneBeforeScratch && !isGrounded)
+        {
+            float scratchElapsed = Time.time - scratchStartTime;
+            float extraNormalized = savedJumpLength > 0.001f
+                ? scratchElapsed / savedJumpLength
+                : 0f;
+            pendingJumpResumeNormalizedTime = savedJumpNormalizedTime + extraNormalized;
+        }
+        else
+        {
+            pendingJumpResumeNormalizedTime = -1f;
+        }
+
+        wasAirborneBeforeScratch = false;
+        SetAnimationState(DetermineAnimationState());
+    }
+
+private void ApplyScratchDamage()
+    {
+        if (scratchHitbox == null)
+        {
+            // ?�동 ?�색 ?�도
+            Transform child = transform.Find("ScratchHitbox");
+            if (child != null)
+            {
+                scratchHitbox = child.GetComponent<BoxCollider2D>();
+            }
+            if (scratchHitbox == null)
+            {
+                Debug.LogWarning("Scratch hitbox is not assigned on PlayerController.");
+                return;
+            }
+        }
+
+        Vector2 center = scratchHitbox.bounds.center;
+        Vector2 size = scratchHitbox.bounds.size;
+        int mask = scratchDamageLayers.value == 0 ? ~0 : scratchDamageLayers.value;
+        System.Array.Clear(scratchHits, 0, scratchHits.Length);
+        int hitCount = Physics2D.OverlapBoxNonAlloc(center, size, 0f, scratchHits, mask);
+        Vector2 knockbackDir = transform.localScale.x >= 0 ? Vector2.right : Vector2.left;
+        
+        // ?��? 공격???�들??추적?�기 ?�한 HashSet
+        System.Collections.Generic.HashSet<int> alreadyHitEnemies = new System.Collections.Generic.HashSet<int>();
+
+        for (int i = 0; i < hitCount && i < scratchHits.Length; i++)
+        {
+            Collider2D hit = scratchHits[i];
+            if (hit == null || hit.transform.IsChildOf(transform))
+            {
+                continue;
+            }
+
+            IntelligentDogMovement dog = hit.GetComponentInParent<IntelligentDogMovement>();
+            if (dog != null)
+            {
+                // ?��? ?�격한 ?�인지 ?�인
+                int dogInstanceID = dog.GetInstanceID();
+                if (!alreadyHitEnemies.Contains(dogInstanceID))
+                {
+                    alreadyHitEnemies.Add(dogInstanceID);
+                    dog.TakeDamage(scratchDamage, knockbackDir);
+                    Debug.Log($"[Player] Scratch �������� {dog.name}���� {scratchDamage} ������ ����");
+                }
+            }
+        }
+    }
 }
+
+
+
+
