@@ -158,7 +158,7 @@ public class OpeningSceneSetup : MonoBehaviour
         .FadeOutAtScene(11, 0.25f);
 
         OpeningScene scene11 = manager.AddScene(11);
-        scene11.SetDuration(1.25f);
+        scene11.SetDuration(2.5f);
         scene11.RequireClickAfterComplete(false);
         scene11.AutoAdvanceAfterComplete(0.5f);
         scene11.SetSound("surgery");                                  
@@ -172,7 +172,7 @@ public class OpeningSceneSetup : MonoBehaviour
         .FadeOutAtScene(13, 0.25f);
 
         OpeningScene scene12 = manager.AddScene(12);
-        scene12.SetDuration(1.25f);
+        scene12.SetDuration(2.5f);
         scene12.RequireClickAfterComplete(false);
         scene12.AutoAdvanceAfterComplete(5f);
         scene12.AddImage("opening_scene12", new Vector3(2.75f, -0.5f, 0), 2)  
@@ -182,7 +182,7 @@ public class OpeningSceneSetup : MonoBehaviour
         .FadeOutAtScene(13, 0.25f);
 
         OpeningScene scene13 = manager.AddScene(13);
-        scene13.SetDuration(1.25f);
+        scene13.SetDuration(2.5f);
         scene13.AddImage("opening_scene13", new Vector3(0, 0, 0), 2)
         .Scale(0.73f)
         .ImageFadeIn(1.25f)

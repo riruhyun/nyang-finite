@@ -14,18 +14,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Settings.unity
     guid: da6882375078cef47a71eeb35fd6e95d
-  - enabled: 0
-    path: Assets/Scenes/Game.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
-    path: Assets/Scenes/VentilationShaft.unity
-    guid: a217f8d5df681494d8d8918709934916
   - enabled: 1
     path: Assets/Scenes/Lab.unity
     guid: 0ee7e1bb3ec2f834fac6824be439b9f5
   - enabled: 1
+    path: Assets/Scenes/VentilationShaft.unity
+    guid: 2712fcea86348994eba32d864a3ee859
+  - enabled: 1
+    path: Assets/Scenes/Stage1.unity
+    guid: 07a9f7677a65801469b7051792741f51
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: e0724a72220c4db4cba2af25fb523f55
+  - enabled: 0
+    path: Assets/Scenes/Game.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

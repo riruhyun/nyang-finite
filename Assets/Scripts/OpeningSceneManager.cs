@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 [DefaultExecutionOrder(-200)]
 public class OpeningSceneManager : MonoBehaviour
@@ -23,6 +24,7 @@ public class OpeningSceneManager : MonoBehaviour
     [SerializeField] private string bgmKey = "Opening_bgm";
     [SerializeField, Range(0f, 1f)] private float bgmVolume = 1f;
     [SerializeField] private bool bgmLoop = true;
+    [SerializeField] private AudioMixerGroup bgmMixerGroup;
 
     private void Awake()
     {
@@ -152,6 +154,7 @@ public class OpeningSceneManager : MonoBehaviour
         {
             if (loadDelay > 0f) yield return new WaitForSeconds(loadDelay);
             Debug.Log($"OpeningSceneManager: Loading next scene '{nextSceneName}'");
+            StopBackgroundMusic();
             SceneManager.LoadScene(nextSceneName);
         }
     }
@@ -233,9 +236,25 @@ public class OpeningSceneManager : MonoBehaviour
         {
             bgmSource = gameObject.AddComponent<AudioSource>();
         }
+        if (bgmMixerGroup != null)
+        {
+            bgmSource.outputAudioMixerGroup = bgmMixerGroup;
+        }
         bgmSource.loop = bgmLoop;
         bgmSource.clip = clip;
         bgmSource.volume = bgmVolume;
         bgmSource.Play();
+    }
+
+    private void StopBackgroundMusic()
+    {
+        if (bgmSource == null) return;
+        bgmSource.Stop();
+        bgmSource.clip = null;
+    }
+
+    private void OnDestroy()
+    {
+        StopBackgroundMusic();
     }
 }

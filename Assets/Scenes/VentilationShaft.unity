@@ -1651,11 +1651,11 @@ MonoBehaviour:
     addPoints: 0
     exactStartPoint: 3
     exactEndPoint: 3
-    useRaycasting: 0
+    useRaycasting: 1
     mask:
       serializedVersion: 2
       m_Bits: 4294967295
-    useGraphRaycasting: 0
+    useGraphRaycasting: 1
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
@@ -1734,7 +1734,7 @@ MonoBehaviour:
   jumpForce: 25
   knockbackDistance: 3
   knockbackDuration: 0.2
-  detectionRange: 20
+  detectionRange: 40
   isKnockedBack: 0
   chaseSpeedMultiplier: 1.2
   attackRange: 1.5
@@ -1765,12 +1765,17 @@ MonoBehaviour:
   backOffSpeedMultiplier: 0.8
   stuckPosThreshold: 0.005
   stuckCheckInterval: 0.1
+  forwardNudgeImpulse: 1
+  forwardNudgeCheckInterval: 0.2
+  forwardNudgeDeltaThreshold: 0.001
+  forwardNudgeJumpCooldown: 0.1
+  apexForwardImpulse: 1
   patrolWaitTime: 2
   slopeNormalMin: 0.4
   flatNormalThreshold: 0.95
   slopeSpeedMultiplier: 1.75
   slopeSpeedPadding: 5
-  debugDog: 0
+  debugDog: 1
   debugLogInterval: 0.3
   heartSprite: {fileID: 21300000, guid: d791b7733a8d0404ca161acbbe599493, type: 3}
   healthUiOffset: {x: -0.03, y: 0.15}
@@ -2103,7 +2108,7 @@ MonoBehaviour:
   maxStaminaBarWidth: 1
   staminaText: {fileID: 0}
   staminaTextColor: {r: 0.25545123, g: 0.45218208, b: 0.6084906, a: 1}
-  textLocalOffset: {x: -4.5, y: 3.065, z: 2}
+  textLocalOffset: {x: -4.25, y: 3.065, z: 2}
   staminaTextFontSize: 40
   staminaFont: {fileID: 12800000, guid: ab3e3faa0d319124a82abdc929ddc467, type: 3}
   followCamera: 1
@@ -2696,7 +2701,7 @@ AudioSource:
   m_GameObject: {fileID: 1819403697}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6228602924464901724, guid: 47fb56bfbc55ef94d9ca9476cfe58056, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 1b85e6237675bc8498d44f39c55985ac, type: 3}
   m_PlayOnAwake: 1
@@ -2793,7 +2798,7 @@ AudioSource:
   m_GameObject: {fileID: 1819403697}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6228602924464901724, guid: 47fb56bfbc55ef94d9ca9476cfe58056, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 1c0e5027a9a2b4547a1a325afec4eeed, type: 3}
   m_PlayOnAwake: 1

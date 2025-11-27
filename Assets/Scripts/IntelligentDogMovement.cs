@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using Pathfinding;
 
@@ -80,6 +80,13 @@ public class IntelligentDogMovement : Enemy
     [SerializeField] private float stuckPosThreshold = 0.005f;
     [SerializeField] private float stuckCheckInterval = 0.1f;
 
+    [Header("Grounded Stuck Nudge")]
+    [SerializeField] private float forwardNudgeImpulse = 1f;
+    [SerializeField] private float forwardNudgeCheckInterval = 0.2f;
+    [SerializeField] private float forwardNudgeDeltaThreshold = 0.001f;
+    [SerializeField] private float forwardNudgeJumpCooldown = 0.1f;
+    [SerializeField] private float apexForwardImpulse = 2f;
+
     [Header("Patrol Settings")]
     [SerializeField] private float patrolWaitTime = 2f;
 
@@ -127,7 +134,7 @@ public class IntelligentDogMovement : Enemy
     private float healthUiShowUntil = -1f;
     private bool hideHealthUiAfterHit = false;
     private bool healthUiHidden = false;
-    [SerializeField] private Color damageFlashColor = new Color(1f, 0f, 0f, 1f); // 알파 투명도 대신 순수 빨강 틴트
+    [SerializeField] private Color damageFlashColor = new Color(1f, 0f, 0f, 1f); // ?뚰뙆 ?щ챸??????쒖닔 鍮④컯 ?댄듃
     [SerializeField] private float damageFlashDuration = 0.1f;
     [SerializeField] private int damageFlashCount = 2;
     private Coroutine damageFlashRoutine;
@@ -141,7 +148,7 @@ public class IntelligentDogMovement : Enemy
     private float lastAttackTime = -999f;
     private Vector2 spawnPosition;
     private float patrolTimer = 0f;
-    // 무적 ?�간 관리용
+    // 臾댁쟻 ?占쎄컙 愿由ъ슜
     private float invincibilityTime = 0.5f;
     private float lastDamageTime = -10f;
 
@@ -155,6 +162,17 @@ public class IntelligentDogMovement : Enemy
     private float backOffDir = 0f;
     private float lastPosX = 0f;
     private float lastPosCheckTime = -1f;
+    private float lastForwardCheckPosX = 0f;
+    private float lastForwardCheckTime = -1f;
+    private float lastForwardNudgeTime = -1f;
+    private float lastForwardNudgePosX = 0f;
+    private bool awaitingJumpAfterNudge = false;
+    private bool lockForwardUntilGrounded = false;
+    private bool pendingApexImpulse = false;
+    private float apexImpulseDir = 0f;
+    private float lastVerticalVelY = 0f;
+    private float prevVerticalVelY = 0f;
+    private float apexPeakY = float.MinValue;
 
     private enum DogState
     {
@@ -202,6 +220,13 @@ public class IntelligentDogMovement : Enemy
     {
         UpdateHealthUiAlphaState();
 
+        // Track vertical velocity for apex detection
+        if (rb != null)
+        {
+            prevVerticalVelY = lastVerticalVelY;
+            lastVerticalVelY = rb.linearVelocity.y;
+        }
+
         if (!isAlive || isKnockedBack) return;
 
         // Attack animation handling
@@ -232,6 +257,8 @@ public class IntelligentDogMovement : Enemy
         }
 
         CheckAndUpdateState();
+
+        TryApplyApexImpulse();
     }
 
     private void FixedUpdate()
@@ -273,7 +300,7 @@ public class IntelligentDogMovement : Enemy
         }
         else
         {
-            // ?�레?�어 감�? 범위�?벗어?�면 즉시 Idle
+            // ?占쎈젅?占쎌뼱 媛먲옙? 踰붿쐞占?踰쀬뼱?占쎈㈃ 利됱떆 Idle
             currentState = DogState.Idle;
         }
     }
@@ -375,12 +402,15 @@ public class IntelligentDogMovement : Enemy
 
         Vector2 direction = (nextWaypoint - transform.position).normalized;
 
-        // ?�쪽?�서 ?�레?�어까�???경로가 막혔?�시 ?�진 ?�회
-        TryBackwardObstacleBypass(direction);
-        if (forwardRunUntil > Time.time && Mathf.Abs(forwardRunDir) > 0.01f)
+        // ?占쎌そ?占쎌꽌 ?占쎈젅?占쎌뼱源뚳옙???寃쎈줈媛 留됲삍?占쎌떆 ?占쎌쭊 ?占쏀쉶
+        if (!pendingApexImpulse && (rb == null || rb.linearVelocity.y <= 0.05f))
         {
-            MoveHorizontally(forwardRunDir);
-            return;
+            TryBackwardObstacleBypass(direction);
+            if (forwardRunUntil > Time.time && Mathf.Abs(forwardRunDir) > 0.01f)
+            {
+                MoveHorizontally(forwardRunDir);
+                return;
+            }
         }
 
         // Airborne downward movement: keep a bit of horizontal motion
@@ -424,18 +454,18 @@ public class IntelligentDogMovement : Enemy
     {
         if (!isGrounded) return false;
 
-        // 바로 ??�?Ray) 2블럭 ?�내???�레?�어가 ?�을???�프 금�?
+        // 諛붾줈 ??占?Ray) 2釉붾윮 ?占쎈궡???占쎈젅?占쎌뼱媛 ?占쎌쓣???占쏀봽 湲덌옙?
         if (playerTransform != null)
         {
             Vector2 origin = transform.position;
             Vector2 toPlayer = (Vector2)playerTransform.position - origin;
             float distToPlayer = toPlayer.magnitude;
             float angleToUp = Vector2.Angle(Vector2.up, toPlayer);
-            // ?�레?�어가 ?�쪽(60?�내)?�고 2블럭 ?�하�??�프 금�?
+            // ?占쎈젅?占쎌뼱媛 ?占쎌そ(60?占쎈궡)?占쎄퀬 2釉붾윮 ?占쏀븯占??占쏀봽 湲덌옙?
             if (toPlayer.y > 0f && distToPlayer <= 4f && angleToUp <= 60f)
             {
                 RaycastHit2D hitAbove = Physics2D.Raycast(origin, toPlayer.normalized, distToPlayer + 0.1f, groundLayer);
-                // ?�레?�어가 직접 ?�에 ?�는 경우??차단 (중간???�른 ?�애�??�을 ???�음)
+                // ?占쎈젅?占쎌뼱媛 吏곸젒 ?占쎌뿉 ?占쎈뒗 寃쎌슦??李⑤떒 (以묎컙???占쎈Ⅸ ?占쎌븷占??占쎌쓣 ???占쎌쓬)
                 if (hitAbove.collider == null || hitAbove.collider.transform == playerTransform)
                 {
                     return false;
@@ -483,8 +513,17 @@ public class IntelligentDogMovement : Enemy
         // Airborne stuck detection: trying to move forward but X not changing
         TryAirborneStuckBackoff(directionX);
 
-        // ?�회 ?�진???�성?�되?�을???�선 ?�용
-        if (forwardRunUntil > Time.time && Mathf.Abs(forwardRunDir) > 0.01f)
+        // ?占쏀쉶 ?占쎌쭊???占쎌꽦?占쎈릺?占쎌쓣???占쎌꽑 ?占쎌슜
+        if (lockForwardUntilGrounded)
+        {
+            // Keep horizontal neutral while waiting to land
+            rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
+            if (isGrounded && Mathf.Abs(rb.linearVelocity.y) < 0.01f)
+            {
+                lockForwardUntilGrounded = false;
+            }
+        }
+        else if (forwardRunUntil > Time.time && Mathf.Abs(forwardRunDir) > 0.01f)
         {
             float forcedX = moveSpeed * forwardBypassSpeedMultiplier * forwardRunDir;
             rb.linearVelocity = new Vector2(forcedX, rb.linearVelocity.y);
@@ -506,6 +545,8 @@ public class IntelligentDogMovement : Enemy
         {
             spriteRenderer.flipX = directionX < 0;
         }
+
+        TryGroundedForwardNudge(directionX);
     }
 
     private void MoveInDirection(Vector2 direction)
@@ -521,6 +562,39 @@ public class IntelligentDogMovement : Enemy
         {
             bool isMoving = direction.magnitude > 0.01f;
             animator.SetBool("IsWalking", isMoving);
+        }
+    }
+
+    private void TryApplyApexImpulse()
+    {
+        if (!pendingApexImpulse || rb == null) return;
+
+        apexPeakY = Mathf.Max(apexPeakY, rb.position.y);
+
+        // Detect transition from upward to downward (peak)
+        bool atPeak = (prevVerticalVelY > 0f && lastVerticalVelY <= 0f)
+                      || (lastVerticalVelY <= 0f && rb.position.y >= apexPeakY - 0.05f);
+
+        if (atPeak)
+        {
+            float dir = Mathf.Abs(apexImpulseDir) > 0.01f
+                ? Mathf.Sign(apexImpulseDir)
+                : (Mathf.Abs(lastFacingDir) > 0.01f ? Mathf.Sign(lastFacingDir) : 1f);
+            if (dir != 0f)
+            {
+                rb.AddForce(new Vector2(dir * apexForwardImpulse, 0f), ForceMode2D.Impulse);
+                if (debugDog)
+                {
+                    Debug.Log($"[DOG][APEX] forward impulse applied dir={dir} force={apexForwardImpulse}");
+                }
+            }
+            pendingApexImpulse = false;
+        }
+
+        if (isGrounded)
+        {
+            pendingApexImpulse = false;
+            apexPeakY = float.MinValue;
         }
     }
 
@@ -587,8 +661,7 @@ public class IntelligentDogMovement : Enemy
         dogBaseColor = spriteRenderer.color;
         Color baseSolid = new Color(dogBaseColor.r, dogBaseColor.g, dogBaseColor.b, 1f);
         Color flashTint = new Color(damageFlashColor.r, damageFlashColor.g, damageFlashColor.b, 1f);
-        Color flash = Color.Lerp(baseSolid, flashTint, 0.6f); // 알파 변경 없이 색상만 블렌드
-
+        Color flash = Color.Lerp(baseSolid, flashTint, 0.6f); // ?뚰뙆 蹂寃??놁씠 ?됱긽留?釉붾젋??
         for (int i = 0; i < damageFlashCount; i++)
         {
             spriteRenderer.color = flash;
@@ -618,6 +691,66 @@ public class IntelligentDogMovement : Enemy
             return downDirection;
 
         return Vector2.zero;
+    }
+
+    private void TryGroundedForwardNudge(float directionX)
+    {
+        if (rb == null) return;
+        if (!isGrounded) return;
+        if (Mathf.Abs(directionX) < 0.01f) return;
+
+        float now = Time.time;
+
+        // If we already nudged and still haven't moved, force a jump
+        if (awaitingJumpAfterNudge && (now - lastForwardNudgeTime) >= forwardNudgeJumpCooldown)
+        {
+            float deltaSinceNudge = Mathf.Abs(rb.position.x - lastForwardNudgePosX);
+            if (deltaSinceNudge < forwardNudgeDeltaThreshold && CanJump())
+            {
+                float dir = Mathf.Sign(directionX);
+                // Stop forward lunge, step back, then jump to break free (no forward impulse on landing)
+                forwardRunUntil = 0f;
+                forwardRunDir = 0f;
+                rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
+                rb.AddForce(new Vector2(-dir * 2f, 0f), ForceMode2D.Impulse);
+                Jump();
+                pendingApexImpulse = true;
+                apexImpulseDir = Mathf.Abs(lastFacingDir) > 0.01f ? Mathf.Sign(lastFacingDir) : dir;
+                apexPeakY = transform.position.y;
+                lockForwardUntilGrounded = true;
+                awaitingJumpAfterNudge = false;
+                lastForwardCheckPosX = rb.position.x;
+                lastForwardCheckTime = now;
+                return;
+            }
+            awaitingJumpAfterNudge = false;
+        }
+
+        if (lastForwardCheckTime < 0f)
+        {
+            lastForwardCheckPosX = rb.position.x;
+            lastForwardCheckTime = now;
+            return;
+        }
+
+        if (now - lastForwardCheckTime < forwardNudgeCheckInterval) return;
+
+        float deltaX = Mathf.Abs(rb.position.x - lastForwardCheckPosX);
+        if (deltaX < forwardNudgeDeltaThreshold && (now - lastForwardNudgeTime) >= forwardNudgeCheckInterval)
+        {
+            float dir = Mathf.Sign(directionX);
+            rb.AddForce(new Vector2(dir * forwardNudgeImpulse, 0f), ForceMode2D.Impulse);
+            awaitingJumpAfterNudge = true;
+            lastForwardNudgePosX = rb.position.x;
+            lastForwardNudgeTime = now;
+            if (debugDog)
+            {
+                Debug.Log($"[DOG][NUDGE] low deltaX={deltaX:F4}, impulse={dir * forwardNudgeImpulse}");
+            }
+        }
+
+        lastForwardCheckPosX = rb.position.x;
+        lastForwardCheckTime = now;
     }
 
     private void TryAirborneStuckBackoff(float inputX)
@@ -667,10 +800,12 @@ public class IntelligentDogMovement : Enemy
         if (hitToPlayer.collider == null)
             return; // not blocked
 
-        RaycastHit2D upHit = Physics2D.Raycast(origin, Vector2.up, verticalCheckMaxDistance, groundLayer);
+        // Cast vertically toward the player (up or down) instead of always upward
+        Vector2 verticalDir = toPlayer.y >= 0f ? Vector2.up : Vector2.down;
+        RaycastHit2D upHit = Physics2D.Raycast(origin, verticalDir, verticalCheckMaxDistance, groundLayer);
         if (debugDog)
         {
-            Debug.DrawLine(origin, origin + Vector2.up * verticalCheckMaxDistance, upHit.collider == null ? Color.green : Color.yellow, 0.2f);
+            Debug.DrawLine(origin, origin + verticalDir * verticalCheckMaxDistance, upHit.collider == null ? Color.green : Color.yellow, 0.2f);
         }
         if (upHit.collider == null)
             return; // free space above, no need to bypass
@@ -744,10 +879,10 @@ public class IntelligentDogMovement : Enemy
         heartRenderer.sortingLayerName = healthUiSortingLayer;
         heartRenderer.sortingOrder = healthUiSortingOrder;
 
-        // 텍스트 위치 설정 - padding을 기존 x 값에 추가
+        // ?띿뒪???꾩튂 ?ㅼ젙 - padding??湲곗〈 x 媛믪뿉 異붽?
         var textPos = healthTextLocalPosition;
         float padding = healthTextPadding;
-        textPos.x = textPos.x + padding;  // 기존 x 값에 패딩을 더함
+        textPos.x = textPos.x + padding;  // 湲곗〈 x 媛믪뿉 ?⑤뵫???뷀븿
         textPos.z = Mathf.Approximately(textPos.z, 0f) ? -2f : textPos.z;
 
         int textSortingOffset = healthTextSortingOffset <= 0 ? 50 : healthTextSortingOffset;
@@ -783,7 +918,7 @@ public class IntelligentDogMovement : Enemy
 
         SetHealthUiAlpha(healthUiNormalAlpha);
         healthUiInitialized = true;
-        Debug.Log($"[Dog] Health UI 생성 - Heart: {heartGO.name}, Text: {healthText.text}, Pos: {textGO.transform.position}, Sorting:{textRenderer?.sortingOrder}");
+        Debug.Log($"[Dog] Health UI ?앹꽦 - Heart: {heartGO.name}, Text: {healthText.text}, Pos: {textGO.transform.position}, Sorting:{textRenderer?.sortingOrder}");
     }
 
     private void UpdateHealthUI()
@@ -861,11 +996,11 @@ public class IntelligentDogMovement : Enemy
         {
             elapsed += Time.deltaTime;
             float t = Mathf.Clamp01(elapsed / damageTextDuration);
-            // Ease in-out: sin curve로 살짝 올랐다가 내려오게
+            // Ease in-out: sin curve濡??댁쭩 ?щ옄?ㅺ? ?대젮?ㅺ쾶
             float vertical = Mathf.Sin(t * Mathf.PI) * damageTextAmplitude;
             textGO.transform.localPosition = baseLocalPos + new Vector3(0f, vertical, 0f);
 
-            // 알파 서서히 감소
+            // ?뚰뙆 ?쒖꽌??媛먯냼
             var c = textMesh.color;
             c.a = 1f - t;
             textMesh.color = c;
@@ -880,14 +1015,14 @@ public class IntelligentDogMovement : Enemy
     {
         if (!isAlive) return;
 
-        // 무적 ?�간 체크 추�?
+        // 臾댁쟻 ?占쎄컙 泥댄겕 異뷂옙?
         if (Time.time - lastDamageTime < invincibilityTime)
         {
-            Debug.Log($"[Dog] 무적 ?�간 �??��?지 무시 (?��? ?�간: {invincibilityTime - (Time.time - lastDamageTime):F2}s)");
+            Debug.Log($"[Dog] 臾댁쟻 ?占쎄컙 占??占쏙옙?吏 臾댁떆 (?占쏙옙? ?占쎄컙: {invincibilityTime - (Time.time - lastDamageTime):F2}s)");
             return;
         }
 
-        // 무적 ?�간 ?�데?�트
+        // 臾댁쟻 ?占쎄컙 ?占쎈뜲?占쏀듃
         lastDamageTime = Time.time;
 
         StartDamageFlash();
@@ -903,7 +1038,7 @@ public class IntelligentDogMovement : Enemy
                 StartDamageFlash();
         bool lethalHit = currentHealth <= 0f;
 
-        Debug.Log($"[Dog] ?��?지 받음! {damage} (?�재 체력: {currentHealth}/{maxHealth})");
+        Debug.Log($"[Dog] ?占쏙옙?吏 諛쏆쓬! {damage} (?占쎌옱 泥대젰: {currentHealth}/{maxHealth})");
 
         float hitDuration = lethalHit ? Mathf.Max(healthUiHitDuration, 1f) : healthUiHitDuration;
         healthUiShowUntil = Time.time + hitDuration;
@@ -917,7 +1052,7 @@ public class IntelligentDogMovement : Enemy
             return;
         }
 
-        // Player 스크래치 등에 의한 넉백은 비활성화
+        // Player ?ㅽ겕?섏튂 ?깆뿉 ?섑븳 ?됰갚? 鍮꾪솢?깊솕
     }
 
     protected override void Die()
@@ -1014,3 +1149,4 @@ public class IntelligentDogMovement : Enemy
         }
     }
 }
+

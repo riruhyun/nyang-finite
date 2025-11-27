@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 /// <summary>
 /// Handles interaction-based scene transitions (pressE proximity -> VentilationShaft)
@@ -28,9 +29,16 @@ public class SceneTransitionController : MonoBehaviour
     [Header("Lab Fade Settings (first entry only)")]
     [SerializeField] private Vector2 labBlackFadePosition = new Vector2(-1.92f, -5.05f);
 
+    [Header("Lab BGM")]
+    [SerializeField] private string labBgmKey = "Nine Lives Left";
+    [SerializeField, Range(0f, 1f)] private float labBgmVolume = 1f;
+    [SerializeField] private bool labBgmLoop = true;
+    [SerializeField] private AudioMixerGroup labBgmMixerGroup;
+
     private static SceneTransitionController instance;
     private bool isTransitioning;
     private bool labFadeDone;
+    private AudioSource labBgmSource;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void Bootstrap()
@@ -65,6 +73,8 @@ public class SceneTransitionController : MonoBehaviour
         {
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
+
+        StopLabBgm();
     }
 
     private void Update()
@@ -103,6 +113,7 @@ public class SceneTransitionController : MonoBehaviour
         isTransitioning = false;
 
         HandleLabFade(scene);
+        HandleLabBgm(scene);
     }
 
     private void HandleLabFade(Scene scene)
@@ -128,6 +139,52 @@ public class SceneTransitionController : MonoBehaviour
         }
 
         labFadeDone = true;
+    }
+
+    private void HandleLabBgm(Scene scene)
+    {
+        if (scene.name == labSceneName)
+        {
+            PlayLabBgm();
+        }
+        else
+        {
+            StopLabBgm();
+        }
+    }
+
+    private void PlayLabBgm()
+    {
+        if (string.IsNullOrEmpty(labBgmKey)) return;
+
+        var clip = Resources.Load<AudioClip>(labBgmKey)
+                   ?? Resources.Load<AudioClip>("sound/" + labBgmKey);
+        if (clip == null)
+        {
+            Debug.LogWarning($"[SceneTransitionController] Lab BGM '{labBgmKey}' not found (tried '', 'sound/').");
+            return;
+        }
+
+        if (labBgmSource == null)
+        {
+            labBgmSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        if (labBgmMixerGroup != null)
+        {
+            labBgmSource.outputAudioMixerGroup = labBgmMixerGroup;
+        }
+        labBgmSource.clip = clip;
+        labBgmSource.loop = labBgmLoop;
+        labBgmSource.volume = labBgmVolume;
+        labBgmSource.Play();
+    }
+
+    private void StopLabBgm()
+    {
+        if (labBgmSource == null) return;
+        labBgmSource.Stop();
+        labBgmSource.clip = null;
     }
 
     private bool TryGetPlayer(out Transform player)
