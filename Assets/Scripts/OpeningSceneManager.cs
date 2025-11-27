@@ -18,6 +18,12 @@ public class OpeningSceneManager : MonoBehaviour
     [Tooltip("Require a click/any key AFTER each scene completes to advance. Ignores early clicks during motions.")]
     public bool requireClickAfterSceneComplete = false;
 
+    [Header("Background Music")]
+    [SerializeField] private bool playBgmOnStart = true;
+    [SerializeField] private string bgmKey = "Opening_bgm";
+    [SerializeField, Range(0f, 1f)] private float bgmVolume = 1f;
+    [SerializeField] private bool bgmLoop = true;
+
     private void Awake()
     {
         if (Instance == null)
@@ -39,6 +45,7 @@ public class OpeningSceneManager : MonoBehaviour
     private Coroutine playRoutine;
     private bool requestAdvance = false;
     private bool acceptAdvanceClick = false;
+    private AudioSource bgmSource;
 
     public OpeningScene AddScene(int id)
     {
@@ -55,6 +62,10 @@ public class OpeningSceneManager : MonoBehaviour
         {
             isPlaying = true;
             currentSceneIndex = 0;
+            if (playBgmOnStart)
+            {
+                PlayBackgroundMusic();
+            }
             Debug.Log($"OpeningSceneManager.StartOpening: starting with {scenes.Count} scenes.");
             playRoutine = StartCoroutine(PlayScenes());
         }
@@ -203,5 +214,28 @@ public class OpeningSceneManager : MonoBehaviour
         }
         requestAdvance = false;
         acceptAdvanceClick = false;
+    }
+
+    private void PlayBackgroundMusic()
+    {
+        if (string.IsNullOrEmpty(bgmKey)) return;
+
+        var clip = Resources.Load<AudioClip>(bgmKey)
+                   ?? Resources.Load<AudioClip>("Opening_Scene/" + bgmKey)
+                   ?? Resources.Load<AudioClip>("sound/" + bgmKey);
+        if (clip == null)
+        {
+            Debug.LogWarning($"OpeningSceneManager: BGM clip '{bgmKey}' not found (tried '', 'Opening_Scene/', 'sound/')");
+            return;
+        }
+
+        if (bgmSource == null)
+        {
+            bgmSource = gameObject.AddComponent<AudioSource>();
+        }
+        bgmSource.loop = bgmLoop;
+        bgmSource.clip = clip;
+        bgmSource.volume = bgmVolume;
+        bgmSource.Play();
     }
 }

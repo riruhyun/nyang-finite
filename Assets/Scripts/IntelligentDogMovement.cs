@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using Pathfinding;
 
@@ -19,10 +20,19 @@ public class IntelligentDogMovement : Enemy
     [SerializeField] private float attackDamage = 1f;
 
     [Tooltip("Attack animation duration")]
-    [SerializeField] private float attackAnimationDuration = 0.5f;
+    [SerializeField] private float attackAnimationDuration = 1.5f; // 3x slower
+
+    [Tooltip("Apply damage near the end of the attack animation")]
+    [SerializeField] private float attackHitWindow = 0.3f;
+
+    [Tooltip("Delay between attack starts (seconds)")]
+    [SerializeField] private float attackCooldown = 2.0f;
 
     [Tooltip("Max horizontal speed")]
     [SerializeField] private float maxSpeed = 5f;
+
+    [Tooltip("Delay before freezing after death animation finishes")]
+    [SerializeField] private float deathFreezeDelay = 1.0f;
 
     [Header("Jump Settings")]
     [Tooltip("Jump when vertical gap above this height")]
@@ -98,6 +108,15 @@ public class IntelligentDogMovement : Enemy
     [SerializeField] private float healthUiHitAlpha = 1f;
     [SerializeField] private float healthUiHitDuration = 0.8f;
 
+    [Header("Damage Text")]
+    [SerializeField] private Vector3 damageTextOffset = new Vector3(0.6f, 0.4f, -1f);
+    [SerializeField] private Color damageTextColor = Color.yellow;
+    [SerializeField] private float damageTextDuration = 0.6f;
+    [SerializeField] private float damageTextAmplitude = 0.4f;
+    [SerializeField] private int damageTextFontSize = 80;
+    [SerializeField] private float damageTextCharacterSize = 0.05f;
+    [SerializeField] private Font damageTextFont;
+
     // Components
     private AIPath aiPath;
     private SpriteRenderer heartRenderer;
@@ -106,12 +125,20 @@ public class IntelligentDogMovement : Enemy
     private GameObject textGO;
     private bool healthUiInitialized = false;
     private float healthUiShowUntil = -1f;
-
+    private bool hideHealthUiAfterHit = false;
+    private bool healthUiHidden = false;
+    [SerializeField] private Color damageFlashColor = new Color(1f, 0f, 0f, 1f); // 알파 투명도 대신 순수 빨강 틴트
+    [SerializeField] private float damageFlashDuration = 0.1f;
+    [SerializeField] private int damageFlashCount = 2;
+    private Coroutine damageFlashRoutine;
+    private Color dogBaseColor = Color.white;
     // State
     private float lastJumpTime;
     private bool isGrounded;
     private bool isAttacking = false;
     private float attackAnimationTimer = 0f;
+    private bool attackDamageApplied = false;
+    private float lastAttackTime = -999f;
     private Vector2 spawnPosition;
     private float patrolTimer = 0f;
     // 무적 ?�간 관리용
@@ -142,6 +169,11 @@ public class IntelligentDogMovement : Enemy
     {
         base.Awake();
         aiPath = GetComponent<AIPath>();
+
+        if (spriteRenderer != null)
+        {
+            dogBaseColor = spriteRenderer.color;
+        }
 
         // Disable AIPath auto movement; we drive it manually
         if (aiPath != null)
@@ -176,6 +208,13 @@ public class IntelligentDogMovement : Enemy
         if (isAttacking)
         {
             attackAnimationTimer -= Time.deltaTime;
+
+            // Deal damage near the end of the animation if still in range
+            if (!attackDamageApplied && attackAnimationTimer <= attackHitWindow)
+            {
+                TryApplyAttackDamage();
+            }
+
             if (attackAnimationTimer <= 0f)
             {
                 isAttacking = false;
@@ -185,6 +224,11 @@ public class IntelligentDogMovement : Enemy
                 }
             }
             return; // during attack, skip other updates
+        }
+        else if (animator != null)
+        {
+            // Ensure attack pose is cleared while waiting (including cooldown)
+            animator.SetBool("IsAttacking", false);
         }
 
         CheckAndUpdateState();
@@ -278,6 +322,16 @@ public class IntelligentDogMovement : Enemy
 
     private void AttackBehavior()
     {
+        // Respect cooldown: skip animation/attack if still cooling down
+        if (Time.time - lastAttackTime < attackCooldown)
+        {
+            if (animator != null)
+            {
+                animator.SetBool("IsAttacking", false);
+            }
+            return;
+        }
+
         Attack();
     }
 
@@ -479,24 +533,72 @@ public class IntelligentDogMovement : Enemy
     {
         if (playerTransform == null || isAttacking) return;
 
+        // Respect attack cooldown
+        if (Time.time - lastAttackTime < attackCooldown) return;
+
         float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
 
         if (distanceToPlayer <= attackRange)
         {
             isAttacking = true;
             attackAnimationTimer = attackAnimationDuration;
+            attackDamageApplied = false;
+            lastAttackTime = Time.time;
 
             if (animator != null)
             {
                 animator.SetBool("IsAttacking", true);
             }
+        }
+    }
 
+    private void TryApplyAttackDamage()
+    {
+        if (attackDamageApplied) return;
+        if (playerTransform == null) return;
+
+        float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
+        if (distanceToPlayer <= attackRange)
+        {
             PlayerController player = playerTransform.GetComponent<PlayerController>();
             if (player != null)
             {
                 player.TakeDamage(attackDamage);
+                attackDamageApplied = true;
             }
         }
+    }
+
+    private void StartDamageFlash()
+    {
+        if (spriteRenderer == null) return;
+        if (damageFlashRoutine != null)
+        {
+            StopCoroutine(damageFlashRoutine);
+            spriteRenderer.color = new Color(dogBaseColor.r, dogBaseColor.g, dogBaseColor.b, 1f);
+            damageFlashRoutine = null;
+        }
+        damageFlashRoutine = StartCoroutine(DamageFlashRoutine());
+    }
+
+    private System.Collections.IEnumerator DamageFlashRoutine()
+    {
+        if (spriteRenderer == null) yield break;
+        dogBaseColor = spriteRenderer.color;
+        Color baseSolid = new Color(dogBaseColor.r, dogBaseColor.g, dogBaseColor.b, 1f);
+        Color flashTint = new Color(damageFlashColor.r, damageFlashColor.g, damageFlashColor.b, 1f);
+        Color flash = Color.Lerp(baseSolid, flashTint, 0.6f); // 알파 변경 없이 색상만 블렌드
+
+        for (int i = 0; i < damageFlashCount; i++)
+        {
+            spriteRenderer.color = flash;
+            yield return new WaitForSeconds(damageFlashDuration * 0.5f);
+            spriteRenderer.color = baseSolid;
+            yield return new WaitForSeconds(damageFlashDuration * 0.5f);
+        }
+
+        spriteRenderer.color = baseSolid;
+        damageFlashRoutine = null;
     }
 
     protected override void ResetKnockback()
@@ -600,10 +702,25 @@ public class IntelligentDogMovement : Enemy
 
     private void UpdateHealthUiAlphaState()
     {
-        if (!healthUiInitialized) return;
+        if (!healthUiInitialized || healthUiHidden) return;
 
         float targetAlpha = Time.time <= healthUiShowUntil ? healthUiHitAlpha : healthUiNormalAlpha;
         SetHealthUiAlpha(targetAlpha);
+
+        if (hideHealthUiAfterHit && Time.time > healthUiShowUntil)
+        {
+            HideHealthUI();
+            hideHealthUiAfterHit = false;
+        }
+    }
+
+    private void HideHealthUI()
+    {
+        if (healthUiHidden) return;
+
+        if (heartGO != null) heartGO.SetActive(false);
+        if (textGO != null) textGO.SetActive(false);
+        healthUiHidden = true;
     }
 
     private void CreateHealthUI()
@@ -671,6 +788,8 @@ public class IntelligentDogMovement : Enemy
 
     private void UpdateHealthUI()
     {
+        if (healthUiHidden) return;
+
         if (heartSprite != null && heartRenderer == null)
         {
             CreateHealthUI();
@@ -701,6 +820,62 @@ public class IntelligentDogMovement : Enemy
         UpdateHealthUiAlphaState();
     }
 
+    private void SpawnDamageText(float damage)
+    {
+        StartCoroutine(DamageTextRoutine(damage));
+    }
+
+    private IEnumerator DamageTextRoutine(float damage)
+    {
+        var textGO = new GameObject("DogDamageText");
+        textGO.transform.SetParent(transform);
+        textGO.transform.localPosition = damageTextOffset;
+        textGO.transform.localRotation = Quaternion.identity;
+        textGO.transform.localScale = Vector3.one;
+
+        var textMesh = textGO.AddComponent<TextMesh>();
+        textMesh.text = $"-{damage:0.#}";
+        textMesh.anchor = TextAnchor.MiddleLeft;
+        textMesh.alignment = TextAlignment.Left;
+        textMesh.characterSize = damageTextCharacterSize;
+        textMesh.fontSize = damageTextFontSize;
+        textMesh.color = damageTextColor;
+        textMesh.richText = false;
+        textMesh.font = damageTextFont != null
+            ? damageTextFont
+            : Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+
+        var renderer = textGO.GetComponent<MeshRenderer>();
+        if (renderer != null)
+        {
+            renderer.sortingLayerName = healthUiSortingLayer;
+            renderer.sortingOrder = healthUiSortingOrder + 80;
+            renderer.material = textMesh.font != null
+                ? textMesh.font.material
+                : new Material(Shader.Find("GUI/Text Shader"));
+        }
+
+        Vector3 baseLocalPos = damageTextOffset;
+        float elapsed = 0f;
+        while (elapsed < damageTextDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / damageTextDuration);
+            // Ease in-out: sin curve로 살짝 올랐다가 내려오게
+            float vertical = Mathf.Sin(t * Mathf.PI) * damageTextAmplitude;
+            textGO.transform.localPosition = baseLocalPos + new Vector3(0f, vertical, 0f);
+
+            // 알파 서서히 감소
+            var c = textMesh.color;
+            c.a = 1f - t;
+            textMesh.color = c;
+
+            yield return null;
+        }
+
+        Destroy(textGO);
+    }
+
     public override void TakeDamage(float damage, Vector2 knockbackDirection)
     {
         if (!isAlive) return;
@@ -715,6 +890,8 @@ public class IntelligentDogMovement : Enemy
         // 무적 ?�간 ?�데?�트
         lastDamageTime = Time.time;
 
+        StartDamageFlash();
+
         if (!healthUiInitialized)
         {
             CreateHealthUI();
@@ -722,20 +899,25 @@ public class IntelligentDogMovement : Enemy
 
         currentHealth -= damage;
         if (currentHealth < 0f) currentHealth = 0f;
+        SpawnDamageText(damage);
+                StartDamageFlash();
+        bool lethalHit = currentHealth <= 0f;
 
         Debug.Log($"[Dog] ?��?지 받음! {damage} (?�재 체력: {currentHealth}/{maxHealth})");
 
-        healthUiShowUntil = Time.time + healthUiHitDuration;
+        float hitDuration = lethalHit ? Mathf.Max(healthUiHitDuration, 1f) : healthUiHitDuration;
+        healthUiShowUntil = Time.time + hitDuration;
+        hideHealthUiAfterHit = lethalHit;
         UpdateHealthUI();
         SetHealthUiAlpha(healthUiHitAlpha);
 
-        if (currentHealth <= 0f)
+        if (lethalHit)
         {
             Die();
             return;
         }
 
-        ApplyKnockback(knockbackDirection);
+        // Player 스크래치 등에 의한 넉백은 비활성화
     }
 
     protected override void Die()
@@ -747,8 +929,17 @@ public class IntelligentDogMovement : Enemy
 
         if (animator != null)
         {
-            animator.SetTrigger("Die");
+            // Stop all movement/attack flags before playing death
+            animator.SetBool("IsAttacking", false);
+            animator.SetBool("IsWalking", false);
+            animator.speed = 1f;
+            animator.enabled = true;
+            animator.Play("Death", 0, 0f);
+            StartCoroutine(FreezeAfterDeath());
         }
+
+        isAttacking = false;
+        currentState = DogState.Idle;
 
         if (aiPath != null)
         {
@@ -761,6 +952,24 @@ public class IntelligentDogMovement : Enemy
             rb.linearVelocity = Vector2.zero;
             rb.bodyType = RigidbodyType2D.Kinematic;
             rb.gravityScale = 0f;
+            rb.constraints = RigidbodyConstraints2D.FreezeAll; // fully stop
+        }
+
+        // Disable all colliders to prevent further interaction
+        var colliders = GetComponentsInChildren<Collider2D>();
+        foreach (var col in colliders)
+        {
+            col.enabled = false;
+        }
+    }
+
+    private IEnumerator FreezeAfterDeath()
+    {
+        yield return new WaitForSeconds(deathFreezeDelay);
+        if (animator != null)
+        {
+            animator.speed = 0f;
+            animator.enabled = false;
         }
     }
 

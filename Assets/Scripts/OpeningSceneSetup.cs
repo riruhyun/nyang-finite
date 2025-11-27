@@ -58,6 +58,10 @@ public class OpeningSceneSetup : MonoBehaviour
     {
         OpeningScene scene1 = manager.AddScene(1);
         scene1.SetDuration(1.25f);
+        scene1.SetSound("pigeon");                                  
+        scene1.SetSoundDelay(0f);                                                                              
+        scene1.SetSoundVolume(1f);                                                                                          
+        scene1.SetSoundLoop(false);
         scene1.AddImage("opening_scene1", new Vector3(-4.5f, 0, 0), 5)
         .Scale(0.75f)
         .ImageFadeIn(1.25f)

@@ -440,10 +440,13 @@ public class OpeningScene
     {
         if (soundDelay > 0f) yield return new WaitForSeconds(soundDelay);
         if (runner == null || string.IsNullOrEmpty(soundKey)) yield break;
-        var clip = Resources.Load<AudioClip>(soundKey) ?? Resources.Load<AudioClip>("Opening_Scene/" + soundKey);
+        // Load order: direct, Opening_Scene/, sound/ (for Resources/sound/)
+        var clip = Resources.Load<AudioClip>(soundKey)
+                   ?? Resources.Load<AudioClip>("Opening_Scene/" + soundKey)
+                   ?? Resources.Load<AudioClip>("sound/" + soundKey);
         if (clip == null)
         {
-            Debug.LogWarning($"OpeningScene: could not load AudioClip '{soundKey}'");
+            Debug.LogWarning($"OpeningScene: could not load AudioClip '{soundKey}' (tried '', 'Opening_Scene/', 'sound/')");
             yield break;
         }
         var src = runner.GetComponent<AudioSource>();
