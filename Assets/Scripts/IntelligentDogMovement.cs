@@ -98,7 +98,6 @@ public class IntelligentDogMovement : Enemy
 
     [Header("Debug")]
     [SerializeField] private bool debugDog = true;
-    [SerializeField] private float debugLogInterval = 0.3f;
 
     [Header("Health UI")]
     [SerializeField] private Sprite heartSprite;
@@ -145,7 +144,6 @@ public class IntelligentDogMovement : Enemy
     private bool isAttacking = false;
     private float attackAnimationTimer = 0f;
     private bool attackDamageApplied = false;
-    private float lastAttackTime = -999f;
     private Vector2 spawnPosition;
     private float patrolTimer = 0f;
     // 臾댁쟻 ?占쎄컙 愿由ъ슜
@@ -209,10 +207,10 @@ public class IntelligentDogMovement : Enemy
         spawnPosition = transform.position;
         lastPosX = transform.position.x;
         lastPosCheckTime = Time.time;
-        
+
         CreateHealthUI();
         UpdateHealthUI();
-        
+
         Debug.Log($"[Dog] Start - maxHealth: {maxHealth}, currentHealth: {currentHealth}, heartSprite: {heartSprite != null}");
     }
 
@@ -279,7 +277,7 @@ public class IntelligentDogMovement : Enemy
                 AttackBehavior();
                 break;
             case DogState.Idle:
-                IdleBehavior();
+                // Idle state: no movement
                 break;
         }
     }
@@ -360,10 +358,6 @@ public class IntelligentDogMovement : Enemy
         }
 
         Attack();
-    }
-
-    private void IdleBehavior()
-    {
     }
 
     private void CheckGroundStatus()
@@ -889,7 +883,7 @@ public class IntelligentDogMovement : Enemy
 
         textGO = new GameObject("HealthText");
         textGO.transform.SetParent(heartGO.transform);
-        textGO.transform.localPosition = textPos;
+        textGO.transform.localPosition = GetHealthTextPosition();
         textGO.transform.localScale = Vector3.one;
         textGO.transform.localRotation = Quaternion.identity;
 
@@ -921,6 +915,14 @@ public class IntelligentDogMovement : Enemy
         Debug.Log($"[Dog] Health UI ?앹꽦 - Heart: {heartGO.name}, Text: {healthText.text}, Pos: {textGO.transform.position}, Sorting:{textRenderer?.sortingOrder}");
     }
 
+    private Vector3 GetHealthTextPosition()
+    {
+        var pos = healthTextLocalPosition;
+        pos.x += healthTextPadding;
+        pos.z = Mathf.Approximately(pos.z, 0f) ? -2f : pos.z;
+        return pos;
+    }
+
     private void UpdateHealthUI()
     {
         if (healthUiHidden) return;
@@ -930,26 +932,21 @@ public class IntelligentDogMovement : Enemy
             CreateHealthUI();
         }
 
-        bool show = true;
-
         if (heartGO != null)
         {
-            heartGO.SetActive(show);
+            heartGO.SetActive(true);
         }
         if (textGO != null)
         {
-            textGO.SetActive(show);
-            var textPos = healthTextLocalPosition;
-            textPos.x += healthTextPadding;
-            textPos.z = Mathf.Approximately(textPos.z, 0f) ? -2f : textPos.z;
-            textGO.transform.localPosition = textPos;
+            textGO.SetActive(true);
+            textGO.transform.localPosition = GetHealthTextPosition();
         }
 
         if (healthText != null)
         {
             float hpValue = Mathf.Max(0f, currentHealth);
             healthText.text = hpValue.ToString("0.##");
-            Debug.Log($"[Dog] Health UI update - HP: {hpValue}, Show: {show}, TextActive: {textGO?.activeSelf}");
+            Debug.Log($"[Dog] Health UI update - HP: {hpValue}, TextActive: {textGO?.activeSelf}");
         }
 
         UpdateHealthUiAlphaState();
@@ -962,13 +959,13 @@ public class IntelligentDogMovement : Enemy
 
     private IEnumerator DamageTextRoutine(float damage)
     {
-        var textGO = new GameObject("DogDamageText");
-        textGO.transform.SetParent(transform);
-        textGO.transform.localPosition = damageTextOffset;
-        textGO.transform.localRotation = Quaternion.identity;
-        textGO.transform.localScale = Vector3.one;
+        var damageTextGO = new GameObject("DogDamageText");
+        damageTextGO.transform.SetParent(transform);
+        damageTextGO.transform.localPosition = damageTextOffset;
+        damageTextGO.transform.localRotation = Quaternion.identity;
+        damageTextGO.transform.localScale = Vector3.one;
 
-        var textMesh = textGO.AddComponent<TextMesh>();
+        var textMesh = damageTextGO.AddComponent<TextMesh>();
         textMesh.text = $"-{damage:0.#}";
         textMesh.anchor = TextAnchor.MiddleLeft;
         textMesh.alignment = TextAlignment.Left;
@@ -980,7 +977,7 @@ public class IntelligentDogMovement : Enemy
             ? damageTextFont
             : Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
 
-        var renderer = textGO.GetComponent<MeshRenderer>();
+        var renderer = damageTextGO.GetComponent<MeshRenderer>();
         if (renderer != null)
         {
             renderer.sortingLayerName = healthUiSortingLayer;
@@ -996,11 +993,9 @@ public class IntelligentDogMovement : Enemy
         {
             elapsed += Time.deltaTime;
             float t = Mathf.Clamp01(elapsed / damageTextDuration);
-            // Ease in-out: sin curve濡??댁쭩 ?щ옄?ㅺ? ?대젮?ㅺ쾶
             float vertical = Mathf.Sin(t * Mathf.PI) * damageTextAmplitude;
-            textGO.transform.localPosition = baseLocalPos + new Vector3(0f, vertical, 0f);
+            damageTextGO.transform.localPosition = baseLocalPos + new Vector3(0f, vertical, 0f);
 
-            // ?뚰뙆 ?쒖꽌??媛먯냼
             var c = textMesh.color;
             c.a = 1f - t;
             textMesh.color = c;
@@ -1008,7 +1003,7 @@ public class IntelligentDogMovement : Enemy
             yield return null;
         }
 
-        Destroy(textGO);
+        Destroy(damageTextGO);
     }
 
     public override void TakeDamage(float damage, Vector2 knockbackDirection)
@@ -1035,7 +1030,6 @@ public class IntelligentDogMovement : Enemy
         currentHealth -= damage;
         if (currentHealth < 0f) currentHealth = 0f;
         SpawnDamageText(damage);
-                StartDamageFlash();
         bool lethalHit = currentHealth <= 0f;
 
         Debug.Log($"[Dog] ?占쏙옙?吏 諛쏆쓬! {damage} (?占쎌옱 泥대젰: {currentHealth}/{maxHealth})");

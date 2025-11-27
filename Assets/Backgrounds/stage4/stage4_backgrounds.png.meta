@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: a806ed3de7cf03845aa1bec97d8aa121
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8984809752048253985
+    second: stage4_backgrounds_0
+  - first:
+      213: 888568524686377829
+    second: stage4_backgrounds_1
+  - first:
+      213: -6641698771604250881
+    second: stage4_backgrounds_2
+  - first:
+      213: -845733427664580931
+    second: stage4_backgrounds_3
+  - first:
+      213: -6000765925430910460
+    second: stage4_backgrounds_4
+  - first:
+      213: 6099086039544095332
+    second: stage4_backgrounds_5
+  - first:
+      213: 1346293889199705719
+    second: stage4_backgrounds_6
+  - first:
+      213: -3436513733027366677
+    second: stage4_backgrounds_7
+  - first:
+      213: 6552750355106721588
+    second: stage4_backgrounds_8
+  - first:
+      213: 2044188875463145667
+    second: stage4_backgrounds_9
+  - first:
+      213: -8813473363712755138
+    second: stage4_backgrounds_10
+  - first:
+      213: -3266234851476046217
+    second: stage4_backgrounds_11
+  - first:
+      213: 6402803628049814760
+    second: stage4_backgrounds_12
+  - first:
+      213: 359323531761060136
+    second: stage4_backgrounds_13
+  - first:
+      213: -8509716992978518709
+    second: stage4_backgrounds_14
+  - first:
+      213: -5036741932626692286
+    second: stage4_backgrounds_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: stage4_backgrounds_0
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 0
+        width: 253
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd3c2b2522b8f4380800000000000000
+      internalID: -8984809752048253985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage4_backgrounds_1
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 0
+        width: 252
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56346888d54d45c00800000000000000
+      internalID: 888568524686377829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage4_backgrounds_2
+      rect:
+        serializedVersion: 2
+        x: 1165
+        y: 133
+        width: 31
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffe516d0822f3d3a0800000000000000
+      internalID: -6641698771604250881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage4_backgrounds_3
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 126
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbe016dade95344f0800000000000000
+      internalID: -845733427664580931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage4_backgrounds_4
+      rect:
+        serializedVersion: 2
+        x: 1199
+        y: 132
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4022c6a2f2ff8bca0800000000000000
+      internalID: -6000765925430910460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage4_backgrounds_5
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 115
+        width: 62
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 462e199407e44a450800000000000000
+      internalID: 6099086039544095332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage4_backgrounds_6
+      rect:
+        serializedVersion: 2
+        x: 1276
+        y: 127
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77e0705c82ffea210800000000000000
+      internalID: 1346293889199705719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage4_backgrounds_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 250
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be8f62d97fc0f40d0800000000000000
+      internalID: -3436513733027366677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage4_backgrounds_8
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 0
+        width: 253
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43f63f1eabb00fa50800000000000000
+      internalID: 6552750355106721588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage4_backgrounds_9
+      rect:
+        serializedVersion: 2
+        x: 1132
+        y: 119
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c839cf93fa6e5c10800000000000000
+      internalID: 2044188875463145667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage4_backgrounds_10
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 121
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3ab886eba040b580800000000000000
+      internalID: -8813473363712755138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage4_backgrounds_11
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 120
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77ef4c435b00ca2d0800000000000000
+      internalID: -3266234851476046217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage4_backgrounds_12
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 110
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e4dd78e9f35bd850800000000000000
+      internalID: 6402803628049814760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage4_backgrounds_13
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 114
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8298e0e29d29cf400800000000000000
+      internalID: 359323531761060136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage4_backgrounds_14
+      rect:
+        serializedVersion: 2
+        x: 1199
+        y: 119
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4df8663b7967e980800000000000000
+      internalID: -8509716992978518709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage4_backgrounds_15
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 0
+        width: 251
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 247b878e5e5e91ab0800000000000000
+      internalID: -5036741932626692286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      stage4_backgrounds_0: -8984809752048253985
+      stage4_backgrounds_1: 888568524686377829
+      stage4_backgrounds_10: -8813473363712755138
+      stage4_backgrounds_11: -3266234851476046217
+      stage4_backgrounds_12: 6402803628049814760
+      stage4_backgrounds_13: 359323531761060136
+      stage4_backgrounds_14: -8509716992978518709
+      stage4_backgrounds_15: -5036741932626692286
+      stage4_backgrounds_2: -6641698771604250881
+      stage4_backgrounds_3: -845733427664580931
+      stage4_backgrounds_4: -6000765925430910460
+      stage4_backgrounds_5: 6099086039544095332
+      stage4_backgrounds_6: 1346293889199705719
+      stage4_backgrounds_7: -3436513733027366677
+      stage4_backgrounds_8: 6552750355106721588
+      stage4_backgrounds_9: 2044188875463145667
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
