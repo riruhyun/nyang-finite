@@ -9,7 +9,7 @@ public class OpeningSceneManager : MonoBehaviour
     public static OpeningSceneManager Instance { get; private set; }
     [Header("Completion Transition")]
     public bool loadOnComplete = true;
-    public string nextSceneName = "Game";
+    public string nextSceneName = "Lab";
     public float loadDelay = 0f;
 
     [Header("Interaction")]

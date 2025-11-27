@@ -672,11 +672,10 @@ private void SetAnimationState(AnimationState newState)
         if (!IsContactingGround())
         {
             isGrounded = false;
-            Debug.Log("[GROUND] 공중 ?�태");
+            Debug.Log("[GROUND] 공중 상태");
 
-            // 경사면을 ?��??�라가??지면을 ?��? 경우?�만 모멘?�/?�평?�도 ?�거
             if (wasOnSlope && playerRigidbody != null)
-            {
+            { 
                 leftMomentum = 0f;
                 rightMomentum = 0f;
                 leftKeyHoldTime = 0f;

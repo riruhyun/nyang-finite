@@ -449,19 +449,48 @@ public class OpeningScene
             Debug.LogWarning($"OpeningScene: could not load AudioClip '{soundKey}' (tried '', 'Opening_Scene/', 'sound/')");
             yield break;
         }
-        var src = runner.GetComponent<AudioSource>();
-        if (src == null) src = runner.gameObject.AddComponent<AudioSource>();
-        src.volume = soundVolume;
+
+        // Find or create SFX AudioSource (separate from BGM)
+        AudioSource sfxSource = GetOrCreateSFXAudioSource();
+
+        // Stop previous sound effect (but not BGM)
+        if (sfxSource.isPlaying)
+        {
+            sfxSource.Stop();
+        }
+
+        sfxSource.volume = soundVolume;
         if (soundLoop)
         {
-            src.loop = true;
-            src.clip = clip;
-            src.Play();
+            sfxSource.loop = true;
+            sfxSource.clip = clip;
+            sfxSource.Play();
         }
         else
         {
-            src.PlayOneShot(clip, soundVolume);
+            sfxSource.PlayOneShot(clip, soundVolume);
         }
+    }
+
+    // Get or create a dedicated SFX AudioSource (separate from BGM)
+    private AudioSource GetOrCreateSFXAudioSource()
+    {
+        if (runner == null) return null;
+
+        // Look for all AudioSources on the runner
+        AudioSource[] sources = runner.gameObject.GetComponents<AudioSource>();
+
+        // The first AudioSource is assumed to be BGM (created by OpeningSceneManager)
+        // Find or create the second one for SFX
+        if (sources.Length >= 2)
+        {
+            return sources[1]; // Return the SFX source
+        }
+
+        // If only one exists (BGM), create a new one for SFX
+        AudioSource sfxSource = runner.gameObject.AddComponent<AudioSource>();
+        sfxSource.playOnAwake = false;
+        return sfxSource;
     }
 
     private static void EnsureAlpha(GameObject go, float a)

@@ -16,7 +16,7 @@ public class OpeningSceneSetup : MonoBehaviour
         manager = GetComponent<OpeningSceneManager>();
         if (manager == null)
         {
-            manager = FindObjectOfType<OpeningSceneManager>();
+            manager = FindFirstObjectByType<OpeningSceneManager>();
             if (manager != null)
             {
                 Debug.Log("OpeningSceneSetup.Awake: found OpeningSceneManager in scene.");
@@ -57,11 +57,7 @@ public class OpeningSceneSetup : MonoBehaviour
     private void SetupOpening()
     {
         OpeningScene scene1 = manager.AddScene(1);
-        scene1.SetDuration(1.25f);
-        scene1.SetSound("pigeon");                                  
-        scene1.SetSoundDelay(0f);                                                                              
-        scene1.SetSoundVolume(1f);                                                                                          
-        scene1.SetSoundLoop(false);
+        scene1.SetDuration(1.25f);                                                                                         
         scene1.AddImage("opening_scene1", new Vector3(-4.5f, 0, 0), 5)
         .Scale(0.75f)
         .ImageFadeIn(1.25f)
@@ -70,6 +66,10 @@ public class OpeningSceneSetup : MonoBehaviour
 
         OpeningScene scene2 = manager.AddScene(2);
         scene2.SetDuration(1.25f);
+        scene2.SetSound("pigeon");                                  
+        scene2.SetSoundDelay(0f);                                                                              
+        scene2.SetSoundVolume(1f);
+        scene2.SetSoundLoop(false);
         scene2.AddImage("opening_scene2", new Vector3(3.5f, 0, 0), 6)
         .Scale(0.73f)
         .ImageFadeIn(1.25f)
@@ -86,6 +86,12 @@ public class OpeningSceneSetup : MonoBehaviour
 
         OpeningScene scene4 = manager.AddScene(4);
         scene4.SetDuration(1.25f);
+        scene4.RequireClickAfterComplete(false);
+        scene4.AutoAdvanceAfterComplete(1.5f);
+        scene4.SetSound("bump");                                  
+        scene4.SetSoundDelay(0f);                                                                              
+        scene4.SetSoundVolume(1f);
+        scene4.SetSoundLoop(false);
         scene4.AddImage("opening_scene4", new Vector3(3.25f, 0.5f, 0), 3)
         .Scale(0.73f)
         .ImageFadeIn(1.25f)
@@ -103,6 +109,10 @@ public class OpeningSceneSetup : MonoBehaviour
         scene6.SetDuration(1.25f);
         scene6.RequireClickAfterComplete(false);
         scene6.AutoAdvanceAfterComplete(0.5f);
+        scene6.SetSound("night");                                  
+        scene6.SetSoundDelay(0f);                                                                              
+        scene6.SetSoundVolume(1f);
+        scene6.SetSoundLoop(false);
         scene6.AddImage("opening_scene6", new Vector3(0, 0, 0), 3)
         .Scale(0.73f)
         .ImageFadeIn(1.25f)
@@ -151,6 +161,10 @@ public class OpeningSceneSetup : MonoBehaviour
         scene11.SetDuration(1.25f);
         scene11.RequireClickAfterComplete(false);
         scene11.AutoAdvanceAfterComplete(0.5f);
+        scene11.SetSound("surgery");                                  
+        scene11.SetSoundDelay(0f);                                                                              
+        scene11.SetSoundVolume(1f);
+        scene11.SetSoundLoop(false);
         scene11.AddImage("opening_scene11", new Vector3(-4.25f, 0.5f, 0), 2)
         .Scale(0.85f)
         .ImageFadeIn(1.25f)
@@ -160,7 +174,7 @@ public class OpeningSceneSetup : MonoBehaviour
         OpeningScene scene12 = manager.AddScene(12);
         scene12.SetDuration(1.25f);
         scene12.RequireClickAfterComplete(false);
-        scene12.AutoAdvanceAfterComplete(2.5f);
+        scene12.AutoAdvanceAfterComplete(5f);
         scene12.AddImage("opening_scene12", new Vector3(2.75f, -0.5f, 0), 2)  
         .Scale(0.85f)
         .ImageFadeIn(1.25f)
