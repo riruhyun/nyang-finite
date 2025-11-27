@@ -1,0 +1,367 @@
+fileFormatVersion: 2
+guid: c7e4f6b75f98e2e42a411f1775cb941e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5047662363063470836
+    second: stage5_obstacles_0
+  - first:
+      213: 2299403571903304625
+    second: stage5_obstacles_1
+  - first:
+      213: 5344465222930542611
+    second: stage5_obstacles_2
+  - first:
+      213: 1934227738269765994
+    second: stage5_obstacles_3
+  - first:
+      213: -136117009857801504
+    second: stage5_obstacles_4
+  - first:
+      213: -4422465626952210399
+    second: stage5_obstacles_5
+  - first:
+      213: -490169437705463643
+    second: stage5_obstacles_6
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: 1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: stage5_obstacles_0
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 99
+        width: 74
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fac180fc26ec0640800000000000000
+      internalID: 5047662363063470836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage5_obstacles_1
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 54
+        width: 20
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b39f8aad5f19ef10800000000000000
+      internalID: 2299403571903304625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage5_obstacles_2
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 108
+        width: 74
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3103437ddca5b2a40800000000000000
+      internalID: 5344465222930542611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage5_obstacles_3
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 108
+        width: 74
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a61d64641e1c7da10800000000000000
+      internalID: 1934227738269765994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage5_obstacles_4
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 108
+        width: 74
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e2998bfc4a6c1ef0800000000000000
+      internalID: -136117009857801504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage5_obstacles_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1293
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 128632a81fe30a2c0800000000000000
+      internalID: -4422465626952210399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage5_obstacles_6
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 38
+        width: 74
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a810d15e719239f0800000000000000
+      internalID: -490169437705463643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape:
+    - - {x: -26.5, y: -8.5}
+      - {x: -26.5, y: 63.5}
+      - {x: -48.5, y: 63.5}
+      - {x: -48.5, y: -8.5}
+      - {x: -46.5, y: -10.5}
+      - {x: -28.5, y: -10.5}
+    - - {x: 87.5, y: 45.5}
+      - {x: 87.5, y: 63.5}
+      - {x: 11.5, y: 63.5}
+      - {x: 11.5, y: 45.5}
+      - {x: 13.5, y: 43.5}
+      - {x: 85.5, y: 43.5}
+    - - {x: 240.5, y: 45.5}
+      - {x: 240.5, y: 63.5}
+      - {x: 164.5, y: 63.5}
+      - {x: 164.5, y: 45.5}
+      - {x: 166.5, y: 43.5}
+      - {x: 238.5, y: 43.5}
+    - - {x: 370.5, y: 45.5}
+      - {x: 370.5, y: 63.5}
+      - {x: 294.5, y: 63.5}
+      - {x: 294.5, y: 45.5}
+      - {x: 296.5, y: 43.5}
+      - {x: 368.5, y: 43.5}
+    - - {x: -89.5, y: 36.5}
+      - {x: -89.5, y: 54.5}
+      - {x: -91.5, y: 56.5}
+      - {x: -163.5, y: 56.5}
+      - {x: -165.5, y: 54.5}
+      - {x: -165.5, y: 36.5}
+      - {x: -163.5, y: 34.5}
+      - {x: -91.5, y: 34.5}
+    - - {x: -89.5, y: -24.5}
+      - {x: -89.5, y: -6.5}
+      - {x: -91.5, y: -4.5}
+      - {x: -163.5, y: -4.5}
+      - {x: -165.5, y: -6.5}
+      - {x: -165.5, y: -24.5}
+      - {x: -163.5, y: -26.5}
+      - {x: -91.5, y: -26.5}
+    - - {x: 644.5, y: -54.5}
+      - {x: 644.5, y: -30.5}
+      - {x: 641.5, y: -27.5}
+      - {x: 298.5, y: -27.5}
+      - {x: 298.5, y: -11.5}
+      - {x: 296.5, y: -9.5}
+      - {x: 224.5, y: -9.5}
+      - {x: 222.5, y: -11.5}
+      - {x: 222.5, y: -27.5}
+      - {x: 145.5, y: -27.5}
+      - {x: 145.5, y: -11.5}
+      - {x: 143.5, y: -9.5}
+      - {x: 71.5, y: -9.5}
+      - {x: 69.5, y: -11.5}
+      - {x: 69.5, y: -27.5}
+      - {x: -223.5, y: -27.5}
+      - {x: -223.5, y: -11.5}
+      - {x: -225.5, y: -9.5}
+      - {x: -297.5, y: -9.5}
+      - {x: -299.5, y: -11.5}
+      - {x: -299.5, y: -27.5}
+      - {x: -322.5, y: -27.5}
+      - {x: -334.5, y: -15.5}
+      - {x: -466.5, y: -15.5}
+      - {x: -478.5, y: -27.5}
+      - {x: -646.5, y: -27.5}
+      - {x: -646.5, y: -57.5}
+      - {x: 641.5, y: -57.5}
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      stage5_obstacles_0: 5047662363063470836
+      stage5_obstacles_1: 2299403571903304625
+      stage5_obstacles_2: 5344465222930542611
+      stage5_obstacles_3: 1934227738269765994
+      stage5_obstacles_4: -136117009857801504
+      stage5_obstacles_5: -4422465626952210399
+      stage5_obstacles_6: -490169437705463643
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

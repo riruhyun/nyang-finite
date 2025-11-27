@@ -1,0 +1,585 @@
+fileFormatVersion: 2
+guid: 969e178057bd84c49aad2d05a5069c87
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4143167498910098735
+    second: stage12_buildings_0
+  - first:
+      213: -640898221209265036
+    second: stage12_buildings_1
+  - first:
+      213: 7015358387092840971
+    second: stage12_buildings_2
+  - first:
+      213: -1929475998402477757
+    second: stage12_buildings_3
+  - first:
+      213: 3930853164837901034
+    second: stage12_buildings_4
+  - first:
+      213: -5517507752158263055
+    second: stage12_buildings_5
+  - first:
+      213: -8625837025730316677
+    second: stage12_buildings_6
+  - first:
+      213: 8134014166304295662
+    second: stage12_buildings_7
+  - first:
+      213: 998058479092194232
+    second: stage12_buildings_8
+  - first:
+      213: 6877544250127846189
+    second: stage12_buildings_9
+  - first:
+      213: 1160864835614049088
+    second: stage12_buildings_10
+  - first:
+      213: -2519349242210119317
+    second: stage12_buildings_11
+  - first:
+      213: -6689962839756129248
+    second: stage12_buildings_12
+  - first:
+      213: 7931494816541390397
+    second: stage12_buildings_13
+  - first:
+      213: 4422924312592348210
+    second: stage12_buildings_14
+  - first:
+      213: 3870064206271358470
+    second: stage12_buildings_15
+  - first:
+      213: -1884705042099787860
+    second: stage12_buildings_16
+  - first:
+      213: -4102375580874488564
+    second: stage12_buildings_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: stage12_buildings_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 110
+        width: 113
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1da15867c138086c0800000000000000
+      internalID: -4143167498910098735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage12_buildings_1
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 117
+        width: 56
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47c54a3a6721b17f0800000000000000
+      internalID: -640898221209265036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage12_buildings_2
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 110
+        width: 113
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b02e9bab84f8b5160800000000000000
+      internalID: 7015358387092840971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage12_buildings_3
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 16
+        width: 256
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34104906dcf1935e0800000000000000
+      internalID: -1929475998402477757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage12_buildings_4
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 117
+        width: 56
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae2126a70223d8630800000000000000
+      internalID: 3930853164837901034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage12_buildings_5
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 110
+        width: 113
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f88423beefdd63b0800000000000000
+      internalID: -5517507752158263055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage12_buildings_6
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 117
+        width: 56
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b76beee3deeda4880800000000000000
+      internalID: -8625837025730316677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage12_buildings_7
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 110
+        width: 113
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eea0094d9c2d1e070800000000000000
+      internalID: 8134014166304295662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage12_buildings_8
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 117
+        width: 56
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bb5b5716e0d9dd00800000000000000
+      internalID: 998058479092194232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage12_buildings_9
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 110
+        width: 113
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2b86e38e02f17f50800000000000000
+      internalID: 6877544250127846189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage12_buildings_10
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 117
+        width: 56
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 043840fda683c1010800000000000000
+      internalID: 1160864835614049088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage12_buildings_11
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 110
+        width: 113
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b619ae85639790dd0800000000000000
+      internalID: -2519349242210119317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage12_buildings_12
+      rect:
+        serializedVersion: 2
+        x: 1232
+        y: 117
+        width: 56
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02cb5cffd3a7823a0800000000000000
+      internalID: -6689962839756129248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage12_buildings_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 18
+        width: 252
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d363dc54384521e60800000000000000
+      internalID: 7931494816541390397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage12_buildings_14
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 16
+        width: 215
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23471888a32616d30800000000000000
+      internalID: 4422924312592348210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage12_buildings_15
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 16
+        width: 37
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60622c024ea35b530800000000000000
+      internalID: 3870064206271358470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage12_buildings_16
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 16
+        width: 253
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca72143ffbe28d5e0800000000000000
+      internalID: -1884705042099787860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage12_buildings_17
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 16
+        width: 252
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c054dbef42f6117c0800000000000000
+      internalID: -4102375580874488564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      stage12_buildings_0: -4143167498910098735
+      stage12_buildings_1: -640898221209265036
+      stage12_buildings_10: 1160864835614049088
+      stage12_buildings_11: -2519349242210119317
+      stage12_buildings_12: -6689962839756129248
+      stage12_buildings_13: 7931494816541390397
+      stage12_buildings_14: 4422924312592348210
+      stage12_buildings_15: 3870064206271358470
+      stage12_buildings_16: -1884705042099787860
+      stage12_buildings_17: -4102375580874488564
+      stage12_buildings_2: 7015358387092840971
+      stage12_buildings_3: -1929475998402477757
+      stage12_buildings_4: 3930853164837901034
+      stage12_buildings_5: -5517507752158263055
+      stage12_buildings_6: -8625837025730316677
+      stage12_buildings_7: 8134014166304295662
+      stage12_buildings_8: 998058479092194232
+      stage12_buildings_9: 6877544250127846189
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

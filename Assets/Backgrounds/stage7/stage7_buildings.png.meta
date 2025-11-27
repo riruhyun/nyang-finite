@@ -1,0 +1,923 @@
+fileFormatVersion: 2
+guid: f401d710cc3490b448829690b513cdfd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1483364103701060654
+    second: stage7_buildings_0
+  - first:
+      213: -196829440009058687
+    second: stage7_buildings_1
+  - first:
+      213: 8738515946206985354
+    second: stage7_buildings_2
+  - first:
+      213: -2007416270860524629
+    second: stage7_buildings_3
+  - first:
+      213: 7977932615959377966
+    second: stage7_buildings_4
+  - first:
+      213: 6983457863230565106
+    second: stage7_buildings_5
+  - first:
+      213: -7803416961009889941
+    second: stage7_buildings_6
+  - first:
+      213: -9073123175976984312
+    second: stage7_buildings_7
+  - first:
+      213: 1234705830356104028
+    second: stage7_buildings_8
+  - first:
+      213: 16876195711015649
+    second: stage7_buildings_9
+  - first:
+      213: 8580480163730670987
+    second: stage7_buildings_10
+  - first:
+      213: -4535200770281228589
+    second: stage7_buildings_11
+  - first:
+      213: -2870987233551312962
+    second: stage7_buildings_12
+  - first:
+      213: 9174644018754190222
+    second: stage7_buildings_13
+  - first:
+      213: -6833690424979240903
+    second: stage7_buildings_14
+  - first:
+      213: -4296160655743924217
+    second: stage7_buildings_15
+  - first:
+      213: 7863031104396733751
+    second: stage7_buildings_16
+  - first:
+      213: -7807110095007375936
+    second: stage7_buildings_17
+  - first:
+      213: 3216918116072115835
+    second: stage7_buildings_18
+  - first:
+      213: 1987238659677163664
+    second: stage7_buildings_19
+  - first:
+      213: -3740384152794865024
+    second: stage7_buildings_20
+  - first:
+      213: 5671939296904325113
+    second: stage7_buildings_21
+  - first:
+      213: -6017332400110855062
+    second: stage7_buildings_22
+  - first:
+      213: 5007474577382011270
+    second: stage7_buildings_23
+  - first:
+      213: 4297180068734325814
+    second: stage7_buildings_24
+  - first:
+      213: 7204433397998011984
+    second: stage7_buildings_25
+  - first:
+      213: 129822595570301166
+    second: stage7_buildings_26
+  - first:
+      213: 4568717454835676260
+    second: stage7_buildings_27
+  - first:
+      213: -4876695096773028177
+    second: stage7_buildings_28
+  - first:
+      213: -3259960568803088241
+    second: stage7_buildings_29
+  - first:
+      213: -2644041437659747546
+    second: stage7_buildings_30
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: stage7_buildings_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 146
+        width: 113
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2cdaa90bc7f59410800000000000000
+      internalID: 1483364103701060654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_1
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 153
+        width: 56
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 186cbeacaa8b44df0800000000000000
+      internalID: -196829440009058687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_2
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 146
+        width: 113
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8cf0c554f1754970800000000000000
+      internalID: 8738515946206985354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_3
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 153
+        width: 56
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba3e40399893424e0800000000000000
+      internalID: -2007416270860524629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_4
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 146
+        width: 113
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e28f240027f47be60800000000000000
+      internalID: 7977932615959377966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_5
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 153
+        width: 56
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fa24c93de93ae060800000000000000
+      internalID: 6983457863230565106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_6
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 150
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6d4fb44e91b4b390800000000000000
+      internalID: -7803416961009889941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_7
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 170
+        width: 36
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 801278cfa8ac51280800000000000000
+      internalID: -9073123175976984312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_8
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 179
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c53ba74396e822110800000000000000
+      internalID: 1234705830356104028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_9
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 159
+        width: 65
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ead3828fc4fb3000800000000000000
+      internalID: 16876195711015649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_10
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 146
+        width: 131
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b85c3716f3df31770800000000000000
+      internalID: 8580480163730670987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_11
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 153
+        width: 56
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d63f4e8deabf01c0800000000000000
+      internalID: -4535200770281228589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_12
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 146
+        width: 112
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb71e7d72543828d0800000000000000
+      internalID: -2870987233551312962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_13
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 153
+        width: 56
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8b718e2022e25f70800000000000000
+      internalID: 9174644018754190222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_14
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 146
+        width: 113
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 938cf12d3cad921a0800000000000000
+      internalID: -6833690424979240903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_15
+      rect:
+        serializedVersion: 2
+        x: 1232
+        y: 153
+        width: 56
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 708cf5845a8f064c0800000000000000
+      internalID: -4296160655743924217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_16
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 165
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73d2a6b11291f1d60800000000000000
+      internalID: 7863031104396733751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_17
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 164
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cd18b08bb297a390800000000000000
+      internalID: -7807110095007375936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_18
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 170
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7e4ffb8bf9c4ac20800000000000000
+      internalID: 3216918116072115835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_19
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 171
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0901bf93807149b10800000000000000
+      internalID: 1987238659677163664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_20
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 163
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08269213e6c771cc0800000000000000
+      internalID: -3740384152794865024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_21
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 152
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f7af834db6c6be40800000000000000
+      internalID: 5671939296904325113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_22
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 151
+        width: 27
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6c91f330142e7ca0800000000000000
+      internalID: -6017332400110855062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_23
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 159
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68177aee89f1e7540800000000000000
+      internalID: 5007474577382011270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_24
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 163
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6345ccc4186a2ab30800000000000000
+      internalID: 4297180068734325814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_25
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 157
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 056c1a7310a4bf360800000000000000
+      internalID: 7204433397998011984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1289
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee879cc76f83dc100800000000000000
+      internalID: 129822595570301166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_27
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 143
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4647b9ea158576f30800000000000000
+      internalID: 4568717454835676260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_28
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 150
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa654f6b5af725cb0800000000000000
+      internalID: -4876695096773028177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_29
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 151
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8826ba722b42c2d0800000000000000
+      internalID: -3259960568803088241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage7_buildings_30
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 140
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62ba0e8325a7e4bd0800000000000000
+      internalID: -2644041437659747546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      stage7_buildings_0: 1483364103701060654
+      stage7_buildings_1: -196829440009058687
+      stage7_buildings_10: 8580480163730670987
+      stage7_buildings_11: -4535200770281228589
+      stage7_buildings_12: -2870987233551312962
+      stage7_buildings_13: 9174644018754190222
+      stage7_buildings_14: -6833690424979240903
+      stage7_buildings_15: -4296160655743924217
+      stage7_buildings_16: 7863031104396733751
+      stage7_buildings_17: -7807110095007375936
+      stage7_buildings_18: 3216918116072115835
+      stage7_buildings_19: 1987238659677163664
+      stage7_buildings_2: 8738515946206985354
+      stage7_buildings_20: -3740384152794865024
+      stage7_buildings_21: 5671939296904325113
+      stage7_buildings_22: -6017332400110855062
+      stage7_buildings_23: 5007474577382011270
+      stage7_buildings_24: 4297180068734325814
+      stage7_buildings_25: 7204433397998011984
+      stage7_buildings_26: 129822595570301166
+      stage7_buildings_27: 4568717454835676260
+      stage7_buildings_28: -4876695096773028177
+      stage7_buildings_29: -3259960568803088241
+      stage7_buildings_3: -2007416270860524629
+      stage7_buildings_30: -2644041437659747546
+      stage7_buildings_4: 7977932615959377966
+      stage7_buildings_5: 6983457863230565106
+      stage7_buildings_6: -7803416961009889941
+      stage7_buildings_7: -9073123175976984312
+      stage7_buildings_8: 1234705830356104028
+      stage7_buildings_9: 16876195711015649
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
