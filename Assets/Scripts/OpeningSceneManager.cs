@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEngine.Audio;
 
 [DefaultExecutionOrder(-200)]
 public class OpeningSceneManager : MonoBehaviour
@@ -25,6 +26,10 @@ public class OpeningSceneManager : MonoBehaviour
     [SerializeField, Range(0f, 1f)] private float bgmVolume = 1f;
     [SerializeField] private bool bgmLoop = true;
     [SerializeField] private AudioMixerGroup bgmMixerGroup;
+    [Header("SFX Mixer")]
+    [SerializeField] private AudioMixerGroup sfxMixerGroup;
+
+    public static AudioMixerGroup SfxMixerGroup { get; private set; }
 
     private void Awake()
     {
@@ -33,6 +38,7 @@ public class OpeningSceneManager : MonoBehaviour
             Instance = this;
             Debug.Log("OpeningSceneManager.Awake: instance set.");
             DontDestroyOnLoad(gameObject);
+            SfxMixerGroup = sfxMixerGroup;
         }
         else
         {
@@ -243,6 +249,8 @@ public class OpeningSceneManager : MonoBehaviour
         bgmSource.loop = bgmLoop;
         bgmSource.clip = clip;
         bgmSource.volume = bgmVolume;
+        bgmSource.playOnAwake = false;
+        bgmSource.spatialBlend = 0f;
         bgmSource.Play();
     }
 

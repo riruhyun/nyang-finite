@@ -17,6 +17,12 @@ public class EnemySpawner : MonoBehaviour
   [Tooltip("Optional parent Transform for spawned enemies")]
   public Transform spawnParent;
 
+  [Header("Enemy Toast")]
+  [Tooltip("Toast indicator prefab to attach to each spawned enemy (optional)")]
+  public GameObject enemyToastPrefab;
+  [Tooltip("Local offset for the attached toast relative to the enemy")]
+  public Vector3 enemyToastOffset = new Vector3(0f, 0.8f, 0f);
+
   [Header("Spawn Policy")]
   [Tooltip("Spawn automatically on Start()")]
   public bool spawnOnStart = true;
@@ -64,6 +70,10 @@ public class EnemySpawner : MonoBehaviour
   [Tooltip("Keep one SharedTrackingEngine on this spawner for all clones")]
   public bool reuseOwnerTrackingEngine = true;
 
+  private GameObject runtimeDogPrefab;
+  private GameObject runtimeEnemyToastPrefab;
+  private bool prefabsPrepared = false;
+
   void Start()
   {
     if (spawnOnStart)
@@ -90,6 +100,8 @@ public class EnemySpawner : MonoBehaviour
       return;
     }
 
+    EnsureRuntimePrefabs();
+
     Vector3[] positions = null;
     if (spawnPoints != null && spawnPoints.Length > 0)
     {
@@ -114,7 +126,7 @@ public class EnemySpawner : MonoBehaviour
 
     EnemySpawnHelper.SpawnEnemies(
       ownerForSharedEngine: this.gameObject,
-      dogPrefab: dogPrefab,
+      dogPrefab: runtimeDogPrefab,
       pigeonPrefab: pigeonPrefab,
       count: positions.Length,
       positions: positions,
@@ -128,7 +140,9 @@ public class EnemySpawner : MonoBehaviour
       algorithmsByIndex: algorithmsByIndex,
       viewsByIndex: viewsByIndex,
       canJumpByIndex: canJumpByIndex,
-      canJumpDefault: defaultCanJump
+      canJumpDefault: defaultCanJump,
+      enemyToastPrefab: runtimeEnemyToastPrefab,
+      enemyToastOffset: enemyToastOffset
     );
   }
 
@@ -143,6 +157,8 @@ public class EnemySpawner : MonoBehaviour
       Debug.LogError("EnemySpawner: dogPrefab is required for spawning the dog at tracking origin.");
       return;
     }
+
+    EnsureRuntimePrefabs();
 
     // Ensure/locate shared engine on this owner
     SharedTrackingEngine engine = null;
@@ -160,7 +176,7 @@ public class EnemySpawner : MonoBehaviour
 
     EnemySpawnHelper.SpawnEnemies(
       ownerForSharedEngine: this.gameObject,
-      dogPrefab: dogPrefab,
+      dogPrefab: runtimeDogPrefab,
       pigeonPrefab: pigeonPrefab,
       count: 1,
       positions: new Vector3[] { origin },
@@ -173,7 +189,42 @@ public class EnemySpawner : MonoBehaviour
       algorithmsByIndex: null,
       viewsByIndex: null,
       canJumpByIndex: null,
-      canJumpDefault: defaultCanJump
+      canJumpDefault: defaultCanJump,
+      enemyToastPrefab: runtimeEnemyToastPrefab,
+      enemyToastOffset: enemyToastOffset
     );
+  }
+
+  /// <summary>
+  /// When scene instances are used as "prefabs", clone them once for spawning and hide the originals.
+  /// </summary>
+  private void EnsureRuntimePrefabs()
+  {
+    if (prefabsPrepared) return;
+
+    runtimeDogPrefab = PrepareRuntimePrefab(dogPrefab);
+    runtimeEnemyToastPrefab = PrepareRuntimePrefab(enemyToastPrefab);
+
+    HideSceneObject(dogPrefab);
+    HideSceneObject(enemyToastPrefab);
+
+    prefabsPrepared = true;
+  }
+
+  private GameObject PrepareRuntimePrefab(GameObject source)
+  {
+    if (source == null) return null;
+    if (!source.scene.IsValid()) return source;
+
+    var clone = Instantiate(source);
+    clone.name = $"{source.name}_RuntimePrefab";
+    clone.SetActive(false);
+    return clone;
+  }
+
+  private void HideSceneObject(GameObject source)
+  {
+    if (source == null || !source.scene.IsValid()) return;
+    source.SetActive(false);
   }
 }

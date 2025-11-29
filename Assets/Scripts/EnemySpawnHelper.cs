@@ -45,7 +45,9 @@ public static class EnemySpawnHelper
     SharedTrackingEngine.TrackingAlgorithm[] algorithmsByIndex = null,
     SharedTrackingEngine.ViewMode[] viewsByIndex = null,
     bool[] canJumpByIndex = null,
-    bool? canJumpDefault = null
+    bool? canJumpDefault = null,
+    GameObject enemyToastPrefab = null,
+    Vector3 enemyToastOffset = default
   )
   {
     if (ownerForSharedEngine == null)
@@ -105,6 +107,17 @@ public static class EnemySpawnHelper
       }
 
       var go = Object.Instantiate(prefabForClone, pos, Quaternion.identity, parent);
+      // Ensure spawned clone is active even if the template was kept disabled in the scene.
+      if (!go.activeSelf) go.SetActive(true);
+
+      // Optional toast follower/indicator attached to the clone
+      if (enemyToastPrefab != null)
+      {
+        var toast = Object.Instantiate(enemyToastPrefab, go.transform);
+        toast.transform.localPosition = enemyToastOffset;
+        toast.transform.localRotation = Quaternion.identity;
+        if (!toast.activeSelf) toast.SetActive(true);
+      }
 
       // Attach tracking client and bind shared engine
       var client = go.GetComponent<SharedTrackingClient>();

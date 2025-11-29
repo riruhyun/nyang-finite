@@ -1,2 +1,13 @@
 fileFormatVersion: 2
 guid: c481773be9b9ff64c88f1637e6ecb41f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - labBgmClip: {fileID: 8300000, guid: 41b7ee0e53c3dea4d91e63cb1d5d4a2f, type: 3}
+  - labBgmMixerGroup: {fileID: 4329493093719789779, guid: 47fb56bfbc55ef94d9ca9476cfe58056, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
