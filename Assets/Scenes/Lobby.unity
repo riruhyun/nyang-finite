@@ -454,7 +454,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -681444959
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 3234615793282887003, guid: 4fb960832ea5b7b46a57718f73734c30, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
@@ -652,7 +652,7 @@ Transform:
   m_GameObject: {fileID: 1479345444}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -661.25, y: -357.5, z: 0}
+  m_LocalPosition: {x: -625.2, y: -357.6, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -703,7 +703,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -681444959
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -3500759553075992606, guid: dbcbe4464b3ae5b41a1b84fb7775cfe7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -819,7 +819,7 @@ Transform:
   m_GameObject: {fileID: 1513643020}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -661.25, y: -359.76, z: 0}
+  m_LocalPosition: {x: -625.2, y: -359.86002, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -870,7 +870,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -681444959
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -3566592000248826746, guid: 71ef437ccfaee3a4190c9dac754f3dbb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -986,7 +986,7 @@ Transform:
   m_GameObject: {fileID: 1846873587}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -661.25, y: -358.63, z: 0}
+  m_LocalPosition: {x: -625.2, y: -358.73, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1037,7 +1037,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -681444959
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 3822675230927641974, guid: 9b8c836d0e97a5744955c065f945eb2e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -31,6 +31,7 @@ public class SceneTransitionController : MonoBehaviour
 
     [Header("Lab BGM")]
     [SerializeField] private string labBgmKey = "Nine Lives Left";
+    [SerializeField] private AudioClip labBgmClip;
     [SerializeField, Range(0f, 1f)] private float labBgmVolume = 1f;
     [SerializeField] private bool labBgmLoop = true;
     [SerializeField] private AudioMixerGroup labBgmMixerGroup;
@@ -65,6 +66,7 @@ public class SceneTransitionController : MonoBehaviour
     {
         // Handle cases where the game starts directly in the Lab scene.
         HandleLabFade(SceneManager.GetActiveScene());
+        HandleLabBgm(SceneManager.GetActiveScene());
     }
 
     private void OnDestroy()
@@ -147,21 +149,40 @@ public class SceneTransitionController : MonoBehaviour
         {
             PlayLabBgm();
         }
-        else
-        {
-            StopLabBgm();
-        }
+        // For now, keep Lab BGM playing across subsequent scenes until explicitly stopped.
     }
 
     private void PlayLabBgm()
     {
-        if (string.IsNullOrEmpty(labBgmKey)) return;
+        if (string.IsNullOrEmpty(labBgmKey))
+        {
+            labBgmKey = "Nine Lives Left";
+        }
 
-        var clip = Resources.Load<AudioClip>(labBgmKey)
-                   ?? Resources.Load<AudioClip>("sound/" + labBgmKey);
+        AudioClip clip = labBgmClip;
+        string[] paths =
+        {
+            labBgmKey,
+            "sound/" + labBgmKey,
+            "Audio/bgm/" + labBgmKey,
+            "audio/bgm/" + labBgmKey,
+            "bgm/" + labBgmKey
+        };
         if (clip == null)
         {
-            Debug.LogWarning($"[SceneTransitionController] Lab BGM '{labBgmKey}' not found (tried '', 'sound/').");
+            foreach (var path in paths)
+            {
+                clip = Resources.Load<AudioClip>(path);
+                if (clip != null)
+                {
+                    Debug.Log($"[SceneTransitionController] Loaded Lab BGM from '{path}'");
+                    break;
+                }
+            }
+        }
+        if (clip == null)
+        {
+            Debug.LogWarning($"[SceneTransitionController] Lab BGM '{labBgmKey}' not found (tried: {string.Join(", ", paths)})");
             return;
         }
 
@@ -177,7 +198,12 @@ public class SceneTransitionController : MonoBehaviour
         labBgmSource.clip = clip;
         labBgmSource.loop = labBgmLoop;
         labBgmSource.volume = labBgmVolume;
+        labBgmSource.playOnAwake = false;
+        labBgmSource.spatialBlend = 0f; // 2D BGM
+        labBgmSource.ignoreListenerPause = false;
         labBgmSource.Play();
+
+        Debug.Log($"[SceneTransitionController] Lab BGM playing: {labBgmKey}, length={clip.length:F1}s, vol={labBgmVolume}, loop={labBgmLoop}");
     }
 
     private void StopLabBgm()

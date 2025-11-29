@@ -1,8 +1,9 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Audio;
 
 [System.Serializable]
 public class OpeningScene
@@ -443,7 +444,9 @@ public class OpeningScene
         // Load order: direct, Opening_Scene/, sound/ (for Resources/sound/)
         var clip = Resources.Load<AudioClip>(soundKey)
                    ?? Resources.Load<AudioClip>("Opening_Scene/" + soundKey)
-                   ?? Resources.Load<AudioClip>("sound/" + soundKey);
+                   ?? Resources.Load<AudioClip>("sound/" + soundKey)
+                   ?? Resources.Load<AudioClip>("audio/bgm/" + soundKey)
+                   ?? Resources.Load<AudioClip>("Audio/bgm/" + soundKey);
         if (clip == null)
         {
             Debug.LogWarning($"OpeningScene: could not load AudioClip '{soundKey}' (tried '', 'Opening_Scene/', 'sound/')");
@@ -484,13 +487,24 @@ public class OpeningScene
         // Find or create the second one for SFX
         if (sources.Length >= 2)
         {
-            return sources[1]; // Return the SFX source
+            return ConfigureSfxSource(sources[1]); // Return the SFX source
         }
 
         // If only one exists (BGM), create a new one for SFX
         AudioSource sfxSource = runner.gameObject.AddComponent<AudioSource>();
-        sfxSource.playOnAwake = false;
-        return sfxSource;
+        return ConfigureSfxSource(sfxSource);
+    }
+
+    private AudioSource ConfigureSfxSource(AudioSource src)
+    {
+        if (OpeningSceneManager.SfxMixerGroup != null)
+        {
+            src.outputAudioMixerGroup = OpeningSceneManager.SfxMixerGroup;
+        }
+        src.playOnAwake = false;
+        src.spatialBlend = 0f;
+        src.loop = false;
+        return src;
     }
 
     private static void EnsureAlpha(GameObject go, float a)
@@ -544,3 +558,4 @@ public class OpeningScene
         public bool created;
     }
 }
+
