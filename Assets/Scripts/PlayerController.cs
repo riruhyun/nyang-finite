@@ -52,6 +52,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float scratchDuration = 0.25f; // Target ~0.25s total
     [SerializeField] private string scratchAnimationName = "Scratch";
 
+    [Header("Wall Jump Settings")]
+    [SerializeField] private float wallJumpVerticalSpeed = 12f; // 벽차기 수직 속도
+    [SerializeField] private float wallJumpHorizontalSpeed = 8f; // 벽차기 수평 속도 (반동)
+    [SerializeField] private float wallSlideSpeed = 2f; // 벽에서 미끄러지는 최대 속도
+    [SerializeField] private float wallJumpCooldown = 0.35f; // 벽차기 쿨다운
+    [SerializeField] private float wallJumpControlLockTime = 0.2f; // 벽차기 후 조작 제한 시간
+
+    // 벽차기 상태
+    private bool isWallSliding = false;
+    private float lastWallJumpTime = -1f;
+
     // 물리 ?�태
     private bool isGrounded = false;
     private bool isDead = false;
@@ -188,7 +199,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("?�레?�어 충돌�?최적???�료 (friction=0.3, 55??경사�?지??");
     }
 
-private void Update()
+    private void Update()
     {
         if (isDead)
         {
@@ -197,7 +208,10 @@ private void Update()
 
         // ★ Scratch 상태 먼저 처리 (최고 우선순위)
         UpdateScratchState();
-        
+
+        // 벽 슬라이드 상태 업데이트
+        UpdateWallSlide();
+
         // Scratch 중이면 다른 입력 처리 안함
         if (!isScratching)
         {
@@ -206,7 +220,7 @@ private void Update()
             HandleJumpInput();
             HandleDashInput();
         }
-        
+
         UpdateAnimationState();
     }
 
@@ -218,8 +232,11 @@ private void Update()
         // ?�어지???�태?��? ?�인 (공중 + ?�강)
         bool isFalling = !isGrounded && playerRigidbody.linearVelocity.y < -0.1f;
 
+        // 벽차기 직후 조작 제한 (아크 궤적 유지)
+        bool isWallJumpLocked = Time.time - lastWallJumpTime < wallJumpControlLockTime;
+
         // ?�쪽 ??처리 (?�쪽 벽에 붙어?�거???�어지??중이�?무시)
-        if (isPressingLeft && !isCollidingLeftWall && !isFalling)
+        if (isPressingLeft && !isCollidingLeftWall && !isFalling && !isWallJumpLocked)
         {
             leftKeyHoldTime += Time.deltaTime;
             float momentumProgress = Mathf.Clamp01(leftKeyHoldTime / momentumBuildTime);
@@ -237,7 +254,7 @@ private void Update()
         }
 
         // ?�른�???처리 (?�른�?벽에 붙어?�거???�어지??중이�?무시)
-        if (isPressingRight && !isCollidingRightWall && !isFalling)
+        if (isPressingRight && !isCollidingRightWall && !isFalling && !isWallJumpLocked)
         {
             rightKeyHoldTime += Time.deltaTime;
             float momentumProgress = Mathf.Clamp01(rightKeyHoldTime / momentumBuildTime);
@@ -292,6 +309,17 @@ private void Update()
 
         if (Input.GetKeyDown(KeyCode.W))
         {
+            // 벽차기 체크 (공중에서 벽에 붙어있을 때)
+            if (!isGrounded && (isCollidingLeftWall || isCollidingRightWall))
+            {
+                // 쿨다운 체크
+                if (Time.time - lastWallJumpTime >= wallJumpCooldown)
+                {
+                    PerformWallJump();
+                    return;
+                }
+            }
+
             bool slopeGround = IsOnJumpableSlope();
 
             // 경사면에??y가 ?�수�?찍�????�프 ?�용?�고 ?�으�??�거 ?�예 빼도 ??
@@ -414,7 +442,83 @@ private void Update()
         Debug.Log($"[JUMP] ?�프 ?�행! Time={Time.time:F3}");
     }
 
-private void UpdateAnimationState()
+    /// <summary>
+    /// 벽차기 수행 - 벽 반대 방향으로 아크 점프처럼 대각선으로 튀어오름
+    /// </summary>
+    private void PerformWallJump()
+    {
+        lastWallJumpTime = Time.time;
+        isWallSliding = false;
+
+        // 벽 방향에 따라 반대 방향으로 점프
+        float horizontalDirection = isCollidingLeftWall ? 1f : -1f;
+
+        // 속도를 직접 설정하여 즉각적인 아크 점프 느낌
+        playerRigidbody.linearVelocity = new Vector2(
+            wallJumpHorizontalSpeed * horizontalDirection,
+            wallJumpVerticalSpeed
+        );
+
+        // 스프라이트 방향 전환 (벽차기 방향으로)
+        transform.localScale = new Vector3(horizontalDirection * 5f, 5f, 5f);
+
+        // 모멘텀 초기화
+        leftMomentum = 0f;
+        rightMomentum = 0f;
+        leftKeyHoldTime = 0f;
+        rightKeyHoldTime = 0f;
+
+        // 벽 충돌 상태 초기화
+        isCollidingLeftWall = false;
+        isCollidingRightWall = false;
+
+        if (playerAudio != null)
+        {
+            playerAudio.Play();
+        }
+
+        SetAnimationState(AnimationState.Jump);
+        Debug.Log($"[WALL JUMP] 벽차기 수행! direction={horizontalDirection}, velocity=({wallJumpHorizontalSpeed * horizontalDirection}, {wallJumpVerticalSpeed})");
+    }
+
+    /// <summary>
+    /// 벽 슬라이드 상태 업데이트 - 벽에 붙어있을 때 천천히 미끄러지도록
+    /// </summary>
+    private void UpdateWallSlide()
+    {
+        // 벽 슬라이드 조건: 공중 + 벽에 붙어있음 + 하강 중
+        bool canWallSlide = !isGrounded &&
+                            (isCollidingLeftWall || isCollidingRightWall) &&
+                            playerRigidbody.linearVelocity.y < 0;
+
+        if (canWallSlide)
+        {
+            if (!isWallSliding)
+            {
+                isWallSliding = true;
+                Debug.Log($"[WALL SLIDE] 벽 슬라이드 시작! leftWall={isCollidingLeftWall}, rightWall={isCollidingRightWall}");
+            }
+
+            // 하강 속도 제한 (천천히 미끄러지도록)
+            if (playerRigidbody.linearVelocity.y < -wallSlideSpeed)
+            {
+                playerRigidbody.linearVelocity = new Vector2(
+                    playerRigidbody.linearVelocity.x,
+                    -wallSlideSpeed
+                );
+            }
+        }
+        else
+        {
+            if (isWallSliding)
+            {
+                isWallSliding = false;
+                Debug.Log("[WALL SLIDE] 벽 슬라이드 종료");
+            }
+        }
+    }
+
+    private void UpdateAnimationState()
     {
         if (animator == null || isDead) return;
 
@@ -454,7 +558,7 @@ private void UpdateAnimationState()
         }
     }
 
-private AnimationState DetermineAnimationState()
+    private AnimationState DetermineAnimationState()
     {
         if (isDead)
         {
@@ -487,7 +591,7 @@ private AnimationState DetermineAnimationState()
         return AnimationState.Idle;
     }
 
-private void SetAnimationState(AnimationState newState)
+    private void SetAnimationState(AnimationState newState)
     {
         if (animator == null || newState == currentAnimState) return;
 
@@ -675,7 +779,7 @@ private void SetAnimationState(AnimationState newState)
             Debug.Log("[GROUND] 공중 상태");
 
             if (wasOnSlope && playerRigidbody != null)
-            { 
+            {
                 leftMomentum = 0f;
                 rightMomentum = 0f;
                 leftKeyHoldTime = 0f;
@@ -859,7 +963,7 @@ private void SetAnimationState(AnimationState newState)
         }
     }
 
-private void StartScratch()
+    private void StartScratch()
     {
         // 이미 Scratch 중이면 무시
         if (isScratching)
@@ -917,11 +1021,11 @@ private void StartScratch()
             playerAudio.PlayOneShot(scratchAudioClip);
         }
         ApplyScratchDamage();
-        
+
         Debug.Log($"[SCRATCH] 시작! 공중={wasAirborneBeforeScratch}, scratchEndTime={scratchEndTime:F3}");
     }
 
-private void UpdateScratchState()
+    private void UpdateScratchState()
     {
         if (!isScratching)
         {
@@ -931,7 +1035,7 @@ private void UpdateScratchState()
         if (animator != null)
         {
             AnimatorStateInfo state = animator.GetCurrentAnimatorStateInfo(0);
-            
+
             // ★ Scratch 애니메이션 상태 강제 유지 - 매 프레임 체크
             if (!state.IsName(scratchAnimationName))
             {
@@ -952,7 +1056,7 @@ private void UpdateScratchState()
                     EndScratch();
                     return;
                 }
-                
+
                 // ★ 디버깅: 현재 진행 상황 출력
                 if (Time.frameCount % 10 == 0) // 10프레임마다
                 {
@@ -969,7 +1073,7 @@ private void UpdateScratchState()
         }
     }
 
-private void EndScratch()
+    private void EndScratch()
     {
         if (!isScratching)
         {
@@ -981,7 +1085,7 @@ private void EndScratch()
 
         // ★ 중요: isScratching을 먼저 false로 설정
         isScratching = false;
-        
+
         if (scratchStoppedAnimator && animator != null)
         {
             animator.speed = 1f;
@@ -1002,21 +1106,21 @@ private void EndScratch()
         }
 
         wasAirborneBeforeScratch = false;
-        
+
         // ★ 애니메이션 전환 딜레이를 리셋하여 즉시 전환 가능하도록
         lastAnimationChangeTime = Time.time - animationTransitionDelay;
-        
+
         // 현재 상태에 맞는 애니메이션으로 전환
         AnimationState nextState = DetermineAnimationState();
         Debug.Log($"[SCRATCH] 다음 상태 결정: {nextState}, leftMomentum={leftMomentum:F2}, rightMomentum={rightMomentum:F2}");
-        
+
         // ★ 즉시 전환 (딜레이 없이)
         SetAnimationState(nextState);
-        
+
         Debug.Log($"[SCRATCH] 종료 완료! currentAnimState={currentAnimState}");
     }
 
-private void ApplyScratchDamage()
+    private void ApplyScratchDamage()
     {
         if (scratchHitbox == null)
         {
@@ -1039,7 +1143,7 @@ private void ApplyScratchDamage()
         System.Array.Clear(scratchHits, 0, scratchHits.Length);
         int hitCount = Physics2D.OverlapBoxNonAlloc(center, size, 0f, scratchHits, mask);
         Vector2 knockbackDir = transform.localScale.x >= 0 ? Vector2.right : Vector2.left;
-        
+
         // ?��? 공격???�들??추적?�기 ?�한 HashSet
         System.Collections.Generic.HashSet<int> alreadyHitEnemies = new System.Collections.Generic.HashSet<int>();
 

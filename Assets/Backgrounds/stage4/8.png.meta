@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 1de360f0398a739489ec0f465f76224b
+guid: 451ba7e580882044490f855060051ec9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1827522708024274149
-    second: stage4_spike4_0
+      213: 8288426215254106694
+    second: 8_0
+  - first:
+      213: -2681809406195053031
+    second: 8_1
+  - first:
+      213: -6521200998356810719
+    second: 8_2
+  - first:
+      213: -2868909495077532586
+    second: 8_3
+  - first:
+      213: 3628795729810838210
+    second: 8_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,29 +108,16 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: stage4_spike4_0
+      name: 8_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 28
+        width: 32
         height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -128,8 +127,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b13d04997c553a6e0800000000000000
-      internalID: -1827522708024274149
+      spriteID: 642a1439ab7660370800000000000000
+      internalID: 8288426215254106694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_1
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 0
+        width: 33
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91e417ccd8c48cad0800000000000000
+      internalID: -2681809406195053031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12405082e3a0085a0800000000000000
+      internalID: -6521200998356810719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_3
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 0
+        width: 33
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65c882da3069f28d0800000000000000
+      internalID: -2868909495077532586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_4
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c254d57d721c5230800000000000000
+      internalID: 3628795729810838210
       vertices: []
       indices: 
       edges: []
@@ -148,7 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      stage4_spike4_0: -1827522708024274149
+      8_0: 8288426215254106694
+      8_1: -2681809406195053031
+      8_2: -6521200998356810719
+      8_3: -2868909495077532586
+      8_4: 3628795729810838210
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
