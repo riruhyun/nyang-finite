@@ -14,7 +14,9 @@
       "Bash(dir /b \"C:\\Users\\kumjj\\Documents\\nyang-finite\\Assets\\Prefabs\")",
       "Bash(dir /b \"C:\\Users\\kumjj\\Documents\\nyang-finite\\Assets\\Sprites\\Dog\")",
       "mcp__UnityMCP__execute_menu_item",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(Get-Content \"C:\\Users\\kumjj\\Documents\\nyang-finite\\Assets\\Scripts\\EnemySkinManager.cs\")",
+      "Bash(Select-Object -Skip 290 -First 5)"
     ],
     "deny": [],
     "ask": []

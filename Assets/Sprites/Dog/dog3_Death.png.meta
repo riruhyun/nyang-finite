@@ -122,37 +122,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dog3_Death_0
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 0
-        width: 31
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 332c598568af090c0800000000000000
-      internalID: -4570878166862282189
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: dog3_Death_1
       rect:
         serializedVersion: 2
-        x: 53
+        x: 47
         y: 0
-        width: 38
-        height: 21
+        width: 43
+        height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -169,12 +147,12 @@ TextureImporter:
       name: dog3_Death_2
       rect:
         serializedVersion: 2
-        x: 101
+        x: 102
         y: 0
-        width: 40
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 38
+        height: 26
+      alignment: 9
+      pivot: {x: 0.3806484, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -191,12 +169,12 @@ TextureImporter:
       name: dog3_Death_3
       rect:
         serializedVersion: 2
-        x: 149
+        x: 150
         y: 0
-        width: 41
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 39
+        height: 26
+      alignment: 9
+      pivot: {x: 0.3639609, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -209,11 +187,33 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: dog3_Death_4
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 0
+        width: 29
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa21a9ad3077f984cbc1eec96da88f0a
+      internalID: -173919349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a86d224d28aa494468bc056455c503a4
     internalID: 0
     vertices: []
     indices: 
@@ -227,6 +227,7 @@ TextureImporter:
       dog3_Death_1: 8723375694127781039
       dog3_Death_2: -3608701983007426641
       dog3_Death_3: 8622392105832977332
+      dog3_Death_4: -173919349
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

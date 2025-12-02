@@ -84,6 +84,14 @@ public class CatSkinAnimationCreator
         }
 
         string spriteFilePath = $"{BaseSpritePath}/cat{skinId}_{baseAnimName}.png";
+        string referencePath = $"{BaseSpritePath}/{baseAnimName}.png";
+
+        if (!EnsureVariantSpritesSliced(spriteFilePath, referencePath))
+        {
+            Debug.LogError($"Failed to copy slice data for {spriteFilePath}");
+            return false;
+        }
+
         Object[] sprites = AssetDatabase.LoadAllAssetsAtPath(spriteFilePath);
         if (sprites == null || sprites.Length == 0)
         {
@@ -137,6 +145,42 @@ public class CatSkinAnimationCreator
 
         AssetDatabase.CreateAsset(newClip, outputFilePath);
         Debug.Log($"Created: {outputFilePath}");
+        return true;
+    }
+
+    private static bool EnsureVariantSpritesSliced(string variantPath, string referencePath)
+    {
+        var variantImporter = AssetImporter.GetAtPath(variantPath) as TextureImporter;
+        if (variantImporter == null)
+        {
+            Debug.LogError($"Variant sprite not found: {variantPath}");
+            return false;
+        }
+
+        var referenceImporter = AssetImporter.GetAtPath(referencePath) as TextureImporter;
+        if (referenceImporter == null)
+        {
+            Debug.LogError($"Reference sprite not found for slicing: {referencePath}");
+            return false;
+        }
+
+        variantImporter.spriteImportMode = referenceImporter.spriteImportMode;
+        variantImporter.spritePixelsPerUnit = referenceImporter.spritePixelsPerUnit;
+        variantImporter.filterMode = referenceImporter.filterMode;
+        variantImporter.wrapMode = referenceImporter.wrapMode;
+
+        SpriteMetaData[] referenceSheet = referenceImporter.spritesheet;
+        if (referenceSheet != null && referenceSheet.Length > 0)
+        {
+            SpriteMetaData[] sheetCopy = new SpriteMetaData[referenceSheet.Length];
+            for (int i = 0; i < referenceSheet.Length; i++)
+            {
+                sheetCopy[i] = referenceSheet[i];
+            }
+            variantImporter.spritesheet = sheetCopy;
+        }
+
+        variantImporter.SaveAndReimport();
         return true;
     }
 }

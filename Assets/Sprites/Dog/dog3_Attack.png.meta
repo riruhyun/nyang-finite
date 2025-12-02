@@ -132,8 +132,8 @@ TextureImporter:
         y: 0
         width: 31
         height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.3581935, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -150,9 +150,9 @@ TextureImporter:
       name: dog3_Attack_1
       rect:
         serializedVersion: 2
-        x: 53
+        x: 51
         y: 0
-        width: 32
+        width: 34
         height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -172,12 +172,12 @@ TextureImporter:
       name: dog3_Attack_2
       rect:
         serializedVersion: 2
-        x: 101
+        x: 100
         y: 0
-        width: 39
+        width: 40
         height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.3887552, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -198,8 +198,8 @@ TextureImporter:
         y: 0
         width: 42
         height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.3581935, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
