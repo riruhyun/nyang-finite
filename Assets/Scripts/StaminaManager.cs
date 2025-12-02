@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// Manages player stamina and shows both bar and numeric UI (current only).
@@ -12,34 +12,36 @@ public class StaminaManager : MonoBehaviour
     [SerializeField] private float maxStamina = 100f;
     [SerializeField] private float currentStamina = 0f;
     [SerializeField] private float staminaRegenRate = 2f;
+    private float baseStaminaRegenRate = 2f;
+    private float staminaRegenBonus = 0f;
 
     [Header("Stamina Bar Settings")]
-    [SerializeField] private SpriteRenderer staminaBar; // 스태미나 바 (SpriteRenderer)
-    [SerializeField] private float maxStaminaBarWidth = 1f; // 스태미나 바 최대 X 스케일 (항상 1)
+    [SerializeField] private SpriteRenderer staminaBar; // ?�태미나 �?(SpriteRenderer)
+    [SerializeField] private float maxStaminaBarWidth = 1f; // ?�태미나 �?최�? X ?��???(??�� 1)
 
     [Header("Stamina Text Settings")]
-    [SerializeField] private TextMesh staminaText; // 현재 스태미나 표기용 텍스트
+    [SerializeField] private TextMesh staminaText; // current stamina text
     [SerializeField] private Color staminaTextColor = Color.white;
-    [SerializeField] private Vector3 textLocalOffset = new Vector3(-0.4f, 0.2f, -1f); // 기본: 왼쪽/아래로 조금 이동
+    [SerializeField] private Vector3 textLocalOffset = new Vector3(-0.4f, 0.2f, -1f); // 기본: ?�쪽/?�래�?조금 ?�동
     [SerializeField] private int staminaTextFontSize = 48;
-    [SerializeField] private Font staminaFont; // 둥근모꼴 등 원하는 폰트 지정 (Dog Health UI와 동일하게 설정 가능)
+    [SerializeField] private Font staminaFont; // ?�근모꼴 ???�하???�트 지??(Dog Health UI?� ?�일?�게 ?�정 가??
 
-    [Header("Screen Follow (UI처럼 보이게)")]
+    [Header("Screen Follow (UI처럼 보이�?")]
     [SerializeField] private bool followCamera = true;
-    [SerializeField] private Transform cameraTarget; // 비워두면 Camera.main
+    [SerializeField] private Transform cameraTarget; // 비워?�면 Camera.main
     [SerializeField] private Vector3 cameraOffset = new Vector3(0f, 4f, 0f);
     [SerializeField] private bool freezeRotation = true;
 
     private void Awake()
     {
-        // 싱글톤 패턴
+        // ?��????�턴
         if (instance == null)
         {
             instance = this;
         }
         else
         {
-            Debug.LogWarning("씬에 두 개 이상의 StaminaManager가 존재합니다!");
+            Debug.LogWarning("?�에 ??�??�상??StaminaManager가 존재?�니??");
             Destroy(gameObject);
         }
     }
@@ -47,8 +49,9 @@ public class StaminaManager : MonoBehaviour
     private void Start()
     {
         currentStamina = 0f; // 0부터 시작
+        baseStaminaRegenRate = staminaRegenRate;
 
-        // 스태미나 바 초기화(X 스케일을 0으로 설정)
+        // 스태미나 바 초기화 (X 스케일을 0으로 설정)
         if (staminaBar != null)
         {
             Vector3 scale = staminaBar.transform.localScale;
@@ -63,19 +66,12 @@ public class StaminaManager : MonoBehaviour
 
     private void Update()
     {
-        // 자동 회복
+        // 자동 회복 (stamina_regen 보너스 적용)
         if (currentStamina < maxStamina)
         {
-            float previousStamina = currentStamina;
-            currentStamina += staminaRegenRate * Time.deltaTime;
+            float effectiveRegenRate = baseStaminaRegenRate + staminaRegenBonus;
+            currentStamina += effectiveRegenRate * Time.deltaTime;
             currentStamina = Mathf.Min(currentStamina, maxStamina);
-
-            // 1씩 올라갈 때만 로그
-            if (Mathf.FloorToInt(previousStamina) < Mathf.FloorToInt(currentStamina))
-            {
-                Debug.Log($"[스태미나] 회복: {Mathf.FloorToInt(currentStamina)}/{maxStamina}");
-            }
-
             UpdateStaminaUI();
         }
     }
@@ -96,7 +92,7 @@ public class StaminaManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 스태미나를 사용한다.
+    /// ?�태미나�??�용?�다.
     /// </summary>
     public bool UseStamina(float amount)
     {
@@ -121,13 +117,22 @@ public class StaminaManager : MonoBehaviour
     }
 
     /// <summary>
-    /// UI 업데이트
+    /// stamina_regen stat 보너스를 적용한다
+    /// </summary>
+    public void ApplyStaminaRegenBonus(float bonus)
+    {
+        staminaRegenBonus = bonus;
+        Debug.Log($"[StaminaManager] Stamina regen bonus applied: {bonus:F2} (effective rate: {baseStaminaRegenRate + staminaRegenBonus:F2})");
+    }
+
+    /// <summary>
+    /// UI ?�데?�트
     /// </summary>
     private void UpdateStaminaUI()
     {
         float staminaRatio = maxStamina > 0f ? currentStamina / maxStamina : 0f;
 
-        // 스태미나 바 갱신
+        // ?�태미나 �?갱신
         if (staminaBar != null)
         {
             Vector3 newScale = staminaBar.transform.localScale;
@@ -139,7 +144,7 @@ public class StaminaManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 현재 스태미나 비율 (0~1)
+    /// ?�재 ?�태미나 비율 (0~1)
     /// </summary>
     public float GetStaminaRatio()
     {
@@ -147,8 +152,7 @@ public class StaminaManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 현재 스태미나 값
-    /// </summary>
+    /// ?�재 ?�태미나 �?    /// </summary>
     public float GetCurrentStamina()
     {
         return currentStamina;
@@ -179,7 +183,7 @@ public class StaminaManager : MonoBehaviour
         staminaText.fontSize = staminaTextFontSize;
         staminaText.color = staminaTextColor;
         staminaText.richText = false;
-        // 지정된 폰트가 없으면 기본 폰트 사용
+        // 지?�된 ?�트가 ?�으�?기본 ?�트 ?�용
         staminaText.font = staminaFont != null
             ? staminaFont
             : Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
@@ -217,3 +221,5 @@ public class StaminaManager : MonoBehaviour
         }
     }
 }
+
+

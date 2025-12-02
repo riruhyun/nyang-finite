@@ -6,6 +6,15 @@ using Pathfinding;
 [RequireComponent(typeof(Rigidbody2D))]
 public class IntelligentDogMovement : Enemy
 {
+    [System.Serializable]
+    public class Config
+    {
+        public float moveSpeed;
+        public float maxHealth;
+        public float attackDamage;
+        public float attackSpeed;
+        public int maxJumps;
+    }
     [Header("Dog Specific Settings")]
     [Tooltip("Chase speed multiplier")]
     [SerializeField] private float chaseSpeedMultiplier = 1.2f;
@@ -25,6 +34,9 @@ public class IntelligentDogMovement : Enemy
     [Tooltip("Apply damage near the end of the attack animation")]
     [SerializeField] private float attackHitWindow = 0.3f;
 
+    [Tooltip("Early exit: end attack animation this many seconds before it fully completes")]
+    [SerializeField] private float attackEarlyExitTime = 0.2f; // 0.2초 일찍 종료
+
     [Tooltip("Delay between attack starts (seconds)")]
     [SerializeField] private float attackCooldown = 2.0f;
 
@@ -33,6 +45,10 @@ public class IntelligentDogMovement : Enemy
 
     [Tooltip("Delay before freezing after death animation finishes")]
     [SerializeField] private float deathFreezeDelay = 1.0f;
+
+    [Header("Chase Target Padding")]
+    [Tooltip("플레이어 추적 시 목표 Y에 더해줄 패딩. 큰 벽을 만나면 위쪽을 겨냥하도록 높이를 올립니다.")]
+    [SerializeField] private float chaseTargetYPadding = 1.0f;
 
     [Header("Jump Settings")]
     [Tooltip("Jump when vertical gap above this height")]
@@ -135,6 +151,15 @@ public class IntelligentDogMovement : Enemy
     [SerializeField] private float slopeSpeedMultiplier = 1.5f;
     [SerializeField] private float slopeSpeedPadding = 3f;
     [SerializeField] private float slopeMinSpeed = 5.5f;
+    [SerializeField] private float uphillSpeedBonus = 4f;
+    [Header("Death Toast Frames")]
+    [SerializeField] private DeathToastFrame[] deathToastFrames = new DeathToastFrame[]
+    {
+        new DeathToastFrame { time = 0f, offset = new Vector3(0f, 0.8f, 0f), ghostAlpha = 0.25f },
+        new DeathToastFrame { time = 0.125f, offset = new Vector3(0.05f, 0.9f, 0f), ghostAlpha = 0.3f },
+        new DeathToastFrame { time = 0.25f, offset = new Vector3(0.08f, 0.75f, 0f), ghostAlpha = 0.25f },
+        new DeathToastFrame { time = 0.375f, offset = new Vector3(0f, 0.7f, 0f), ghostAlpha = 0.2f }
+    };
 
     [Header("Debug")]
     [SerializeField] private bool debugDog = true;
@@ -178,6 +203,8 @@ public class IntelligentDogMovement : Enemy
     [SerializeField] private int damageFlashCount = 2;
     private Coroutine damageFlashRoutine;
     private Color dogBaseColor = Color.white;
+    private Coroutine deathToastRoutine;
+    private ToastIndicator cachedToastIndicator;
     // State
     private float lastJumpTime;
     private bool isGrounded;
@@ -185,6 +212,7 @@ public class IntelligentDogMovement : Enemy
     private bool isAttacking = false;
     private float attackAnimationTimer = 0f;
     private bool attackDamageApplied = false;
+    private bool attackHitAttempted = false; // 피해 적용 시도 여부 (범위 무관)
     private Vector2 spawnPosition;
     private float patrolTimer = 0f;
     // 臾댁쟻 ?占쎄컙 愿由ъ슜
@@ -237,6 +265,7 @@ public class IntelligentDogMovement : Enemy
     private bool lockNonPitJumpInPit = false;
     private float preFallGroundY = 0f;
     private float pitEscapeTargetY = 0f;
+    private float lastImpulseUpTime = -10f;
 
     // 구덩이 감지용
     private float lastGroundedYPosition = 0f;
@@ -246,6 +275,11 @@ public class IntelligentDogMovement : Enemy
     private bool pitJumpPending = false;
     private bool inPit = false; // 구덩이에 빠져있는지
     // private bool onSpike = false; // Spike 위에 있는지 - SPIKE 비활성화
+
+    private static readonly int IsJumpingHash = Animator.StringToHash("IsJumping");
+    private static readonly int JumpTriggerHash = Animator.StringToHash("Jump");
+    private bool hasJumpBoolParam = false;
+    private bool hasJumpTriggerParam = false;
 
     private enum DogState
     {
@@ -260,6 +294,22 @@ public class IntelligentDogMovement : Enemy
     {
         base.Awake();
         aiPath = GetComponent<AIPath>();
+        cachedToastIndicator = GetComponentInChildren<ToastIndicator>(true);
+
+        if (animator != null)
+        {
+            foreach (var p in animator.parameters)
+            {
+                if (p.type == AnimatorControllerParameterType.Bool && p.nameHash == IsJumpingHash)
+                {
+                    hasJumpBoolParam = true;
+                }
+                else if (p.type == AnimatorControllerParameterType.Trigger && p.nameHash == JumpTriggerHash)
+                {
+                    hasJumpTriggerParam = true;
+                }
+            }
+        }
 
         if (spriteRenderer != null)
         {
@@ -312,17 +362,21 @@ public class IntelligentDogMovement : Enemy
             attackAnimationTimer -= Time.deltaTime;
 
             // Deal damage near the end of the animation if still in range
-            if (!attackDamageApplied && attackAnimationTimer <= attackHitWindow)
+            if (!attackHitAttempted && attackAnimationTimer <= attackHitWindow)
             {
+                attackHitAttempted = true; // ★ 시도 여부만 기록 (성공/실패 무관)
                 TryApplyAttackDamage();
             }
 
-            if (attackAnimationTimer <= 0f)
+            // ★ 피해 적용 시도 후에만 조기 종료 가능 (데미지 스킵 방지)
+            // 플레이어가 범위 밖이어도 시도만 했으면 조기 종료 가능
+            if (attackHitAttempted && attackAnimationTimer <= attackEarlyExitTime)
             {
                 isAttacking = false;
                 if (animator != null)
                 {
                     animator.SetBool("IsAttacking", false);
+                    // ★ IsWalking은 설정하지 않음 - 다음 프레임에 MoveHorizontally()가 자동으로 설정
                 }
             }
             return; // during attack, skip other updates
@@ -362,17 +416,42 @@ public class IntelligentDogMovement : Enemy
                 IdleBehavior();
                 break;
         }
+
+        // ★ 매 프레임 속도 체크하여 IsWalking 업데이트 (공격 중이 아닐 때만)
+        UpdateWalkingAnimation();
+    }
+
+    private void UpdateWalkingAnimation()
+    {
+        if (animator == null || isAttacking) return;
+
+        // 실제 속도 기준으로 Idle/Walk 결정
+        bool isMoving = rb != null && (Mathf.Abs(rb.linearVelocity.x) > 0.05f || Mathf.Abs(rb.linearVelocity.y) > 0.05f);
+        animator.SetBool("IsWalking", isMoving);
     }
 
     private void CheckAndUpdateState()
     {
         if (playerTransform == null) return;
 
+        // ★ 공격 중일 때는 상태 변경 금지 (공격 애니메이션이 끝날 때까지 대기)
+        if (isAttacking)
+        {
+            return;
+        }
+
         float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
 
-        if (distanceToPlayer <= attackRange)
+        // 공격 쿨타임 중이거나 타격 불가면 Attack 상태로 진입하지 않음
+        bool attackReady = (Time.time - lastAttackTime >= attackCooldown) && CanDealDamageNow();
+
+        if (attackReady && distanceToPlayer <= attackRange)
         {
-            currentState = DogState.Attack;
+            // ★ 이미 Attack 상태면 중복 설정 방지
+            if (currentState != DogState.Attack)
+            {
+                currentState = DogState.Attack;
+            }
         }
         else if (distanceToPlayer <= detectionRange)
         {
@@ -408,17 +487,55 @@ public class IntelligentDogMovement : Enemy
     {
         if (playerTransform == null) return;
 
+        Vector3 playerPos = playerTransform.position;
+        Vector3 targetPos = playerPos;
+
+        // 벽/높이 우회용으로 필요 시 Y 패딩을 올린다.
+        float extraY = 0f;
+        Vector2 origin = transform.position;
+        Vector2 toPlayer = (Vector2)playerPos - origin;
+        bool blockedToPlayer = false;
+        if (toPlayer.sqrMagnitude > 0.0001f)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(origin, toPlayer.normalized, toPlayer.magnitude, groundLayer);
+            blockedToPlayer = hit.collider != null && hit.collider.transform != playerTransform;
+        }
+
+        // 플레이어가 위쪽에 있거나, 경로가 위를 가리키거나, 직선 경로가 막혔을 때 패딩 적용
+        bool playerAbove = (playerPos.y - transform.position.y) > 0.5f;
+        bool pathAbove = aiPath != null && aiPath.hasPath && (aiPath.steeringTarget.y - transform.position.y) > 0.5f;
+        if (blockedToPlayer || pathAbove || playerAbove)
+        {
+            extraY = chaseTargetYPadding;
+        }
+
+        if (extraY > 0f)
+        {
+            targetPos += new Vector3(0f, extraY, 0f);
+        }
+
         // Set AIPath destination
         if (aiPath != null)
         {
-            aiPath.destination = playerTransform.position;
+            bool destinationChanged = (aiPath.destination - targetPos).sqrMagnitude > 0.0001f;
+            aiPath.destination = targetPos;
+            if (destinationChanged && extraY > 0f)
+            {
+                aiPath.SearchPath(); // 즉시 재계산하여 패딩된 목적지가 반영되도록
+            }
         }
 
-        // If already in attack range, try attack immediately
-        float distToPlayer = Vector2.Distance(transform.position, playerTransform.position);
+        // If already in attack range, switch to Attack state (but check cooldown first)
+        float distToPlayer = Vector2.Distance(transform.position, targetPos);
         if (distToPlayer <= attackRange)
         {
-            AttackBehavior();
+            // ★ AttackBehavior()를 직접 호출하지 말고, 쿨타임 체크 후 상태만 변경
+            bool attackReady = (Time.time - lastAttackTime >= attackCooldown) && CanDealDamageNow();
+            if (attackReady)
+            {
+                currentState = DogState.Attack;
+            }
+            // 쿨타임 중이면 Chase 상태 유지 (이동은 계속)
             return;
         }
 
@@ -430,28 +547,57 @@ public class IntelligentDogMovement : Enemy
         else if (useDirectMovementFallback)
         {
             // Direct movement fallback
-            Vector2 directionToPlayer = (playerTransform.position - transform.position).normalized;
+            Vector2 directionToPlayer = (targetPos - transform.position).normalized;
             MoveInDirection(directionToPlayer * chaseSpeedMultiplier);
         }
     }
 
     private void AttackBehavior()
     {
-        if (playerTransform != null)
+        // 공격 중에는 Update()가 애니/피해 처리하므로 여기서 추가 동작 안 함
+        if (isAttacking)
         {
-            float dist = Vector2.Distance(transform.position, playerTransform.position);
-            // If we drifted out of range, actively move in to close gap
-            if (dist > attackRange)
-            {
-                Vector2 dirToPlayer = (playerTransform.position - transform.position).normalized;
-                if (Mathf.Abs(dirToPlayer.x) > 0.01f)
-                {
-                    MoveHorizontally(dirToPlayer.x);
-                }
-                return;
-            }
+            return;
         }
-        // PerformAttack handles cooldown/isAttacking internally
+
+        // 공격 가능 여부 먼저 판정 (거리/라인오브사이트 + 쿨타임)
+        bool canDamageNow = (Time.time - lastAttackTime >= attackCooldown) && CanDealDamageNow();
+
+        // 공격 쿨타임 동안은 Chase 상태로 전환
+        bool coolingDown = (Time.time - lastAttackTime < attackCooldown);
+        if (coolingDown)
+        {
+            Debug.Log($"[DOG ATTACK] 쿨타임 중이므로 Attack 상태 벗어남 - 남은 시간: {attackCooldown - (Time.time - lastAttackTime):F2}초");
+            // ★ 쿨타임 중에는 Attack 상태에서 빠져나감
+            if (playerTransform != null && Vector2.Distance(transform.position, playerTransform.position) <= detectionRange)
+            {
+                currentState = DogState.Chase;
+            }
+            else
+            {
+                currentState = DogState.Idle;
+            }
+
+            if (animator != null)
+            {
+                animator.SetBool("IsAttacking", false);
+            }
+            // ★ IsWalking은 FixedUpdate의 UpdateWalkingAnimation()에서 자동 설정
+            return;
+        }
+
+        if (!canDamageNow)
+        {
+            // 공격 조건이 안 되면 이동/대기 유지
+            if (animator != null)
+            {
+                animator.SetBool("IsAttacking", false);
+            }
+            // ★ IsWalking은 FixedUpdate의 UpdateWalkingAnimation()에서 자동 설정
+            return;
+        }
+
+        // 공격 가능 거리 안에 있고, 쿨타임이 끝났을 때만 공격 시도
         PerformAttack();
     }
 
@@ -482,10 +628,16 @@ public class IntelligentDogMovement : Enemy
         bool wasGroundedBefore = isGrounded;
         isGrounded = hasRay || hasCircle;
 
+        if (animator != null && hasJumpBoolParam)
+        {
+            animator.SetBool(IsJumpingHash, !isGrounded);
+        }
+
         RaycastHit2D chosen = hasRay ? hitRay : hitCircle;
         if (chosen.collider != null)
         {
             lastGroundNormal = chosen.normal;
+            // Unity 2D y-up normal: 1 = flat. Anything below flatNormalThreshold is a slope.
             onSlope = lastGroundNormal.y > slopeNormalMin && lastGroundNormal.y < flatNormalThreshold;
         }
         else
@@ -997,6 +1149,12 @@ public class IntelligentDogMovement : Enemy
             calculatedJumpForce = Mathf.Min(calculatedJumpForce, jumpForce * 0.45f, maxPitImpulse);
         }
 
+        if (animator != null)
+        {
+            if (hasJumpBoolParam) animator.SetBool(IsJumpingHash, true);
+            if (hasJumpTriggerParam) animator.SetTrigger(JumpTriggerHash);
+        }
+
         rb.AddForce(Vector2.up * calculatedJumpForce, ForceMode2D.Impulse);
 
         lastJumpTime = Time.time;
@@ -1061,7 +1219,7 @@ public class IntelligentDogMovement : Enemy
             }
         }
 
-        bool slopeActive = isGrounded && (onSlope || (lastGroundNormal.y > 0.1f && lastGroundNormal.y < flatNormalThreshold));
+        bool slopeActive = isGrounded && (lastGroundNormal.y > 0.1f && lastGroundNormal.y < flatNormalThreshold);
 
         // 경사면 방향 감지: 오르막 vs 내리막
         bool isUphill = false;
@@ -1086,8 +1244,12 @@ public class IntelligentDogMovement : Enemy
         else if (isUphill)
         {
             // 오르막: 중력에 의한 미끄러짐을 이기기 위해 속도 증가
-            baseSpeed = moveSpeed * 1.3f;
-            speedMultiplier = 1.2f;
+            baseSpeed = moveSpeed + uphillSpeedBonus;
+            speedMultiplier = 1.0f;
+            if (debugDog)
+            {
+                Debug.Log($"[DOG][SLOPE-UP] Uphill boost applied. moveSpeed={moveSpeed:F2}, bonus={uphillSpeedBonus:F2}, targetBase={baseSpeed:F2}");
+            }
         }
         else if (isDownhill)
         {
@@ -1186,6 +1348,8 @@ public class IntelligentDogMovement : Enemy
             spriteRenderer.flipX = lastFacingDir < 0;
         }
 
+        // ★ IsWalking은 FixedUpdate의 UpdateWalkingAnimation()에서 일괄 처리
+
         TryGroundedForwardNudge(directionX);
     }
 
@@ -1198,11 +1362,7 @@ public class IntelligentDogMovement : Enemy
             MoveHorizontally(direction.x);
         }
 
-        if (animator != null)
-        {
-            bool isMoving = direction.magnitude > 0.01f;
-            animator.SetBool("IsWalking", isMoving);
-        }
+        // ★ IsWalking은 FixedUpdate의 UpdateWalkingAnimation()에서 일괄 처리
     }
 
     private void TryApplyApexImpulse()
@@ -1266,21 +1426,26 @@ public class IntelligentDogMovement : Enemy
         if (playerTransform == null || isAttacking) return;
 
         // Respect attack cooldown
-        if (Time.time - lastAttackTime < attackCooldown) return;
-
-        float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
-
-        if (distanceToPlayer <= attackRange)
+        float timeSinceLastAttack = Time.time - lastAttackTime;
+        if (timeSinceLastAttack < attackCooldown)
         {
-            isAttacking = true;
-            attackAnimationTimer = attackAnimationDuration;
-            attackDamageApplied = false;
-            lastAttackTime = Time.time;
+            Debug.Log($"[DOG ATTACK] 쿨타임 중 - 남은 시간: {attackCooldown - timeSinceLastAttack:F2}초");
+            return;
+        }
 
-            if (animator != null)
-            {
-                animator.SetBool("IsAttacking", true);
-            }
+        // 공격 애니 시작 시점에도 실제 타격 가능 조건 확인
+        if (!CanDealDamageNow()) return;
+
+        Debug.Log($"[DOG ATTACK] 공격 시작! lastAttackTime={lastAttackTime:F2}, currentTime={Time.time:F2}");
+        isAttacking = true;
+        attackAnimationTimer = attackAnimationDuration;
+        attackDamageApplied = false;
+        attackHitAttempted = false; // ★ 피해 적용 시도 플래그 초기화
+        lastAttackTime = Time.time;
+
+        if (animator != null)
+        {
+            animator.SetBool("IsAttacking", true);
         }
     }
 
@@ -1289,16 +1454,37 @@ public class IntelligentDogMovement : Enemy
         if (attackDamageApplied) return;
         if (playerTransform == null) return;
 
-        float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
-        if (distanceToPlayer <= attackRange)
+        if (!CanDealDamageNow()) return;
+
+        PlayerController player = playerTransform.GetComponent<PlayerController>();
+        if (player != null)
         {
-            PlayerController player = playerTransform.GetComponent<PlayerController>();
-            if (player != null)
+            player.TakeDamage(attackDamage);
+            attackDamageApplied = true;
+        }
+    }
+
+    private bool CanDealDamageNow()
+    {
+        if (playerTransform == null) return false;
+
+        float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
+        if (distanceToPlayer > attackRange) return false;
+
+        // 라인오브사이트: groundLayer에 막히면 공격 보류
+        if (groundLayer.value != 0)
+        {
+            Vector2 origin = transform.position;
+            Vector2 dir = ((Vector2)playerTransform.position - origin).normalized;
+            float len = distanceToPlayer + 0.1f;
+            RaycastHit2D hit = Physics2D.Raycast(origin, dir, len, groundLayer);
+            if (hit.collider != null && !hit.collider.transform.IsChildOf(playerTransform))
             {
-                player.TakeDamage(attackDamage);
-                attackDamageApplied = true;
+                return false;
             }
         }
+
+        return true;
     }
 
     private void StartDamageFlash()
@@ -1530,6 +1716,20 @@ public class IntelligentDogMovement : Enemy
                     {
                         Debug.Log($"[DOG][SPEED-RESET] 0.5s passed, movement recovered, reset speed");
                     }
+                }
+            }
+        }
+
+        // 최후의 수단: 0.5초 이상 x 이동이 거의 없으면 위로 작은 임펄스를 반복 적용
+        if (deltaX < forwardNudgeDeltaThreshold * 0.5f && (now - lastForwardCheckTime) >= 0.5f)
+        {
+            if (rb != null && (now - lastImpulseUpTime) >= 0.5f)
+            {
+                rb.AddForce(Vector2.up * 1f, ForceMode2D.Impulse);
+                lastImpulseUpTime = now;
+                if (debugDog)
+                {
+                    Debug.Log($"[DOG][IMPULSE-UP] stuck on wall, apply upward impulse");
                 }
             }
         }
@@ -1835,6 +2035,25 @@ public class IntelligentDogMovement : Enemy
             return;
         }
 
+        // Apply knockback from player attacks
+        ApplyKnockback(knockbackDirection);
+    }
+
+    /// <summary>
+    /// Dash 공격에 맞았을 때 공격 취소 및 쿨타임 초기화
+    /// </summary>
+    public void CancelAttackFromDash()
+    {
+        isAttacking = false;
+        lastAttackTime = Time.time; // 쿨타임 다시 시작
+        Debug.Log($"[DOG] Dash에 맞아 공격 취소! 쿨타임 재시작");
+
+        // 애니메이터 상태 초기화
+        if (animator != null)
+        {
+            animator.SetBool("Attack", false);
+        }
+
         // Player ?ㅽ겕?섏튂 ?깆뿉 ?섑븳 ?됰갚? 鍮꾪솢?깊솕
     }
 
@@ -1842,6 +2061,13 @@ public class IntelligentDogMovement : Enemy
     {
         if (!isAlive) return;
         isAlive = false;
+
+        // Notify toast hover UI about death so hover panel can show.
+        var toastTrigger = GetComponentInChildren<ToastHoverTrigger>(true);
+        if (toastTrigger != null)
+        {
+            toastTrigger.SetOwnerDead();
+        }
 
         UpdateHealthUI();
 
@@ -1858,6 +2084,11 @@ public class IntelligentDogMovement : Enemy
 
         isAttacking = false;
         currentState = DogState.Idle;
+        if (deathToastRoutine != null)
+        {
+            StopCoroutine(deathToastRoutine);
+        }
+        deathToastRoutine = StartCoroutine(PlayDeathToastSequence());
 
         if (aiPath != null)
         {
@@ -1874,11 +2105,33 @@ public class IntelligentDogMovement : Enemy
         }
 
         // Disable all colliders to prevent further interaction
+        var hoverTrigger = GetComponentInChildren<ToastHoverTrigger>(true);
+        var hoverCollider = hoverTrigger != null ? hoverTrigger.GetComponent<Collider2D>() : null;
         var colliders = GetComponentsInChildren<Collider2D>();
         foreach (var col in colliders)
         {
+            if (col == hoverCollider) continue; // keep toast hover collider alive for interaction
             col.enabled = false;
         }
+        if (hoverCollider != null)
+        {
+            hoverCollider.enabled = true;
+        }
+        // Ensure hover renderer stays hidden
+        if (hoverTrigger != null)
+        {
+            hoverTrigger.SetOwnerDead();
+        }
+
+        forwardRunUntil = -1f;
+        forwardRunDir = 0f;
+        nextBypassTime = float.MaxValue;
+        backOffUntil = -1f;
+        awaitingJumpAfterNudge = false;
+        lockForwardUntilGrounded = false;
+        pendingApexImpulse = false;
+        pendingBackstepJump = false;
+        speedBoosted = false;
     }
 
     private IEnumerator FreezeAfterDeath()
@@ -1889,6 +2142,75 @@ public class IntelligentDogMovement : Enemy
             animator.speed = 0f;
             animator.enabled = false;
         }
+    }
+
+    private IEnumerator PlayDeathToastSequence()
+    {
+        var indicator = EnsureToastIndicator();
+        if (indicator == null || deathToastFrames == null || deathToastFrames.Length == 0)
+        {
+            yield break;
+        }
+
+        // Determine direction multiplier based on facing direction
+        float directionMultiplier = Mathf.Sign(lastFacingDir);
+
+        float lastTime = 0f;
+        foreach (var frame in deathToastFrames)
+        {
+            float wait = frame.time - lastTime;
+            if (wait > 0f)
+            {
+                yield return new WaitForSeconds(wait);
+            }
+
+            // Apply direction to x offset (flip for left-facing)
+            Vector3 adjustedOffset = new Vector3(
+                frame.offset.x * directionMultiplier,
+                frame.offset.y,
+                frame.offset.z
+            );
+
+            indicator.SetLocalOffset(adjustedOffset);
+            if (frame.ghostAlpha > 0f)
+            {
+                indicator.SpawnGhost(frame.ghostAlpha, 0.3f);
+            }
+            lastTime = frame.time;
+        }
+    }
+
+    private ToastIndicator EnsureToastIndicator()
+    {
+        if (cachedToastIndicator == null)
+        {
+            cachedToastIndicator = GetComponentInChildren<ToastIndicator>(true);
+        }
+        return cachedToastIndicator;
+    }
+
+    // Called by spawn helper/configurator
+    public void ApplyConfig(Config config)
+    {
+        if (config == null) return;
+        if (config.moveSpeed > 0f)
+        {
+            moveSpeed = config.moveSpeed;
+            maxSpeed = config.moveSpeed; // keep maxSpeed in sync
+        }
+        if (config.maxHealth > 0f)
+        {
+            maxHealth = config.maxHealth;
+            currentHealth = config.maxHealth;
+        }
+        if (config.attackDamage > 0f) attackDamage = config.attackDamage;
+        // ★ attackSpeed는 attackCooldown과 충돌하므로 무시
+        // Inspector에서 직접 attackCooldown을 설정하세요
+        if (config.attackSpeed > 0f)
+        {
+            Debug.LogWarning($"[DOG CONFIG] attackSpeed={config.attackSpeed}는 무시됨. Inspector에서 attackCooldown={attackCooldown:F2}초 사용");
+        }
+        // maxJumps not used in this controller; placeholder for future jump logic
     }
 
     protected override void OnDrawGizmosSelected()
@@ -1930,5 +2252,13 @@ public class IntelligentDogMovement : Enemy
             Gizmos.color = isGrounded ? Color.green : Color.red;
             Gizmos.DrawLine(checkPosition, checkPosition + Vector2.down * groundCheckDistance);
         }
+    }
+
+    [System.Serializable]
+    private struct DeathToastFrame
+    {
+        public float time;
+        public Vector3 offset;
+        public float ghostAlpha;
     }
 }

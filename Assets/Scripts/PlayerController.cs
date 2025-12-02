@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -9,7 +11,8 @@ public class PlayerController : MonoBehaviour
         Jump,
         Die,
         Dash,
-        Scratch
+        Scratch,
+        Punch
     }
 
     [Header("Audio Settings")]
@@ -24,8 +27,25 @@ public class PlayerController : MonoBehaviour
     private float lastDamageTime = -10f; // 마�?�??��?지�?받�? ?�간
 
     [Header("Movement Settings")]
-    public float jumpForce = 700f;
+    public float jumpForce = 650f;
+    private float baseJumpForce;
     public float moveSpeed = 5f;
+    private float baseMoveSpeed;
+
+    [Header("Toast Stat Modifiers")]
+    private float currentDefense = 0f;         // defense: 받는 피해 감소
+    private float currentThorns = 0f;          // thorns: 반격 데미지
+    private float currentNutrition = 0f;       // nutrition: 음식 회복 보너스
+    private float currentFriction = 0f;        // friction: 감속 증가
+    private float currentHaste = 0f;           // haste: 쿨다운 감소
+    private float currentAgility = 0f;         // agility: momentum build time 감소
+    private float currentSprint = 0f;          // sprint: base/max momentum 증가
+    private float currentPoise = 0f;           // poise: 넉백 거리 감소 (받는 넉백)
+    private float currentInvincibility = 0f;   // invincibility: 무적 시간 증가
+    private float currentAttack = 0f;          // attack: 공격력 증가
+    private float currentStaminaRegen = 0f;    // stamina_regen: 스태미나 회복 속도 증가
+    private float currentKnockback = 0f;       // knockback: 넉백력 증가 (주는 넉백)
+    private float currentDashForce = 0f;       // dashForce: Dash 힘 증가
     [Header("Slope Handling")]
     [SerializeField] private float slopeNormalMin = 0.4f; // 경사�?55???�함) ?�상?�면 바닥 취급
     [SerializeField] private float slopeSpeedMultiplier = 1.2f;
@@ -41,7 +61,15 @@ public class PlayerController : MonoBehaviour
 
     [Header("Animation Settings")]
     public float walkMomentumThreshold = 0.5f;
-    public float dashDuration = 0.5f; // Dash ?�니메이??지???�간
+    public float dashDuration = 0.5f; // Dash 애니메이션 지속 시간
+    public float dashForce = 3f; // Dash 임펄스 힘
+    public float dashCooldown = 1.5f; // Dash 쿨다운 시간
+
+    [Header("Dash Combat Settings")]
+    [SerializeField] private BoxCollider2D dashHitbox;
+    [SerializeField] private LayerMask dashDamageLayers;
+    [SerializeField] private float dashDamage = 3f;
+    [SerializeField] private float dashStaminaCost = 5f;
 
     [SerializeField] private LayerMask groundLayer;
 
@@ -51,6 +79,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float scratchDamage = 1.5f;
     [SerializeField] private float scratchDuration = 0.25f; // Target ~0.25s total
     [SerializeField] private string scratchAnimationName = "Scratch";
+    [SerializeField] private float scratchStaminaCost = 3f;
+
+    [Header("Punch Settings")]
+    [SerializeField] private BoxCollider2D punchHitbox;
+    [SerializeField] private LayerMask punchDamageLayers;
+    [SerializeField] private float punchDamage = 1f;
+    [SerializeField] private float punchKnockbackForce = 3f; // Base knockback force
+    [SerializeField] private float punchStaminaCost = 2f;
 
     [Header("Wall Jump Settings")]
     [SerializeField] private float wallJumpVerticalSpeed = 12f; // 벽차기 수직 속도
@@ -62,6 +98,9 @@ public class PlayerController : MonoBehaviour
     // 벽차기 상태
     private bool isWallSliding = false;
     private float lastWallJumpTime = -1f;
+    [Header("Punch Settings")]
+    [SerializeField] private float punchDuration = 0.3f; // Punch 애니메이션 지속 시간
+    [SerializeField] private string punchAnimationName = "Punch";
 
     // 물리 ?�태
     private bool isGrounded = false;
@@ -90,9 +129,15 @@ public class PlayerController : MonoBehaviour
     private float lastAnimationChangeTime = 0f;
     private float pendingJumpResumeNormalizedTime = -1f;
 
-    // Dash ?�태 관�?
+    // Dash 상태 관리
     private bool isDashing = false;
     private float dashStartTime = 0f;
+    private float lastDashTime = -10f; // 마지막 Dash 시간
+
+    // Punch 상태 관리
+    private bool isPunching = false;
+    private float punchEndTime = -1f;
+    private float punchStartTime = -1f;
 
     // 컴포?�트
     private Rigidbody2D playerRigidbody;
@@ -104,7 +149,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float damageFlashDuration = 0.1f;
     [SerializeField] private int damageFlashCount = 2;
     private Color playerBaseColor = Color.white;
+    private string activeToastId = null;
+    public string CurrentToastId => activeToastId;
+    [Header("Food Effect Text")]
+    [SerializeField] private Vector3 foodEffectTextOffset = new Vector3(0f, 0.8f, -1f);
+    [SerializeField] private float foodEffectTextDuration = 0.6f;
+    [SerializeField] private float foodEffectTextAmplitude = 0.35f;
+    [SerializeField] private int foodEffectTextFontSize = 60;
+    [SerializeField] private float foodEffectTextCharacterSize = 0.05f;
+    [SerializeField] private Color foodHealTextColor = Color.green;
+    [SerializeField] private Color foodDamageTextColor = Color.red;
+    [SerializeField] private Font foodEffectTextFont;
     private readonly Collider2D[] scratchHits = new Collider2D[8];
+    private readonly Collider2D[] punchHits = new Collider2D[8];
+    private readonly Collider2D[] dashHits = new Collider2D[8];
+    private float accumulatedJumpForce = 0f; // 점프 중 누적된 힘
     private bool wasAirborneBeforeScratch = false;
     private float savedJumpNormalizedTime = 0f;
     private float savedJumpLength = 0.85f;
@@ -113,6 +172,7 @@ public class PlayerController : MonoBehaviour
     private bool scratchStoppedAnimator = false;
     private AnimationClip scratchClip;
     private float scratchPlaySpeed = 1f;
+    private AnimationClip punchClip;
     private PhysicsMaterial2D runtimeMaterial;
     private bool wasOnSlope = false; // ?�전 ?�레?�에 경사�??��??��? 추적
 
@@ -142,7 +202,10 @@ public class PlayerController : MonoBehaviour
         {
             playerBaseColor = playerSprite.color;
         }
+        baseMoveSpeed = moveSpeed;
+        baseJumpForce = jumpForce;
         CacheScratchClip();
+        CachePunchClip();
 
         // ü�� �ʱ�ȭ
         currentHealth = maxHealth;
@@ -212,10 +275,14 @@ public class PlayerController : MonoBehaviour
         // 벽 슬라이드 상태 업데이트
         UpdateWallSlide();
 
-        // Scratch 중이면 다른 입력 처리 안함
-        if (!isScratching)
+        // ★ Punch 상태 처리
+        UpdatePunchState();
+
+        // Scratch나 Punch 중이면 다른 입력 처리 안함
+        if (!isScratching && !isPunching)
         {
             HandleScratchInput();
+            HandlePunchInput();
             HandleMovementInput();
             HandleJumpInput();
             HandleDashInput();
@@ -235,37 +302,49 @@ public class PlayerController : MonoBehaviour
         // 벽차기 직후 조작 제한 (아크 궤적 유지)
         bool isWallJumpLocked = Time.time - lastWallJumpTime < wallJumpControlLockTime;
 
-        // ?�쪽 ??처리 (?�쪽 벽에 붙어?�거???�어지??중이�?무시)
+        // 왼쪽 키 처리 (왼쪽 벽에 붙어있거나 떨어지는 중이면 무시)
         if (isPressingLeft && !isCollidingLeftWall && !isFalling && !isWallJumpLocked)
         {
             leftKeyHoldTime += Time.deltaTime;
-            float momentumProgress = Mathf.Clamp01(leftKeyHoldTime / momentumBuildTime);
-            leftMomentum = Mathf.Lerp(baseMomentum, maxMomentum, momentumProgress);
+            // agility: momentum build time 감소, sprint: base/max momentum 증가
+            float effectiveBuildTime = Mathf.Max(0.1f, momentumBuildTime - currentAgility);
+            float effectiveBaseMomentum = baseMomentum + (currentSprint * 0.5f);
+            float effectiveMaxMomentum = maxMomentum + currentSprint;
+            float momentumProgress = Mathf.Clamp01(leftKeyHoldTime / effectiveBuildTime);
+            leftMomentum = Mathf.Lerp(effectiveBaseMomentum, effectiveMaxMomentum, momentumProgress);
             transform.localScale = new Vector3(-5f, 5f, 5f);
         }
         else
         {
             if (leftMomentum > 0)
             {
-                leftMomentum -= momentumDecayAmount * Time.deltaTime * 10f;
+                // friction: 감속 증가
+                float effectiveDecay = momentumDecayAmount + currentFriction;
+                leftMomentum -= effectiveDecay * Time.deltaTime * 10f;
                 leftMomentum = Mathf.Max(leftMomentum, 0f);
             }
             leftKeyHoldTime = 0f;
         }
 
-        // ?�른�???처리 (?�른�?벽에 붙어?�거???�어지??중이�?무시)
+        // 오른쪽 키 처리 (오른쪽 벽에 붙어있거나 떨어지는 중이면 무시)
         if (isPressingRight && !isCollidingRightWall && !isFalling && !isWallJumpLocked)
         {
             rightKeyHoldTime += Time.deltaTime;
-            float momentumProgress = Mathf.Clamp01(rightKeyHoldTime / momentumBuildTime);
-            rightMomentum = Mathf.Lerp(baseMomentum, maxMomentum, momentumProgress);
+            // agility: momentum build time 감소, sprint: base/max momentum 증가
+            float effectiveBuildTime = Mathf.Max(0.1f, momentumBuildTime - currentAgility);
+            float effectiveBaseMomentum = baseMomentum + (currentSprint * 0.5f);
+            float effectiveMaxMomentum = maxMomentum + currentSprint;
+            float momentumProgress = Mathf.Clamp01(rightKeyHoldTime / effectiveBuildTime);
+            rightMomentum = Mathf.Lerp(effectiveBaseMomentum, effectiveMaxMomentum, momentumProgress);
             transform.localScale = new Vector3(5f, 5f, 5f);
         }
         else
         {
             if (rightMomentum > 0)
             {
-                rightMomentum -= momentumDecayAmount * Time.deltaTime * 10f;
+                // friction: 감속 증가
+                float effectiveDecay = momentumDecayAmount + currentFriction;
+                rightMomentum -= effectiveDecay * Time.deltaTime * 10f;
                 rightMomentum = Mathf.Max(rightMomentum, 0f);
             }
             rightKeyHoldTime = 0f;
@@ -276,6 +355,12 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyMovement()
     {
+        // Dash 중에는 이동 무시 (임펄스 보존)
+        if (isDashing)
+        {
+            return;
+        }
+
         float finalHorizontalSpeed = 0f;
 
         if (leftMomentum > 0)
@@ -312,8 +397,9 @@ public class PlayerController : MonoBehaviour
             // 벽차기 체크 (공중에서 벽에 붙어있을 때)
             if (!isGrounded && (isCollidingLeftWall || isCollidingRightWall))
             {
-                // 쿨다운 체크
-                if (Time.time - lastWallJumpTime >= wallJumpCooldown)
+                // 쿨다운 체크 (haste 적용)
+                float effectiveWallJumpCooldown = Mathf.Max(0.05f, wallJumpCooldown - currentHaste);
+                if (Time.time - lastWallJumpTime >= effectiveWallJumpCooldown)
                 {
                     PerformWallJump();
                     return;
@@ -322,7 +408,7 @@ public class PlayerController : MonoBehaviour
 
             bool slopeGround = IsOnJumpableSlope();
 
-            // 경사면에??y가 ?�수�?찍�????�프 ?�용?�고 ?�으�??�거 ?�예 빼도 ??
+            // 경사면에서 y가 음수로 찍히면 점프 허용하고 있으면 아예 빼도 됨
             bool isFallingFromCliff = playerRigidbody.linearVelocity.y < -0.1f && IsOnFlatGround();
 
             bool canJump = (isGrounded || slopeGround) && !isFallingFromCliff;
@@ -331,7 +417,40 @@ public class PlayerController : MonoBehaviour
 
             if (canJump)
             {
+                accumulatedJumpForce = 0f; // 점프 시작 시 초기화
                 PerformJump();
+            }
+        }
+        else if (Input.GetKey(KeyCode.W) && !isGrounded && playerRigidbody.linearVelocity.y > 0)
+        {
+            // 점프 키를 누르고 있는 동안 추가 힘 적용 (스태미나 소모)
+            float forceToAdd = jumpForce * Time.deltaTime * 2f; // 초당 jumpForce * 2만큼 추가
+            accumulatedJumpForce += forceToAdd;
+
+            // 200 단위마다 스태미나 1 소모
+            int staminaCostCount = Mathf.FloorToInt(accumulatedJumpForce / 200f);
+            float requiredStamina = staminaCostCount;
+
+            if (StaminaManager.instance != null)
+            {
+                if (StaminaManager.instance.GetCurrentStamina() >= requiredStamina)
+                {
+                    // 스태미나가 충분하면 힘 추가
+                    playerRigidbody.AddForce(new Vector2(0, forceToAdd));
+
+                    // 200 단위를 넘을 때마다 스태미나 소모
+                    int previousStaminaCost = Mathf.FloorToInt((accumulatedJumpForce - forceToAdd) / 200f);
+                    if (staminaCostCount > previousStaminaCost)
+                    {
+                        StaminaManager.instance.UseStamina(1f);
+                        Debug.Log($"[JUMP] 스태미나 1 소모 (누적: {accumulatedJumpForce:F1})");
+                    }
+                }
+                else
+                {
+                    // 스태미나 부족 시 키 입력 무시 (힘 추가 중단)
+                    Debug.Log("[JUMP] 스태미나 부족으로 점프 힘 추가 중단!");
+                }
             }
         }
         else if (Input.GetKeyUp(KeyCode.W) && playerRigidbody.linearVelocity.y > 0)
@@ -340,29 +459,74 @@ public class PlayerController : MonoBehaviour
                 playerRigidbody.linearVelocity.x,
                 playerRigidbody.linearVelocity.y * 0.5f
             );
+            accumulatedJumpForce = 0f; // 키를 떼면 리셋
         }
     }
 
     private void HandleDashInput()
     {
-        if (isScratching)
+        // Q 키를 누르면 Dash 실행 (바라보는 방향으로 임펄스)
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            return;
-        }
-        // R ?��? ?�르�??�재 Dash 중이 ?�닐 ?�만 ?�행
-        if (Input.GetKeyDown(KeyCode.R) && !isDashing)
-        {
+            // Scratch/Punch 중에는 Dash 불가
+            if (isScratching || isPunching)
+            {
+                Debug.Log($"[DASH] Dash 차단: isScratching={isScratching}, isPunching={isPunching}");
+                return;
+            }
+
+            // 쿨다운 체크 (haste 적용)
+            float effectiveDashCooldown = Mathf.Max(0.1f, dashCooldown - currentHaste);
+            float timeSinceLastDash = Time.time - lastDashTime;
+            if (timeSinceLastDash < effectiveDashCooldown)
+            {
+                Debug.Log($"[DASH] Dash 쿨다운 중: {effectiveDashCooldown - timeSinceLastDash:F2}초 남음");
+                return;
+            }
+
+            // 스태미나 체크
+            if (StaminaManager.instance != null && !StaminaManager.instance.UseStamina(dashStaminaCost))
+            {
+                Debug.Log($"[DASH] 스태미나 부족! 필요: {dashStaminaCost}");
+                return;
+            }
+
+            // Dash 실행
             isDashing = true;
             dashStartTime = Time.time;
+            lastDashTime = Time.time;
             SetAnimationState(AnimationState.Dash);
-            Debug.Log("[DASH] ?�진 ?�니메이???�행!");
+
+            // ★ 바라보는 방향으로 임펄스 적용 (DashForce 스탯 적용)
+            float dashDirection = transform.localScale.x > 0 ? 1f : -1f; // 오른쪽: 1, 왼쪽: -1
+            float effectiveDashForce = dashForce + currentDashForce;
+            if (playerRigidbody != null)
+            {
+                playerRigidbody.AddForce(new Vector2(dashDirection * effectiveDashForce, 0), ForceMode2D.Impulse);
+            }
+
+            // GarbageCan도 대시 시작 시 타격 처리
+            TryHitGarbageCanForward();
+
+            // Enemy 데미지 처리
+            ApplyDashDamage();
+
+            Debug.Log($"[DASH] Dash 실행! 방향={dashDirection}, 힘={effectiveDashForce}, velocity={playerRigidbody?.linearVelocity}");
         }
 
-        // Dash 지???�간???�나�?Dash ?�태 ?�제
+        // Dash 지속 시간이 지나면 Dash 상태 해제
         if (isDashing && Time.time - dashStartTime >= dashDuration)
         {
             isDashing = false;
-            Debug.Log("[DASH] ?�진 ?�니메이??종료!");
+            // 애니메이션 즉시 전환 허용
+            lastAnimationChangeTime = Time.time - animationTransitionDelay;
+            SetAnimationState(DetermineAnimationState());
+            Debug.Log("[DASH] Dash 종료!");
+        }
+
+        if (isDashing)
+        {
+            TryHitGarbageCanForward(1.2f); // 필요 시 더 키워도 됩니다.
         }
     }
 
@@ -427,8 +591,16 @@ public class PlayerController : MonoBehaviour
 
     private void PerformJump()
     {
+        // 스태미나가 1 이상이어야 점프 가능
+        if (StaminaManager.instance != null && StaminaManager.instance.GetCurrentStamina() < 1f)
+        {
+            Debug.Log("[JUMP] 스태미나 부족으로 점프 불가!");
+            return;
+        }
+
         isGrounded = false;
         lastJumpTime = Time.time;
+        accumulatedJumpForce = 0f; // 점프 시작 시 초기화
 
         playerRigidbody.linearVelocity = new Vector2(playerRigidbody.linearVelocity.x, 0);
         playerRigidbody.AddForce(new Vector2(0, jumpForce));
@@ -439,7 +611,7 @@ public class PlayerController : MonoBehaviour
         }
 
         SetAnimationState(AnimationState.Jump);
-        Debug.Log($"[JUMP] ?�프 ?�행! Time={Time.time:F3}");
+        Debug.Log($"[JUMP] 점프 실행! Time={Time.time:F3}");
     }
 
     /// <summary>
@@ -536,6 +708,20 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        // If not punching but animator somehow sits on Punch, snap back
+        if (!isPunching)
+        {
+            var stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+            if (stateInfo.IsName(punchAnimationName))
+            {
+                AnimationState safeState = DetermineAnimationState();
+                if (safeState != AnimationState.Punch)
+                {
+                    SetAnimationState(safeState);
+                }
+            }
+        }
+
         // Scratch 중일 때는 애니메이션 상태 변경 완전 차단
         if (isScratching)
         {
@@ -543,6 +729,17 @@ public class PlayerController : MonoBehaviour
             if (currentAnimState != AnimationState.Scratch)
             {
                 SetAnimationState(AnimationState.Scratch);
+            }
+            return;
+        }
+
+        // Punch 중일 때는 애니메이션 상태 변경 완전 차단
+        if (isPunching)
+        {
+            // Punch 상태가 아니라면 강제로 Punch로 전환
+            if (currentAnimState != AnimationState.Punch)
+            {
+                SetAnimationState(AnimationState.Punch);
             }
             return;
         }
@@ -569,6 +766,12 @@ public class PlayerController : MonoBehaviour
         if (isScratching)
         {
             return AnimationState.Scratch;
+        }
+
+        // Punch 중일 때는 무조건 Punch 상태 유지
+        if (isPunching)
+        {
+            return AnimationState.Punch;
         }
 
         // Dash 중일 때는 Dash 상태 유지
@@ -649,6 +852,14 @@ public class PlayerController : MonoBehaviour
                 scratchStoppedAnimator = false;
                 Debug.Log($"[SCRATCH ANIM] Scratch 애니메이션 강제 재생 시작");
                 break;
+
+            case AnimationState.Punch:
+                // ★ Punch는 Play()로 직접 재생
+                animator.SetBool(GroundedHash, false);
+                animator.SetBool(IsMovingHash, false);
+                animator.Play(punchAnimationName, 0, 0f);
+                Debug.Log($"[PUNCH ANIM] Punch 애니메이션 재생 시작");
+                break;
         }
     }
 
@@ -685,12 +896,19 @@ public class PlayerController : MonoBehaviour
         damageFlashRoutine = null;
     }
 
-    public void TakeDamage(float damage)
+    // 외부에서 플레이어 틴트 플래시를 강제로 실행할 때 사용
+    public void PlayDamageFlash()
     {
-        // 무적 ?�간 체크
-        if (Time.time - lastDamageTime < invincibilityTime)
+        StartDamageFlash();
+    }
+
+    public void TakeDamage(float damage, GameObject attacker = null)
+    {
+        // 무적 시간 체크 (invincibility stat 적용)
+        float effectiveInvincibilityTime = invincibilityTime + currentInvincibility;
+        if (Time.time - lastDamageTime < effectiveInvincibilityTime)
         {
-            Debug.Log("무적 ?�간 �? ?��?지 무시");
+            Debug.Log($"무적 시간 중 데미지 무시 (효과적 무적시간: {effectiveInvincibilityTime:F2}s)");
             return;
         }
 
@@ -699,20 +917,34 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        // ?��?지 ?�용
-        currentHealth -= damage;
+        // Defense 적용: 받는 피해 감소
+        float finalDamage = Mathf.Max(0f, damage - currentDefense);
+
+        // 데미지 적용
+        currentHealth -= finalDamage;
         lastDamageTime = Time.time;
         StartDamageFlash();
 
-        Debug.Log($"?�레?�어 ?��?지 받음! ?�재 체력: {currentHealth}/{maxHealth}");
+        Debug.Log($"플레이어 데미지 받음! 원본:{damage:F1}, 최종:{finalDamage:F1} (방어:{currentDefense:F1}), 현재 체력: {currentHealth}/{maxHealth}");
 
-        // ?��?지 ?�운???�생
+        // Thorns 적용: 반격 데미지
+        if (currentThorns > 0f && attacker != null)
+        {
+            var enemy = attacker.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(currentThorns, Vector2.zero);
+                Debug.Log($"[Thorns] 반격 데미지 {currentThorns:F1} → {attacker.name}");
+            }
+        }
+
+        // 데미지 사운드 재생
         if (playerAudio != null && damageClip != null)
         {
             playerAudio.PlayOneShot(damageClip);
         }
 
-        // GameManager??체력 ?�데?�트 ?�림
+        // GameManager에 체력 업데이트 알림
         if (GameManager.instance != null)
         {
             GameManager.instance.UpdateHealth(currentHealth);
@@ -749,6 +981,200 @@ public class PlayerController : MonoBehaviour
         {
             GameManager.instance.OnPlayerDead();
         }
+    }
+
+    // ==================== Food Effects ====================
+
+    /// <summary>
+    /// 음식 데미지: 체력이 1 아래로 내려가지 않도록 clamps.
+    /// </summary>
+    public float TakeFoodDamage(float damage)
+    {
+        if (isDead || damage <= 0f) return 0f;
+        float before = currentHealth;
+        currentHealth -= damage;
+        if (currentHealth < 1f) currentHealth = 1f; // 음식 데미지로는 사망하지 않음
+        if (GameManager.instance != null) GameManager.instance.UpdateHealth(currentHealth);
+        float applied = before - currentHealth;
+        SpawnFoodEffectText($"-{applied:0.#}", foodDamageTextColor);
+        return applied;
+    }
+
+    /// <summary>
+    /// 음식 회복: 최대체력까지 회복 (nutrition stat 적용)
+    /// </summary>
+    public float Heal(float amount)
+    {
+        if (isDead || amount <= 0f) return 0f;
+        float before = currentHealth;
+        // nutrition: 음식 회복 시 추가 회복
+        float effectiveHeal = amount + currentNutrition;
+        currentHealth = Mathf.Min(maxHealth, currentHealth + effectiveHeal);
+        if (GameManager.instance != null) GameManager.instance.UpdateHealth(currentHealth);
+        float applied = currentHealth - before;
+        SpawnFoodEffectText($"+{applied:0.#}", foodHealTextColor);
+        Debug.Log($"[Heal] 회복량: {amount:F1} + nutrition:{currentNutrition:F1} = {effectiveHeal:F1}, 실제 적용: {applied:F1}");
+        return applied;
+    }
+
+    private void SpawnFoodEffectText(string text, Color color)
+    {
+        StartCoroutine(FoodEffectTextRoutine(text, color));
+    }
+
+    private IEnumerator FoodEffectTextRoutine(string text, Color color)
+    {
+        var go = new GameObject("FoodEffectText_Player");
+        go.transform.SetParent(transform);
+        go.transform.localPosition = foodEffectTextOffset;
+        go.transform.localRotation = Quaternion.identity;
+        // 부모 스케일이 뒤집혀도 텍스트는 정방향으로 보이도록 보정
+        float flipX = Mathf.Sign(transform.lossyScale.x) < 0 ? -1f : 1f;
+        go.transform.localScale = new Vector3(flipX, 1f, 1f);
+
+        var tm = go.AddComponent<TextMesh>();
+        tm.text = text;
+        tm.anchor = TextAnchor.MiddleCenter;
+        tm.alignment = TextAlignment.Center;
+        tm.characterSize = foodEffectTextCharacterSize;
+        tm.fontSize = foodEffectTextFontSize;
+        tm.color = color;
+        tm.richText = false;
+        tm.font = foodEffectTextFont != null ? foodEffectTextFont : Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+
+        var renderer = go.GetComponent<MeshRenderer>();
+        if (renderer != null)
+        {
+            renderer.sortingLayerName = "UI";
+            renderer.sortingOrder = 5100;
+            renderer.material = tm.font != null ? tm.font.material : new Material(Shader.Find("GUI/Text Shader"));
+        }
+
+        Vector3 basePos = foodEffectTextOffset;
+        float elapsed = 0f;
+        while (elapsed < foodEffectTextDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / foodEffectTextDuration);
+            float vertical = Mathf.Sin(t * Mathf.PI) * foodEffectTextAmplitude;
+            go.transform.localPosition = basePos + new Vector3(0f, vertical, 0f);
+
+            var c = tm.color;
+            c.a = 1f - t;
+            tm.color = c;
+            yield return null;
+        }
+
+        Destroy(go);
+    }
+
+    // ==================== Toast Effects ====================
+    public void ApplyToastStats(System.Collections.Generic.List<RuntimeStat> stats, string toastId)
+    {
+        // 기본값으로 리셋
+        moveSpeed = baseMoveSpeed;
+        jumpForce = baseJumpForce;
+        currentDefense = 0f;
+        currentThorns = 0f;
+        currentNutrition = 0f;
+        currentFriction = 0f;
+        currentHaste = 0f;
+        currentAgility = 0f;
+        currentSprint = 0f;
+        currentPoise = 0f;
+        currentInvincibility = 0f;
+        currentAttack = 0f;
+        currentStaminaRegen = 0f;
+        currentKnockback = 0f;
+
+        if (stats != null)
+        {
+            foreach (var s in stats)
+            {
+                switch (s.statType)
+                {
+                    case StatType.Speed:
+                        moveSpeed += s.value;
+                        break;
+                    case StatType.Jump:
+                        jumpForce += s.value * 15f; // Jump +1 당 15씩 가산 (기본 650 기준)
+                        break;
+                    case StatType.StaminaRegen:
+                        currentStaminaRegen += s.value;
+                        break;
+                    case StatType.Attack:
+                        currentAttack += s.value;
+                        break;
+                    case StatType.Defense:
+                        currentDefense += s.value;
+                        break;
+                    case StatType.Invincibility:
+                        currentInvincibility += s.value;
+                        break;
+                    case StatType.Haste:
+                        currentHaste += s.value;
+                        break;
+                    case StatType.Agility:
+                        currentAgility += s.value;
+                        break;
+                    case StatType.Sprint:
+                        currentSprint += s.value;
+                        break;
+                    case StatType.Poise:
+                        currentPoise += s.value;
+                        break;
+                    case StatType.Thorns:
+                        currentThorns += s.value;
+                        break;
+                    case StatType.Nutrition:
+                        currentNutrition += s.value;
+                        break;
+                    case StatType.Friction:
+                        currentFriction += s.value;
+                        break;
+                    case StatType.Knockback:
+                        currentKnockback += s.value;
+                        break;
+                    case StatType.DashForce:
+                        currentDashForce += s.value;
+                        break;
+                }
+            }
+        }
+
+        // StaminaManager에 stamina_regen 적용
+        if (StaminaManager.instance != null && currentStaminaRegen != 0f)
+        {
+            StaminaManager.instance.ApplyStaminaRegenBonus(currentStaminaRegen);
+        }
+
+        activeToastId = toastId;
+        Debug.Log($"[PlayerController] ApplyToastStats: toastId={toastId}, speed={moveSpeed}, jump={jumpForce}, " +
+                  $"attack={currentAttack}, defense={currentDefense}, haste={currentHaste}, " +
+                  $"agility={currentAgility}, sprint={currentSprint}, stamina_regen={currentStaminaRegen}");
+
+        // ★ 모든 ToastHoverPanel들의 버튼 상태를 업데이트
+        RefreshAllToastPanelButtons();
+    }
+
+    private void RefreshAllToastPanelButtons()
+    {
+        // 씬의 모든 ToastHoverPanel을 찾아서 버튼 업데이트
+        var allPanels = FindObjectsOfType<ToastHoverPanel>(true); // includeInactive = true
+        Debug.Log($"[PlayerController] ★★★ RefreshAllToastPanelButtons: Found {allPanels.Length} panels ★★★");
+
+        if (allPanels.Length == 0)
+        {
+            Debug.LogWarning("[PlayerController] No ToastHoverPanel found! Panels might not be instantiated yet.");
+        }
+
+        foreach (var panel in allPanels)
+        {
+            Debug.Log($"[PlayerController] Refreshing panel: {panel.gameObject.name}, active={panel.gameObject.activeInHierarchy}");
+            panel.RefreshButton();
+        }
+
+        Debug.Log($"[PlayerController] RefreshAllToastPanelButtons complete. Active toast: {activeToastId}");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -950,6 +1376,25 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void CachePunchClip()
+    {
+        if (animator == null) return;
+        var controller = animator.runtimeAnimatorController;
+        if (controller == null) return;
+
+        foreach (var clip in controller.animationClips)
+        {
+            if (clip != null && clip.name == punchAnimationName)
+            {
+                punchClip = clip;
+                // Punch 애니메이션도 한 번만 재생되도록 WrapMode 설정
+                clip.wrapMode = WrapMode.Once;
+                Debug.Log($"[PUNCH CACHE] Punch clip cached and set to WrapMode.Once");
+                break;
+            }
+        }
+    }
+
     private void HandleScratchInput()
     {
         if (isScratching || isDead)
@@ -969,6 +1414,13 @@ public class PlayerController : MonoBehaviour
         if (isScratching)
         {
             Debug.Log("[SCRATCH] 이미 Scratch 중입니다.");
+            return;
+        }
+
+        // 스태미나 체크
+        if (StaminaManager.instance != null && !StaminaManager.instance.UseStamina(scratchStaminaCost))
+        {
+            Debug.Log($"[SCRATCH] 스태미나 부족! 필요: {scratchStaminaCost}");
             return;
         }
 
@@ -1120,6 +1572,144 @@ public class PlayerController : MonoBehaviour
         Debug.Log($"[SCRATCH] 종료 완료! currentAnimState={currentAnimState}");
     }
 
+    // ==================== Punch Functions ====================
+
+    private void HandlePunchInput()
+    {
+        if (isPunching || isDead)
+        {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            StartPunch();
+        }
+    }
+
+    private void StartPunch()
+    {
+        if (isPunching)
+        {
+            Debug.Log("[PUNCH] 이미 Punch 중입니다.");
+            return;
+        }
+
+        // 스태미나 체크
+        if (StaminaManager.instance != null && !StaminaManager.instance.UseStamina(punchStaminaCost))
+        {
+            Debug.Log($"[PUNCH] 스태미나 부족! 필요: {punchStaminaCost}");
+            return;
+        }
+
+        // 이동 입력 무시 상태로 전환
+        leftMomentum = 0f;
+        rightMomentum = 0f;
+        leftKeyHoldTime = 0f;
+        rightKeyHoldTime = 0f;
+
+        // Scratch와 동일하게 animator.speed 조절
+        float clipLen = punchClip != null ? punchClip.length : punchDuration;
+        float targetDuration = Mathf.Max(0.01f, punchDuration);
+
+        if (animator != null)
+        {
+            animator.speed = (clipLen > 0f) ? (clipLen / targetDuration) : 1f;
+            animator.ResetTrigger(JumpHash);
+            animator.ResetTrigger(DieHash);
+            animator.ResetTrigger(DashHash);
+        }
+
+        isPunching = true;
+        punchStartTime = Time.time;
+        punchEndTime = Time.time + targetDuration;
+
+        // Punch 애니메이션 재생
+        SetAnimationState(AnimationState.Punch);
+
+        // GarbageCan 타격 처리
+        TryHitGarbageCanForward();
+
+        // Enemy damage 처리
+        ApplyPunchDamage();
+
+        Debug.Log($"[PUNCH] 시작! clipLen={clipLen:F3}, targetDuration={targetDuration:F3}, speed={animator?.speed:F2}, punchEndTime={punchEndTime:F3}");
+    }
+
+    private void UpdatePunchState()
+    {
+        if (!isPunching)
+        {
+            return;
+        }
+
+        // 디버그: 현재 상태 출력
+        if (Time.frameCount % 10 == 0 && animator != null)
+        {
+            var stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+            Debug.Log($"[PUNCH UPDATE] Time.time={Time.time:F3}, punchEndTime={punchEndTime:F3}, remaining={punchEndTime - Time.time:F3}, animState={stateInfo.ToString()}, isPunching={isPunching}");
+        }
+
+        // 시간 기반 종료 (Dash와 동일한 방식)
+        if (Time.time >= punchEndTime)
+        {
+            Debug.Log($"[PUNCH] 시간 종료: Time.time={Time.time:F3}, punchEndTime={punchEndTime:F3}");
+            EndPunch();
+        }
+    }
+
+    private void EndPunch()
+    {
+        if (!isPunching)
+        {
+            Debug.Log("[PUNCH] 이미 종료된 상태입니다.");
+            return;
+        }
+
+        Debug.Log($"[PUNCH] 종료 시작! isGrounded={isGrounded}");
+
+        isPunching = false;
+        punchEndTime = -1f;
+
+        // animator.speed를 원래대로 복구
+        if (animator != null)
+        {
+            animator.speed = 1f;
+        }
+
+        // 애니메이션 전환 딜레이를 리셋하여 즉시 전환 가능하도록
+        lastAnimationChangeTime = Time.time - animationTransitionDelay;
+
+        // 현재 상태에 맞는 애니메이션으로 전환
+        AnimationState nextState = DetermineAnimationState();
+        Debug.Log($"[PUNCH] 다음 상태 결정: {nextState}");
+
+        // 즉시 전환 (딜레이 없이)
+        SetAnimationState(nextState);
+
+        Debug.Log($"[PUNCH] 종료 완료! currentAnimState={currentAnimState}");
+    }
+
+    // ==================== End Punch Functions ====================
+
+    // GarbageCan을 전방으로 타격 시도 (K/L/Shift 시작 시 사용)
+    private void TryHitGarbageCanForward(float radius = 0.8f)
+    {
+        Vector2 dir = transform.localScale.x >= 0 ? Vector2.right : Vector2.left;
+        Vector2 origin = (Vector2)transform.position + dir * 0.25f;
+        var hits = Physics2D.OverlapCircleAll(origin, radius);
+        foreach (var hit in hits)
+        {
+            if (hit == null) continue;
+            var can = hit.GetComponentInParent<GarbageCan>();
+            if (can != null)
+            {
+                can.OnHit();
+                break;
+            }
+        }
+    }
+
     private void ApplyScratchDamage()
     {
         if (scratchHitbox == null)
@@ -1137,9 +1727,9 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        Vector2 center = scratchHitbox.bounds.center;
-        Vector2 size = scratchHitbox.bounds.size;
-        int mask = scratchDamageLayers.value == 0 ? ~0 : scratchDamageLayers.value;
+        Vector2 center = scratchHitbox.bounds.center;                                                                                              
+        Vector2 size = scratchHitbox.bounds.size;                                                                                                  
+        int mask = scratchDamageLayers.value == 0 ? ~0 : scratchDamageLayers.value;                                                                
         System.Array.Clear(scratchHits, 0, scratchHits.Length);
         int hitCount = Physics2D.OverlapBoxNonAlloc(center, size, 0f, scratchHits, mask);
         Vector2 knockbackDir = transform.localScale.x >= 0 ? Vector2.right : Vector2.left;
@@ -1147,25 +1737,148 @@ public class PlayerController : MonoBehaviour
         // ?��? 공격???�들??추적?�기 ?�한 HashSet
         System.Collections.Generic.HashSet<int> alreadyHitEnemies = new System.Collections.Generic.HashSet<int>();
 
-        for (int i = 0; i < hitCount && i < scratchHits.Length; i++)
+                                                                                                                                                    
+        for (int i = 0; i < hitCount && i < scratchHits.Length; i++)                                                                               
+        {                                                                                                                                          
+            Collider2D hit = scratchHits[i];                                                                                                       
+            if (hit == null || hit.transform.IsChildOf(transform))                                                                                 
+            {                                                                                                                                      
+                continue;                                                                                                                          
+            }                                                                                                                                      
+                                                                                                                                                    
+            // Enemy 처리                                                                                                                          
+            IntelligentDogMovement dog = hit.GetComponentInParent<IntelligentDogMovement>();                                                       
+            if (dog != null)                                                                                                                       
+            {                                                                                                                                      
+                int dogInstanceID = dog.GetInstanceID();
+                if (!alreadyHitEnemies.Contains(dogInstanceID))
+                {
+                    alreadyHitEnemies.Add(dogInstanceID);
+                    float finalDamage = scratchDamage + currentAttack;
+                    dog.TakeDamage(finalDamage, knockbackDir);                                                                                   
+                }                                                                                                                                  
+                continue;                                                                                                                          
+            }                                                                                                                                      
+                                                                                                                                                    
+            // GarbageCan 처리                                                                                                                     
+            var can = hit.GetComponentInParent<GarbageCan>();
+            if (can != null)
+            {
+                can.OnHit();
+            }
+        }
+    }
+
+    private void ApplyPunchDamage()
+    {
+        if (punchHitbox == null)
         {
-            Collider2D hit = scratchHits[i];
+            // Auto-search attempt
+            Transform child = transform.Find("PunchHitbox");
+            if (child != null)
+            {
+                punchHitbox = child.GetComponent<BoxCollider2D>();
+            }
+            if (punchHitbox == null)
+            {
+                Debug.LogWarning("Punch hitbox is not assigned on PlayerController.");
+                return;
+            }
+        }
+
+        Vector2 center = punchHitbox.bounds.center;
+        Vector2 size = punchHitbox.bounds.size;
+        int mask = punchDamageLayers.value == 0 ? ~0 : punchDamageLayers.value;
+        System.Array.Clear(punchHits, 0, punchHits.Length);
+        int hitCount = Physics2D.OverlapBoxNonAlloc(center, size, 0f, punchHits, mask);
+        Vector2 knockbackDir = transform.localScale.x >= 0 ? Vector2.right : Vector2.left;
+
+        // Apply knockback stat to increase knockback distance (additive)
+        float totalKnockback = punchKnockbackForce + currentKnockback;
+        Vector2 knockbackForce = knockbackDir * totalKnockback;
+
+        System.Collections.Generic.HashSet<int> alreadyHitEnemies = new System.Collections.Generic.HashSet<int>();
+
+        for (int i = 0; i < hitCount && i < punchHits.Length; i++)
+        {
+            Collider2D hit = punchHits[i];
             if (hit == null || hit.transform.IsChildOf(transform))
             {
                 continue;
             }
 
+            // Enemy processing
             IntelligentDogMovement dog = hit.GetComponentInParent<IntelligentDogMovement>();
             if (dog != null)
             {
-                // ?��? ?�격한 ?�인지 ?�인
                 int dogInstanceID = dog.GetInstanceID();
                 if (!alreadyHitEnemies.Contains(dogInstanceID))
                 {
                     alreadyHitEnemies.Add(dogInstanceID);
-                    dog.TakeDamage(scratchDamage, knockbackDir);
-                    Debug.Log($"[Player] Scratch �������� {dog.name}���� {scratchDamage} ������ ����");
+                    float finalDamage = punchDamage + currentAttack;
+                    dog.TakeDamage(finalDamage, knockbackForce);
                 }
+                continue;
+            }
+
+            // GarbageCan processing
+            var can = hit.GetComponentInParent<GarbageCan>();
+            if (can != null)
+            {
+                can.OnHit();
+            }
+        }
+    }
+
+    private void ApplyDashDamage()
+    {
+        if (dashHitbox == null)
+        {
+            // Auto-search attempt
+            Transform child = transform.Find("DashHitbox");
+            if (child != null)
+            {
+                dashHitbox = child.GetComponent<BoxCollider2D>();
+            }
+            if (dashHitbox == null)
+            {
+                Debug.LogWarning("Dash hitbox is not assigned on PlayerController.");
+                return;
+            }
+        }
+
+        Vector2 center = dashHitbox.bounds.center;
+        Vector2 size = dashHitbox.bounds.size;
+        int mask = dashDamageLayers.value == 0 ? ~0 : dashDamageLayers.value;
+        System.Array.Clear(dashHits, 0, dashHits.Length);
+        int hitCount = Physics2D.OverlapBoxNonAlloc(center, size, 0f, dashHits, mask);
+
+        System.Collections.Generic.HashSet<int> alreadyHitEnemies = new System.Collections.Generic.HashSet<int>();
+
+        for (int i = 0; i < hitCount && i < dashHits.Length; i++)
+        {
+            Collider2D hit = dashHits[i];
+            if (hit == null || hit.transform.IsChildOf(transform))
+            {
+                continue;
+            }
+
+            // Enemy processing
+            IntelligentDogMovement dog = hit.GetComponentInParent<IntelligentDogMovement>();
+            if (dog != null)
+            {
+                int dogInstanceID = dog.GetInstanceID();
+                if (!alreadyHitEnemies.Contains(dogInstanceID))
+                {
+                    alreadyHitEnemies.Add(dogInstanceID);
+                    float finalDamage = dashDamage + currentAttack;
+                    Vector2 knockbackDir = transform.localScale.x >= 0 ? Vector2.right : Vector2.left;
+                    dog.TakeDamage(finalDamage, knockbackDir);
+
+                    // 적의 공격 취소 및 쿨타임 초기화
+                    dog.CancelAttackFromDash();
+                }
+                continue;
             }
         }
     }

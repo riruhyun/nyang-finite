@@ -127,7 +127,11 @@ public class Enemy : MonoBehaviour
     if (rb == null) return;
 
     isKnockedBack = true;
-    Vector2 knockbackForce = direction.normalized * knockbackDistance;
+    float magnitude = direction.magnitude;
+    // Respect provided impulse magnitude when available; otherwise fall back to distance-based knockback.
+    Vector2 knockbackForce = magnitude > 1.01f
+        ? direction
+        : direction.normalized * knockbackDistance;
     rb.AddForce(knockbackForce, ForceMode2D.Impulse);
 
     Invoke(nameof(ResetKnockback), knockbackDuration);
@@ -226,4 +230,18 @@ public class Enemy : MonoBehaviour
   public float GetMaxHealth() => maxHealth;
   public bool IsAlive() => isAlive;
   public float GetDetectionRange() => detectionRange;
+
+  /// <summary>
+  /// Apply basic stats overrides (used by spawn helper/config).
+  /// </summary>
+  public virtual void ApplyBaseStats(float moveSpeedOverride, float maxHealthOverride, float attackSpeedOverride)
+  {
+    if (moveSpeedOverride > 0f) moveSpeed = moveSpeedOverride;
+    if (maxHealthOverride > 0f)
+    {
+      maxHealth = maxHealthOverride;
+      currentHealth = maxHealthOverride;
+    }
+    if (attackSpeedOverride > 0f) attackSpeed = attackSpeedOverride;
+  }
 }

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f09a097e75f3ce43b1020a8c536a71f, type: 3}
+  m_Name: Toast_Jam_common_2
+  m_EditorClassIdentifier: Assembly-CSharp::ToastStatProfile
+  toastType: 0
+  rarity: 0
+  profileSprite: {fileID: 21300000, guid: 4abe57999ebf6d8459f047f0e8b34291, type: 3}
+  toastNameSprite: {fileID: 21300000, guid: 9b2f909ea080cf640ad38db7403b5f68, type: 3}
+  font: {fileID: 12800000, guid: ab3e3faa0d319124a82abdc929ddc467, type: 3}
+  description: 
+  stats:
+  - name: Knockback
+    deltaValue: 1
+    varianceRange: {x: 0, y: 0}
+    bonusRolls:
+    - bonusDelta: 1
+      chancePercent: 10
+    minRarity: 0
+    maxRarity: 0
+    unit: 
+    showSign: 1

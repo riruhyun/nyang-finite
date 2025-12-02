@@ -22,6 +22,10 @@ public class EnemySpawner : MonoBehaviour
   public GameObject enemyToastPrefab;
   [Tooltip("Local offset for the attached toast relative to the enemy")]
   public Vector3 enemyToastOffset = new Vector3(0f, 0.8f, 0f);
+  [Tooltip("Sorting layer name for attached enemy toasts (optional)")]
+  public string enemyToastSortingLayer = "";
+  [Tooltip("Sorting order for attached enemy toasts (optional)")]
+  public int enemyToastSortingOrder = 0;
 
   [Header("Spawn Policy")]
   [Tooltip("Spawn automatically on Start()")]
@@ -73,6 +77,14 @@ public class EnemySpawner : MonoBehaviour
   private GameObject runtimeDogPrefab;
   private GameObject runtimeEnemyToastPrefab;
   private bool prefabsPrepared = false;
+  [Header("Spawn Definitions (per index)")]
+  public EnemySpawnHelper.SpawnDefinition[] spawnDefinitions;
+
+  void Awake()
+  {
+    // Even if SpawnOnStart is disabled, prepare and hide scene templates so originals stay idle.
+    EnsureRuntimePrefabs();
+  }
 
   void Start()
   {
@@ -103,7 +115,12 @@ public class EnemySpawner : MonoBehaviour
     EnsureRuntimePrefabs();
 
     Vector3[] positions = null;
-    if (spawnPoints != null && spawnPoints.Length > 0)
+    // If spawnDefinitions exist, let helper decide per-definition (including custom positions)
+    if (spawnDefinitions != null && spawnDefinitions.Length > 0)
+    {
+      positions = null;
+    }
+    else if (spawnPoints != null && spawnPoints.Length > 0)
     {
       positions = new Vector3[spawnPoints.Length];
       for (int i = 0; i < spawnPoints.Length; i++)
@@ -142,7 +159,10 @@ public class EnemySpawner : MonoBehaviour
       canJumpByIndex: canJumpByIndex,
       canJumpDefault: defaultCanJump,
       enemyToastPrefab: runtimeEnemyToastPrefab,
-      enemyToastOffset: enemyToastOffset
+      enemyToastOffset: enemyToastOffset,
+      enemyToastSortingLayer: enemyToastSortingLayer,
+      enemyToastSortingOrder: enemyToastSortingOrder,
+      spawnDefinitions: spawnDefinitions
     );
   }
 
@@ -173,13 +193,22 @@ public class EnemySpawner : MonoBehaviour
 
     // Determine spawn position: engine target or spawner position
     Vector3 origin = (engine != null && engine.target != null) ? engine.target.position : transform.position;
+    bool hasSpawnDefs = spawnDefinitions != null && spawnDefinitions.Length > 0;
+    int defCount = hasSpawnDefs ? spawnDefinitions.Length : 1;
+    Vector3[] origins = null;
+    // SpawnDefinitions가 없을 때만 동일 위치 배열을 만들어 사용
+    if (!hasSpawnDefs)
+    {
+      origins = new Vector3[defCount];
+      for (int i = 0; i < defCount; i++) origins[i] = origin;
+    }
 
     EnemySpawnHelper.SpawnEnemies(
       ownerForSharedEngine: this.gameObject,
       dogPrefab: runtimeDogPrefab,
       pigeonPrefab: pigeonPrefab,
-      count: 1,
-      positions: new Vector3[] { origin },
+      count: defCount,
+      positions: origins, // null이면 SpawnDefinition.useCustomPosition 또는 헬퍼 산개 로직 사용
       enemyKind: EnemySpawnHelper.EnemyKind.Dog,
       algorithm: SharedTrackingEngine.TrackingAlgorithm.DirectChase,
       view: SharedTrackingEngine.ViewMode.SideView2D,
@@ -191,7 +220,10 @@ public class EnemySpawner : MonoBehaviour
       canJumpByIndex: null,
       canJumpDefault: defaultCanJump,
       enemyToastPrefab: runtimeEnemyToastPrefab,
-      enemyToastOffset: enemyToastOffset
+      enemyToastOffset: enemyToastOffset,
+      enemyToastSortingLayer: enemyToastSortingLayer,
+      enemyToastSortingOrder: enemyToastSortingOrder,
+      spawnDefinitions: spawnDefinitions
     );
   }
 

@@ -44,6 +44,12 @@ public class ToastIndicator : MonoBehaviour
 
         transform.localPosition = localOffset;
         ApplyToast(initialToast);
+
+        // Initially hide the sprite renderer - ToastHoverTrigger will show it when needed
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.enabled = false;
+        }
     }
 
     private void LateUpdate()
@@ -63,6 +69,47 @@ public class ToastIndicator : MonoBehaviour
     public void SetToast(ToastType type)
     {
         ApplyToast(type);
+    }
+
+    /// <summary>
+    /// Override local offset at runtime (e.g., from spawner).
+    /// </summary>
+    public void SetLocalOffset(Vector3 offset)
+    {
+        localOffset = offset;
+        transform.localPosition = offset;
+    }
+
+    /// <summary>
+    /// Spawn a fading ghost of the current toast at the same world position.
+    /// </summary>
+    public void SpawnGhost(float alpha = 0.4f, float lifetime = 0.35f)
+    {
+        if (spriteRenderer == null || spriteRenderer.sprite == null) return;
+
+        var ghost = new GameObject("ToastGhost");
+        ghost.transform.position = transform.position;
+        ghost.transform.rotation = freezeUpright ? Quaternion.identity : transform.rotation;
+        ghost.transform.localScale = transform.lossyScale;
+        ghost.transform.localEulerAngles = freezeUpright ? Vector3.zero : transform.eulerAngles;
+        ghost.transform.parent = null;
+
+        var sr = ghost.AddComponent<SpriteRenderer>();
+        sr.sprite = spriteRenderer.sprite;
+        sr.sortingLayerID = spriteRenderer.sortingLayerID;
+        sr.sortingOrder = spriteRenderer.sortingOrder - 1;
+        var c = spriteRenderer.color;
+        c.a = Mathf.Clamp01(alpha);
+        sr.color = c;
+
+        StartCoroutine(FadeAndDestroy(sr, lifetime));
+    }
+
+    private System.Collections.IEnumerator FadeAndDestroy(SpriteRenderer sr, float duration)
+    {
+        // Keep the ghost fully visible for its lifetime, then clean up.
+        yield return new WaitForSeconds(duration);
+        Destroy(sr.gameObject);
     }
 
     private void ApplyToast(ToastType type)
