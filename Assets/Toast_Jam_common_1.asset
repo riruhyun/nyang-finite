@@ -18,6 +18,8 @@ MonoBehaviour:
   toastNameSprite: {fileID: 21300000, guid: 9b2f909ea080cf640ad38db7403b5f68, type: 3}
   font: {fileID: 12800000, guid: ab3e3faa0d319124a82abdc929ddc467, type: 3}
   description: 
+  randomSelectStats: 1
+  maxStatCount: 1
   stats:
   - statType: 1
     deltaValue: 1
@@ -32,3 +34,14 @@ MonoBehaviour:
     unit: 
     showSign: 1
     oldName: Jump
+  - statType: 0
+    deltaValue: 1
+    varianceRange: {x: 0, y: 0}
+    bonusRolls:
+    - bonusDelta: 1
+      chancePercent: 10
+    minRarity: 0
+    maxRarity: 0
+    unit: 
+    showSign: 1
+    oldName: Knockback

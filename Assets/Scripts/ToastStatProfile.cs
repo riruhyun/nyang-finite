@@ -40,8 +40,18 @@ public class ToastStatProfile : ScriptableObject
     public Sprite profileSprite;
     public Sprite toastNameSprite;
     public Font font;
-    [HideInInspector] [TextArea]
+    [HideInInspector]
+    [TextArea]
     public string description;
+
+    [Header("Stat Selection")]
+    [Tooltip("true면 Stats 리스트에서 랜덤하게 선택합니다. false면 모든 Stats가 적용됩니다.")]
+    public bool randomSelectStats = false;
+
+    [Tooltip("랜덤 선택 시 적용할 최대 스탯 개수 (0이면 제한 없음)")]
+    [Min(0)]
+    public int maxStatCount = 0;
+
     public List<StatEntry> stats = new List<StatEntry>();
 }
 

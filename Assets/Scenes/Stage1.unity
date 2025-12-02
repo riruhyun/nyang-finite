@@ -856,9 +856,7 @@ MonoBehaviour:
     spawnPosition: {x: 3.35, y: -3.35, z: 0}
     toastDrops:
     - profile: {fileID: 11400000, guid: d4d29e080341c7846af9e67fbd8b378f, type: 2}
-      weight: 50
-    - profile: {fileID: 11400000, guid: da6f81777bc5b5d45bf41b41843400b4, type: 2}
-      weight: 50
+      weight: 100
   - enemyKind: 2
     skinId: 2
     moveSpeed: 0.1

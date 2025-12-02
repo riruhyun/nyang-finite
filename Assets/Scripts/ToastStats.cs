@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -32,7 +33,8 @@ public class ToastStats : MonoBehaviour
     [SerializeField] private Sprite overrideProfileSprite;
     [SerializeField] private Sprite overrideToastNameSprite;
     [SerializeField] private Font overrideFont;
-    [HideInInspector] [TextArea]
+    [HideInInspector]
+    [TextArea]
     [SerializeField] private string overrideDescription;
 
     [Header("UI")]
@@ -62,10 +64,33 @@ public class ToastStats : MonoBehaviour
         runtimeStats.Clear();
         if (profile == null) return;
 
+        // 유효한 스탯만 필터링
+        List<StatEntry> allowedStats = new List<StatEntry>();
         foreach (var entry in profile.stats)
         {
-            if (!IsStatAllowed(entry)) continue;
+            if (IsStatAllowed(entry))
+            {
+                allowedStats.Add(entry);
+            }
+        }
 
+        // 랜덤 선택 모드일 경우 지정된 개수만큼만 선택
+        List<StatEntry> selectedStats;
+        if (profile.randomSelectStats && profile.maxStatCount > 0 && allowedStats.Count > profile.maxStatCount)
+        {
+            // 랜덤 정렬 후 필요한 개수만 선택
+            selectedStats = allowedStats
+                .OrderBy(_ => Random.value)
+                .Take(profile.maxStatCount)
+                .ToList();
+        }
+        else
+        {
+            selectedStats = allowedStats;
+        }
+
+        foreach (var entry in selectedStats)
+        {
             float value = entry.deltaValue;
             if (randomize)
             {
