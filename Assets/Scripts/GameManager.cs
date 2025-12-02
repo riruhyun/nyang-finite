@@ -58,6 +58,11 @@ public class GameManager : MonoBehaviour
         // 게임 오버 상태에서 R키를 누르면 씬을 다시 로드
         if (isGameover && Input.GetKeyDown(KeyCode.R))
         {
+            // 재시작 시 저장된 상태 클리어
+            if (PlayerStateManager.instance != null)
+            {
+                PlayerStateManager.instance.ClearSavedState();
+            }
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
@@ -77,6 +82,13 @@ public class GameManager : MonoBehaviour
     {
         isGameover = true;
         gameoverUI.SetActive(true);
+
+        // 게임 오버 시 저장된 플레이어 상태 클리어
+        if (PlayerStateManager.instance != null)
+        {
+            PlayerStateManager.instance.ClearSavedState();
+            Debug.Log("[GameManager] 게임 오버로 인해 저장된 상태 클리어");
+        }
     }
 
     // 플레이어의 체력이 변경되었을 때 HP 바 UI를 업데이트하는 메서드
@@ -101,6 +113,7 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// 특정 스테이지(씬)를 로드합니다.
     /// StageTransitionWall에서 호출됩니다.
+    /// 플레이어 상태(HP, 스태미나, 토스트)를 저장하고 다음 스테이지에서 복원합니다.
     /// </summary>
     /// <param name="stageName">로드할 스테이지 씬 이름</param>
     public void LoadStage(string stageName)
@@ -113,6 +126,21 @@ public class GameManager : MonoBehaviour
 
         Debug.Log($"[GameManager] 스테이지 로드: {stageName}");
 
+        // 플레이어 상태 저장 (스테이지 전환 전)
+        if (PlayerStateManager.instance != null)
+        {
+            PlayerStateManager.instance.SavePlayerState();
+            Debug.Log("[GameManager] 플레이어 상태 저장 완료");
+        }
+        else
+        {
+            // PlayerStateManager가 없으면 자동 생성
+            var stateManagerGO = new GameObject("PlayerStateManager");
+            stateManagerGO.AddComponent<PlayerStateManager>();
+            PlayerStateManager.instance.SavePlayerState();
+            Debug.Log("[GameManager] PlayerStateManager 자동 생성 및 상태 저장");
+        }
+
         // 게임오버 상태 초기화
         isGameover = false;
 
@@ -122,10 +150,26 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// 현재 스테이지에서 다음 스테이지로 자동 이동합니다.
     /// 예: Stage1 -> Stage2, Stage10 -> Stage11
+    /// 플레이어 상태(HP, 스태미나, 토스트)를 저장하고 다음 스테이지에서 복원합니다.
     /// </summary>
     public void LoadNextStage()
     {
         string currentSceneName = SceneManager.GetActiveScene().name;
+
+        // 플레이어 상태 저장 (스테이지 전환 전)
+        if (PlayerStateManager.instance != null)
+        {
+            PlayerStateManager.instance.SavePlayerState();
+            Debug.Log("[GameManager] 플레이어 상태 저장 완료");
+        }
+        else
+        {
+            // PlayerStateManager가 없으면 자동 생성
+            var stateManagerGO = new GameObject("PlayerStateManager");
+            stateManagerGO.AddComponent<PlayerStateManager>();
+            PlayerStateManager.instance.SavePlayerState();
+            Debug.Log("[GameManager] PlayerStateManager 자동 생성 및 상태 저장");
+        }
 
         // "Stage" 접두사 확인
         if (currentSceneName.StartsWith("Stage"))

@@ -161,6 +161,14 @@ public class OpeningSceneManager : MonoBehaviour
             if (loadDelay > 0f) yield return new WaitForSeconds(loadDelay);
             Debug.Log($"OpeningSceneManager: Loading next scene '{nextSceneName}'");
             StopBackgroundMusic();
+
+            // 새 게임 시작 시 저장된 플레이어 상태 클리어
+            if (PlayerStateManager.instance != null)
+            {
+                PlayerStateManager.instance.ClearSavedState();
+                Debug.Log("[OpeningSceneManager] 새 게임 시작으로 저장된 상태 클리어");
+            }
+
             SceneManager.LoadScene(nextSceneName);
         }
     }
