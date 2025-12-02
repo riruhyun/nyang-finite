@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f09a097e75f3ce43b1020a8c536a71f, type: 3}
+  m_Name: Toast_Butter_Epic
+  m_EditorClassIdentifier: Assembly-CSharp::ToastStatProfile
+  toastType: 1
+  rarity: 2
+  profileSprite: {fileID: 21300000, guid: cbc139af7f0aabe4a9b04a8fb8fdb06b, type: 3}
+  toastNameSprite: {fileID: 21300000, guid: 52d5360812eed1844a08620a59c51425, type: 3}
+  font: {fileID: 12800000, guid: ab3e3faa0d319124a82abdc929ddc467, type: 3}
+  description: 
+  selectionMode: 1
+  maxStatCount: 5
+  statGroups:
+  - groupName: Common
+    entries:
+    - statType: 0
+      weight: 100
+      deltaValue: 1.5
+      varianceRange: {x: 0, y: 0.5}
+      bonusRolls:
+      - bonusDelta: 0.5
+        chancePercent: 20
+      - bonusDelta: 1
+        chancePercent: 5
+      unit: 
+      showSign: 1
+    - statType: 1
+      weight: 100
+      deltaValue: 2.5
+      varianceRange: {x: 0, y: 0.8}
+      bonusRolls:
+      - bonusDelta: 1
+        chancePercent: 15
+      unit: 
+      showSign: 1
+    - statType: 8
+      weight: 80
+      deltaValue: 1
+      varianceRange: {x: 0, y: 0.5}
+      bonusRolls:
+      - bonusDelta: 0.5
+        chancePercent: 10
+      unit: 
+      showSign: 1
+  - groupName: ButterSpecific
+    entries:
+    - statType: 7
+      weight: 100
+      deltaValue: 0.25
+      varianceRange: {x: 0, y: 0.1}
+      bonusRolls:
+      - bonusDelta: 0.1
+        chancePercent: 20
+      - bonusDelta: 0.2
+        chancePercent: 5
+      unit: s
+      showSign: 0
+    - statType: 8
+      weight: 80
+      deltaValue: 1.5
+      varianceRange: {x: 0, y: 0.5}
+      bonusRolls:
+      - bonusDelta: 0.5
+        chancePercent: 10
+      unit: 
+      showSign: 1
+    - statType: 6
+      weight: 70
+      deltaValue: 0.25
+      varianceRange: {x: 0, y: 0.1}
+      bonusRolls:
+      - bonusDelta: 0.1
+        chancePercent: 15
+      unit: s
+      showSign: 0
+    - statType: 12
+      weight: 60
+      deltaValue: 0.25
+      varianceRange: {x: 0, y: 0.1}
+      bonusRolls:
+      - bonusDelta: 0.1
+        chancePercent: 10
+      unit: 
+      showSign: 1

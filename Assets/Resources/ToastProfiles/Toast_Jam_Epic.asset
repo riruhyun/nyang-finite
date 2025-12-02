@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f09a097e75f3ce43b1020a8c536a71f, type: 3}
+  m_Name: Toast_Jam_Epic
+  m_EditorClassIdentifier: Assembly-CSharp::ToastStatProfile
+  toastType: 0
+  rarity: 2
+  profileSprite: {fileID: 21300000, guid: 4abe57999ebf6d8459f047f0e8b34291, type: 3}
+  toastNameSprite: {fileID: 21300000, guid: 41dfc2a9d5378cb4a87da283982adce5, type: 3}
+  font: {fileID: 12800000, guid: ab3e3faa0d319124a82abdc929ddc467, type: 3}
+  description: 
+  selectionMode: 1
+  maxStatCount: 5
+  statGroups:
+  - groupName: Common
+    entries:
+    - statType: 0
+      weight: 100
+      deltaValue: 1.5
+      varianceRange: {x: 0, y: 0.5}
+      bonusRolls:
+      - bonusDelta: 0.5
+        chancePercent: 20
+      - bonusDelta: 1
+        chancePercent: 5
+      unit: 
+      showSign: 1
+    - statType: 1
+      weight: 100
+      deltaValue: 2.5
+      varianceRange: {x: 0, y: 0.8}
+      bonusRolls:
+      - bonusDelta: 1
+        chancePercent: 15
+      unit: 
+      showSign: 1
+    - statType: 8
+      weight: 80
+      deltaValue: 1
+      varianceRange: {x: 0, y: 0.5}
+      bonusRolls:
+      - bonusDelta: 0.5
+        chancePercent: 10
+      unit: 
+      showSign: 1
+  - groupName: JamSpecific
+    entries:
+    - statType: 3
+      weight: 100
+      deltaValue: 4
+      varianceRange: {x: 0, y: 2}
+      bonusRolls:
+      - bonusDelta: 2
+        chancePercent: 15
+      - bonusDelta: 4
+        chancePercent: 3
+      unit: 
+      showSign: 1
+    - statType: 14
+      weight: 80
+      deltaValue: 2
+      varianceRange: {x: 0, y: 0.5}
+      bonusRolls:
+      - bonusDelta: 1
+        chancePercent: 10
+      unit: 
+      showSign: 1
+    - statType: 15
+      weight: 60
+      deltaValue: 1.2
+      varianceRange: {x: 0, y: 0.4}
+      bonusRolls:
+      - bonusDelta: 0.5
+        chancePercent: 10
+      unit: 
+      showSign: 1

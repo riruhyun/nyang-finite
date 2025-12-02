@@ -197,7 +197,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -681444959
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -8924102693037395688, guid: cc6b38bdb049cbe49b43e5c804d61155, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -527,7 +527,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -681444959
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 1
   m_Sprite: {fileID: -6153703733979115561, guid: 3bb0074a222c1f04f951921dd6625fa7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -971,6 +971,9 @@ MonoBehaviour:
   yOffset: 2
   transitionTime: 0.85
   useEaseInOut: 1
+  minX: 2
+  minY: -1.5
+  maxX: Infinity
 --- !u!1 &562325525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1182,7 +1185,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 12.89, y: 1.45}
+    oldSize: {x: 12.89, y: 1.61}
     newSize: {x: 12.93, y: 1.35}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1190,100 +1193,98 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -1.905, y: -0.105}
-      - {x: -1.905, y: 0.72499996}
-      - {x: -2.115, y: 0.72499996}
-      - {x: -2.115, y: -0.105}
-      - {x: -2.095, y: -0.125}
-      - {x: -1.925, y: -0.125}
-    - - {x: -1.295, y: 0.575}
-      - {x: -1.295, y: 0.72499996}
-      - {x: -1.785, y: 0.72499996}
-      - {x: -1.785, y: 0.575}
-      - {x: -1.765, y: 0.555}
-      - {x: -1.3149999, y: 0.555}
-    - - {x: -0.575, y: 0.405}
-      - {x: -0.575, y: 0.575}
-      - {x: -1.0649999, y: 0.575}
-      - {x: -1.0649999, y: 0.405}
-      - {x: -1.045, y: 0.385}
-      - {x: -0.59499997, y: 0.385}
-    - - {x: -2.335, y: 0.305}
-      - {x: -2.335, y: 0.45499998}
-      - {x: -2.355, y: 0.475}
-      - {x: -2.8049998, y: 0.475}
-      - {x: -2.825, y: 0.45499998}
-      - {x: -2.825, y: 0.305}
-      - {x: -2.8049998, y: 0.285}
-      - {x: -2.355, y: 0.285}
-    - - {x: -2.335, y: -0.175}
-      - {x: -2.335, y: -0.024999999}
-      - {x: -2.355, y: -0.005}
-      - {x: -2.8049998, y: -0.005}
-      - {x: -2.825, y: -0.024999999}
-      - {x: -2.825, y: -0.175}
-      - {x: -2.8049998, y: -0.195}
-      - {x: -2.355, y: -0.195}
-    - - {x: 0.375, y: -0.195}
-      - {x: 0.375, y: -0.044999998}
-      - {x: 0.355, y: -0.024999999}
-      - {x: -0.095, y: -0.024999999}
-      - {x: -0.114999995, y: -0.044999998}
-      - {x: -0.114999995, y: -0.195}
-      - {x: -0.095, y: -0.21499999}
-      - {x: 0.355, y: -0.21499999}
-    - - {x: 1.165, y: -0.195}
-      - {x: 1.165, y: -0.044999998}
-      - {x: 1.145, y: -0.024999999}
-      - {x: 0.695, y: -0.024999999}
-      - {x: 0.675, y: -0.044999998}
-      - {x: 0.675, y: -0.195}
-      - {x: 0.695, y: -0.21499999}
-      - {x: 1.145, y: -0.21499999}
-    - - {x: -0.545, y: -0.325}
-      - {x: -0.545, y: -0.175}
-      - {x: -0.565, y: -0.155}
-      - {x: -1.015, y: -0.155}
-      - {x: -1.035, y: -0.175}
-      - {x: -1.035, y: -0.325}
-      - {x: -1.015, y: -0.345}
-      - {x: -0.565, y: -0.345}
-    - - {x: -3.735, y: -0.355}
-      - {x: -3.735, y: -0.205}
-      - {x: -3.7549999, y: -0.185}
-      - {x: -4.225, y: -0.185}
-      - {x: -4.225, y: -0.375}
-      - {x: -3.7549999, y: -0.375}
-    - - {x: 2.135, y: -0.415}
-      - {x: 2.115, y: -0.39499998}
-      - {x: -4.4249997, y: -0.39499998}
-      - {x: -4.4249997, y: -0.265}
-      - {x: -4.4449997, y: -0.24499999}
-      - {x: -4.895, y: -0.24499999}
-      - {x: -4.915, y: -0.265}
-      - {x: -4.915, y: -0.39499998}
-      - {x: -5.1349998, y: -0.39499998}
-      - {x: -5.1349998, y: -0.33499998}
-      - {x: -5.1549997, y: -0.315}
-      - {x: -5.605, y: -0.315}
-      - {x: -5.625, y: -0.33499998}
-      - {x: -5.625, y: -0.39499998}
-      - {x: -6.4449997, y: -0.39499998}
-      - {x: -6.4449997, y: -0.72499996}
-      - {x: 2.135, y: -0.72499996}
-    - - {x: 3.0649998, y: -0.48499998}
-      - {x: 3.0649998, y: -0.33499998}
-      - {x: 3.0449998, y: -0.315}
-      - {x: 2.595, y: -0.315}
-      - {x: 2.575, y: -0.33499998}
-      - {x: 2.575, y: -0.48499998}
-      - {x: 2.595, y: -0.505}
-      - {x: 3.0449998, y: -0.505}
-    - - {x: 6.4449997, y: -0.39499998}
-      - {x: 4.075, y: -0.39499998}
-      - {x: 4.055, y: -0.415}
-      - {x: 4.055, y: -0.72499996}
-      - {x: 6.4449997, y: -0.72499996}
+    - - {x: -1.905, y: -0.024999999}
+      - {x: -1.905, y: 0.805}
+      - {x: -2.115, y: 0.805}
+      - {x: -2.115, y: -0.024999999}
+      - {x: -2.095, y: -0.044999998}
+      - {x: -1.925, y: -0.044999998}
+    - - {x: -1.295, y: 0.655}
+      - {x: -1.295, y: 0.805}
+      - {x: -1.785, y: 0.805}
+      - {x: -1.785, y: 0.655}
+      - {x: -1.765, y: 0.635}
+      - {x: -1.3149999, y: 0.635}
+    - - {x: -0.575, y: 0.48499998}
+      - {x: -0.575, y: 0.655}
+      - {x: -1.0649999, y: 0.655}
+      - {x: -1.0649999, y: 0.48499998}
+      - {x: -1.045, y: 0.465}
+      - {x: -0.59499997, y: 0.465}
+    - - {x: -2.335, y: 0.385}
+      - {x: -2.335, y: 0.555}
+      - {x: -2.825, y: 0.555}
+      - {x: -2.825, y: 0.385}
+      - {x: -2.8049998, y: 0.36499998}
+      - {x: -2.355, y: 0.36499998}
+    - - {x: -2.335, y: -0.095}
+      - {x: -2.335, y: 0.055}
+      - {x: -2.355, y: 0.074999996}
+      - {x: -2.8049998, y: 0.074999996}
+      - {x: -2.825, y: 0.055}
+      - {x: -2.825, y: -0.095}
+      - {x: -2.8049998, y: -0.114999995}
+      - {x: -2.355, y: -0.114999995}
+    - - {x: 0.375, y: -0.114999995}
+      - {x: 0.375, y: 0.035}
+      - {x: 0.355, y: 0.055}
+      - {x: -0.095, y: 0.055}
+      - {x: -0.114999995, y: 0.035}
+      - {x: -0.114999995, y: -0.114999995}
+      - {x: -0.095, y: -0.13499999}
+      - {x: 0.355, y: -0.13499999}
+    - - {x: 1.165, y: -0.114999995}
+      - {x: 1.165, y: 0.035}
+      - {x: 1.145, y: 0.055}
+      - {x: 0.695, y: 0.055}
+      - {x: 0.675, y: 0.035}
+      - {x: 0.675, y: -0.114999995}
+      - {x: 0.695, y: -0.13499999}
+      - {x: 1.145, y: -0.13499999}
+    - - {x: -0.545, y: -0.24499999}
+      - {x: -0.545, y: -0.095}
+      - {x: -0.565, y: -0.074999996}
+      - {x: -1.015, y: -0.074999996}
+      - {x: -1.035, y: -0.095}
+      - {x: -1.035, y: -0.24499999}
+      - {x: -1.015, y: -0.265}
+      - {x: -0.565, y: -0.265}
+    - - {x: -3.735, y: -0.275}
+      - {x: -3.735, y: -0.125}
+      - {x: -3.7549999, y: -0.105}
+      - {x: -4.225, y: -0.105}
+      - {x: -4.225, y: -0.295}
+      - {x: -3.7549999, y: -0.295}
+    - - {x: 6.4449997, y: -0.315}
+      - {x: 4.075, y: -0.315}
+      - {x: 4.055, y: -0.33499998}
+      - {x: 4.055, y: -0.625}
+      - {x: 2.135, y: -0.625}
+      - {x: 2.135, y: -0.33499998}
+      - {x: 2.115, y: -0.315}
+      - {x: -4.4249997, y: -0.315}
+      - {x: -4.4249997, y: -0.185}
+      - {x: -4.4449997, y: -0.16499999}
+      - {x: -4.895, y: -0.16499999}
+      - {x: -4.915, y: -0.185}
+      - {x: -4.915, y: -0.315}
+      - {x: -5.1349998, y: -0.315}
+      - {x: -5.1349998, y: -0.255}
+      - {x: -5.1549997, y: -0.235}
+      - {x: -5.605, y: -0.235}
+      - {x: -5.625, y: -0.255}
+      - {x: -5.625, y: -0.315}
+      - {x: -6.4449997, y: -0.315}
+      - {x: -6.4449997, y: -0.805}
+      - {x: 6.4449997, y: -0.805}
+    - - {x: 3.0649998, y: -0.405}
+      - {x: 3.0649998, y: -0.255}
+      - {x: 3.0449998, y: -0.235}
+      - {x: 2.595, y: -0.235}
+      - {x: 2.575, y: -0.255}
+      - {x: 2.575, y: -0.405}
+      - {x: 2.595, y: -0.42499998}
+      - {x: 3.0449998, y: -0.42499998}
   m_UseDelaunayMesh: 0
 --- !u!1 &615798174
 GameObject:
@@ -1997,7 +1998,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -681444959
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 1
   m_Sprite: {fileID: 7428336166433268821, guid: 87b01e1a45f9d5746a32abdaf417af5b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2313,9 +2314,11 @@ MonoBehaviour:
   attackDamage: 1
   attackAnimationDuration: 0.5
   attackHitWindow: 0.1
+  attackEarlyExitTime: 0.2
   attackCooldown: 2
   maxSpeed: 10
   deathFreezeDelay: 1
+  chaseTargetYPadding: 1
   jumpHeightThreshold: 2
   jumpDistanceThreshold: 2
   jumpCooldown: 0.5
@@ -2370,6 +2373,20 @@ MonoBehaviour:
   slopeSpeedMultiplier: 1.75
   slopeSpeedPadding: 5
   slopeMinSpeed: 5.5
+  uphillSpeedBonus: 4
+  deathToastFrames:
+  - time: 0
+    offset: {x: 0, y: 0.8, z: 0}
+    ghostAlpha: 0.25
+  - time: 0.125
+    offset: {x: 0.05, y: 0.9, z: 0}
+    ghostAlpha: 0.3
+  - time: 0.25
+    offset: {x: 0.08, y: 0.75, z: 0}
+    ghostAlpha: 0.25
+  - time: 0.375
+    offset: {x: 0, y: 0.7, z: 0}
+    ghostAlpha: 0.2
   debugDog: 1
   heartSprite: {fileID: 21300000, guid: d791b7733a8d0404ca161acbbe599493, type: 3}
   healthUiOffset: {x: -0.03, y: 0.15}
@@ -2646,7 +2663,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -681444959
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -1091202827376826289, guid: cddfc811f3519af47a48c4bf1305cb7a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2894,7 +2911,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -681444959
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4abe57999ebf6d8459f047f0e8b34291, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3633,6 +3650,7 @@ MonoBehaviour:
   invincibilityTime: 1.5
   jumpForce: 650
   moveSpeed: 6
+  jumpHoldForcePerSecond: 1300
   slopeNormalMin: 0.4
   slopeSpeedMultiplier: 1.5
   flatFriction: 0.3
@@ -3644,6 +3662,14 @@ MonoBehaviour:
   momentumDecayAmount: 0.1
   walkMomentumThreshold: 0.5
   dashDuration: 0.5
+  dashForce: 3
+  dashCooldown: 1.5
+  dashHitbox: {fileID: 0}
+  dashDamageLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  dashDamage: 3
+  dashStaminaCost: 5
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -3654,14 +3680,33 @@ MonoBehaviour:
   scratchDamage: 1.5
   scratchDuration: 0.78
   scratchAnimationName: Scratch
+  scratchStaminaCost: 3
+  punchHitbox: {fileID: 0}
+  punchDamageLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  punchDamage: 1
+  punchKnockbackForce: 3
+  punchStaminaCost: 2
   wallJumpVerticalSpeed: 12
   wallJumpHorizontalSpeed: 8
   wallSlideSpeed: 2
   wallJumpCooldown: 0.35
   wallJumpControlLockTime: 0.2
+  punchDuration: 0.3
+  punchAnimationName: Punch
+  jumpCooldown: 0.25
   damageFlashColor: {r: 1, g: 0, b: 0, a: 1}
   damageFlashDuration: 0.15
   damageFlashCount: 2
+  foodEffectTextOffset: {x: 0, y: 0.8, z: -1}
+  foodEffectTextDuration: 0.6
+  foodEffectTextAmplitude: 0.35
+  foodEffectTextFontSize: 60
+  foodEffectTextCharacterSize: 0.05
+  foodHealTextColor: {r: 0, g: 1, b: 0, a: 1}
+  foodDamageTextColor: {r: 1, g: 0, b: 0, a: 1}
+  foodEffectTextFont: {fileID: 0}
 --- !u!61 &1819403705
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4311,7 +4356,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -681444959
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 2
   m_Sprite: {fileID: -5668518402485374812, guid: f9c8ed5b416bb12479efb7da1794febf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

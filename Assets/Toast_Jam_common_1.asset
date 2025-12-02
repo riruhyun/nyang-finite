@@ -18,17 +18,47 @@ MonoBehaviour:
   toastNameSprite: {fileID: 21300000, guid: 9b2f909ea080cf640ad38db7403b5f68, type: 3}
   font: {fileID: 12800000, guid: ab3e3faa0d319124a82abdc929ddc467, type: 3}
   description: 
-  stats:
-  - statType: 1
-    deltaValue: 1
-    varianceRange: {x: 0, y: 0}
-    bonusRolls:
-    - bonusDelta: 0.5
-      chancePercent: 40
-    - bonusDelta: 1
-      chancePercent: 20
-    minRarity: 0
-    maxRarity: 0
-    unit: 
-    showSign: 1
-    oldName: Jump
+  selectionMode: 0
+  maxStatCount: 0
+  statGroups:
+  - groupName: Jump
+    entries:
+    - statType: 0
+      weight: 100
+      deltaValue: 1
+      varianceRange: {x: 0, y: 0}
+      bonusRolls: []
+      unit: 
+      showSign: 1
+  - groupName: JumpOrAttack
+    entries:
+    - statType: 1
+      weight: 50
+      deltaValue: 1
+      varianceRange: {x: 0, y: 0}
+      bonusRolls: []
+      unit: 
+      showSign: 1
+    - statType: 3
+      weight: 50
+      deltaValue: 1
+      varianceRange: {x: 0, y: 0}
+      bonusRolls: []
+      unit: 
+      showSign: 1
+  - groupName: HasteOrKnockback
+    entries:
+    - statType: 6
+      weight: 50
+      deltaValue: 1
+      varianceRange: {x: 0, y: 0}
+      bonusRolls: []
+      unit: 
+      showSign: 1
+    - statType: 13
+      weight: 50
+      deltaValue: 1
+      varianceRange: {x: 0, y: 0}
+      bonusRolls: []
+      unit: 
+      showSign: 1

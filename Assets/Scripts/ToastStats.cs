@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -32,7 +33,8 @@ public class ToastStats : MonoBehaviour
     [SerializeField] private Sprite overrideProfileSprite;
     [SerializeField] private Sprite overrideToastNameSprite;
     [SerializeField] private Font overrideFont;
-    [HideInInspector] [TextArea]
+    [HideInInspector]
+    [TextArea]
     [SerializeField] private string overrideDescription;
 
     [Header("UI")]
@@ -62,43 +64,131 @@ public class ToastStats : MonoBehaviour
         runtimeStats.Clear();
         if (profile == null) return;
 
-        foreach (var entry in profile.stats)
+        switch (profile.selectionMode)
         {
-            if (!IsStatAllowed(entry)) continue;
+            case ToastStatProfile.StatSelectionMode.GroupBased:
+                BuildFromGroups();
+                break;
+            case ToastStatProfile.StatSelectionMode.RandomCount:
+                BuildFromRandomCount();
+                break;
+            case ToastStatProfile.StatSelectionMode.All:
+            default:
+                BuildFromAllStats();
+                break;
+        }
+    }
 
-            float value = entry.deltaValue;
-            if (randomize)
+    private void BuildFromGroups()
+    {
+        foreach (var group in profile.statGroups)
+        {
+            if (group.entries == null || group.entries.Count == 0) continue;
+
+            // 가중치 기반 랜덤 선택
+            var selected = SelectWeightedRandom(group.entries);
+            if (selected == null) continue;
+
+            AddRuntimeStat(selected.statType, selected.deltaValue, selected.varianceRange,
+                          selected.bonusRolls, selected.unit, selected.showSign);
+        }
+    }
+
+    private void BuildFromRandomCount()
+    {
+        // 모든 그룹의 모든 항목을 평탄화
+        List<StatGroupEntry> allEntries = profile.statGroups
+            .Where(g => g.entries != null)
+            .SelectMany(g => g.entries)
+            .ToList();
+
+        List<StatGroupEntry> selectedStats;
+        if (profile.maxStatCount > 0 && allEntries.Count > profile.maxStatCount)
+        {
+            selectedStats = allEntries
+                .OrderBy(_ => Random.value)
+                .Take(profile.maxStatCount)
+                .ToList();
+        }
+        else
+        {
+            selectedStats = allEntries;
+        }
+
+        foreach (var entry in selectedStats)
+        {
+            AddRuntimeStat(entry.statType, entry.deltaValue, entry.varianceRange,
+                          entry.bonusRolls, entry.unit, entry.showSign);
+        }
+    }
+
+    private void BuildFromAllStats()
+    {
+        // 모든 그룹의 모든 항목 적용
+        foreach (var group in profile.statGroups)
+        {
+            if (group.entries == null) continue;
+            foreach (var entry in group.entries)
             {
-                value += Random.Range(entry.varianceRange.x, entry.varianceRange.y);
-                value += Random.Range(globalVariance.x, globalVariance.y);
+                AddRuntimeStat(entry.statType, entry.deltaValue, entry.varianceRange,
+                              entry.bonusRolls, entry.unit, entry.showSign);
             }
+        }
+    }
 
-            bool bonusApplied = false;
-            float bonusValue = 0f;
-            if (randomize && entry.bonusRolls != null)
+    private void AddRuntimeStat(StatType statType, float deltaValue, Vector2 varianceRange,
+                                List<BonusRoll> bonusRolls, string unit, bool showSign)
+    {
+        float value = deltaValue;
+        if (randomize)
+        {
+            value += Random.Range(varianceRange.x, varianceRange.y);
+            value += Random.Range(globalVariance.x, globalVariance.y);
+        }
+
+        bool bonusApplied = false;
+        float bonusValue = 0f;
+        if (randomize && bonusRolls != null)
+        {
+            foreach (var roll in bonusRolls)
             {
-                foreach (var roll in entry.bonusRolls)
+                if (roll == null) continue;
+                if (roll.chancePercent > 0f && Random.Range(0f, 100f) <= roll.chancePercent)
                 {
-                    if (roll == null) continue;
-                    if (roll.chancePercent > 0f && Random.Range(0f, 100f) <= roll.chancePercent)
-                    {
-                        value += roll.bonusDelta;
-                        bonusValue += roll.bonusDelta;
-                        bonusApplied = true;
-                    }
+                    value += roll.bonusDelta;
+                    bonusValue += roll.bonusDelta;
+                    bonusApplied = true;
                 }
             }
-
-            runtimeStats.Add(new RuntimeStat
-            {
-                statType = entry.statType,
-                value = value,
-                unit = entry.unit,
-                showSign = entry.showSign,
-                bonusApplied = bonusApplied,
-                bonusValue = bonusValue
-            });
         }
+
+        runtimeStats.Add(new RuntimeStat
+        {
+            statType = statType,
+            value = value,
+            unit = unit,
+            showSign = showSign,
+            bonusApplied = bonusApplied,
+            bonusValue = bonusValue
+        });
+    }
+
+    private StatGroupEntry SelectWeightedRandom(List<StatGroupEntry> entries)
+    {
+        float totalWeight = entries.Sum(e => e.weight);
+        if (totalWeight <= 0) return entries.FirstOrDefault();
+
+        float random = Random.Range(0f, totalWeight);
+        float cumulative = 0f;
+
+        foreach (var entry in entries)
+        {
+            cumulative += entry.weight;
+            if (random <= cumulative)
+                return entry;
+        }
+
+        return entries.LastOrDefault();
     }
 
     public void MarkOwnerDead()
@@ -210,13 +300,6 @@ public class ToastStats : MonoBehaviour
     public ToastStatProfile.Rarity GetRarity()
     {
         return profile != null ? profile.rarity : ToastStatProfile.Rarity.Common;
-    }
-
-    private bool IsStatAllowed(StatEntry entry)
-    {
-        if (profile == null) return true;
-        var r = profile.rarity;
-        return r >= entry.minRarity && r <= entry.maxRarity;
     }
 
     private void TryEnsurePanel()

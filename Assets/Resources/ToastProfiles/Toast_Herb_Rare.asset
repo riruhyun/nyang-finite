@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f09a097e75f3ce43b1020a8c536a71f, type: 3}
+  m_Name: Toast_Herb_Rare
+  m_EditorClassIdentifier: Assembly-CSharp::ToastStatProfile
+  toastType: 3
+  rarity: 1
+  profileSprite: {fileID: 21300000, guid: 578ce2b6ce615114ab1724a3185f797d, type: 3}
+  toastNameSprite: {fileID: 21300000, guid: 619cf2ef379989c4d910ddb72c6d6699, type: 3}
+  font: {fileID: 12800000, guid: ab3e3faa0d319124a82abdc929ddc467, type: 3}
+  description: 
+  selectionMode: 1
+  maxStatCount: 4
+  statGroups:
+  - groupName: Common
+    entries:
+    - statType: 0
+      weight: 100
+      deltaValue: 1
+      varianceRange: {x: 0, y: 0.3}
+      bonusRolls:
+      - bonusDelta: 0.3
+        chancePercent: 15
+      unit: 
+      showSign: 1
+    - statType: 1
+      weight: 100
+      deltaValue: 1.5
+      varianceRange: {x: 0, y: 0.5}
+      bonusRolls:
+      - bonusDelta: 0.5
+        chancePercent: 15
+      unit: 
+      showSign: 1
+    - statType: 8
+      weight: 80
+      deltaValue: 0.6
+      varianceRange: {x: 0, y: 0.3}
+      bonusRolls: []
+      unit: 
+      showSign: 1
+  - groupName: HerbSpecific
+    entries:
+    - statType: 2
+      weight: 100
+      deltaValue: 1
+      varianceRange: {x: 0, y: 0.3}
+      bonusRolls:
+      - bonusDelta: 0.3
+        chancePercent: 15
+      unit: /s
+      showSign: 1
+    - statType: 5
+      weight: 80
+      deltaValue: 0.15
+      varianceRange: {x: 0, y: 0.05}
+      bonusRolls:
+      - bonusDelta: 0.05
+        chancePercent: 10
+      unit: s
+      showSign: 1
+    - statType: 11
+      weight: 70
+      deltaValue: 2
+      varianceRange: {x: 0, y: 0.5}
+      bonusRolls:
+      - bonusDelta: 1
+        chancePercent: 10
+      unit: 
+      showSign: 1

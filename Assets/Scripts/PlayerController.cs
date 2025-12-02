@@ -169,6 +169,99 @@ public class PlayerController : MonoBehaviour
         return isScratching || isPunching || isDashing;
     }
 
+    // ==================== 상태 저장/복원 (스테이지 전환용) ====================
+
+    /// <summary>
+    /// 플레이어 상태를 저장하기 위한 구조체
+    /// </summary>
+    [System.Serializable]
+    public struct PlayerSaveData
+    {
+        public float health;
+        public string toastId;
+        public float moveSpeedBonus;
+        public float jumpForceBonus;
+        public float defense;
+        public float thorns;
+        public float nutrition;
+        public float friction;
+        public float haste;
+        public float agility;
+        public float sprint;
+        public float poise;
+        public float invincibility;
+        public float attack;
+        public float staminaRegen;
+        public float knockback;
+        public float dashForce;
+    }
+
+    /// <summary>
+    /// 현재 플레이어 상태를 저장 데이터로 반환
+    /// </summary>
+    public PlayerSaveData GetSaveData()
+    {
+        return new PlayerSaveData
+        {
+            health = currentHealth,
+            toastId = activeToastId ?? "",
+            moveSpeedBonus = moveSpeed - baseMoveSpeed,
+            jumpForceBonus = jumpForce - baseJumpForce,
+            defense = currentDefense,
+            thorns = currentThorns,
+            nutrition = currentNutrition,
+            friction = currentFriction,
+            haste = currentHaste,
+            agility = currentAgility,
+            sprint = currentSprint,
+            poise = currentPoise,
+            invincibility = currentInvincibility,
+            attack = currentAttack,
+            staminaRegen = currentStaminaRegen,
+            knockback = currentKnockback,
+            dashForce = currentDashForce
+        };
+    }
+
+    /// <summary>
+    /// 저장된 데이터로 플레이어 상태 복원
+    /// </summary>
+    public void LoadSaveData(PlayerSaveData data)
+    {
+        // 체력 복원
+        currentHealth = data.health;
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.UpdateHealth(currentHealth);
+        }
+
+        // 토스트 스탯 복원
+        activeToastId = string.IsNullOrEmpty(data.toastId) ? null : data.toastId;
+        moveSpeed = baseMoveSpeed + data.moveSpeedBonus;
+        jumpForce = baseJumpForce + data.jumpForceBonus;
+        currentDefense = data.defense;
+        currentThorns = data.thorns;
+        currentNutrition = data.nutrition;
+        currentFriction = data.friction;
+        currentHaste = data.haste;
+        currentAgility = data.agility;
+        currentSprint = data.sprint;
+        currentPoise = data.poise;
+        currentInvincibility = data.invincibility;
+        currentAttack = data.attack;
+        currentStaminaRegen = data.staminaRegen;
+        currentKnockback = data.knockback;
+        currentDashForce = data.dashForce;
+
+        // StaminaManager에 stamina_regen 보너스 적용
+        if (StaminaManager.instance != null && currentStaminaRegen != 0f)
+        {
+            StaminaManager.instance.ApplyStaminaRegenBonus(currentStaminaRegen);
+        }
+
+        Debug.Log($"[PlayerController] 상태 복원 완료: HP={currentHealth}, Toast={activeToastId}");
+    }
+
     /// <summary>
     /// 토스트를 제거 (비둘기에게 빼앗겼을 때 호출)
     /// </summary>
