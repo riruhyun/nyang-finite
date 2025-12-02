@@ -1459,7 +1459,8 @@ public class IntelligentDogMovement : Enemy
         PlayerController player = playerTransform.GetComponent<PlayerController>();
         if (player != null)
         {
-            player.TakeDamage(attackDamage);
+            float knockbackForce = 5f; // 기본 적 넉백력
+            player.TakeDamage(attackDamage, gameObject, knockbackForce);
             attackDamageApplied = true;
         }
     }
@@ -2079,6 +2080,13 @@ public void CancelAttackFromDash()
         if (!isAlive) return;
         isAlive = false;
         AlignCapsuleCollidersForDeath();
+
+        // Notify player for Reap stat (적 처치 시 회복)
+        var player = FindObjectOfType<PlayerController>();
+        if (player != null)
+        {
+            player.OnEnemyKilled();
+        }
 
         // Notify toast hover UI about death so hover panel can show.
         var toastTrigger = GetComponentInChildren<ToastHoverTrigger>(true);

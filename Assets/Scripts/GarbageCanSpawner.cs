@@ -21,6 +21,9 @@ public class GarbageCanSpawner : MonoBehaviour
 
         [Tooltip("Spawn this entry when the spawner runs?")]
         public bool spawnOnStart = true;
+
+        [Tooltip("Optional drop overrides for this spawn. Leave empty to use prefab defaults.")]
+        public List<GarbageCan.FoodDropEntry> dropOverrides = new List<GarbageCan.FoodDropEntry>();
     }
 
     [Header("Defaults")]
@@ -85,6 +88,10 @@ public class GarbageCanSpawner : MonoBehaviour
 
         Transform parent = parentContainer != null ? parentContainer : transform;
         GarbageCan can = Instantiate(prefab, spawnPos, rotation, parent);
+        if (entry.dropOverrides != null && entry.dropOverrides.Count > 0)
+        {
+            can.OverrideDrops(entry.dropOverrides);
+        }
         spawnedCans.Add(can);
         return can;
     }
@@ -107,4 +114,5 @@ public class GarbageCanSpawner : MonoBehaviour
         }
     }
 #endif
+
 }

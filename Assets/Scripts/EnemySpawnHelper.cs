@@ -331,24 +331,29 @@ public static class EnemySpawnHelper
 
   private static ToastStatProfile PickToastProfile(List<ToastDropConfig> drops)
   {
-    float total = 0f;
-    foreach (var d in drops)
-    {
-      if (d != null && d.profile != null && d.weight > 0f) total += d.weight;
-    }
-    if (total <= 0f) return null;
-    float roll = Random.Range(0f, total);
-    float cumulative = 0f;
+    var valid = new List<ToastDropConfig>();
+    float totalPercent = 0f;
     foreach (var d in drops)
     {
       if (d == null || d.profile == null || d.weight <= 0f) continue;
-      cumulative += d.weight;
+      valid.Add(d);
+      totalPercent += d.weight;
+    }
+    if (valid.Count == 0) return null;
+
+    float scale = totalPercent > 0f ? 100f / totalPercent : 0f;
+    float roll = Random.Range(0f, 100f);
+    float cumulative = 0f;
+    foreach (var d in valid)
+    {
+      float normalizedPercent = Mathf.Clamp(d.weight * scale, 0f, 100f);
+      cumulative += normalizedPercent;
       if (roll <= cumulative)
       {
         return d.profile;
       }
     }
-    return null;
+    return valid[valid.Count - 1].profile;
   }
 
   [System.Serializable]
@@ -373,7 +378,7 @@ public static class EnemySpawnHelper
   {
     [Tooltip("ToastStatProfile asset to apply to the spawned enemy toast.")]
     public ToastStatProfile profile;
-    [Tooltip("Weight/probability; higher = more likely.")]
-    public float weight = 1f;
+    [Tooltip("Drop chance in percent (0~100). Multiple entries are normalized to sum to 100%.")]
+    [Range(0f, 100f)] public float weight = 1f;
   }
 }

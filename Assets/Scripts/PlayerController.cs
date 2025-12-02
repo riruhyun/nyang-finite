@@ -47,6 +47,8 @@ public class PlayerController : MonoBehaviour
     private float currentStaminaRegen = 0f;    // stamina_regen: 스태미나 회복 속도 증가
     private float currentKnockback = 0f;       // knockback: 넉백력 증가 (주는 넉백)
     private float currentDashForce = 0f;       // dashForce: Dash 힘 증가
+    private float currentDashRange = 0f;       // dashRange: Dash 거리 증가
+    private float currentReap = 0f;            // reap: 처치 시 회복 확률
     [Header("Slope Handling")]
     [SerializeField] private float slopeNormalMin = 0.4f; // 경사�?55???�함) ?�상?�면 바닥 취급
     [SerializeField] private float slopeSpeedMultiplier = 1.2f;
@@ -160,6 +162,14 @@ public class PlayerController : MonoBehaviour
     private string activeToastId = null;
     public string CurrentToastId => activeToastId;
 
+    [Header("Toast Visuals")]
+    [SerializeField] private ToastIndicator playerToastIndicator;
+    [SerializeField] private SpriteRenderer playerToastIndicatorRenderer;
+    [SerializeField] private ToastProfileFollower[] toastProfileFollowers;
+    [SerializeField] private ToastProfileSprite[] toastProfileSprites;
+    [SerializeField] private ToastProfileUI[] toastProfileUIElements;
+    private ToastIndicator.ToastType? currentToastType = null;
+
     /// <summary>
     /// 플레이어가 현재 공격 중인지 확인 (Scratch, Punch, Dash)
     /// 비둘기 등의 적이 토스트 탈취 시 공격 판정에 사용
@@ -194,6 +204,8 @@ public class PlayerController : MonoBehaviour
         public float staminaRegen;
         public float knockback;
         public float dashForce;
+        public float dashRange;
+        public float reap;
     }
 
     /// <summary>
@@ -219,7 +231,9 @@ public class PlayerController : MonoBehaviour
             attack = currentAttack,
             staminaRegen = currentStaminaRegen,
             knockback = currentKnockback,
-            dashForce = currentDashForce
+            dashForce = currentDashForce,
+            dashRange = currentDashRange,
+            reap = currentReap
         };
     }
 
@@ -252,6 +266,8 @@ public class PlayerController : MonoBehaviour
         currentStaminaRegen = data.staminaRegen;
         currentKnockback = data.knockback;
         currentDashForce = data.dashForce;
+        currentDashRange = data.dashRange;
+        currentReap = data.reap;
 
         // StaminaManager에 stamina_regen 보너스 적용
         if (StaminaManager.instance != null && currentStaminaRegen != 0f)
@@ -298,18 +314,8 @@ public class PlayerController : MonoBehaviour
             StaminaManager.instance.ApplyStaminaRegenBonus(0f);
         }
 
-        // ToastIndicator 비활성화 (토스트 시각적 표시 숨김)
-        var toastIndicator = GetComponentInChildren<ToastIndicator>(true);
-        if (toastIndicator != null)
-        {
-            var indicatorRenderer = toastIndicator.GetComponent<SpriteRenderer>();
-            if (indicatorRenderer != null)
-            {
-                indicatorRenderer.enabled = false;
-            }
-        }
-
         activeToastId = null;
+        UpdateToastVisuals(null);
 
         Debug.Log($"[PlayerController] 토스트 제거됨: {removedToastId}");
 
@@ -368,6 +374,14 @@ public class PlayerController : MonoBehaviour
         if (playerSprite != null)
         {
             playerBaseColor = playerSprite.color;
+        }
+        if (playerToastIndicator == null)
+        {
+            playerToastIndicator = GetComponentInChildren<ToastIndicator>(true);
+        }
+        if (playerToastIndicator != null && playerToastIndicatorRenderer == null)
+        {
+            playerToastIndicatorRenderer = playerToastIndicator.GetComponent<SpriteRenderer>();
         }
         useLegacyJumpForceScaling = jumpForce >= LegacyJumpForceThreshold;
         baseMoveSpeed = moveSpeed;
@@ -590,7 +604,9 @@ public class PlayerController : MonoBehaviour
             bool isFallingFromCliff = playerRigidbody.linearVelocity.y < -0.1f && IsOnFlatGround();
 
             bool canJump = (isGrounded || slopeGround) && !isFallingFromCliff;
-            bool jumpOffCooldown = lastJumpTime < 0f || (Time.time - lastJumpTime) >= jumpCooldown;
+            // haste 적용: jump 쿨다운 감소
+            float effectiveJumpCooldown = Mathf.Max(0.05f, jumpCooldown - currentHaste);
+            bool jumpOffCooldown = lastJumpTime < 0f || (Time.time - lastJumpTime) >= effectiveJumpCooldown;
 
             Debug.Log($"[JUMP INPUT] W! grounded={isGrounded}, onSlope={slopeGround}, velY={playerRigidbody.linearVelocity.y:F2}, canJump={canJump}, offCooldown={jumpOffCooldown}");
 
@@ -681,9 +697,9 @@ public class PlayerController : MonoBehaviour
             lastDashTime = Time.time;
             SetAnimationState(AnimationState.Dash);
 
-            // ★ 바라보는 방향으로 임펄스 적용 (DashForce 스탯 적용)
+            // ★ 바라보는 방향으로 임펄스 적용 (DashForce + DashRange 스탯 적용)
             float dashDirection = transform.localScale.x > 0 ? 1f : -1f; // 오른쪽: 1, 왼쪽: -1
-            float effectiveDashForce = dashForce + currentDashForce;
+            float effectiveDashForce = dashForce + currentDashForce + currentDashRange;
             if (playerRigidbody != null)
             {
                 playerRigidbody.AddForce(new Vector2(dashDirection * effectiveDashForce, 0), ForceMode2D.Impulse);
@@ -1097,7 +1113,7 @@ public class PlayerController : MonoBehaviour
         StartDamageFlash();
     }
 
-    public void TakeDamage(float damage, GameObject attacker = null)
+    public void TakeDamage(float damage, GameObject attacker = null, float knockbackForce = 0f)
     {
         // 무적 시간 체크 (invincibility stat 적용)
         float effectiveInvincibilityTime = invincibilityTime + currentInvincibility;
@@ -1121,6 +1137,15 @@ public class PlayerController : MonoBehaviour
         StartDamageFlash();
 
         Debug.Log($"플레이어 데미지 받음! 원본:{damage:F1}, 최종:{finalDamage:F1} (방어:{currentDefense:F1}), 현재 체력: {currentHealth}/{maxHealth}");
+
+        // Poise 적용: 넉백 저항 (받는 넉백 감소)
+        if (knockbackForce > 0f && attacker != null && playerRigidbody != null)
+        {
+            float effectiveKnockback = Mathf.Max(0f, knockbackForce - currentPoise);
+            Vector2 knockbackDir = (transform.position - attacker.transform.position).normalized;
+            playerRigidbody.AddForce(knockbackDir * effectiveKnockback, ForceMode2D.Impulse);
+            Debug.Log($"[Poise] 넉백: 원본={knockbackForce:F1}, 감소 후={effectiveKnockback:F1} (poise={currentPoise:F1})");
+        }
 
         // Thorns 적용: 반격 데미지
         if (currentThorns > 0f && attacker != null)
@@ -1212,6 +1237,29 @@ public class PlayerController : MonoBehaviour
         return applied;
     }
 
+    /// <summary>
+    /// Reap: 적 처치 시 확률적으로 회복
+    /// </summary>
+    public void OnEnemyKilled()
+    {
+        if (currentReap <= 0f) return;
+
+        // (5 + n*5)% 확률로 n/2만큼 회복
+        float reapChance = 5f + (currentReap * 5f);
+        float roll = Random.Range(0f, 100f);
+
+        if (roll <= reapChance)
+        {
+            float healAmount = currentReap * 0.5f;
+            float before = currentHealth;
+            currentHealth = Mathf.Min(maxHealth, currentHealth + healAmount);
+            if (GameManager.instance != null) GameManager.instance.UpdateHealth(currentHealth);
+            float applied = currentHealth - before;
+            SpawnFoodEffectText($"+{applied:0.#} Reap!", foodHealTextColor);
+            Debug.Log($"[Reap] 적 처치 회복 발동! 확률: {reapChance:F1}%, 회복량: {applied:F1}");
+        }
+    }
+
     private void SpawnFoodEffectText(string text, Color color)
     {
         StartCoroutine(FoodEffectTextRoutine(text, color));
@@ -1281,6 +1329,9 @@ public class PlayerController : MonoBehaviour
         currentAttack = 0f;
         currentStaminaRegen = 0f;
         currentKnockback = 0f;
+        currentDashForce = 0f;
+        currentDashRange = 0f;
+        currentReap = 0f;
 
         if (stats != null)
         {
@@ -1333,6 +1384,12 @@ public class PlayerController : MonoBehaviour
                     case StatType.DashForce:
                         currentDashForce += s.value;
                         break;
+                    case StatType.DashRange:
+                        currentDashRange += s.value;
+                        break;
+                    case StatType.Reap:
+                        currentReap += s.value;
+                        break;
                 }
             }
         }
@@ -1344,6 +1401,14 @@ public class PlayerController : MonoBehaviour
         }
 
         activeToastId = toastId;
+        if (!string.IsNullOrEmpty(toastId) && System.Enum.TryParse(toastId, out ToastIndicator.ToastType parsedToast))
+        {
+            UpdateToastVisuals(parsedToast);
+        }
+        else
+        {
+            UpdateToastVisuals(null);
+        }
         Debug.Log($"[PlayerController] ApplyToastStats: toastId={toastId}, speed={moveSpeed}, jump={jumpForce}, " +
                   $"attack={currentAttack}, defense={currentDefense}, haste={currentHaste}, " +
                   $"agility={currentAgility}, sprint={currentSprint}, stamina_regen={currentStaminaRegen}");
@@ -1370,6 +1435,116 @@ public class PlayerController : MonoBehaviour
         }
 
         Debug.Log($"[PlayerController] RefreshAllToastPanelButtons complete. Active toast: {activeToastId}");
+    }
+
+    private void UpdateToastVisuals(ToastIndicator.ToastType? toastType)
+    {
+        currentToastType = toastType;
+        EnsureToastIndicatorReference();
+
+        if (toastType.HasValue)
+        {
+            if (playerToastIndicator != null)
+            {
+                playerToastIndicator.SetToast(toastType.Value);
+            }
+            if (playerToastIndicatorRenderer != null)
+            {
+                playerToastIndicatorRenderer.enabled = true;
+            }
+        }
+        else
+        {
+            if (playerToastIndicatorRenderer != null)
+            {
+                playerToastIndicatorRenderer.enabled = false;
+            }
+        }
+
+        ToastProfileSprite.ToastProfileType spriteType = toastType.HasValue
+            ? MapToProfileSpriteType(toastType.Value)
+            : ToastProfileSprite.ToastProfileType.Jam;
+        ToastProfileUI.ToastType uiType = toastType.HasValue
+            ? MapToProfileUIType(toastType.Value)
+            : ToastProfileUI.ToastType.Jam;
+
+        if (toastProfileFollowers != null && toastProfileFollowers.Length > 0)
+        {
+            foreach (var follower in toastProfileFollowers)
+            {
+                if (follower == null) continue;
+                if (toastType.HasValue) follower.SetToast(toastType.Value);
+                follower.SetProfile(spriteType);
+            }
+        }
+
+        if (toastProfileSprites != null && toastProfileSprites.Length > 0)
+        {
+            foreach (var sprite in toastProfileSprites)
+            {
+                sprite?.SetProfile(spriteType);
+            }
+        }
+
+        if (toastProfileUIElements != null && toastProfileUIElements.Length > 0)
+        {
+            foreach (var ui in toastProfileUIElements)
+            {
+                ui?.SetProfile(uiType);
+            }
+        }
+    }
+
+    private void EnsureToastIndicatorReference()
+    {
+        if (playerToastIndicator == null)
+        {
+            playerToastIndicator = GetComponentInChildren<ToastIndicator>(true);
+        }
+        if (playerToastIndicatorRenderer == null && playerToastIndicator != null)
+        {
+            playerToastIndicatorRenderer = playerToastIndicator.GetComponent<SpriteRenderer>();
+        }
+    }
+
+    private static ToastProfileSprite.ToastProfileType MapToProfileSpriteType(ToastIndicator.ToastType toastType)
+    {
+        switch (toastType)
+        {
+            case ToastIndicator.ToastType.Butter:
+                return ToastProfileSprite.ToastProfileType.Butter;
+            case ToastIndicator.ToastType.Crispy:
+                return ToastProfileSprite.ToastProfileType.Crispy;
+            case ToastIndicator.ToastType.Herb:
+                return ToastProfileSprite.ToastProfileType.Hub;
+            case ToastIndicator.ToastType.Raven:
+                return ToastProfileSprite.ToastProfileType.Raven;
+            case ToastIndicator.ToastType.Admin:
+                return ToastProfileSprite.ToastProfileType.Admin;
+            case ToastIndicator.ToastType.Jam:
+            default:
+                return ToastProfileSprite.ToastProfileType.Jam;
+        }
+    }
+
+    private static ToastProfileUI.ToastType MapToProfileUIType(ToastIndicator.ToastType toastType)
+    {
+        switch (toastType)
+        {
+            case ToastIndicator.ToastType.Butter:
+                return ToastProfileUI.ToastType.Butter;
+            case ToastIndicator.ToastType.Crispy:
+                return ToastProfileUI.ToastType.Crispy;
+            case ToastIndicator.ToastType.Herb:
+                return ToastProfileUI.ToastType.Hub;
+            case ToastIndicator.ToastType.Raven:
+                return ToastProfileUI.ToastType.Raven;
+            case ToastIndicator.ToastType.Admin:
+                return ToastProfileUI.ToastType.Admin;
+            case ToastIndicator.ToastType.Jam:
+            default:
+                return ToastProfileUI.ToastType.Jam;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -2010,6 +2185,11 @@ public class PlayerController : MonoBehaviour
         int hitCount = Physics2D.OverlapBoxNonAlloc(center, size, 0f, scratchHits, mask);
         Vector2 knockbackDir = transform.localScale.x >= 0 ? Vector2.right : Vector2.left;
 
+        // Apply knockback stat to scratch
+        float scratchKnockbackForce = 2f; // Base scratch knockback
+        float totalScratchKnockback = scratchKnockbackForce + currentKnockback;
+        Vector2 scratchKnockback = knockbackDir * totalScratchKnockback;
+
         // ?��? 공격???�들??추적?�기 ?�한 HashSet
         System.Collections.Generic.HashSet<int> alreadyHitEnemies = new System.Collections.Generic.HashSet<int>();
 
@@ -2031,7 +2211,7 @@ public class PlayerController : MonoBehaviour
                 {
                     alreadyHitEnemies.Add(dogInstanceID);
                     float finalDamage = scratchDamage + currentAttack;
-                    dog.TakeDamage(finalDamage, knockbackDir);
+                    dog.TakeDamage(finalDamage, scratchKnockback);
                 }
                 continue;
             }
@@ -2129,6 +2309,12 @@ public class PlayerController : MonoBehaviour
         System.Array.Clear(dashHits, 0, dashHits.Length);
         int hitCount = Physics2D.OverlapBoxNonAlloc(center, size, 0f, dashHits, mask);
 
+        // Apply knockback stat to dash
+        Vector2 knockbackDir = transform.localScale.x >= 0 ? Vector2.right : Vector2.left;
+        float dashKnockbackForce = 4f; // Base dash knockback
+        float totalDashKnockback = dashKnockbackForce + currentKnockback;
+        Vector2 dashKnockback = knockbackDir * totalDashKnockback;
+
         System.Collections.Generic.HashSet<int> alreadyHitEnemies = new System.Collections.Generic.HashSet<int>();
 
         for (int i = 0; i < hitCount && i < dashHits.Length; i++)
@@ -2148,8 +2334,7 @@ public class PlayerController : MonoBehaviour
                 {
                     alreadyHitEnemies.Add(dogInstanceID);
                     float finalDamage = dashDamage + currentAttack;
-                    Vector2 knockbackDir = transform.localScale.x >= 0 ? Vector2.right : Vector2.left;
-                    dog.TakeDamage(finalDamage, knockbackDir);
+                    dog.TakeDamage(finalDamage, dashKnockback);
 
                     // 적의 공격 취소 및 쿨타임 초기화
                     dog.CancelAttackFromDash();

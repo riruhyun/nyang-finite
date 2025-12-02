@@ -124,20 +124,84 @@ public class GarbageCan : MonoBehaviour
 
     private void TryDropFood()
     {
+        var candidates = new List<FoodDropEntry>();
         foreach (var entry in drops)
         {
             if (entry == null || entry.dropped) continue;
-            if (hitCount >= entry.requiredHits)
+            if (hitCount < entry.requiredHits) continue;
+            candidates.Add(entry);
+        }
+
+        if (candidates.Count == 0) return;
+
+        NormalizeDropChances(candidates);
+
+        foreach (var entry in candidates)
+        {
+            float roll = Random.Range(0f, 100f);
+            if (roll > entry.dropChancePercent)
             {
-                SpawnFood(entry);
-                entry.dropped = true;
-                if (!lidDropped)
-                {
-                    DropLid();
-                    lidDropped = true;
-                }
+                string dropName = entry.foodSprite != null ? entry.foodSprite.name : "Food";
+                Debug.Log(string.Format("[GarbageCan] Drop skipped for {0}. chance(norm)={1:F1}%, roll={2:F1}%", dropName, entry.dropChancePercent, roll));
+                continue;
+            }
+
+            SpawnFood(entry);
+            entry.dropped = true;
+            if (!lidDropped)
+            {
+                DropLid();
+                lidDropped = true;
             }
         }
+    }
+
+    private void NormalizeDropChances()
+    {
+        NormalizeDropChances(drops);
+    }
+
+    private void NormalizeDropChances(List<FoodDropEntry> list)
+    {
+        if (list == null || list.Count == 0) return;
+        float totalPercent = 0f;
+        foreach (var entry in list)
+        {
+            if (entry == null || entry.dropChancePercent <= 0f) continue;
+            totalPercent += entry.dropChancePercent;
+        }
+        if (totalPercent <= 0f) return;
+        float scale = 100f / totalPercent;
+        foreach (var entry in list)
+        {
+            if (entry == null) continue;
+            entry.dropChancePercent = Mathf.Clamp(entry.dropChancePercent * scale, 0f, 100f);
+        }
+    }
+
+    public void OverrideDrops(List<FoodDropEntry> overrideEntries)
+    {
+        if (overrideEntries == null || overrideEntries.Count == 0) return;
+        drops = new List<FoodDropEntry>(overrideEntries.Count);
+        foreach (var entry in overrideEntries)
+        {
+            if (entry == null) continue;
+            drops.Add(entry.Clone());
+        }
+        NormalizeDropChances(drops);
+        ResetDropFlags();
+    }
+
+    private void ResetDropFlags()
+    {
+        if (drops == null) return;
+        foreach (var entry in drops)
+        {
+            if (entry == null) continue;
+            entry.dropped = false;
+        }
+        lidDropped = false;
+        hitCount = 0;
     }
 
     private void SpawnFood(FoodDropEntry entry)
@@ -253,6 +317,24 @@ public class GarbageCan : MonoBehaviour
         [Range(1, 5)] public int requiredHits = 1;
         [Tooltip("How many of this food to drop.")]
         [Range(1, 5)] public int quantity = 1;
+        [Tooltip("드롭 확률 (0~100%). 100이면 항상 드롭, 25면 25% 확률.")]
+        [Range(0f, 100f)] public float dropChancePercent = 100f;
         [HideInInspector] public bool dropped = false;
+
+        public FoodDropEntry Clone()
+        {
+            return new FoodDropEntry
+            {
+                foodSprite = foodSprite,
+                profileSpriteOverride = profileSpriteOverride,
+                description = description,
+                effectType = effectType,
+                effectAmount = effectAmount,
+                requiredHits = requiredHits,
+                quantity = quantity,
+                dropChancePercent = dropChancePercent,
+                dropped = false
+            };
+        }
     }
 }

@@ -30,6 +30,8 @@ public class FoodHoverPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     private TMP_Text effectText;
     private Button actionButton;
     private Image actionButtonImage;
+    private Canvas buttonCanvas;
+    private RectTransform buttonCanvasRoot;
 
     private static FoodHoverPanel activePanel;
 
@@ -160,6 +162,7 @@ public class FoodHoverPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         panelRect.offsetMax = Vector2.zero;
         var bg = panelGO.GetComponent<Image>();
         bg.color = new Color(1f, 1f, 1f, 0.9f);
+        bg.raycastTarget = false;
         if (backgroundSprite != null)
         {
             bg.sprite = backgroundSprite;
@@ -223,8 +226,31 @@ public class FoodHoverPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         effectText.alignment = TextAlignmentOptions.Left;
 
         // Action button - 더 큰 크기로 클릭 영역 확대
-        var buttonGO = new GameObject("EatButton", typeof(RectTransform), typeof(Image), typeof(Button));
-        buttonGO.transform.SetParent(panelRect, false);
+        if (buttonCanvasRoot == null)
+        {
+            var buttonCanvasGO = new GameObject("ButtonCanvas", typeof(RectTransform), typeof(Canvas), typeof(GraphicRaycaster));
+            buttonCanvasRoot = buttonCanvasGO.GetComponent<RectTransform>();
+            buttonCanvasRoot.SetParent(root, false);
+            buttonCanvasRoot.anchorMin = Vector2.zero;
+            buttonCanvasRoot.anchorMax = Vector2.one;
+            buttonCanvasRoot.pivot = new Vector2(0.5f, 0.5f);
+            buttonCanvasRoot.offsetMin = Vector2.zero;
+            buttonCanvasRoot.offsetMax = Vector2.zero;
+
+            buttonCanvas = buttonCanvasGO.GetComponent<Canvas>();
+            buttonCanvas.renderMode = RenderMode.WorldSpace;
+            buttonCanvas.worldCamera = canvas.worldCamera;
+            buttonCanvas.sortingLayerName = sortingLayerName;
+            buttonCanvas.overrideSorting = true;
+            buttonCanvas.sortingOrder = sortingOrder + 1;
+
+            var buttonRaycaster = buttonCanvasGO.GetComponent<GraphicRaycaster>();
+            buttonRaycaster.ignoreReversedGraphics = true;
+            buttonRaycaster.blockingObjects = GraphicRaycaster.BlockingObjects.None;
+        }
+
+        var buttonGO = new GameObject("EatButton", typeof(RectTransform), typeof(Image), typeof(CanvasGroup), typeof(Button));
+        buttonGO.transform.SetParent(buttonCanvasRoot, false);
         var buttonRect = buttonGO.GetComponent<RectTransform>();
         buttonRect.anchorMin = new Vector2(0.5f, 0f);
         buttonRect.anchorMax = new Vector2(0.5f, 0f);
@@ -240,8 +266,14 @@ public class FoodHoverPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         {
             actionButtonImage.raycastTarget = true;
             actionButtonImage.color = Color.white; // Ensure visible
+            actionButtonImage.canvasRenderer.cullTransparentMesh = false;
             Debug.Log($"[FoodHoverPanel] Button Image configured: raycastTarget={actionButtonImage.raycastTarget}, color={actionButtonImage.color}");
         }
+
+        // 버튼 CanvasGroup은 페이드 영향을 받지 않도록 유지
+        var buttonCanvasGroup = buttonGO.GetComponent<CanvasGroup>();
+        buttonCanvasGroup.alpha = 1f;
+        buttonCanvasGroup.ignoreParentGroups = true;
 
         // ★ 클릭 안정성 향상: Transition을 None으로 설정하여 애니메이션 간섭 제거
         actionButton.transition = UnityEngine.UI.Selectable.Transition.None;
@@ -263,6 +295,13 @@ public class FoodHoverPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             canvas.worldCamera = Camera.main;
             canvas.sortingLayerName = sortingLayerName;
             canvas.sortingOrder = sortingOrder;
+        }
+
+        if (buttonCanvas != null)
+        {
+            buttonCanvas.worldCamera = canvas != null ? canvas.worldCamera : Camera.main;
+            buttonCanvas.sortingLayerName = sortingLayerName;
+            buttonCanvas.sortingOrder = sortingOrder + 1;
         }
     }
 

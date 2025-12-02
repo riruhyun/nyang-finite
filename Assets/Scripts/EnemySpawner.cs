@@ -170,6 +170,33 @@ EnemySpawnHelper.SpawnEnemies(
     );
   }
 
+  private void OnValidate()
+  {
+    NormalizeToastDropChances();
+  }
+
+  private void NormalizeToastDropChances()
+  {
+    if (spawnDefinitions == null) return;
+    foreach (var def in spawnDefinitions)
+    {
+      if (def == null || def.toastDrops == null || def.toastDrops.Count == 0) continue;
+      float total = 0f;
+      foreach (var drop in def.toastDrops)
+      {
+        if (drop == null || drop.weight <= 0f) continue;
+        total += drop.weight;
+      }
+      if (total <= 0f) continue;
+      float scale = 100f / total;
+      foreach (var drop in def.toastDrops)
+      {
+        if (drop == null) continue;
+        drop.weight = Mathf.Clamp(drop.weight * scale, 0f, 100f);
+      }
+    }
+  }
+
   /// <summary>
   /// Spawns a single Dog at the shared tracking origin using SideView algorithm settings.
   /// "기본 트래킹 좌표" is interpreted as the SharedTrackingEngine.target position (or spawner position if no target).
