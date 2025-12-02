@@ -99,6 +99,11 @@ public class PlayerController : MonoBehaviour
     // 벽차기 상태
     private bool isWallSliding = false;
     private float lastWallJumpTime = -1f;
+
+    // ==================== 스테이지 자동 전환 ====================
+    // Ground1의 오른쪽 끝에 도달하면 다음 스테이지로 이동
+    private float stageEndX = float.MaxValue;  // Ground1의 오른쪽 끝 x좌표
+    private bool stageTransitionTriggered = false;  // 중복 전환 방지
     [Header("Punch Settings")]
     [SerializeField] private float punchDuration = 0.3f; // Punch 애니메이션 지속 시간
     [SerializeField] private string punchAnimationName = "Punch";
@@ -154,6 +159,71 @@ public class PlayerController : MonoBehaviour
     private Color playerBaseColor = Color.white;
     private string activeToastId = null;
     public string CurrentToastId => activeToastId;
+
+    /// <summary>
+    /// 플레이어가 현재 공격 중인지 확인 (Scratch, Punch, Dash)
+    /// 비둘기 등의 적이 토스트 탈취 시 공격 판정에 사용
+    /// </summary>
+    public bool IsAttacking()
+    {
+        return isScratching || isPunching || isDashing;
+    }
+
+    /// <summary>
+    /// 토스트를 제거 (비둘기에게 빼앗겼을 때 호출)
+    /// </summary>
+    public void RemoveToast()
+    {
+        if (string.IsNullOrEmpty(activeToastId))
+        {
+            Debug.Log("[PlayerController] 제거할 토스트가 없습니다.");
+            return;
+        }
+
+        string removedToastId = activeToastId;
+
+        // 토스트 스탯 초기화
+        moveSpeed = baseMoveSpeed;
+        jumpForce = baseJumpForce;
+        currentDefense = 0f;
+        currentThorns = 0f;
+        currentNutrition = 0f;
+        currentFriction = 0f;
+        currentHaste = 0f;
+        currentAgility = 0f;
+        currentSprint = 0f;
+        currentPoise = 0f;
+        currentInvincibility = 0f;
+        currentAttack = 0f;
+        currentStaminaRegen = 0f;
+        currentKnockback = 0f;
+        currentDashForce = 0f;
+
+        // StaminaManager stamina_regen 보너스 리셋
+        if (StaminaManager.instance != null)
+        {
+            StaminaManager.instance.ApplyStaminaRegenBonus(0f);
+        }
+
+        // ToastIndicator 비활성화 (토스트 시각적 표시 숨김)
+        var toastIndicator = GetComponentInChildren<ToastIndicator>(true);
+        if (toastIndicator != null)
+        {
+            var indicatorRenderer = toastIndicator.GetComponent<SpriteRenderer>();
+            if (indicatorRenderer != null)
+            {
+                indicatorRenderer.enabled = false;
+            }
+        }
+
+        activeToastId = null;
+
+        Debug.Log($"[PlayerController] 토스트 제거됨: {removedToastId}");
+
+        // 모든 ToastHoverPanel 버튼 상태 업데이트
+        RefreshAllToastPanelButtons();
+    }
+
     [Header("Food Effect Text")]
     [SerializeField] private Vector3 foodEffectTextOffset = new Vector3(0f, 0.8f, -1f);
     [SerializeField] private float foodEffectTextDuration = 0.6f;
@@ -223,6 +293,9 @@ public class PlayerController : MonoBehaviour
             GameManager.instance.UpdateHealth(currentHealth);
         }
 
+        // 스테이지 끝 좌표 초기화 (Ground1 기준)
+        InitializeStageEndPosition();
+
         if (animator == null)
         {
             Debug.LogError("Animator component not found on " + gameObject.name);
@@ -277,6 +350,9 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
+
+        // 스테이지 끝에 도달했는지 체크
+        CheckIfReachedStageEnd();
 
         // ★ Scratch 상태 먼저 처리 (최고 우선순위)
         UpdateScratchState();
@@ -1211,6 +1287,87 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // ==================== 스테이지 전환 메서드 ====================
+
+    /// <summary>
+    /// 게임 시작 시 Ground1의 오른쪽 끝 x좌표를 찾아 저장
+    /// </summary>
+    private void InitializeStageEndPosition()
+    {
+        GameObject ground1 = GameObject.Find("Ground1");
+
+        if (ground1 == null)
+        {
+            Debug.LogWarning("[Stage] Ground1을 찾을 수 없습니다!");
+            return;
+        }
+
+        // Ground1의 오른쪽 끝 x좌표 가져오기
+        stageEndX = GetRightEdgeX(ground1);
+
+        if (stageEndX != float.MaxValue)
+        {
+            Debug.Log($"[Stage] 스테이지 끝 x좌표: {stageEndX}");
+        }
+    }
+
+    /// <summary>
+    /// 오브젝트의 오른쪽 끝 x좌표 반환
+    /// </summary>
+    private float GetRightEdgeX(GameObject obj)
+    {
+        // 1순위: 직접 붙은 Collider
+        Collider2D collider = obj.GetComponent<Collider2D>();
+        if (collider != null)
+        {
+            return collider.bounds.max.x;
+        }
+
+        // 2순위: 직접 붙은 Renderer
+        Renderer renderer = obj.GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            return renderer.bounds.max.x;
+        }
+
+        // 3순위: 자식들의 Collider 합산
+        Collider2D[] childColliders = obj.GetComponentsInChildren<Collider2D>();
+        if (childColliders.Length > 0)
+        {
+            float maxX = float.MinValue;
+            foreach (var col in childColliders)
+            {
+                maxX = Mathf.Max(maxX, col.bounds.max.x);
+            }
+            return maxX;
+        }
+
+        Debug.LogWarning("[Stage] Ground1의 크기를 계산할 수 없습니다!");
+        return float.MaxValue;
+    }
+
+    /// <summary>
+    /// 플레이어가 스테이지 끝에 도달했는지 매 프레임 체크
+    /// </summary>
+    private void CheckIfReachedStageEnd()
+    {
+        // 전환 불가능한 상태 체크
+        if (stageTransitionTriggered) return;
+        if (stageEndX == float.MaxValue) return;
+        if (GameManager.instance != null && GameManager.instance.isGameover) return;
+
+        // 플레이어가 스테이지 끝에 도달했는지 확인
+        bool reachedEnd = transform.position.x >= stageEndX - 0.1f;
+
+        if (reachedEnd)
+        {
+            stageTransitionTriggered = true;
+            Debug.Log($"[Stage] 스테이지 끝 도달! (플레이어: {transform.position.x}, 끝: {stageEndX})");
+
+            GameManager.instance?.LoadNextStage();
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         CheckGroundContact(collision);
@@ -1753,9 +1910,9 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        Vector2 center = scratchHitbox.bounds.center;                                                                                              
-        Vector2 size = scratchHitbox.bounds.size;                                                                                                  
-        int mask = scratchDamageLayers.value == 0 ? ~0 : scratchDamageLayers.value;                                                                
+        Vector2 center = scratchHitbox.bounds.center;
+        Vector2 size = scratchHitbox.bounds.size;
+        int mask = scratchDamageLayers.value == 0 ? ~0 : scratchDamageLayers.value;
         System.Array.Clear(scratchHits, 0, scratchHits.Length);
         int hitCount = Physics2D.OverlapBoxNonAlloc(center, size, 0f, scratchHits, mask);
         Vector2 knockbackDir = transform.localScale.x >= 0 ? Vector2.right : Vector2.left;
@@ -1763,29 +1920,29 @@ public class PlayerController : MonoBehaviour
         // ?��? 공격???�들??추적?�기 ?�한 HashSet
         System.Collections.Generic.HashSet<int> alreadyHitEnemies = new System.Collections.Generic.HashSet<int>();
 
-                                                                                                                                                    
-        for (int i = 0; i < hitCount && i < scratchHits.Length; i++)                                                                               
-        {                                                                                                                                          
-            Collider2D hit = scratchHits[i];                                                                                                       
-            if (hit == null || hit.transform.IsChildOf(transform))                                                                                 
-            {                                                                                                                                      
-                continue;                                                                                                                          
-            }                                                                                                                                      
-                                                                                                                                                    
+
+        for (int i = 0; i < hitCount && i < scratchHits.Length; i++)
+        {
+            Collider2D hit = scratchHits[i];
+            if (hit == null || hit.transform.IsChildOf(transform))
+            {
+                continue;
+            }
+
             // Enemy 처리                                                                                                                          
-            IntelligentDogMovement dog = hit.GetComponentInParent<IntelligentDogMovement>();                                                       
-            if (dog != null)                                                                                                                       
-            {                                                                                                                                      
+            IntelligentDogMovement dog = hit.GetComponentInParent<IntelligentDogMovement>();
+            if (dog != null)
+            {
                 int dogInstanceID = dog.GetInstanceID();
                 if (!alreadyHitEnemies.Contains(dogInstanceID))
                 {
                     alreadyHitEnemies.Add(dogInstanceID);
                     float finalDamage = scratchDamage + currentAttack;
-                    dog.TakeDamage(finalDamage, knockbackDir);                                                                                   
-                }                                                                                                                                  
-                continue;                                                                                                                          
-            }                                                                                                                                      
-                                                                                                                                                    
+                    dog.TakeDamage(finalDamage, knockbackDir);
+                }
+                continue;
+            }
+
             // GarbageCan 처리                                                                                                                     
             var can = hit.GetComponentInParent<GarbageCan>();
             if (can != null)

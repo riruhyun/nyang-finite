@@ -97,4 +97,48 @@ public class GameManager : MonoBehaviour
             Debug.Log($"HP 바 업데이트: 체력={health}/{maxHealth}, X 스케일={newScale.x}/{maxHpBarWidth}");
         }
     }
+
+    /// <summary>
+    /// 특정 스테이지(씬)를 로드합니다.
+    /// StageTransitionWall에서 호출됩니다.
+    /// </summary>
+    /// <param name="stageName">로드할 스테이지 씬 이름</param>
+    public void LoadStage(string stageName)
+    {
+        if (string.IsNullOrEmpty(stageName))
+        {
+            Debug.LogError("[GameManager] 스테이지 이름이 비어있습니다!");
+            return;
+        }
+
+        Debug.Log($"[GameManager] 스테이지 로드: {stageName}");
+
+        // 게임오버 상태 초기화
+        isGameover = false;
+
+        SceneManager.LoadScene(stageName);
+    }
+
+    /// <summary>
+    /// 현재 스테이지에서 다음 스테이지로 자동 이동합니다.
+    /// 예: Stage1 -> Stage2, Stage10 -> Stage11
+    /// </summary>
+    public void LoadNextStage()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+
+        // "Stage" 접두사 확인
+        if (currentSceneName.StartsWith("Stage"))
+        {
+            string numberPart = currentSceneName.Substring(5);
+            if (int.TryParse(numberPart, out int currentNumber))
+            {
+                string nextStage = "Stage" + (currentNumber + 1);
+                LoadStage(nextStage);
+                return;
+            }
+        }
+
+        Debug.LogWarning($"[GameManager] 다음 스테이지를 자동으로 계산할 수 없습니다. 현재: {currentSceneName}");
+    }
 }

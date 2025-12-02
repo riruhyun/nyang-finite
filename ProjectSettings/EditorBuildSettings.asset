@@ -29,6 +29,45 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Game.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Stage3.unity
+    guid: eb575220d7d33fc48a72ad787d59e9d5
+  - enabled: 1
+    path: Assets/Scenes/Stage4.unity
+    guid: 6dce25e780feb97409308591f79031fe
+  - enabled: 1
+    path: Assets/Scenes/Stage5.unity
+    guid: 322bcdcbbb1232c41a2dcced91931af5
+  - enabled: 1
+    path: Assets/Scenes/Stage6.unity
+    guid: 45f60b31b95a8fb4ba3a7c36857ae1d4
+  - enabled: 1
+    path: Assets/Scenes/Stage7.unity
+    guid: 118318e5c7d62e945b446c9aeb545d41
+  - enabled: 1
+    path: Assets/Scenes/Stage8.unity
+    guid: 7000c01dd317b924c8260c9ecadd773c
+  - enabled: 1
+    path: Assets/Scenes/Stage9.unity
+    guid: ec2006fe5c6b31a468ffb2f601083ee0
+  - enabled: 1
+    path: Assets/Scenes/Stage10.unity
+    guid: a68e533cebeaa614a9c7d467070b8b7a
+  - enabled: 1
+    path: Assets/Scenes/Stage11.unity
+    guid: 5d4c9897500e65a4e9c236ed5eeeee29
+  - enabled: 1
+    path: Assets/Scenes/Stage12.unity
+    guid: f4faab22dc3ce754abb30c709953dbb1
+  - enabled: 1
+    path: Assets/Scenes/Stage13.unity
+    guid: b057eca1c1abf6b4cabdae4d0b6bc89b
+  - enabled: 1
+    path: Assets/Scenes/Stage14.unity
+    guid: 64b975732322ca348a05b6594cc05326
+  - enabled: 1
+    path: Assets/Scenes/Stage15.unity
+    guid: dbeb099089a56364ea90c52906034dc2
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

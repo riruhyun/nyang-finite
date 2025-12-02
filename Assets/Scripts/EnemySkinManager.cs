@@ -266,10 +266,22 @@ public class EnemySkinManager : MonoBehaviour
         var sr = go.GetComponentInChildren<SpriteRenderer>();
         if (sr != null && sr.sprite != null)
         {
+<<<<<<< HEAD
             string spriteName = sr.sprite.name.ToLower();
             if (spriteName.Contains("cat")) return "Cat";
             if (spriteName.Contains("dog")) return "Dog";
             if (spriteName.Contains("pigeon")) return "Pigeon";
+=======
+            return "Dog";
+        }
+        if (go.GetComponent<PigeonController>() != null)
+        {
+            return "Pigeon";
+        }
+        if (go.name.ToLower().Contains("cat"))
+        {
+            return "Cat";
+>>>>>>> 8a829dbd69c7f82eaa5e0357c2d98e078ad789d8
         }
 
         // 2. GameObject 이름 체크

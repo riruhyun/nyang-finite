@@ -27,15 +27,21 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float transitionTime = 1f;
     [SerializeField] private bool useEaseInOut = true;
 
+    [Header("Boundary Settings")]
+    [SerializeField] private float minX = 2f; // 최소 X 좌표
+    [SerializeField] private float minY = -1.5f; // 최소 Y 좌표
+
+    [SerializeField] private float maxX = float.PositiveInfinity; // 최대 X 좌표 (Ground1 기반으로 자동 계산)
+
     private bool isMovingX = false;
     private int xState = 0;
     private float baseCameraX = 0f;
 
     private float xMoveStartTime;
     private float xMoveStartPos;
-    
+
     private float playerXAtMoveStart; // 이동 시작 시 플레이어 X 위치
-private float xMoveTargetPos;
+    private float xMoveTargetPos;
 
     private float lastBoundaryX; // 경계를 넘어설 때의 x값 저장
 
@@ -53,13 +59,42 @@ private float xMoveTargetPos;
                 return;
             }
         }
-        
+
+        // Ground1을 찾아서 최대 X 좌표 계산
+        GameObject ground1 = GameObject.Find("Ground1");
+        if (ground1 != null)
+        {
+            SpriteRenderer groundRenderer = ground1.GetComponent<SpriteRenderer>();
+            if (groundRenderer != null)
+            {
+                float groundWidth = groundRenderer.bounds.size.x;
+                maxX = minX + groundWidth - 18.3f;
+                Debug.Log($"[카메라] Ground1 너비: {groundWidth:F2}, 최대 X: {maxX:F2}");
+            }
+        }
+
+        // 시작 시 최소/최대 X, 최소 Y 좌표 적용
+        Vector3 startPos = transform.position;
+        if (startPos.x < minX)
+        {
+            startPos.x = minX;
+        }
+        if (startPos.x > maxX)
+        {
+            startPos.x = maxX;
+        }
+        if (startPos.y < minY)
+        {
+            startPos.y = minY;
+        }
+        transform.position = startPos;
+
         baseCameraX = transform.position.x;
         lastBoundaryX = baseCameraX; // 초기 경계값 설정
         Debug.Log($"[카메라] 기준 X 위치 저장: {baseCameraX:F2}");
     }
 
-private void LateUpdate()
+    private void LateUpdate()
     {
         if (player == null) return;
 
@@ -75,7 +110,7 @@ private void LateUpdate()
             float t = Mathf.Clamp01((Time.time - xMoveStartTime) / transitionTime);
             if (useEaseInOut) t = t * t * (3f - 2f * t);
             newPos.x = Mathf.Lerp(xMoveStartPos, xMoveTargetPos, t);
-            
+
             if (t >= 1f)
             {
                 isMovingX = false;
@@ -87,39 +122,63 @@ private void LateUpdate()
         else
         {
             // 이동 중이 아닐 때 - 가장자리와의 거리 확인
-            
+
             // 카메라는 Orthographic Size = 5 (height), aspect에 따라 width 계산
             Camera cam = GetComponent<Camera>();
             float cameraHeight = cam.orthographicSize * 2f;
             float cameraWidth = cameraHeight * cam.aspect;
-            
+
             float cameraLeftEdge = currentPos.x - cameraWidth / 2f;
             float cameraRightEdge = currentPos.x + cameraWidth / 2f;
-            
+
             float distanceToLeftEdge = player.position.x - cameraLeftEdge;
             float distanceToRightEdge = cameraRightEdge - player.position.x;
-            
-            // 왼쪽 가장자리에 너무 가까우면 왼쪽으로 이동
+
+            // 왼쪽 가장자리에 너무 가까우면 왼쪽으로 이동 (최소 X 제한 적용)
             if (distanceToLeftEdge < edgeDetectionDistance)
             {
                 float newTargetX = currentPos.x - cameraMoveDistance;
-                Debug.Log($"[카메라] 왼쪽 가장자리 감지! 거리: {distanceToLeftEdge:F2}, 이동: {currentPos.x:F2} → {newTargetX:F2}");
-                StartCameraMoveX(newTargetX);
+                // 최소 X 좌표 제한 적용
+                if (newTargetX < minX)
+                {
+                    newTargetX = minX;
+                }
+                // 현재 위치가 이미 최소 X보다 작거나 같으면 이동하지 않음
+                if (newTargetX < currentPos.x)
+                {
+                    Debug.Log($"[카메라] 왼쪽 가장자리 감지! 거리: {distanceToLeftEdge:F2}, 이동: {currentPos.x:F2} → {newTargetX:F2}");
+                    StartCameraMoveX(newTargetX);
+                }
             }
-            // 오른쪽 가장자리에 너무 가까우면 오른쪽으로 이동
+            // 오른쪽 가장자리에 너무 가까우면 오른쪽으로 이동 (최대 X 제한 적용)
             else if (distanceToRightEdge < edgeDetectionDistance)
             {
                 float newTargetX = currentPos.x + cameraMoveDistance;
-                Debug.Log($"[카메라] 오른쪽 가장자리 감지! 거리: {distanceToRightEdge:F2}, 이동: {currentPos.x:F2} → {newTargetX:F2}");
-                StartCameraMoveX(newTargetX);
+                // 최대 X 좌표 제한 적용
+                if (newTargetX > maxX)
+                {
+                    newTargetX = maxX;
+                }
+                // 현재 위치가 이미 최대 X보다 크거나 같으면 이동하지 않음
+                if (newTargetX > currentPos.x)
+                {
+                    Debug.Log($"[카메라] 오른쪽 가장자리 감지! 거리: {distanceToRightEdge:F2}, 이동: {currentPos.x:F2} → {newTargetX:F2}");
+                    StartCameraMoveX(newTargetX);
+                }
             }
         }
 
         // =====================================================
-        // Y축 (부드럽게 따라오기)
+        // Y축 (부드럽게 따라오기) - 최소 Y 제한 적용
         // =====================================================
         float targetY = player.position.y + yOffset;
         newPos.y = Mathf.Lerp(currentPos.y, targetY, Time.deltaTime * yFollowSpeed);
+
+        // 최소 Y 좌표 제한 적용
+        if (newPos.y < minY)
+        {
+            newPos.y = minY;
+        }
 
         // =====================================================
         // 최종 적용
@@ -128,7 +187,7 @@ private void LateUpdate()
         transform.position = newPos;
     }
 
-private void StartCameraMoveX(float targetX)
+    private void StartCameraMoveX(float targetX)
     {
         isMovingX = true;
         xMoveStartPos = transform.position.x;
