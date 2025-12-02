@@ -254,7 +254,7 @@ public class EnemySkinManager : MonoBehaviour
         {
             return "Dog";
         }
-        if (go.GetComponent<PigeonMovement>() != null)
+        if (go.GetComponent<PigeonController>() != null)
         {
             return "Pigeon";
         }

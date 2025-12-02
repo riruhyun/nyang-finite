@@ -101,27 +101,27 @@ public static class EnemySpawnHelper
       }
     }
 
-  // If positions provided, use them. Otherwise, scatter around owner.
-  int spawnCount = positions != null && positions.Length > 0
-    ? positions.Length
-    : (spawnDefinitions != null && spawnDefinitions.Length > 0 ? spawnDefinitions.Length : Mathf.Max(0, count));
-  for (int i = 0; i < spawnCount; i++)
-  {
-    Vector3 pos;
-    SpawnDefinition defForIndex = (spawnDefinitions != null && i < spawnDefinitions.Length) ? spawnDefinitions[i] : null;
-    if (positions != null && positions.Length > 0)
+    // If positions provided, use them. Otherwise, scatter around owner.
+    int spawnCount = positions != null && positions.Length > 0
+      ? positions.Length
+      : (spawnDefinitions != null && spawnDefinitions.Length > 0 ? spawnDefinitions.Length : Mathf.Max(0, count));
+    for (int i = 0; i < spawnCount; i++)
     {
-      pos = positions[i];
-    }
-    else if (defForIndex != null && defForIndex.useCustomPosition)
-    {
-      pos = defForIndex.spawnPosition;
-    }
-    else
-    {
-      // simple radial scatter near owner
-      var angle = (Mathf.PI * 2f) * (i / Mathf.Max(1f, (float)spawnCount));
-      var offset = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0f) * 1.5f;
+      Vector3 pos;
+      SpawnDefinition defForIndex = (spawnDefinitions != null && i < spawnDefinitions.Length) ? spawnDefinitions[i] : null;
+      if (positions != null && positions.Length > 0)
+      {
+        pos = positions[i];
+      }
+      else if (defForIndex != null && defForIndex.useCustomPosition)
+      {
+        pos = defForIndex.spawnPosition;
+      }
+      else
+      {
+        // simple radial scatter near owner
+        var angle = (Mathf.PI * 2f) * (i / Mathf.Max(1f, (float)spawnCount));
+        var offset = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0f) * 1.5f;
         pos = ownerForSharedEngine.transform.position + offset;
       }
 
@@ -221,15 +221,15 @@ public static class EnemySpawnHelper
       else if (canJumpDefault.HasValue)
       {
         client.canJump = canJumpDefault.Value;
-    }
+      }
 
-    // Apply spawn definition (stats + toast selection + skin)
-    if (spawnDefinitions != null && i < spawnDefinitions.Length)
-    {
-      ApplySpawnDefinition(go, spawnDefinitions[i]);
-    }
+      // Apply spawn definition (stats + toast selection + skin)
+      if (spawnDefinitions != null && i < spawnDefinitions.Length)
+      {
+        ApplySpawnDefinition(go, spawnDefinitions[i]);
+      }
 
-    spawned.Add(go);
+      spawned.Add(go);
     }
 
     // Optionally disable template prefabs/scene instances so only clones stay active.
@@ -281,17 +281,12 @@ public static class EnemySpawnHelper
         maxJumps = def.maxJumps
       });
     }
-    var pigeon = go.GetComponent<PigeonMovement>();
+    // PigeonController uses serialized fields directly, no ApplyConfig needed
+    var pigeon = go.GetComponent<PigeonController>();
     if (pigeon != null)
     {
-      pigeon.ApplyConfig(new IntelligentDogMovement.Config
-      {
-        moveSpeed = def.moveSpeed,
-        maxHealth = def.maxHealth,
-        attackDamage = def.attackDamage,
-        attackSpeed = def.attackSpeed,
-        maxJumps = def.maxJumps
-      });
+      // Pigeon configuration is done via SerializedFields in the prefab
+      // SetupSpawnPosition should be called by the spawner after instantiation
     }
 
     // Apply skin (if skinId > 1, use override animations)
