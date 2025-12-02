@@ -2113,22 +2113,29 @@ public void CancelAttackFromDash()
             aiPath.isStopped = true;
         }
 
+        // Keep rigidbody dynamic so dead enemy can fall if in air
+        // Only freeze horizontal movement to prevent sliding
         if (rb != null)
         {
-            rb.linearVelocity = Vector2.zero;
-            rb.bodyType = RigidbodyType2D.Kinematic;
-            rb.gravityScale = 0f;
-            rb.constraints = RigidbodyConstraints2D.FreezeAll; // fully stop
+            rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y); // Keep vertical velocity for falling
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
+            // gravityScale stays at 3 so it falls naturally
         }
 
-        // Disable all colliders to prevent further interaction
+        // Keep colliders enabled so dead enemies don't overlap
+        // Only disable trigger collider (BoxCollider2D for attack detection)
         var hoverTrigger = GetComponentInChildren<ToastHoverTrigger>(true);
         var hoverCollider = hoverTrigger != null ? hoverTrigger.GetComponent<Collider2D>() : null;
         var colliders = GetComponentsInChildren<Collider2D>();
         foreach (var col in colliders)
         {
             if (col == hoverCollider) continue; // keep toast hover collider alive for interaction
-            col.enabled = false;
+            // Only disable trigger colliders (attack detection)
+            if (col.isTrigger)
+            {
+                col.enabled = false;
+            }
+            // Keep non-trigger colliders (body collision) enabled to prevent overlap
         }
         if (hoverCollider != null)
         {

@@ -234,6 +234,19 @@ public class EnemySkinManager : MonoBehaviour
                 clip = Resources.Load<AnimationClip>(resourcePath);
             }
 
+            // Cat은 Attack 대신 Punch를 사용하므로, Attack 못 찾으면 Punch 시도
+            if (clip == null && animName == "Attack")
+            {
+                resourcePath = $"{folder}/Punch";
+                clip = Resources.Load<AnimationClip>(resourcePath);
+
+                if (clip == null)
+                {
+                    resourcePath = $"{folder}/Cat{skinId}_Punch";
+                    clip = Resources.Load<AnimationClip>(resourcePath);
+                }
+            }
+
             if (clip != null)
             {
                 clips[animName] = clip;
@@ -249,34 +262,35 @@ public class EnemySkinManager : MonoBehaviour
     /// </summary>
     private static string DetermineEnemyType(GameObject go)
     {
-        // Check for specific components
-        if (go.GetComponent<IntelligentDogMovement>() != null)
+        // 1. Sprite 이름으로 먼저 체크 (가장 정확함)
+        var sr = go.GetComponentInChildren<SpriteRenderer>();
+        if (sr != null && sr.sprite != null)
         {
-            return "Dog";
-        }
-        if (go.GetComponent<PigeonMovement>() != null)
-        {
-            return "Pigeon";
-        }
-        if (go.name.ToLower().Contains("cat"))
-        {
-            return "Cat";
+            string spriteName = sr.sprite.name.ToLower();
+            if (spriteName.Contains("cat")) return "Cat";
+            if (spriteName.Contains("dog")) return "Dog";
+            if (spriteName.Contains("pigeon")) return "Pigeon";
         }
 
-        // Fallback to name checking
+        // 2. GameObject 이름 체크
         string name = go.name.ToLower();
-        if (name.Contains("dog"))
+        if (name.Contains("cat")) return "Cat";
+        if (name.Contains("pigeon")) return "Pigeon";
+        if (name.Contains("dog")) return "Dog";
+
+        // 3. Animator Controller 이름 체크
+        var animator = go.GetComponent<Animator>();
+        if (animator != null && animator.runtimeAnimatorController != null)
         {
-            return "Dog";
+            string ctrlName = animator.runtimeAnimatorController.name.ToLower();
+            if (ctrlName.Contains("cat")) return "Cat";
+            if (ctrlName.Contains("dog")) return "Dog";
+            if (ctrlName.Contains("pigeon")) return "Pigeon";
         }
-        if (name.Contains("pigeon"))
-        {
-            return "Pigeon";
-        }
-        if (name.Contains("cat"))
-        {
-            return "Cat";
-        }
+
+        // 4. Component 체크 (마지막 fallback, Cat도 IntelligentDogMovement 사용하므로 가장 마지막에)
+        if (go.GetComponent<PigeonMovement>() != null) return "Pigeon";
+        if (go.GetComponent<IntelligentDogMovement>() != null) return "Dog";
 
         return null;
     }

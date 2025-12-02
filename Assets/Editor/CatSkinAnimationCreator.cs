@@ -73,7 +73,9 @@ public class CatSkinAnimationCreator
             return false;
         }
 
-        string originalPath = $"{BaseClipPath}/{animName}.anim";
+        // Cat은 Attack 대신 Punch를 사용 (원본 클립과 스프라이트 모두)
+        string baseAnimName = animName == "Attack" ? "Punch" : animName;
+        string originalPath = $"{BaseClipPath}/{baseAnimName}.anim";
         AnimationClip originalClip = AssetDatabase.LoadAssetAtPath<AnimationClip>(originalPath);
         if (originalClip == null)
         {
@@ -81,7 +83,7 @@ public class CatSkinAnimationCreator
             return false;
         }
 
-        string spriteFilePath = $"{BaseSpritePath}/cat{skinId}_{animName}.png";
+        string spriteFilePath = $"{BaseSpritePath}/cat{skinId}_{baseAnimName}.png";
         Object[] sprites = AssetDatabase.LoadAllAssetsAtPath(spriteFilePath);
         if (sprites == null || sprites.Length == 0)
         {

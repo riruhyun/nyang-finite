@@ -120,7 +120,12 @@ public class FoodHoverPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         canvas.worldCamera = Camera.main;
         canvas.sortingLayerName = sortingLayerName;
         canvas.sortingOrder = sortingOrder;
-        gameObject.AddComponent<GraphicRaycaster>();
+
+        // ★ GraphicRaycaster 설정 강화
+        var raycaster = gameObject.GetComponent<GraphicRaycaster>();
+        if (raycaster == null) raycaster = gameObject.AddComponent<GraphicRaycaster>();
+        raycaster.ignoreReversedGraphics = true;
+        raycaster.blockingObjects = GraphicRaycaster.BlockingObjects.None; // 다른 오브젝트에 의해 막히지 않음
 
         var scaler = gameObject.GetComponent<CanvasScaler>();
         if (scaler == null) scaler = gameObject.AddComponent<CanvasScaler>();
@@ -206,15 +211,15 @@ public class FoodHoverPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         effectText.color = new Color(0.15f, 0.3f, 0.15f);
         effectText.alignment = TextAlignmentOptions.Left;
 
-        // Action button
+        // Action button - 더 큰 크기로 클릭 영역 확대
         var buttonGO = new GameObject("EatButton", typeof(RectTransform), typeof(Image), typeof(Button));
         buttonGO.transform.SetParent(panelRect, false);
         var buttonRect = buttonGO.GetComponent<RectTransform>();
         buttonRect.anchorMin = new Vector2(0.5f, 0f);
         buttonRect.anchorMax = new Vector2(0.5f, 0f);
         buttonRect.pivot = new Vector2(0.5f, 0f);
-        buttonRect.sizeDelta = new Vector2(190f, 60f);
-        buttonRect.anchoredPosition = new Vector2(0f, 20f);
+        buttonRect.sizeDelta = new Vector2(240f, 80f); // 190→240, 60→80 (클릭 영역 확대)
+        buttonRect.anchoredPosition = new Vector2(0f, 15f);
 
         actionButtonImage = buttonGO.GetComponent<Image>();
         actionButton = buttonGO.GetComponent<Button>();
@@ -227,6 +232,8 @@ public class FoodHoverPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             Debug.Log($"[FoodHoverPanel] Button Image configured: raycastTarget={actionButtonImage.raycastTarget}, color={actionButtonImage.color}");
         }
 
+        // ★ 클릭 안정성 향상: Transition을 None으로 설정하여 애니메이션 간섭 제거
+        actionButton.transition = UnityEngine.UI.Selectable.Transition.None;
         actionButton.onClick.AddListener(OnEatClicked);
         actionButton.interactable = true;
 
@@ -381,7 +388,7 @@ public class FoodHoverPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             float a = Mathf.Lerp(start, targetAlpha, fadeDuration > 0f ? t / fadeDuration : 1f);
             canvasGroup.alpha = a;
             canvasGroup.blocksRaycasts = a > 0.05f;
-            canvasGroup.interactable = a > 0.95f;
+            canvasGroup.interactable = a > 0.3f; // 0.95 → 0.3 (더 빨리 클릭 가능)
 
             // Debug log every 5 frames during fade
             if (Time.frameCount % 5 == 0)
@@ -392,7 +399,7 @@ public class FoodHoverPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         }
         canvasGroup.alpha = targetAlpha;
         canvasGroup.blocksRaycasts = targetAlpha > 0.05f;
-        canvasGroup.interactable = targetAlpha > 0.95f;
+        canvasGroup.interactable = targetAlpha > 0.3f; // 0.95 → 0.3 (더 빨리 클릭 가능)
         Debug.Log($"[FoodHoverPanel] ★★★ FadeRoutine finished ★★★ Final alpha={canvasGroup.alpha}, blocksRaycasts={canvasGroup.blocksRaycasts}, interactable={canvasGroup.interactable}, buttonInteractable={actionButton?.interactable}, buttonActive={actionButton?.gameObject.activeInHierarchy}");
     }
 
