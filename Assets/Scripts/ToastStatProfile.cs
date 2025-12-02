@@ -34,6 +34,13 @@ public class ToastStatProfile : ScriptableObject
         Epic = 2
     }
 
+    public enum StatSelectionMode
+    {
+        All,            // 모든 스탯 적용
+        RandomCount,    // 전체에서 랜덤하게 N개 선택
+        GroupBased      // 그룹별로 하나씩 선택
+    }
+
     [Header("Identity")]
     public ToastIndicator.ToastType toastType = ToastIndicator.ToastType.Jam;
     public Rarity rarity = Rarity.Common;
@@ -45,47 +52,55 @@ public class ToastStatProfile : ScriptableObject
     public string description;
 
     [Header("Stat Selection")]
-    [Tooltip("true면 Stats 리스트에서 랜덤하게 선택합니다. false면 모든 Stats가 적용됩니다.")]
-    public bool randomSelectStats = false;
+    [Tooltip("스탯 선택 방식")]
+    public StatSelectionMode selectionMode = StatSelectionMode.All;
 
-    [Tooltip("랜덤 선택 시 적용할 최대 스탯 개수 (0이면 제한 없음)")]
+    [Tooltip("RandomCount 모드: 적용할 최대 스탯 개수 (0이면 제한 없음)")]
     [Min(0)]
     public int maxStatCount = 0;
 
-    public List<StatEntry> stats = new List<StatEntry>();
+    [Tooltip("스탯 그룹 리스트. All/RandomCount 모드에서는 각 그룹의 모든 항목이 후보가 됩니다. GroupBased 모드에서는 각 그룹에서 하나씩 랜덤 선택됩니다.")]
+    public List<StatGroup> statGroups = new List<StatGroup>();
 }
 
+/// <summary>
+/// 스탯 그룹 - 그룹 내에서 하나의 스탯이 랜덤 선택됨
+/// </summary>
 [System.Serializable]
-public class StatEntry
+public class StatGroup
 {
-    [Tooltip("능력치 타입 (드롭다운에서 선택)")]
+    [Tooltip("그룹 이름 (에디터 표시용)")]
+    public string groupName;
+
+    [Tooltip("이 그룹의 스탯들 (하나가 랜덤 선택됨)")]
+    public List<StatGroupEntry> entries = new List<StatGroupEntry>();
+}
+
+/// <summary>
+/// 그룹 내 개별 스탯 항목 (선택 확률 포함)
+/// </summary>
+[System.Serializable]
+public class StatGroupEntry
+{
+    [Tooltip("능력치 타입")]
     public StatType statType;
 
-    [FormerlySerializedAs("baseValue")]
-    [Tooltip("주요 변화량(증감). 감소는 음수로 입력.")]
+    [Tooltip("선택 확률 가중치 (같은 그룹 내 다른 항목과 비교)")]
+    public float weight = 1f;
+
+    [Tooltip("주요 변화량(증감)")]
     public float deltaValue;
 
-    [Tooltip("무작위 가감 범위(스폰마다 적용).")]
+    [Tooltip("무작위 가감 범위")]
     public Vector2 varianceRange;
 
     public List<BonusRoll> bonusRolls = new List<BonusRoll>();
 
-    [Tooltip("이 스탯이 등장할 최소 등급")]
-    public ToastStatProfile.Rarity minRarity = ToastStatProfile.Rarity.Common;
-
-    [Tooltip("이 스탯이 등장할 최대 등급")]
-    public ToastStatProfile.Rarity maxRarity = ToastStatProfile.Rarity.Epic;
-
-    [Tooltip("단위 표시 (예: m/s, %, 등)")]
+    [Tooltip("단위 표시")]
     public string unit;
 
-    [Tooltip("true면 +/− 기호를 붙여 증감량처럼 표기합니다.")]
+    [Tooltip("true면 +/− 기호 표시")]
     public bool showSign = true;
-
-    // 이전 버전과의 호환성을 위한 필드 (기존 데이터 마이그레이션용)
-    [HideInInspector]
-    [FormerlySerializedAs("name")]
-    public string oldName;
 }
 
 [System.Serializable]
