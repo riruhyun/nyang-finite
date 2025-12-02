@@ -7,7 +7,11 @@ using System.Collections.Generic;
 /// </summary>
 public class EnemySkinManager : MonoBehaviour
 {
-    private static Dictionary<string, AnimationClip> dog2ClipCache = new Dictionary<string, AnimationClip>();
+    private static readonly string[] SkinAnimationNames = { "Attack", "Death", "Idle", "Jump", "Walk" };
+    private static readonly Dictionary<int, Dictionary<string, AnimationClip>> dogClipCache =
+        new Dictionary<int, Dictionary<string, AnimationClip>>();
+    private static readonly Dictionary<int, Dictionary<string, AnimationClip>> catClipCache =
+        new Dictionary<int, Dictionary<string, AnimationClip>>();
 
     /// <summary>
     /// Apply skin to an enemy GameObject based on skin ID
@@ -37,18 +41,23 @@ public class EnemySkinManager : MonoBehaviour
             return;
         }
 
-        // For Dog with skinId 2, apply dog2 animations
-        if (enemyType == "Dog" && skinId == 2)
+        if (skinId <= 1) return;
+
+        switch (enemyType)
         {
-            ApplyDog2Skin(animator);
+            case "Dog":
+                ApplyDogSkin(animator, skinId);
+                break;
+            case "Cat":
+                ApplyCatSkin(animator, skinId);
+                break;
         }
-        // Future: Add more enemy types and skin IDs here
     }
 
     /// <summary>
-    /// Apply dog2 skin by overriding animation clips
+    /// Apply dog skin overrides (skinId >= 2).
     /// </summary>
-    private static void ApplyDog2Skin(Animator animator)
+    private static void ApplyDogSkin(Animator animator, int skinId)
     {
         // Get the original animator controller
         RuntimeAnimatorController originalController = animator.runtimeAnimatorController;
@@ -57,24 +66,23 @@ public class EnemySkinManager : MonoBehaviour
         if (originalController is AnimatorOverrideController)
         {
             AnimatorOverrideController existing = (AnimatorOverrideController)originalController;
-            if (existing.name.Contains("Dog2"))
+            if (existing.name.Contains($"Dog{skinId}_Override"))
             {
                 return; // Already applied
             }
         }
 
-        // Load dog2 animation clips from Resources
-        Dictionary<string, AnimationClip> dog2Clips = LoadDog2AnimationClips();
+        Dictionary<string, AnimationClip> dogClips = LoadDogAnimationClips(skinId);
 
-        if (dog2Clips.Count == 0)
+        if (dogClips.Count == 0)
         {
-            Debug.LogWarning("EnemySkinManager: No dog2 animation clips found in Resources/Animations/Dog2/");
+            Debug.LogWarning($"EnemySkinManager: No dog{skinId} animation clips found in Resources/Animations/Dog{skinId}/");
             return;
         }
 
         // Create new override controller
         AnimatorOverrideController overrideController = new AnimatorOverrideController(originalController);
-        overrideController.name = "Dog2_Override";
+        overrideController.name = $"Dog{skinId}_Override";
 
         // Get all animation clips from the original controller
         AnimationClip[] originalClips = originalController.animationClips;
@@ -86,11 +94,10 @@ public class EnemySkinManager : MonoBehaviour
         {
             string clipName = originalClip.name;
 
-            // Try to find matching dog2 clip
-            if (dog2Clips.ContainsKey(clipName))
+            if (dogClips.TryGetValue(clipName, out AnimationClip overrideClip))
             {
-                overrides.Add(new KeyValuePair<AnimationClip, AnimationClip>(originalClip, dog2Clips[clipName]));
-                Debug.Log($"EnemySkinManager: Overriding {clipName} with dog2 version");
+                overrides.Add(new KeyValuePair<AnimationClip, AnimationClip>(originalClip, overrideClip));
+                Debug.Log($"EnemySkinManager: Overriding {clipName} with dog{skinId} version");
             }
         }
 
@@ -99,7 +106,7 @@ public class EnemySkinManager : MonoBehaviour
             // Apply all overrides at once
             overrideController.ApplyOverrides(overrides);
             animator.runtimeAnimatorController = overrideController;
-            Debug.Log($"EnemySkinManager: Applied {overrides.Count} animation overrides for dog2 skin");
+            Debug.Log($"EnemySkinManager: Applied {overrides.Count} animation overrides for dog{skinId} skin");
         }
         else
         {
@@ -108,45 +115,129 @@ public class EnemySkinManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Load dog2 animation clips from Resources folder
-    /// Expected path: Resources/Animations/Dog2/
+    /// Apply cat skin overrides (skinId >= 2).
     /// </summary>
-    private static Dictionary<string, AnimationClip> LoadDog2AnimationClips()
+    private static void ApplyCatSkin(Animator animator, int skinId)
     {
+        RuntimeAnimatorController originalController = animator.runtimeAnimatorController;
+
+        if (originalController is AnimatorOverrideController existing && existing.name.Contains($"Cat{skinId}_Override"))
+        {
+            return;
+        }
+
+        Dictionary<string, AnimationClip> catClips = LoadCatAnimationClips(skinId);
+        if (catClips.Count == 0)
+        {
+            Debug.LogWarning($"EnemySkinManager: No cat{skinId} animation clips found in Resources/Animations/Cat{skinId}/");
+            return;
+        }
+
+        AnimatorOverrideController overrideController = new AnimatorOverrideController(originalController)
+        {
+            name = $"Cat{skinId}_Override"
+        };
+
+        AnimationClip[] originalClips = originalController.animationClips;
+        var overrides = new List<KeyValuePair<AnimationClip, AnimationClip>>();
+
+        foreach (AnimationClip originalClip in originalClips)
+        {
+            if (catClips.TryGetValue(originalClip.name, out AnimationClip overrideClip))
+            {
+                overrides.Add(new KeyValuePair<AnimationClip, AnimationClip>(originalClip, overrideClip));
+                Debug.Log($"EnemySkinManager: Overriding {originalClip.name} with cat{skinId} version");
+            }
+        }
+
+        if (overrides.Count > 0)
+        {
+            overrideController.ApplyOverrides(overrides);
+            animator.runtimeAnimatorController = overrideController;
+            Debug.Log($"EnemySkinManager: Applied {overrides.Count} animation overrides for cat{skinId} skin");
+        }
+        else
+        {
+            Debug.LogWarning("EnemySkinManager: No matching animation clips found to override (cat skin)");
+        }
+    }
+
+    /// <summary>
+    /// Load dog animation clips from Resources/Animations/Dog{skinId}/
+    /// </summary>
+    private static Dictionary<string, AnimationClip> LoadDogAnimationClips(int skinId)
+    {
+        if (!dogClipCache.TryGetValue(skinId, out Dictionary<string, AnimationClip> cache))
+        {
+            cache = new Dictionary<string, AnimationClip>();
+            dogClipCache[skinId] = cache;
+        }
+
         Dictionary<string, AnimationClip> clips = new Dictionary<string, AnimationClip>();
 
-        string[] animationNames = { "Attack", "Death", "Idle", "Jump", "Walk" };
-
-        foreach (string animName in animationNames)
+        foreach (string animName in SkinAnimationNames)
         {
-            // Check cache first
-            string cacheKey = $"Dog2_{animName}";
-            if (dog2ClipCache.ContainsKey(cacheKey))
+            if (cache.TryGetValue(animName, out AnimationClip cachedClip) && cachedClip != null)
             {
-                clips[animName] = dog2ClipCache[cacheKey];
+                clips[animName] = cachedClip;
                 continue;
             }
 
-            // Try loading from Resources
-            string resourcePath = $"Animations/Dog2/{animName}";
+            string folder = $"Animations/Dog{skinId}";
+            string resourcePath = $"{folder}/{animName}";
             AnimationClip clip = Resources.Load<AnimationClip>(resourcePath);
+
+            if (clip == null)
+            {
+                resourcePath = $"{folder}/Dog{skinId}_{animName}";
+                clip = Resources.Load<AnimationClip>(resourcePath);
+            }
 
             if (clip != null)
             {
                 clips[animName] = clip;
-                dog2ClipCache[cacheKey] = clip;
+                cache[animName] = clip;
             }
-            else
-            {
-                // Try alternative naming with Dog2_ prefix
-                resourcePath = $"Animations/Dog2/Dog2_{animName}";
-                clip = Resources.Load<AnimationClip>(resourcePath);
+        }
 
-                if (clip != null)
-                {
-                    clips[animName] = clip;
-                    dog2ClipCache[cacheKey] = clip;
-                }
+        return clips;
+    }
+
+    /// <summary>
+    /// Load cat animation clips from Resources/Animations/Cat{skinId}/
+    /// </summary>
+    private static Dictionary<string, AnimationClip> LoadCatAnimationClips(int skinId)
+    {
+        if (!catClipCache.TryGetValue(skinId, out Dictionary<string, AnimationClip> cache))
+        {
+            cache = new Dictionary<string, AnimationClip>();
+            catClipCache[skinId] = cache;
+        }
+
+        Dictionary<string, AnimationClip> clips = new Dictionary<string, AnimationClip>();
+
+        foreach (string animName in SkinAnimationNames)
+        {
+            if (cache.TryGetValue(animName, out AnimationClip cachedClip) && cachedClip != null)
+            {
+                clips[animName] = cachedClip;
+                continue;
+            }
+
+            string folder = $"Animations/Cat{skinId}";
+            string resourcePath = $"{folder}/{animName}";
+            AnimationClip clip = Resources.Load<AnimationClip>(resourcePath);
+
+            if (clip == null)
+            {
+                resourcePath = $"{folder}/Cat{skinId}_{animName}";
+                clip = Resources.Load<AnimationClip>(resourcePath);
+            }
+
+            if (clip != null)
+            {
+                clips[animName] = clip;
+                cache[animName] = clip;
             }
         }
 
@@ -167,6 +258,10 @@ public class EnemySkinManager : MonoBehaviour
         {
             return "Pigeon";
         }
+        if (go.name.ToLower().Contains("cat"))
+        {
+            return "Cat";
+        }
 
         // Fallback to name checking
         string name = go.name.ToLower();
@@ -177,6 +272,10 @@ public class EnemySkinManager : MonoBehaviour
         if (name.Contains("pigeon"))
         {
             return "Pigeon";
+        }
+        if (name.Contains("cat"))
+        {
+            return "Cat";
         }
 
         return null;

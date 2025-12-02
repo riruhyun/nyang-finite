@@ -11,15 +11,16 @@ public static class EnemySpawnHelper
   {
     Dog,
     Pigeon,
-    LegacyPigeon // Use legacy/alternate AI for pigeon
+    Cat
   }
 
   /// <summary>
   /// Spawns enemies with a shared tracking engine.
   /// </summary>
   /// <param name="ownerForSharedEngine">GameObject that will host the shared engine (one instance).</param>
-  /// <param name="dogPrefab">Prefab for Dog enemy (can be reused for LegacyPigeon if desired).</param>
+  /// <param name="dogPrefab">Prefab for Dog enemy.</param>
   /// <param name="pigeonPrefab">Prefab for Pigeon enemy (optional if using legacy as pigeon).</param>
+  /// <param name="catPrefab">Prefab for Cat enemy.</param>
   /// <param name="count">Number of clones to spawn (positions array takes precedence if provided).</param>
   /// <param name="positions">Optional exact spawn positions; when provided, length determines count.</param>
   /// <param name="enemyKind">Which enemy type to spawn.</param>
@@ -51,7 +52,8 @@ public static class EnemySpawnHelper
     string enemyToastSortingLayer = "",
     int enemyToastSortingOrder = 0,
     bool disableTemplateAfterSpawn = true,
-    SpawnDefinition[] spawnDefinitions = null
+    SpawnDefinition[] spawnDefinitions = null,
+    GameObject catPrefab = null
   )
   {
     if (ownerForSharedEngine == null)
@@ -88,12 +90,16 @@ public static class EnemySpawnHelper
       {
         pigeonPrefab.SetActive(false);
       }
-    if (enemyToastPrefab != null && enemyToastPrefab.scene.IsValid())
-    {
-      enemyToastPrefab.SetActive(false);
-      Object.Destroy(enemyToastPrefab);
+      if (catPrefab != null && catPrefab.scene.IsValid())
+      {
+        catPrefab.SetActive(false);
+      }
+      if (enemyToastPrefab != null && enemyToastPrefab.scene.IsValid())
+      {
+        enemyToastPrefab.SetActive(false);
+        Object.Destroy(enemyToastPrefab);
+      }
     }
-  }
 
   // If positions provided, use them. Otherwise, scatter around owner.
   int spawnCount = positions != null && positions.Length > 0
@@ -120,9 +126,18 @@ public static class EnemySpawnHelper
       }
 
       // Determine kind and prefab per clone
-      var k = (kindsByIndex != null && i < kindsByIndex.Length) ? kindsByIndex[i] : enemyKind;
+      EnemyKind effectiveKind = enemyKind;
+      if (kindsByIndex != null && i < kindsByIndex.Length)
+      {
+        effectiveKind = kindsByIndex[i];
+      }
+      else if (defForIndex != null)
+      {
+        effectiveKind = defForIndex.enemyKind;
+      }
+
       GameObject prefabForClone = dogPrefab;
-      switch (k)
+      switch (effectiveKind)
       {
         case EnemyKind.Dog:
           prefabForClone = dogPrefab;
@@ -130,8 +145,8 @@ public static class EnemySpawnHelper
         case EnemyKind.Pigeon:
           prefabForClone = (useLegacyAsPigeonAI || pigeonPrefab == null) ? dogPrefab : pigeonPrefab;
           break;
-        case EnemyKind.LegacyPigeon:
-          prefabForClone = dogPrefab; // explicitly reuse dog as legacy pigeon
+        case EnemyKind.Cat:
+          prefabForClone = catPrefab != null ? catPrefab : dogPrefab;
           break;
       }
 
@@ -228,6 +243,10 @@ public static class EnemySpawnHelper
       {
         pigeonPrefab.SetActive(false);
       }
+      if (catPrefab != null && catPrefab.scene.IsValid() && catPrefab.activeInHierarchy)
+      {
+        catPrefab.SetActive(false);
+      }
       if (enemyToastPrefab != null && enemyToastPrefab.scene.IsValid() && enemyToastPrefab.activeInHierarchy)
       {
         enemyToastPrefab.SetActive(false);
@@ -276,9 +295,10 @@ public static class EnemySpawnHelper
     }
 
     // Apply skin (if skinId > 1, use override animations)
-    if (def.skinId > 1)
+    int normalizedSkinId = NormalizeSkinId(def.enemyKind, def.skinId);
+    if (normalizedSkinId > 1)
     {
-      EnemySkinManager.ApplySkin(go, def.skinId);
+      EnemySkinManager.ApplySkin(go, normalizedSkinId);
     }
 
     // Toast selection
@@ -297,6 +317,20 @@ public static class EnemySpawnHelper
           indicator.SetToast(profile.toastType);
         }
       }
+    }
+  }
+
+  private static int NormalizeSkinId(EnemyKind kind, int requested)
+  {
+    if (requested <= 1) return 1;
+    switch (kind)
+    {
+      case EnemyKind.Dog:
+        return Mathf.Clamp(requested, 1, 4);
+      case EnemyKind.Cat:
+        return Mathf.Clamp(requested, 1, 3);
+      default:
+        return 1;
     }
   }
 

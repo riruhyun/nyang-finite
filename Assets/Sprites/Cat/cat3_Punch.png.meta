@@ -1,28 +1,28 @@
 fileFormatVersion: 2
-guid: 499f86093dd904046a4aadfe9d85e6b5
+guid: 2fbd48eb2e167144d8810993ad6e4b04
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8479340529352534750
-    second: cat3_Punch_0
+      213: -4335222134116007343
+    second: Punch_0
   - first:
-      213: -4335320019218966538
-    second: cat3_Punch_1
+      213: -5313627634084164227
+    second: Punch_1
   - first:
-      213: -4203565127930523518
-    second: cat3_Punch_2
+      213: 3163940477569658373
+    second: Punch_2
   - first:
-      213: -453244534299034736
-    second: cat3_Punch_3
+      213: -7795563826625877672
+    second: Punch_3
   - first:
-      213: -3200042951970505837
-    second: cat3_Punch_4
+      213: 6766305641077335316
+    second: Punch_4
   - first:
-      213: -4820274918037762064
-    second: cat3_Punch_5
+      213: 4705998927709936230
+    second: Punch_5
   - first:
-      213: 4967285181498145620
-    second: cat3_Punch_6
+      213: 3661561310044129345
+    second: Punch_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -131,7 +131,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cat3_Punch_0
+      name: Punch_0
       rect:
         serializedVersion: 2
         x: 1
@@ -146,20 +146,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2259e5ac6b4535a80800000000000000
-      internalID: -8479340529352534750
+      spriteID: 152ca91207236d3c0800000000000000
+      internalID: -4335222134116007343
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat3_Punch_1
+      name: Punch_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 33
         y: 5
-        width: 26
-        height: 21
+        width: 25
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +168,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6f750da7969d5d3c0800000000000000
-      internalID: -4335320019218966538
+      spriteID: d7dc6b1d1d33246b0800000000000000
+      internalID: -5313627634084164227
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat3_Punch_2
+      name: Punch_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 65
         y: 5
-        width: 26
-        height: 21
+        width: 25
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,20 +190,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2805b7f99cfe9a5c0800000000000000
-      internalID: -4203565127930523518
+      spriteID: 50ee400e91398eb20800000000000000
+      internalID: 3163940477569658373
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat3_Punch_3
+      name: Punch_3
       rect:
         serializedVersion: 2
         x: 96
         y: 5
         width: 27
-        height: 21
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,20 +212,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 09bf7b85f70c5b9f0800000000000000
-      internalID: -453244534299034736
+      spriteID: 859641a900890d390800000000000000
+      internalID: -7795563826625877672
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat3_Punch_4
+      name: Punch_4
       rect:
         serializedVersion: 2
         x: 128
         y: 5
         width: 27
-        height: 21
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,20 +234,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 39b3ec5c3e92793d0800000000000000
-      internalID: -3200042951970505837
+      spriteID: 415e222912fb6ed50800000000000000
+      internalID: 6766305641077335316
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat3_Punch_5
+      name: Punch_5
       rect:
         serializedVersion: 2
-        x: 162
+        x: 157
         y: 5
-        width: 27
-        height: 20
+        width: 32
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,20 +256,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0ff42ae3081fa1db0800000000000000
-      internalID: -4820274918037762064
+      spriteID: 66a158f57111f4140800000000000000
+      internalID: 4705998927709936230
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat3_Punch_6
+      name: Punch_6
       rect:
         serializedVersion: 2
         x: 193
         y: 5
         width: 25
-        height: 20
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,8 +278,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 45b32450e875fe440800000000000000
-      internalID: 4967285181498145620
+      spriteID: 1488e789c9a70d230800000000000000
+      internalID: 3661561310044129345
       vertices: []
       indices: 
       edges: []
@@ -288,7 +288,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: cc74adbdfa8bb2144b27c9f7da4fbf8c
+    spriteID: 41d14d73e3a8fd64b9f3deb58520b0a9
     internalID: 0
     vertices: []
     indices: 
@@ -298,13 +298,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      cat3_Punch_0: -8479340529352534750
-      cat3_Punch_1: -4335320019218966538
-      cat3_Punch_2: -4203565127930523518
-      cat3_Punch_3: -453244534299034736
-      cat3_Punch_4: -3200042951970505837
-      cat3_Punch_5: -4820274918037762064
-      cat3_Punch_6: 4967285181498145620
+      Punch_0: -4335222134116007343
+      Punch_1: -5313627634084164227
+      Punch_2: 3163940477569658373
+      Punch_3: -7795563826625877672
+      Punch_4: 6766305641077335316
+      Punch_5: 4705998927709936230
+      Punch_6: 3661561310044129345
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -19,7 +19,7 @@ MonoBehaviour:
   font: {fileID: 12800000, guid: ab3e3faa0d319124a82abdc929ddc467, type: 3}
   description: 
   stats:
-  - name: Jump
+  - statType: 1
     deltaValue: 1
     varianceRange: {x: 0, y: 0}
     bonusRolls:
@@ -31,3 +31,4 @@ MonoBehaviour:
     maxRarity: 0
     unit: 
     showSign: 1
+    oldName: Jump

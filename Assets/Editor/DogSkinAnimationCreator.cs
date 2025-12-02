@@ -8,36 +8,32 @@ using System.IO;
 /// </summary>
 public class DogSkinAnimationCreator
 {
+    private const string BaseClipPath = "Assets/Animations/Dog";
+    private const string BaseSpritePath = "Assets/Sprites/Dog";
+    private static readonly string[] AnimationNames = { "Attack", "Death", "Idle", "Jump", "Walk" };
+
     [MenuItem("Assets/Create Dog2 Animations")]
-    public static void CreateDog2Animations()
+    public static void CreateDog2Animations() => CreateDogAnimations(2);
+
+    [MenuItem("Assets/Create Dog3 Animations")]
+    public static void CreateDog3Animations() => CreateDogAnimations(3);
+
+    [MenuItem("Assets/Create Dog4 Animations")]
+    public static void CreateDog4Animations() => CreateDogAnimations(4);
+
+    private static void CreateDogAnimations(int skinId)
     {
-        string basePath = "Assets/Animations/Dog";
-        string spritePath = "Assets/Sprites/Dog";
-        string resourcesPath = "Assets/Resources/Animations/Dog2";
+        string folderName = $"Dog{skinId}";
+        string resourcesPath = $"Assets/Resources/Animations/{folderName}";
 
-        // Ensure Resources folder structure exists
-        if (!AssetDatabase.IsValidFolder("Assets/Resources"))
-        {
-            AssetDatabase.CreateFolder("Assets", "Resources");
-        }
-        if (!AssetDatabase.IsValidFolder("Assets/Resources/Animations"))
-        {
-            AssetDatabase.CreateFolder("Assets/Resources", "Animations");
-        }
-        if (!AssetDatabase.IsValidFolder(resourcesPath))
-        {
-            AssetDatabase.CreateFolder("Assets/Resources/Animations", "Dog2");
-        }
-
-        // Animation clip names and their corresponding sprite files
-        string[] animationNames = { "Attack", "Death", "Idle", "Jump", "Walk" };
+        EnsureFolder(resourcesPath, folderName);
 
         int created = 0;
         int skipped = 0;
 
-        foreach (string animName in animationNames)
+        foreach (string animName in AnimationNames)
         {
-            if (CreateAnimationClip(animName, basePath, spritePath, resourcesPath))
+            if (CreateAnimationClip(animName, skinId, resourcesPath))
             {
                 created++;
             }
@@ -50,13 +46,29 @@ public class DogSkinAnimationCreator
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
 
-        Debug.Log($"Dog2 animations: {created} created, {skipped} skipped. Saved to {resourcesPath}");
-        EditorUtility.DisplayDialog("Dog2 Animations",
+        Debug.Log($"{folderName} animations: {created} created, {skipped} skipped. Saved to {resourcesPath}");
+        EditorUtility.DisplayDialog($"{folderName} Animations",
             $"Created {created} animations\nSkipped {skipped} animations\n\nSaved to: {resourcesPath}",
             "OK");
     }
 
-    private static bool CreateAnimationClip(string animName, string basePath, string spritePath, string outputPath)
+    private static void EnsureFolder(string fullPath, string folderName)
+    {
+        if (!AssetDatabase.IsValidFolder("Assets/Resources"))
+        {
+            AssetDatabase.CreateFolder("Assets", "Resources");
+        }
+        if (!AssetDatabase.IsValidFolder("Assets/Resources/Animations"))
+        {
+            AssetDatabase.CreateFolder("Assets/Resources", "Animations");
+        }
+        if (!AssetDatabase.IsValidFolder(fullPath))
+        {
+            AssetDatabase.CreateFolder("Assets/Resources/Animations", folderName);
+        }
+    }
+
+    private static bool CreateAnimationClip(string animName, int skinId, string outputPath)
     {
         // Check if output already exists
         string outputFilePath = $"{outputPath}/{animName}.anim";
@@ -67,7 +79,7 @@ public class DogSkinAnimationCreator
         }
 
         // Load original animation clip
-        string originalPath = $"{basePath}/{animName}.anim";
+        string originalPath = $"{BaseClipPath}/{animName}.anim";
         AnimationClip originalClip = AssetDatabase.LoadAssetAtPath<AnimationClip>(originalPath);
 
         if (originalClip == null)
@@ -76,13 +88,12 @@ public class DogSkinAnimationCreator
             return false;
         }
 
-        // Load dog2 sprites
-        string dog2SpritePath = $"{spritePath}/dog2_{animName}.png";
-        Object[] sprites = AssetDatabase.LoadAllAssetsAtPath(dog2SpritePath);
+        string spriteFilePath = $"{BaseSpritePath}/dog{skinId}_{animName}.png";
+        Object[] sprites = AssetDatabase.LoadAllAssetsAtPath(spriteFilePath);
 
         if (sprites == null || sprites.Length == 0)
         {
-            Debug.LogError($"Dog2 sprites not found: {dog2SpritePath}");
+            Debug.LogError($"Dog{skinId} sprites not found: {spriteFilePath}");
             return false;
         }
 
@@ -94,7 +105,7 @@ public class DogSkinAnimationCreator
 
         if (spriteFrames.Length == 0)
         {
-            Debug.LogError($"No sprite frames found in: {dog2SpritePath}");
+            Debug.LogError($"No sprite frames found in: {spriteFilePath}");
             return false;
         }
 

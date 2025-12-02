@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 4a802484b35ad23418e09b87a949b97f
+guid: da4032b5bbfbeee41815c592555cd5f0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6526412254982059793
-    second: cat2_Death_0
+      213: 6991849013916550155
+    second: Death_0
   - first:
-      213: 7761959425550960416
-    second: cat2_Death_1
+      213: -276728812324164698
+    second: Death_1
   - first:
-      213: -8855087997603006142
-    second: cat2_Death_2
+      213: 3156895337291164288
+    second: Death_2
   - first:
-      213: 6988790806127967207
-    second: cat2_Death_3
+      213: 1400002288684528572
+    second: Death_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,7 +122,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cat2_Death_0
+      name: Death_0
       rect:
         serializedVersion: 2
         x: 4
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fe8c90ce1a68d65a0800000000000000
-      internalID: -6526412254982059793
+      spriteID: b0449ad32a9080160800000000000000
+      internalID: 6991849013916550155
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat2_Death_1
+      name: Death_1
       rect:
         serializedVersion: 2
-        x: 56
+        x: 43
         y: 0
-        width: 29
-        height: 17
+        width: 43
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,52 +159,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 027c5f019f408bb60800000000000000
-      internalID: 7761959425550960416
+      spriteID: 6ab6d428c9cd82cf0800000000000000
+      internalID: -276728812324164698
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat2_Death_2
+      name: Death_2
       rect:
         serializedVersion: 2
-        x: 105
+        x: 98
         y: 0
-        width: 33
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 41
+        height: 22
+      alignment: 9
+      pivot: {x: 0.31828144, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2493c08e1686c1580800000000000000
-      internalID: -8855087997603006142
+      spriteID: 08aa354559b8fcb20800000000000000
+      internalID: 3156895337291164288
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cat2_Death_3
+      name: Death_3
       rect:
         serializedVersion: 2
-        x: 153
+        x: 149
         y: 0
-        width: 33
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 38
+        height: 22
+      alignment: 9
+      pivot: {x: 0.23839112, y: 0.5038896}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7ebf5c0c53c2df060800000000000000
-      internalID: 6988790806127967207
+      spriteID: cb376cdf9aecd6310800000000000000
+      internalID: 1400002288684528572
       vertices: []
       indices: 
       edges: []
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4f582e8eeec4e844993dc96347d6d8ae
+    spriteID: 70389cb7e399cb94eb273a7339dd589f
     internalID: 0
     vertices: []
     indices: 
@@ -223,10 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      cat2_Death_0: -6526412254982059793
-      cat2_Death_1: 7761959425550960416
-      cat2_Death_2: -8855087997603006142
-      cat2_Death_3: 6988790806127967207
+      Death_0: 6991849013916550155
+      Death_1: -276728812324164698
+      Death_2: 3156895337291164288
+      Death_3: 1400002288684528572
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

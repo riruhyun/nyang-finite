@@ -14,6 +14,9 @@ public class EnemySpawner : MonoBehaviour
   [Tooltip("Pigeon enemy prefab (optional if using legacy as pigeon)")]
   public GameObject pigeonPrefab;
 
+  [Tooltip("Cat enemy prefab (optional)")]
+  public GameObject catPrefab;
+
   [Tooltip("Optional parent Transform for spawned enemies")]
   public Transform spawnParent;
 
@@ -141,10 +144,11 @@ public class EnemySpawner : MonoBehaviour
       }
     }
 
-    EnemySpawnHelper.SpawnEnemies(
+EnemySpawnHelper.SpawnEnemies(
       ownerForSharedEngine: this.gameObject,
       dogPrefab: runtimeDogPrefab,
       pigeonPrefab: pigeonPrefab,
+      catPrefab: catPrefab,
       count: positions.Length,
       positions: positions,
       enemyKind: enemyKind,
@@ -207,6 +211,7 @@ public class EnemySpawner : MonoBehaviour
       ownerForSharedEngine: this.gameObject,
       dogPrefab: runtimeDogPrefab,
       pigeonPrefab: pigeonPrefab,
+      catPrefab: catPrefab,
       count: defCount,
       positions: origins, // null이면 SpawnDefinition.useCustomPosition 또는 헬퍼 산개 로직 사용
       enemyKind: EnemySpawnHelper.EnemyKind.Dog,

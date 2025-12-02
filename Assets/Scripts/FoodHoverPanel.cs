@@ -66,16 +66,7 @@ public class FoodHoverPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         sortingLayerName = layerName;
         sortingOrder = order;
 
-        // ★ CRITICAL: Verify EventSystem exists
-        var eventSystem = UnityEngine.EventSystems.EventSystem.current;
-        if (eventSystem == null)
-        {
-            Debug.LogError("[FoodHoverPanel] ★★★ NO EVENTSYSTEM FOUND! UI buttons will NOT work! ★★★");
-        }
-        else
-        {
-            Debug.Log($"[FoodHoverPanel] EventSystem found: {eventSystem.name}");
-        }
+        EnsureEventSystem();
 
         Debug.Log($"[FoodHoverPanel] Show called. currentAlpha={canvasGroup?.alpha}");
         BuildUIIfNeeded();
@@ -403,6 +394,25 @@ public class FoodHoverPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         canvasGroup.blocksRaycasts = targetAlpha > 0.05f;
         canvasGroup.interactable = targetAlpha > 0.95f;
         Debug.Log($"[FoodHoverPanel] ★★★ FadeRoutine finished ★★★ Final alpha={canvasGroup.alpha}, blocksRaycasts={canvasGroup.blocksRaycasts}, interactable={canvasGroup.interactable}, buttonInteractable={actionButton?.interactable}, buttonActive={actionButton?.gameObject.activeInHierarchy}");
+    }
+
+    private void EnsureEventSystem()
+    {
+        var eventSystem = EventSystem.current;
+        if (eventSystem != null)
+        {
+            Debug.Log($"[FoodHoverPanel] EventSystem found: {eventSystem.name}");
+            return;
+        }
+
+        var go = new GameObject("EventSystem");
+        eventSystem = go.AddComponent<EventSystem>();
+#if ENABLE_INPUT_SYSTEM && !ENABLE_LEGACY_INPUT_MANAGER
+        go.AddComponent<UnityEngine.InputSystem.UI.InputSystemUIInputModule>();
+#else
+        go.AddComponent<StandaloneInputModule>();
+#endif
+        Debug.Log("[FoodHoverPanel] ★★★ EventSystem was missing; created default EventSystem for Food UI ★★★");
     }
 }
 

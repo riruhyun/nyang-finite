@@ -27,10 +27,11 @@ public class PlayerController : MonoBehaviour
     private float lastDamageTime = -10f; // 마�?�??��?지�?받�? ?�간
 
     [Header("Movement Settings")]
-    public float jumpForce = 650f;
+    public float jumpForce = 35f;
     private float baseJumpForce;
     public float moveSpeed = 5f;
     private float baseMoveSpeed;
+    [SerializeField] private float jumpHoldForcePerSecond = 1300f; // 추가 점프 힘 (1초 기준)
 
     [Header("Toast Stat Modifiers")]
     private float currentDefense = 0f;         // defense: 받는 피해 감소
@@ -120,6 +121,7 @@ public class PlayerController : MonoBehaviour
 
     // ?�프 grace time (?�프 직후 착�? 감�? 무시)
     private float jumpGraceTime = 0.1f;
+    [SerializeField] private float jumpCooldown = 0.25f;
     private float lastJumpTime = -1f;
 
     // ?�니메이???�태 관�?
@@ -128,6 +130,7 @@ public class PlayerController : MonoBehaviour
     private float animationTransitionDelay = 0.1f;
     private float lastAnimationChangeTime = 0f;
     private float pendingJumpResumeNormalizedTime = -1f;
+    private bool useLegacyJumpForceScaling = false;
 
     // Dash 상태 관리
     private bool isDashing = false;
@@ -182,6 +185,7 @@ public class PlayerController : MonoBehaviour
     private static readonly int JumpHash = Animator.StringToHash("Jump");
     private static readonly int DieHash = Animator.StringToHash("Die");
     private static readonly int DashHash = Animator.StringToHash("Dash");
+    private const float LegacyJumpForceThreshold = 100f;
 
     private void Start()
     {
@@ -202,8 +206,13 @@ public class PlayerController : MonoBehaviour
         {
             playerBaseColor = playerSprite.color;
         }
+        useLegacyJumpForceScaling = jumpForce >= LegacyJumpForceThreshold;
         baseMoveSpeed = moveSpeed;
         baseJumpForce = jumpForce;
+        if (useLegacyJumpForceScaling)
+        {
+            Debug.Log($"[JUMP] Legacy jumpForce detected ({jumpForce}). Using fixedDeltaTime scaling. Set jumpForce below {LegacyJumpForceThreshold} to switch to impulse units.");
+        }
         CacheScratchClip();
         CachePunchClip();
 
@@ -412,19 +421,25 @@ public class PlayerController : MonoBehaviour
             bool isFallingFromCliff = playerRigidbody.linearVelocity.y < -0.1f && IsOnFlatGround();
 
             bool canJump = (isGrounded || slopeGround) && !isFallingFromCliff;
+            bool jumpOffCooldown = lastJumpTime < 0f || (Time.time - lastJumpTime) >= jumpCooldown;
 
-            Debug.Log($"[JUMP INPUT] W! grounded={isGrounded}, onSlope={slopeGround}, velY={playerRigidbody.linearVelocity.y:F2}, canJump={canJump}");
+            Debug.Log($"[JUMP INPUT] W! grounded={isGrounded}, onSlope={slopeGround}, velY={playerRigidbody.linearVelocity.y:F2}, canJump={canJump}, offCooldown={jumpOffCooldown}");
 
-            if (canJump)
+            if (canJump && jumpOffCooldown)
             {
                 accumulatedJumpForce = 0f; // 점프 시작 시 초기화
                 PerformJump();
+            }
+            else if (canJump && !jumpOffCooldown)
+            {
+                float wait = Mathf.Max(0f, jumpCooldown - (Time.time - lastJumpTime));
+                Debug.Log($"[JUMP INPUT] Jump cooldown active ({wait:F2}s remaining)");
             }
         }
         else if (Input.GetKey(KeyCode.W) && !isGrounded && playerRigidbody.linearVelocity.y > 0)
         {
             // 점프 키를 누르고 있는 동안 추가 힘 적용 (스태미나 소모)
-            float forceToAdd = jumpForce * Time.deltaTime * 2f; // 초당 jumpForce * 2만큼 추가
+            float forceToAdd = jumpHoldForcePerSecond * Time.deltaTime; // 1초 동안 jumpHoldForcePerSecond 만큼 추가
             accumulatedJumpForce += forceToAdd;
 
             // 200 단위마다 스태미나 1 소모
@@ -589,6 +604,16 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    private float CalculateJumpImpulse()
+    {
+        float legacyImpulse = jumpForce;
+        if (useLegacyJumpForceScaling)
+        {
+            legacyImpulse = jumpForce * Time.fixedDeltaTime;
+        }
+        return Mathf.Max(0.01f, legacyImpulse);
+    }
+
     private void PerformJump()
     {
         // 스태미나가 1 이상이어야 점프 가능
@@ -603,7 +628,8 @@ public class PlayerController : MonoBehaviour
         accumulatedJumpForce = 0f; // 점프 시작 시 초기화
 
         playerRigidbody.linearVelocity = new Vector2(playerRigidbody.linearVelocity.x, 0);
-        playerRigidbody.AddForce(new Vector2(0, jumpForce));
+        float jumpImpulse = CalculateJumpImpulse();
+        playerRigidbody.AddForce(new Vector2(0, jumpImpulse), ForceMode2D.Impulse);
 
         if (playerAudio != null)
         {
@@ -1097,7 +1123,7 @@ public class PlayerController : MonoBehaviour
                         moveSpeed += s.value;
                         break;
                     case StatType.Jump:
-                        jumpForce += s.value * 15f; // Jump +1 당 15씩 가산 (기본 650 기준)
+                        jumpForce += s.value;
                         break;
                     case StatType.StaminaRegen:
                         currentStaminaRegen += s.value;
@@ -1355,7 +1381,7 @@ public class PlayerController : MonoBehaviour
         if (body == null) return;
         var v = body.linearVelocity;
         body.linearVelocity = new Vector2(v.x, 0);
-        body.AddForce(new Vector2(0, jumpForce));
+        body.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
     }
 
     private void CacheScratchClip()

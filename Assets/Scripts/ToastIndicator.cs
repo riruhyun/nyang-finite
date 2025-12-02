@@ -44,12 +44,6 @@ public class ToastIndicator : MonoBehaviour
 
         transform.localPosition = localOffset;
         ApplyToast(initialToast);
-
-        // Initially hide the sprite renderer - ToastHoverTrigger will show it when needed
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.enabled = false;
-        }
     }
 
     private void LateUpdate()

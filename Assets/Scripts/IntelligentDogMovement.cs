@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 using Pathfinding;
 
@@ -2035,6 +2035,9 @@ public class IntelligentDogMovement : Enemy
             return;
         }
 
+        // Any non-lethal hit should interrupt an ongoing attack and start cooldown.
+        InterruptAttack("damaged");
+
         // Apply knockback from player attacks
         ApplyKnockback(knockbackDirection);
     }
@@ -2042,20 +2045,34 @@ public class IntelligentDogMovement : Enemy
     /// <summary>
     /// Dash 공격에 맞았을 때 공격 취소 및 쿨타임 초기화
     /// </summary>
-    public void CancelAttackFromDash()
+public void CancelAttackFromDash()
+    {
+        InterruptAttack("dash hit");
+    }
+
+/// <summary>
+    /// Interrupt current attack and force cooldown.
+    /// </summary>
+    public void InterruptAttack(string reason = "")
     {
         isAttacking = false;
-        lastAttackTime = Time.time; // 쿨타임 다시 시작
-        Debug.Log($"[DOG] Dash에 맞아 공격 취소! 쿨타임 재시작");
+        attackAnimationTimer = 0f;
+        attackHitAttempted = false;
+        attackDamageApplied = false;
+        lastAttackTime = Time.time; // reset cooldown
+        if (debugDog)
+        {
+            Debug.Log($"[DOG] Attack interrupted ({reason})");
+        }
 
         // 애니메이터 상태 초기화
         if (animator != null)
         {
             animator.SetBool("Attack", false);
+            animator.SetBool("IsAttacking", false);
         }
-
-        // Player ?ㅽ겕?섏튂 ?깆뿉 ?섑븳 ?됰갚? 鍮꾪솢?깊솕
     }
+
 
     protected override void Die()
     {
