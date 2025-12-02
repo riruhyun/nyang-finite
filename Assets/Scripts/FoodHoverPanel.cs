@@ -31,6 +31,8 @@ public class FoodHoverPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     private Button actionButton;
     private Image actionButtonImage;
 
+    private static FoodHoverPanel activePanel;
+
     private Transform target;
     private Vector2 worldOffset;
     private float uiScale = 0.01f;
@@ -76,6 +78,11 @@ public class FoodHoverPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         // 상태 리셋
         foodHover = true;
         pointerInside = false;
+        if (activePanel != null && activePanel != this)
+        {
+            activePanel.Hide();
+        }
+        activePanel = this;
 
         Debug.Log($"[FoodHoverPanel] Calling FadeTo(1f)");
         FadeTo(1f);
@@ -85,6 +92,10 @@ public class FoodHoverPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         Debug.Log($"[FoodHoverPanel] Hide called. foodHover={foodHover}, pointerInside={pointerInside}, consumed={consumed}");
         foodHover = false;
+        if (activePanel == this)
+        {
+            activePanel = null;
+        }
         if (!consumed)
         {
             Debug.Log($"[FoodHoverPanel] Calling FadeTo(0f)");
@@ -420,6 +431,15 @@ public class FoodHoverPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         go.AddComponent<StandaloneInputModule>();
 #endif
         Debug.Log("[FoodHoverPanel] ★★★ EventSystem was missing; created default EventSystem for Food UI ★★★");
+    }
+    public static void HideActivePanel()
+    {
+        if (activePanel != null)
+        {
+            var panel = activePanel;
+            activePanel = null;
+            panel.Hide();
+        }
     }
 }
 

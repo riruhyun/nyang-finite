@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Audio;
-using UnityEngine.Audio;
 
 [DefaultExecutionOrder(-200)]
 public class OpeningSceneManager : MonoBehaviour
@@ -25,11 +23,11 @@ public class OpeningSceneManager : MonoBehaviour
     [SerializeField] private string bgmKey = "Opening_bgm";
     [SerializeField, Range(0f, 1f)] private float bgmVolume = 1f;
     [SerializeField] private bool bgmLoop = true;
-    [SerializeField] private AudioMixerGroup bgmMixerGroup;
+    [SerializeField] private UnityEngine.Audio.AudioMixerGroup bgmMixerGroup;
     [Header("SFX Mixer")]
-    [SerializeField] private AudioMixerGroup sfxMixerGroup;
+    [SerializeField] private UnityEngine.Audio.AudioMixerGroup sfxMixerGroup;
 
-    public static AudioMixerGroup SfxMixerGroup { get; private set; }
+    public static UnityEngine.Audio.AudioMixerGroup SfxMixerGroup { get; private set; }
 
     private void Awake()
     {

@@ -2078,6 +2078,7 @@ public void CancelAttackFromDash()
     {
         if (!isAlive) return;
         isAlive = false;
+        AlignCapsuleCollidersForDeath();
 
         // Notify toast hover UI about death so hover panel can show.
         var toastTrigger = GetComponentInChildren<ToastHoverTrigger>(true);

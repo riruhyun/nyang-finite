@@ -39,6 +39,7 @@ public class ToastHoverPanel : MonoBehaviour, IPointerEnterHandler, IPointerExit
     private Vector2 worldOffset;
     private string sortingLayerName;
     private int sortingOrder;
+    private static ToastHoverPanel s_activePanel;
 
     private void Awake()
     {
@@ -138,6 +139,12 @@ public class ToastHoverPanel : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void Show(ToastStats stats, Vector2 offset, string layer, int order)
     {
+        FoodHoverPanel.HideActivePanel();
+        if (s_activePanel != null && s_activePanel != this)
+        {
+            s_activePanel.gameObject.SetActive(false);
+        }
+        s_activePanel = this;
         toastStats = stats;
         worldOffset = offset;
         sortingLayerName = layer;
@@ -164,6 +171,10 @@ public class ToastHoverPanel : MonoBehaviour, IPointerEnterHandler, IPointerExit
         if (!pointerInside)
         {
             FadeTo(0f);
+            if (s_activePanel == this)
+            {
+                s_activePanel = null;
+            }
             // 패널을 닫을 때 버튼 상태를 다시 활성화하도록 모든 패널 리프레시
             RefreshAllButtons();
         }
@@ -425,16 +436,26 @@ public class ToastHoverPanel : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         toastHover = false;
         pointerInside = false;
+        if (s_activePanel == this)
+        {
+            s_activePanel = null;
+        }
         FadeTo(0f);
+    }
+
+    public static void HideActivePanel()
+    {
+        if (s_activePanel == null) return;
+        s_activePanel.gameObject.SetActive(false);
+        s_activePanel = null;
     }
 
     private static void RefreshAllButtons()
     {
-        var panels = GameObject.FindObjectsOfType<ToastHoverPanel>(true);
-        foreach (var p in panels)
+        var panels = FindObjectsOfType<ToastHoverPanel>(true);
+        foreach (var panel in panels)
         {
-            p.UpdateButtonForActiveToast();
-            p.ResetLoadingVisual();
+            panel?.RefreshButton();
         }
     }
 

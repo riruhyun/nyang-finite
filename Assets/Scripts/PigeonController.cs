@@ -366,6 +366,7 @@ public class PigeonController : Enemy
         if (!isAlive) return;
 
         isAlive = false;
+        AlignCapsuleCollidersForDeath();
         // 이미 Dead 상태로 전환됨 (PlayHurtThenDeath에서)
 
         Debug.Log("[Pigeon] 사망!");

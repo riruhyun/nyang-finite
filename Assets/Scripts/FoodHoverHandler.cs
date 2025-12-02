@@ -87,6 +87,7 @@ public class FoodHoverHandler : MonoBehaviour
             // Food를 클릭했다면 패널 토글
             if (clickedOnThis)
             {
+                ToastHoverPanel.HideActivePanel();
                 TogglePanel();
             }
             else if (hovering)

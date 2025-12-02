@@ -50,12 +50,44 @@ public class Enemy : MonoBehaviour
   protected Rigidbody2D rb;
   protected Animator animator;
   protected SpriteRenderer spriteRenderer;
+  [SerializeField] private SpriteRenderer facingSpriteRenderer;
+  private enum DeathColliderPreset
+  {
+    Auto,
+    None,
+    Dog,
+    Cat
+  }
+
+  [Header("Death Collider")]
+  [SerializeField] private BoxCollider2D deathCollider;
+  [SerializeField] private DeathColliderPreset deathColliderPreset = DeathColliderPreset.Auto;
+  [Tooltip("왼쪽을 바라보는 상태에서 사망했을 때 추가로 이동할 X 패딩 (양수면 더 왼쪽으로 이동).")]
+  [SerializeField] private float leftFacingDeathOffsetPadding = 0f;
+  [Tooltip("사망 후 바닥에 닿았는지 판정할 레이어 마스크. 기본은 모든 레이어.")]
+  [SerializeField] private LayerMask deathSettleGroundLayers = ~0;
+  [Tooltip("사망 후 정지로 간주할 최소 낙하 시간(초).")]
+  [SerializeField] private float deathSettleMinTime = 0.05f;
+  [Tooltip("사망 후 정지로 간주할 수직 속도 임계값.")]
+  [SerializeField] private float deathSettleVelocityThreshold = 0.05f;
 
   protected virtual void Awake()
   {
     rb = GetComponent<Rigidbody2D>();
     animator = GetComponent<Animator>();
     spriteRenderer = GetComponent<SpriteRenderer>();
+    if (spriteRenderer == null)
+    {
+      spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+    }
+    if (facingSpriteRenderer == null)
+    {
+      facingSpriteRenderer = spriteRenderer;
+    }
+    if (deathCollider != null)
+    {
+      deathCollider.enabled = false;
+    }
   }
 
   protected virtual void Start()
@@ -75,6 +107,14 @@ public class Enemy : MonoBehaviour
     if (!isAlive || isKnockedBack) return;
 
     CheckPlayerInRange();
+  }
+
+  protected virtual void FixedUpdate()
+  {
+    if (awaitingDeathAlignment && !deathAlignmentComplete && ShouldFinalizeDeathPose())
+    {
+      AlignCapsuleCollidersForDeath();
+    }
   }
 
   /// <summary>
@@ -158,9 +198,204 @@ public class Enemy : MonoBehaviour
       animator.SetTrigger("Die");
     }
 
+    awaitingDeathAlignment = rb != null;
+    deathAlignmentComplete = false;
+    deathFallStartTime = Time.time;
+    EnsureDeathColliderDisabled();
+
+    if (rb != null)
+    {
+      rb.bodyType = RigidbodyType2D.Dynamic;
+    }
+
+    if (!awaitingDeathAlignment)
+    {
+      AlignCapsuleCollidersForDeath();
+    }
+
     // 일정 시간 후 오브젝트 제거
     Destroy(gameObject, 2f);
   }
+
+  protected void AlignCapsuleCollidersForDeath()
+  {
+    awaitingDeathAlignment = false;
+    deathAlignmentComplete = true;
+
+    var capsules = GetComponentsInChildren<CapsuleCollider2D>();
+    if (capsules != null)
+    {
+      foreach (var capsule in capsules)
+      {
+        if (capsule != null) Destroy(capsule);
+      }
+    }
+
+    var box = deathCollider != null ? deathCollider : GetComponent<BoxCollider2D>();
+    if (box == null)
+    {
+      box = gameObject.AddComponent<BoxCollider2D>();
+    }
+    ApplyDeathColliderPreset(box);
+    box.gameObject.SetActive(true);
+    box.enabled = true;
+    box.isTrigger = false;
+
+    int layer = LayerMask.NameToLayer("Obstacles");
+    if (layer >= 0)
+    {
+      gameObject.layer = layer;
+      foreach (Transform child in transform)
+      {
+        child.gameObject.layer = layer;
+      }
+    }
+
+    if (rb != null)
+    {
+      rb.linearVelocity = Vector2.zero;
+      rb.angularVelocity = 0f;
+      rb.bodyType = RigidbodyType2D.Static;
+    }
+  }
+
+  private void ApplyDeathColliderPreset(BoxCollider2D box)
+  {
+    if (box == null) return;
+
+    DeathColliderPreset presetToApply = deathColliderPreset;
+    if (presetToApply == DeathColliderPreset.Auto)
+    {
+      presetToApply = TryDetectPresetFromContext();
+    }
+
+    float facingSign = GetFacingSign();
+
+    Vector2 size;
+    Vector2 offset;
+    bool hasOverride = false;
+
+    switch (presetToApply)
+    {
+      case DeathColliderPreset.Dog:
+        size = new Vector2(0.395f, 0.175f);
+        offset = new Vector2(0.05305527f, -0.075f);
+        hasOverride = true;
+        break;
+      case DeathColliderPreset.Cat:
+        size = new Vector2(0.32f, 0.105f);
+        offset = new Vector2(0.115f, 0.06f);
+        hasOverride = true;
+        break;
+      case DeathColliderPreset.None:
+      case DeathColliderPreset.Auto:
+      default:
+        hasOverride = false;
+        size = box.size;
+        offset = box.offset;
+        break;
+    }
+
+    if (hasOverride)
+    {
+      box.size = size;
+      offset.x *= facingSign;
+      if (facingSign < 0f)
+      {
+        offset.x -= Mathf.Abs(leftFacingDeathOffsetPadding);
+      }
+      box.offset = offset;
+    }
+    else if (facingSign < 0f && Mathf.Abs(leftFacingDeathOffsetPadding) > 0f)
+    {
+      var current = box.offset;
+      current.x -= Mathf.Abs(leftFacingDeathOffsetPadding);
+      box.offset = current;
+    }
+  }
+
+  private DeathColliderPreset TryDetectPresetFromContext()
+  {
+    var sr = facingSpriteRenderer != null ? facingSpriteRenderer : spriteRenderer;
+    if (sr != null && sr.sprite != null)
+    {
+      string spriteName = sr.sprite.name.ToLowerInvariant();
+      if (spriteName.Contains("cat")) return DeathColliderPreset.Cat;
+      if (spriteName.Contains("dog")) return DeathColliderPreset.Dog;
+    }
+
+    string goName = gameObject.name.ToLowerInvariant();
+    if (goName.Contains("cat")) return DeathColliderPreset.Cat;
+    if (goName.Contains("dog")) return DeathColliderPreset.Dog;
+
+    return DeathColliderPreset.None;
+  }
+
+  private float GetFacingSign()
+  {
+    float sign = 1f;
+    var sr = facingSpriteRenderer != null ? facingSpriteRenderer : spriteRenderer;
+    if (sr != null)
+    {
+      sign = sr.flipX ? -1f : 1f;
+    }
+    else if (transform.localScale.x < 0f)
+    {
+      sign = -1f;
+    }
+
+    if (transform.lossyScale.x < 0f)
+    {
+      sign *= -1f;
+    }
+
+    return sign;
+  }
+
+  private bool ShouldFinalizeDeathPose()
+  {
+    if (!awaitingDeathAlignment || deathAlignmentComplete) return false;
+    if (rb == null) return true;
+
+    if (Time.time - deathFallStartTime < deathSettleMinTime)
+    {
+      return false;
+    }
+
+    if (!IsTouchingSettleGround())
+    {
+      return false;
+    }
+
+    return Mathf.Abs(rb.linearVelocity.y) <= deathSettleVelocityThreshold;
+  }
+
+  private bool IsTouchingSettleGround()
+  {
+    var colliders = GetComponentsInChildren<Collider2D>();
+    if (colliders == null || colliders.Length == 0) return false;
+
+    foreach (var col in colliders)
+    {
+      if (col == null || !col.enabled) continue;
+      if (deathCollider != null && col == deathCollider) continue;
+      if (col.IsTouchingLayers(deathSettleGroundLayers))
+      {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private void EnsureDeathColliderDisabled()
+  {
+    if (deathCollider == null) return;
+    deathCollider.enabled = false;
+  }
+
+  private bool awaitingDeathAlignment;
+  private bool deathAlignmentComplete;
+  private float deathFallStartTime;
 
   /// <summary>
   /// 공격 실행
