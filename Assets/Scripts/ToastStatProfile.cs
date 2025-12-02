@@ -21,7 +21,9 @@ public enum StatType
     Nutrition,      // 음식 회복 보너스
     Friction,       // 감속 증가
     Knockback,      // 넉백력 증가 (주는 넉백 증가)
-    DashForce       // Dash 힘 증가
+    DashForce,      // Dash 힘 증가
+    DashRange,      // Dash 거리 증가
+    Reap            // 처치 시 회복 확률
 }
 
 [CreateAssetMenu(menuName = "Toast/Stat Profile", fileName = "ToastStatProfile")]
