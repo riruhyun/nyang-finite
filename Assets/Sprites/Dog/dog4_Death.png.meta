@@ -125,12 +125,12 @@ TextureImporter:
       name: dog4_Death_0
       rect:
         serializedVersion: 2
-        x: 5
+        x: 6
         y: 0
-        width: 31
+        width: 29
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -147,12 +147,12 @@ TextureImporter:
       name: dog4_Death_1
       rect:
         serializedVersion: 2
-        x: 53
+        x: 47
         y: 0
-        width: 38
-        height: 21
+        width: 43
+        height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -169,12 +169,12 @@ TextureImporter:
       name: dog4_Death_2
       rect:
         serializedVersion: 2
-        x: 101
+        x: 102
         y: 0
-        width: 40
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 38
+        height: 26
+      alignment: 9
+      pivot: {x: 0.3806484, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -191,12 +191,12 @@ TextureImporter:
       name: dog4_Death_3
       rect:
         serializedVersion: 2
-        x: 149
+        x: 150
         y: 0
-        width: 41
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 39
+        height: 26
+      alignment: 9
+      pivot: {x: 0.3639609, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 317fbceb6d123d841a39a4f0aafc1e42
     internalID: 0
     vertices: []
     indices: 
