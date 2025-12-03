@@ -290,10 +290,17 @@ public class ToastStats : MonoBehaviour
         return profile != null ? profile.toastType : ToastIndicator.ToastType.Jam;
     }
 
-    public void SetProfile(ToastStatProfile newProfile)
+    public void SetProfile(ToastStatProfile newProfile, bool preserveVisualOverrides = false)
     {
         if (newProfile == null) return;
         profile = newProfile;
+        if (!preserveVisualOverrides)
+        {
+            overrideProfileSprite = null;
+            overrideToastNameSprite = null;
+            overrideFont = null;
+            overrideDescription = string.Empty;
+        }
         BuildRuntimeStats();
     }
 

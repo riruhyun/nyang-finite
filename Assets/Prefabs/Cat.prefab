@@ -294,7 +294,7 @@ MonoBehaviour:
   attackSpeed: 1.5
   maxHealth: 6
   moveSpeed: 6
-  jumpForce: 35
+  jumpForce: 20
   knockbackDistance: 3
   knockbackDuration: 0.2
   detectionRange: 30

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 /// <summary>
 /// Helper for spawning enemies (clones) with detailed parameters.
@@ -263,6 +264,8 @@ public static class EnemySpawnHelper
   {
     if (def == null) return;
 
+    ApplyScaleOverride(go, def.scaleMultiplier);
+
     // Enemy stats
     var baseEnemy = go.GetComponent<Enemy>();
     if (baseEnemy != null)
@@ -312,6 +315,47 @@ public static class EnemySpawnHelper
           indicator.SetToast(profile.toastType);
         }
       }
+    }
+
+    ApplyCharacterRadius(go, def.characterRadius);
+    ApplyColliderYOffset(go, def.colliderYOffset);
+  }
+
+  private static void ApplyScaleOverride(GameObject go, float scaleMultiplier)
+  {
+    if (go == null) return;
+    if (scaleMultiplier <= 0f || Mathf.Approximately(scaleMultiplier, 1f)) return;
+
+    var current = go.transform.localScale;
+    go.transform.localScale = current * scaleMultiplier;
+
+    // Colliders automatically follow transform scale, so no extra handling required.
+  }
+
+  private static void ApplyColliderYOffset(GameObject go, float yPadding)
+  {
+    if (go == null) return;
+    if (Mathf.Approximately(yPadding, 0f)) return;
+
+    var colliders = go.GetComponentsInChildren<Collider2D>();
+    foreach (var col in colliders)
+    {
+      if (col == null) continue;
+      var offset = col.offset;
+      offset.y += yPadding;
+      col.offset = offset;
+    }
+  }
+
+  private static void ApplyCharacterRadius(GameObject go, float radius)
+  {
+    if (go == null) return;
+    if (radius <= 0f) return;
+
+    var aiPath = go.GetComponent<AIPath>();
+    if (aiPath != null)
+    {
+      aiPath.radius = radius;
     }
   }
 
@@ -366,6 +410,13 @@ public static class EnemySpawnHelper
     public float attackDamage = 1f;
     public float attackSpeed = 1f;
     public int maxJumps = 1;
+    [Header("Scale & Collision Overrides")]
+    [Tooltip("Uniform multiplier applied to the spawned clone's localScale. 1 keeps the prefab value.")]
+    public float scaleMultiplier = 1f;
+    [Tooltip("Override value for AIPath.radius (A* character radius). <= 0 keeps the prefab default.")]
+    public float characterRadius = 0f;
+    [Tooltip("Additional padding to add to every Collider2D's local Y offset after scaling.")]
+    public float colliderYOffset = 0f;
     [Tooltip("이 항목을 true로 하면 아래 spawnPosition을 절대 좌표로 사용합니다.")]
     public bool useCustomPosition = false;
     [Tooltip("useCustomPosition이 true일 때 사용할 월드 좌표")]

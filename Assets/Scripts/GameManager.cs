@@ -15,7 +15,11 @@ public class GameManager : MonoBehaviour
     [Header("HP Bar Settings")]
     public SpriteRenderer hpBar; // HP 바 (SpriteRenderer)
     public float maxHealth = 9f; // 최대 체력
-    private float maxHpBarWidth; // HP 바의 최대 X 스케일 (초기값 저장)
+    public float initialHealth = 9f; // 씬 시작 시 표시할 체력 값
+
+    private float maxHpBarScaleX; // Transform localScale.x 기준 최대값
+    private float maxHpBarSizeX;  // SpriteRenderer.size.x 기준 최대값 (Sliced/Tiled 전용)
+    private bool useSpriteSize = false;
 
     // InfoBar는 Frame.png로 칸을 나누는 껍데기
     // 1칸 = maxHealth의 1/9
@@ -47,9 +51,32 @@ public class GameManager : MonoBehaviour
         // HP 바 초기화
         if (hpBar != null)
         {
-            // 초기 스케일 저장 (최대 체력일 때의 스케일)
-            maxHpBarWidth = hpBar.transform.localScale.x;
-            Debug.Log($"HP 바 초기화: 초기 X 스케일={maxHpBarWidth}");
+            useSpriteSize = hpBar.drawMode != SpriteDrawMode.Simple;
+
+            if (useSpriteSize)
+            {
+                maxHpBarSizeX = hpBar.size.x;
+                if (maxHpBarSizeX <= Mathf.Epsilon)
+                {
+                    maxHpBarSizeX = 1f;
+                    Debug.LogWarning("[GameManager] hpBar.size.x가 0이어서 기본값 1을 사용합니다.");
+                }
+                Debug.Log($"HP 바 초기화 (SpriteRenderer.size 사용): width={maxHpBarSizeX}");
+            }
+            else
+            {
+                maxHpBarScaleX = Mathf.Abs(hpBar.transform.localScale.x);
+                if (maxHpBarScaleX <= Mathf.Epsilon)
+                {
+                    maxHpBarScaleX = 1f;
+                    Debug.LogWarning("[GameManager] hpBar localScale.x가 0이어서 기본값 1을 사용합니다.");
+                }
+                Debug.Log($"HP 바 초기화 (Transform.localScale 사용): width={maxHpBarScaleX}");
+            }
+
+            // 초기 상태에서도 체력 비율이 정확히 반영되도록 한 번 업데이트
+            float clampedInitial = Mathf.Clamp(initialHealth, 0f, maxHealth);
+            UpdateHealth(clampedInitial);
         }
     }
 
@@ -101,12 +128,20 @@ public class GameManager : MonoBehaviour
             // health가 0~9 사이의 값일 때, X 스케일을 비례적으로 조정
             float healthRatio = Mathf.Clamp01(health / maxHealth);
 
-            // Transform의 localScale.x를 조정하여 가로 길이 변경
-            Vector3 newScale = hpBar.transform.localScale;
-            newScale.x = maxHpBarWidth * healthRatio;
-            hpBar.transform.localScale = newScale;
+            if (useSpriteSize)
+            {
+                Vector2 size = hpBar.size;
+                size.x = maxHpBarSizeX * healthRatio;
+                hpBar.size = size;
+            }
+            else
+            {
+                Vector3 newScale = hpBar.transform.localScale;
+                newScale.x = maxHpBarScaleX * healthRatio;
+                hpBar.transform.localScale = newScale;
+            }
 
-            Debug.Log($"HP 바 업데이트: 체력={health}/{maxHealth}, X 스케일={newScale.x}/{maxHpBarWidth}");
+            Debug.Log($"HP 바 업데이트: 체력={health}/{maxHealth}, 비율={healthRatio:0.00}");
         }
     }
 
