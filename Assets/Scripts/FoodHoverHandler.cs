@@ -178,6 +178,12 @@ public class FoodHoverHandler : MonoBehaviour
         var player = FindObjectOfType<PlayerController>();
         if (player == null) return;
 
+        // 튜토리얼 매니저에 음식 획득 알림
+        if (TutorialManager.Instance != null)
+        {
+            TutorialManager.Instance.OnItemCollected();
+        }
+
         switch (consumedData.effectType)
         {
             case FoodEffectType.Heal:

@@ -197,7 +197,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -681444959
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -8924102693037395688, guid: cc6b38bdb049cbe49b43e5c804d61155, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -755,7 +755,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -681444959
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f0df0986a8beef54f8bdf7e13ebae5bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -860,7 +860,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -681444959
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 1
   m_Sprite: {fileID: -6153703733979115561, guid: 3bb0074a222c1f04f951921dd6625fa7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1030,6 +1030,9 @@ MonoBehaviour:
   yOffset: 2
   transitionTime: 0.85
   useEaseInOut: 1
+  minX: 2
+  minY: -20
+  maxX: Infinity
 --- !u!1 &562325525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1457,7 +1460,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -681444959
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 1
   m_Sprite: {fileID: 7428336166433268821, guid: 87b01e1a45f9d5746a32abdaf417af5b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1548,7 +1551,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -681444959
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -1091202827376826289, guid: cddfc811f3519af47a48c4bf1305cb7a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1659,7 +1662,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -681444959
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4abe57999ebf6d8459f047f0e8b34291, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1707,6 +1710,7 @@ MonoBehaviour:
   gameoverUI: {fileID: 0}
   hpBar: {fileID: 1013098766}
   maxHealth: 9
+  initialHealth: 9
 --- !u!4 &1381841008
 Transform:
   m_ObjectHideFlags: 0
@@ -1974,7 +1978,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -681444959
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: -1
   m_Sprite: {fileID: -3553048052383156020, guid: 470c31fc4b331e34db5f948320251abe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2271,6 +2275,7 @@ MonoBehaviour:
   invincibilityTime: 1.5
   jumpForce: 650
   moveSpeed: 6
+  jumpHoldForcePerSecond: 1300
   slopeNormalMin: 0.4
   slopeSpeedMultiplier: 1.5
   flatFriction: 0.3
@@ -2282,6 +2287,14 @@ MonoBehaviour:
   momentumDecayAmount: 0.1
   walkMomentumThreshold: 0.5
   dashDuration: 0.5
+  dashForce: 3
+  dashCooldown: 1.5
+  dashHitbox: {fileID: 0}
+  dashDamageLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  dashDamage: 3
+  dashStaminaCost: 5
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -2292,9 +2305,38 @@ MonoBehaviour:
   scratchDamage: 1.5
   scratchDuration: 0.78
   scratchAnimationName: Scratch
+  scratchStaminaCost: 3
+  punchHitbox: {fileID: 0}
+  punchDamageLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  punchDamage: 1
+  punchKnockbackForce: 3
+  punchStaminaCost: 2
+  wallJumpVerticalSpeed: 12
+  wallJumpHorizontalSpeed: 8
+  wallSlideSpeed: 2
+  wallJumpCooldown: 0.35
+  wallJumpControlLockTime: 0.2
+  punchDuration: 0.3
+  punchAnimationName: Punch
+  jumpCooldown: 0.25
   damageFlashColor: {r: 1, g: 0, b: 0, a: 1}
   damageFlashDuration: 0.15
   damageFlashCount: 2
+  playerToastIndicator: {fileID: 0}
+  playerToastIndicatorRenderer: {fileID: 0}
+  toastProfileFollowers: []
+  toastProfileSprites: []
+  toastProfileUIElements: []
+  foodEffectTextOffset: {x: 0, y: 0.8, z: -1}
+  foodEffectTextDuration: 0.6
+  foodEffectTextAmplitude: 0.35
+  foodEffectTextFontSize: 60
+  foodEffectTextCharacterSize: 0.05
+  foodHealTextColor: {r: 0, g: 1, b: 0, a: 1}
+  foodDamageTextColor: {r: 1, g: 0, b: 0, a: 1}
+  foodEffectTextFont: {fileID: 0}
 --- !u!61 &1819403705
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2716,7 +2758,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -681444959
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 10
   m_Sprite: {fileID: 3234615793282887003, guid: 4fb960832ea5b7b46a57718f73734c30, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
@@ -2823,7 +2865,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -681444959
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 2
   m_Sprite: {fileID: -5668518402485374812, guid: f9c8ed5b416bb12479efb7da1794febf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

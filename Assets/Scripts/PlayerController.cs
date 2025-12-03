@@ -875,6 +875,12 @@ public class PlayerController : MonoBehaviour
 
         SetAnimationState(AnimationState.Jump);
         Debug.Log($"[WALL JUMP] 벽차기 수행! direction={horizontalDirection}, velocity=({wallJumpHorizontalSpeed * horizontalDirection}, {wallJumpVerticalSpeed})");
+
+        // 튜토리얼 매니저에 벽점프 알림
+        if (TutorialManager.Instance != null)
+        {
+            TutorialManager.Instance.OnWallJumpPerformed();
+        }
     }
 
     /// <summary>

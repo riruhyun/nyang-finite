@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Lab.unity
     guid: 0ee7e1bb3ec2f834fac6824be439b9f5
   - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: b9def24e34a1dc640a22875359a224ae
+  - enabled: 1
     path: Assets/Scenes/VentilationShaft.unity
     guid: 2712fcea86348994eba32d864a3ee859
   - enabled: 1
@@ -74,6 +77,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Game.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Ending.unity
+    guid: 6127fdcd0215e2d4cb7c0454727fc93c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

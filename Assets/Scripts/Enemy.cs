@@ -193,6 +193,19 @@ public class Enemy : MonoBehaviour
   {
     isAlive = false;
 
+    // 튜토리얼 매니저에 적 처치 알림
+    if (TutorialManager.Instance != null)
+    {
+      TutorialManager.Instance.OnEnemyDefeated();
+    }
+
+    // 플레이어의 Reap 스탯 확인
+    var player = FindObjectOfType<PlayerController>();
+    if (player != null)
+    {
+      player.OnEnemyKilled();
+    }
+
     // 사망 애니메이션 재생 (있다면)
     if (animator != null)
     {

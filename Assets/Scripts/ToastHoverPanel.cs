@@ -255,6 +255,12 @@ public class ToastHoverPanel : MonoBehaviour, IPointerEnterHandler, IPointerExit
         if (player != null && toastStats != null)
         {
             player.ApplyToastStats(toastStats.GetRuntimeStats(), toastStats.GetToastType().ToString());
+
+            // 튜토리얼 매니저에 토스트 획득 알림
+            if (TutorialManager.Instance != null)
+            {
+                TutorialManager.Instance.OnToastTaken();
+            }
         }
         RefreshAllButtons();
 
@@ -322,7 +328,7 @@ public class ToastHoverPanel : MonoBehaviour, IPointerEnterHandler, IPointerExit
         ResetLoadingVisual();
     }
 
-    
+
     private void UpdateButtonForActiveToast()
     {
         if (loadButton == null)

@@ -69,6 +69,12 @@ public class CameraController : MonoBehaviour
             {
                 float groundWidth = groundRenderer.bounds.size.x;
                 maxX = minX + groundWidth - 18.3f;
+
+                // ! scene이름이 Tutorial이라면
+                if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Tutorial")
+                {
+                    maxX = 100f;
+                }
                 Debug.Log($"[카메라] Ground1 너비: {groundWidth:F2}, 최대 X: {maxX:F2}");
             }
         }
