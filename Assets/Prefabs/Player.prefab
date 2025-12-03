@@ -210,6 +210,7 @@ MonoBehaviour:
   flatFriction: 0.3
   slopeFriction: 0
   flatNormalThreshold: 0.95
+  inputSourceBehaviour: {fileID: 0}
   baseMomentum: 0.5
   maxMomentum: 1
   momentumBuildTime: 2
@@ -222,7 +223,7 @@ MonoBehaviour:
   dashDamageLayers:
     serializedVersion: 2
     m_Bits: 0
-  dashDamage: 3
+  dashDamage: 2
   dashStaminaCost: 5
   groundLayer:
     serializedVersion: 2
@@ -231,7 +232,7 @@ MonoBehaviour:
   scratchDamageLayers:
     serializedVersion: 2
     m_Bits: 1
-  scratchDamage: 6
+  scratchDamage: 2
   scratchDuration: 0.78
   scratchAnimationName: Scratch
   scratchStaminaCost: 3
