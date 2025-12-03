@@ -37,10 +37,13 @@ public class LobbyButtonController : MonoBehaviour
             
             if (fadePanel != null)
             {
-                Color c = Color.black;
-                c.a = 0f;
-                fadePanel.color = c;
                 fadePanel.sortingOrder = 100;
+                var autoFade = fadePanel.GetComponent<FadePanelAutoFade>();
+                if (autoFade == null)
+                {
+                    autoFade = fadePanel.gameObject.AddComponent<FadePanelAutoFade>();
+                }
+                autoFade.StartFadeOut();
             }
             
             Debug.Log($"[LobbyButtonController] Auto-Setup: Start={startButton!=null}, Setting={settingButton!=null}, Continue={continueButton!=null}, Fade={fadePanel!=null}");
