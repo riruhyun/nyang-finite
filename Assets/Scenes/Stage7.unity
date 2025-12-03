@@ -610,8 +610,8 @@ MonoBehaviour:
   view: 0
   reuseOwnerTrackingEngine: 1
   spawnDefinitions:
-  - enemyKind: 0
-    skinId: 3
+  - enemyKind: 2
+    skinId: 2
     moveSpeed: 4.5
     maxHealth: 6
     attackDamage: 1
@@ -621,9 +621,39 @@ MonoBehaviour:
     characterRadius: 0
     colliderYOffset: 0
     useCustomPosition: 1
-    spawnPosition: {x: 10, y: -2.54, z: 0}
+    spawnPosition: {x: 29.25, y: -1.99, z: 0}
     toastDrops:
     - profile: {fileID: 11400000, guid: d4d29e080341c7846af9e67fbd8b378f, type: 2}
+      weight: 100
+  - enemyKind: 2
+    skinId: 3
+    moveSpeed: 4.5
+    maxHealth: 6
+    attackDamage: 1
+    attackSpeed: 1.5
+    maxJumps: 35
+    scaleMultiplier: 1
+    characterRadius: 0
+    colliderYOffset: 0
+    useCustomPosition: 1
+    spawnPosition: {x: 36.42, y: -1.21, z: 0}
+    toastDrops:
+    - profile: {fileID: 11400000, guid: d6fe5a361331c574a8e660fb58440aa1, type: 2}
+      weight: 100
+  - enemyKind: 2
+    skinId: 3
+    moveSpeed: 4.5
+    maxHealth: 6
+    attackDamage: 1
+    attackSpeed: 1.5
+    maxJumps: 35
+    scaleMultiplier: 1
+    characterRadius: 0
+    colliderYOffset: 0
+    useCustomPosition: 1
+    spawnPosition: {x: 48.49, y: -3.6, z: 0}
+    toastDrops:
+    - profile: {fileID: 11400000, guid: d6fe5a361331c574a8e660fb58440aa1, type: 2}
       weight: 100
   - enemyKind: 0
     skinId: 2
@@ -636,7 +666,22 @@ MonoBehaviour:
     characterRadius: 0
     colliderYOffset: 0
     useCustomPosition: 1
-    spawnPosition: {x: 13, y: -2.54, z: 0}
+    spawnPosition: {x: 51.49, y: -3.6, z: 0}
+    toastDrops:
+    - profile: {fileID: 11400000, guid: d6fe5a361331c574a8e660fb58440aa1, type: 2}
+      weight: 100
+  - enemyKind: 1
+    skinId: 1
+    moveSpeed: 4.5
+    maxHealth: 6
+    attackDamage: 1
+    attackSpeed: 1.5
+    maxJumps: 35
+    scaleMultiplier: 1
+    characterRadius: 0
+    colliderYOffset: 0
+    useCustomPosition: 1
+    spawnPosition: {x: 41.62, y: 6.73, z: 0}
     toastDrops:
     - profile: {fileID: 11400000, guid: d6fe5a361331c574a8e660fb58440aa1, type: 2}
       weight: 100
@@ -3507,7 +3552,7 @@ Transform:
   m_GameObject: {fileID: 945541729}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.97, y: 12.53, z: 0}
+  m_LocalPosition: {x: 14.5, y: 13.47, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3997,7 +4042,7 @@ MonoBehaviour:
   parentContainer: {fileID: 0}
   spawnOnAwake: 1
   entries:
-  - worldPosition: {x: 16, y: -2.54}
+  - worldPosition: {x: 21, y: -3.9}
     prefabOverride: {fileID: 43700605}
     yRotation: 0
     spawnOnStart: 1
@@ -4079,7 +4124,7 @@ Transform:
   m_GameObject: {fileID: 1188706676}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.87, y: -1.0084, z: 0}
+  m_LocalPosition: {x: 12.87, y: -4.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

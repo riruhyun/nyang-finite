@@ -1727,7 +1727,7 @@ Transform:
   m_GameObject: {fileID: 686226886}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.97, y: 12.53, z: 0}
+  m_LocalPosition: {x: 34.98, y: 20.97, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1933,7 +1933,7 @@ MonoBehaviour:
     characterRadius: 0
     colliderYOffset: 0
     useCustomPosition: 1
-    spawnPosition: {x: 10, y: -2.54, z: 0}
+    spawnPosition: {x: 5.72, y: -3.52, z: 0}
     toastDrops:
     - profile: {fileID: 11400000, guid: d4d29e080341c7846af9e67fbd8b378f, type: 2}
       weight: 100
@@ -1948,7 +1948,67 @@ MonoBehaviour:
     characterRadius: 0
     colliderYOffset: 0
     useCustomPosition: 1
-    spawnPosition: {x: 13, y: -2.54, z: 0}
+    spawnPosition: {x: 9.62, y: -3.09, z: 0}
+    toastDrops:
+    - profile: {fileID: 11400000, guid: d6fe5a361331c574a8e660fb58440aa1, type: 2}
+      weight: 100
+  - enemyKind: 0
+    skinId: 4
+    moveSpeed: 4.5
+    maxHealth: 6
+    attackDamage: 1
+    attackSpeed: 1.5
+    maxJumps: 35
+    scaleMultiplier: 1
+    characterRadius: 0
+    colliderYOffset: 0
+    useCustomPosition: 1
+    spawnPosition: {x: 13.79, y: -2.71, z: 0}
+    toastDrops:
+    - profile: {fileID: 11400000, guid: d6fe5a361331c574a8e660fb58440aa1, type: 2}
+      weight: 100
+  - enemyKind: 2
+    skinId: 4
+    moveSpeed: 4.5
+    maxHealth: 6
+    attackDamage: 1
+    attackSpeed: 1.5
+    maxJumps: 35
+    scaleMultiplier: 1
+    characterRadius: 0
+    colliderYOffset: 0
+    useCustomPosition: 1
+    spawnPosition: {x: 18.02, y: -2.6, z: 0}
+    toastDrops:
+    - profile: {fileID: 11400000, guid: d6fe5a361331c574a8e660fb58440aa1, type: 2}
+      weight: 100
+  - enemyKind: 2
+    skinId: 3
+    moveSpeed: 4.5
+    maxHealth: 6
+    attackDamage: 1
+    attackSpeed: 1.5
+    maxJumps: 35
+    scaleMultiplier: 1
+    characterRadius: 0
+    colliderYOffset: 0
+    useCustomPosition: 1
+    spawnPosition: {x: 30.64, y: -5.01, z: 0}
+    toastDrops:
+    - profile: {fileID: 11400000, guid: d6fe5a361331c574a8e660fb58440aa1, type: 2}
+      weight: 100
+  - enemyKind: 2
+    skinId: 2
+    moveSpeed: 4.5
+    maxHealth: 6
+    attackDamage: 1
+    attackSpeed: 1.5
+    maxJumps: 35
+    scaleMultiplier: 1
+    characterRadius: 0
+    colliderYOffset: 0
+    useCustomPosition: 1
+    spawnPosition: {x: 41.77, y: -5.01, z: 0}
     toastDrops:
     - profile: {fileID: 11400000, guid: d6fe5a361331c574a8e660fb58440aa1, type: 2}
       weight: 100

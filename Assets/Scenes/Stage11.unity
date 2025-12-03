@@ -203,7 +203,7 @@ Transform:
   m_GameObject: {fileID: 61819997}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.97, y: 12.53, z: 0}
+  m_LocalPosition: {x: 26.21, y: 17.98, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3399,39 +3399,7 @@ MonoBehaviour:
   parentContainer: {fileID: 0}
   spawnOnAwake: 1
   entries:
-  - worldPosition: {x: 16, y: -2.54}
-    prefabOverride: {fileID: 650677337}
-    yRotation: 0
-    spawnOnStart: 1
-    dropOverrides:
-    - foodSprite: {fileID: 21300000, guid: 4043a37a958048f4a9402cf4f7c6157f, type: 3}
-      profileSpriteOverride: {fileID: 21300000, guid: 4043a37a958048f4a9402cf4f7c6157f, type: 3}
-      description: um..Bug?
-      effectType: 0
-      effectAmount: 1
-      requiredHits: 0
-      quantity: 1
-      dropChancePercent: 30
-      dropped: 0
-    - foodSprite: {fileID: 21300000, guid: 4043a37a958048f4a9402cf4f7c6157f, type: 3}
-      profileSpriteOverride: {fileID: 21300000, guid: 4043a37a958048f4a9402cf4f7c6157f, type: 3}
-      description: um..Bug?
-      effectType: 2
-      effectAmount: 0
-      requiredHits: 0
-      quantity: 0
-      dropChancePercent: 30
-      dropped: 0
-    - foodSprite: {fileID: 21300000, guid: 9008780582d3efe4fb4acfc2a510a77d, type: 3}
-      profileSpriteOverride: {fileID: 21300000, guid: 9008780582d3efe4fb4acfc2a510a77d, type: 3}
-      description: a plain fish
-      effectType: 0
-      effectAmount: 2
-      requiredHits: 1
-      quantity: 0
-      dropChancePercent: 40
-      dropped: 0
-  - worldPosition: {x: 36.53, y: -1.938}
+  - worldPosition: {x: 30.76, y: -3.99}
     prefabOverride: {fileID: 650677337}
     yRotation: 0
     spawnOnStart: 1
@@ -3752,7 +3720,7 @@ MonoBehaviour:
   reuseOwnerTrackingEngine: 1
   spawnDefinitions:
   - enemyKind: 0
-    skinId: 3
+    skinId: 1
     moveSpeed: 4.5
     maxHealth: 6
     attackDamage: 1
@@ -3762,7 +3730,7 @@ MonoBehaviour:
     characterRadius: 0
     colliderYOffset: 0
     useCustomPosition: 1
-    spawnPosition: {x: 10, y: -2.54, z: 0}
+    spawnPosition: {x: 6.62, y: -4.43, z: 0}
     toastDrops:
     - profile: {fileID: 11400000, guid: d4d29e080341c7846af9e67fbd8b378f, type: 2}
       weight: 100
@@ -3777,7 +3745,82 @@ MonoBehaviour:
     characterRadius: 0
     colliderYOffset: 0
     useCustomPosition: 1
-    spawnPosition: {x: 13, y: -2.54, z: 0}
+    spawnPosition: {x: 17.63, y: -4.43, z: 0}
+    toastDrops:
+    - profile: {fileID: 11400000, guid: d6fe5a361331c574a8e660fb58440aa1, type: 2}
+      weight: 100
+  - enemyKind: 0
+    skinId: 3
+    moveSpeed: 4.5
+    maxHealth: 6
+    attackDamage: 1
+    attackSpeed: 1.5
+    maxJumps: 35
+    scaleMultiplier: 1
+    characterRadius: 0
+    colliderYOffset: 0
+    useCustomPosition: 1
+    spawnPosition: {x: 20.41, y: -4.36, z: 0}
+    toastDrops:
+    - profile: {fileID: 11400000, guid: d6fe5a361331c574a8e660fb58440aa1, type: 2}
+      weight: 100
+  - enemyKind: 0
+    skinId: 4
+    moveSpeed: 4.5
+    maxHealth: 6
+    attackDamage: 1
+    attackSpeed: 1.5
+    maxJumps: 35
+    scaleMultiplier: 1
+    characterRadius: 0
+    colliderYOffset: 0
+    useCustomPosition: 1
+    spawnPosition: {x: 20.41, y: -4.42, z: 0}
+    toastDrops:
+    - profile: {fileID: 11400000, guid: d6fe5a361331c574a8e660fb58440aa1, type: 2}
+      weight: 100
+  - enemyKind: 2
+    skinId: 2
+    moveSpeed: 4.5
+    maxHealth: 6
+    attackDamage: 1
+    attackSpeed: 1.5
+    maxJumps: 35
+    scaleMultiplier: 1
+    characterRadius: 0
+    colliderYOffset: 0
+    useCustomPosition: 1
+    spawnPosition: {x: 37.73, y: -4.42, z: 0}
+    toastDrops:
+    - profile: {fileID: 11400000, guid: d6fe5a361331c574a8e660fb58440aa1, type: 2}
+      weight: 100
+  - enemyKind: 1
+    skinId: 1
+    moveSpeed: 4.5
+    maxHealth: 6
+    attackDamage: 1
+    attackSpeed: 1.5
+    maxJumps: 35
+    scaleMultiplier: 1
+    characterRadius: 0
+    colliderYOffset: 0
+    useCustomPosition: 1
+    spawnPosition: {x: 29.48, y: 4.68, z: 0}
+    toastDrops:
+    - profile: {fileID: 11400000, guid: d6fe5a361331c574a8e660fb58440aa1, type: 2}
+      weight: 100
+  - enemyKind: 1
+    skinId: 1
+    moveSpeed: 4.5
+    maxHealth: 6
+    attackDamage: 1
+    attackSpeed: 1.5
+    maxJumps: 35
+    scaleMultiplier: 1
+    characterRadius: 0
+    colliderYOffset: 0
+    useCustomPosition: 1
+    spawnPosition: {x: 29.48, y: 4.68, z: 0}
     toastDrops:
     - profile: {fileID: 11400000, guid: d6fe5a361331c574a8e660fb58440aa1, type: 2}
       weight: 100

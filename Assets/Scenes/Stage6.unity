@@ -596,7 +596,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 3234615793282887003, guid: 4fb960832ea5b7b46a57718f73734c30, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -615,7 +615,7 @@ Transform:
   m_GameObject: {fileID: 260739030}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.97, y: 12.53, z: 0}
+  m_LocalPosition: {x: 36.71, y: 16.21, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2217,7 +2217,7 @@ Transform:
   m_GameObject: {fileID: 687137549}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.87, y: -1.0084, z: 0}
+  m_LocalPosition: {x: 35.82, y: -1.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3781,7 +3781,7 @@ MonoBehaviour:
     characterRadius: 0
     colliderYOffset: 0
     useCustomPosition: 1
-    spawnPosition: {x: 10, y: -2.54, z: 0}
+    spawnPosition: {x: 9.5, y: -1.27, z: 0}
     toastDrops:
     - profile: {fileID: 11400000, guid: d4d29e080341c7846af9e67fbd8b378f, type: 2}
       weight: 100
@@ -3796,7 +3796,37 @@ MonoBehaviour:
     characterRadius: 0
     colliderYOffset: 0
     useCustomPosition: 1
-    spawnPosition: {x: 13, y: -2.54, z: 0}
+    spawnPosition: {x: 15.9, y: -1.16, z: 0}
+    toastDrops:
+    - profile: {fileID: 11400000, guid: d6fe5a361331c574a8e660fb58440aa1, type: 2}
+      weight: 100
+  - enemyKind: 2
+    skinId: 2
+    moveSpeed: 4.5
+    maxHealth: 6
+    attackDamage: 1
+    attackSpeed: 1.5
+    maxJumps: 35
+    scaleMultiplier: 1
+    characterRadius: 0
+    colliderYOffset: 0
+    useCustomPosition: 1
+    spawnPosition: {x: 20.85, y: -4.11, z: 0}
+    toastDrops:
+    - profile: {fileID: 11400000, guid: d6fe5a361331c574a8e660fb58440aa1, type: 2}
+      weight: 100
+  - enemyKind: 1
+    skinId: 1
+    moveSpeed: 4.5
+    maxHealth: 6
+    attackDamage: 1
+    attackSpeed: 1.5
+    maxJumps: 35
+    scaleMultiplier: 1
+    characterRadius: 0
+    colliderYOffset: 0
+    useCustomPosition: 1
+    spawnPosition: {x: 22.13, y: 5.74, z: 0}
     toastDrops:
     - profile: {fileID: 11400000, guid: d6fe5a361331c574a8e660fb58440aa1, type: 2}
       weight: 100
