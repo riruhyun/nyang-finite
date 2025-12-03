@@ -2417,6 +2417,7 @@ MonoBehaviour:
   fadeCanvasGroup: {fileID: 0}
   fadeDuration: 1
   fadeOnSceneStart: 1
+  blackScreenDuration: 1
 --- !u!114 &838589882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4911,6 +4912,7 @@ MonoBehaviour:
   dogPrefab: {fileID: 5909691575073822240, guid: e4bc932b7676c3d4083d83133d932986, type: 3}
   pigeonPrefab: {fileID: 8855747918391366442, guid: 74b89373076a5d246bf3c2b2c9849177, type: 3}
   catPrefab: {fileID: 8706373526866783260, guid: 047428ef569e98342beaa232cebb24cb, type: 3}
+  ratPrefab: {fileID: 0}
   spawnParent: {fileID: 0}
   enemyToastPrefab: {fileID: 0}
   enemyToastOffset: {x: -0.01, y: 0.04, z: 0}
@@ -5019,6 +5021,36 @@ MonoBehaviour:
     colliderYOffset: 0
     useCustomPosition: 1
     spawnPosition: {x: 27.11, y: 6.58, z: 0}
+    toastDrops:
+    - profile: {fileID: 11400000, guid: d6fe5a361331c574a8e660fb58440aa1, type: 2}
+      weight: 100
+  - enemyKind: 3
+    skinId: 2
+    moveSpeed: 7
+    maxHealth: 20
+    attackDamage: 2
+    attackSpeed: 2
+    maxJumps: 30
+    scaleMultiplier: 1.25
+    characterRadius: 0
+    colliderYOffset: 0
+    useCustomPosition: 1
+    spawnPosition: {x: 5.46, y: -3.34, z: 0}
+    toastDrops:
+    - profile: {fileID: 11400000, guid: d6fe5a361331c574a8e660fb58440aa1, type: 2}
+      weight: 100
+  - enemyKind: 3
+    skinId: 2
+    moveSpeed: 5
+    maxHealth: 4
+    attackDamage: 2
+    attackSpeed: 1
+    maxJumps: 20
+    scaleMultiplier: 1
+    characterRadius: 0
+    colliderYOffset: 0
+    useCustomPosition: 1
+    spawnPosition: {x: 8.13, y: -3.37, z: 0}
     toastDrops:
     - profile: {fileID: 11400000, guid: d6fe5a361331c574a8e660fb58440aa1, type: 2}
       weight: 100
@@ -5212,7 +5244,7 @@ Transform:
   m_GameObject: {fileID: 2037572877}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40.92, y: 14.05, z: 0}
+  m_LocalPosition: {x: 16.57, y: 12.33, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children: []

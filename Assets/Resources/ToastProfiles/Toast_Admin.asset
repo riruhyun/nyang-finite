@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f09a097e75f3ce43b1020a8c536a71f, type: 3}
+  m_Name: Toast_Admin
+  m_EditorClassIdentifier: Assembly-CSharp::ToastStatProfile
+  toastType: 5
+  rarity: 2
+  profileSprite: {fileID: 21300000, guid: a5e76b155288a814794dd6ef4115c2a8, type: 3}
+  toastNameSprite: {fileID: 21300000, guid: 97e6be1c74c238e44b549ffe3dc0ffc1, type: 3}
+  font: {fileID: 12800000, guid: ab3e3faa0d319124a82abdc929ddc467, type: 3}
+  description: 
+  selectionMode: 1
+  maxStatCount: 4
+  statGroups:
+  - groupName: Epic
+    entries:
+    - statType: 0
+      weight: 100
+      deltaValue: 2
+      varianceRange: {x: 0, y: 0.3}
+      bonusRolls:
+      - bonusDelta: 0.3
+        chancePercent: 15
+      unit: 
+      showSign: 1
+    - statType: 1
+      weight: 100
+      deltaValue: 2.5
+      varianceRange: {x: 0, y: 0.5}
+      bonusRolls:
+      - bonusDelta: 0.5
+        chancePercent: 15
+      unit: 
+      showSign: 1
+    - statType: 8
+      weight: 80
+      deltaValue: 1
+      varianceRange: {x: 0, y: 0.3}
+      bonusRolls: []
+      unit: 
+      showSign: 1
+    - statType: 3
+      weight: 80
+      deltaValue: 3
+      varianceRange: {x: 0, y: 0.3}
+      bonusRolls: []
+      unit: 
+      showSign: 1
+    - statType: 8
+      weight: 80
+      deltaValue: 1
+      varianceRange: {x: 0, y: 0.3}
+      bonusRolls: []
+      unit: 
+      showSign: 1

@@ -1762,6 +1762,7 @@ MonoBehaviour:
   fadeCanvasGroup: {fileID: 0}
   fadeDuration: 1
   fadeOnSceneStart: 1
+  blackScreenDuration: 1
 --- !u!114 &695920323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2313,7 +2314,7 @@ Transform:
   m_GameObject: {fileID: 832677107}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.88, y: 6.81, z: 0}
+  m_LocalPosition: {x: 6.82, y: 11.9, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -4201,6 +4202,7 @@ MonoBehaviour:
   dogPrefab: {fileID: 5909691575073822240, guid: e4bc932b7676c3d4083d83133d932986, type: 3}
   pigeonPrefab: {fileID: 8855747918391366442, guid: 74b89373076a5d246bf3c2b2c9849177, type: 3}
   catPrefab: {fileID: 8706373526866783260, guid: 047428ef569e98342beaa232cebb24cb, type: 3}
+  ratPrefab: {fileID: 0}
   spawnParent: {fileID: 0}
   enemyToastPrefab: {fileID: 0}
   enemyToastOffset: {x: -0.01, y: 0.04, z: 0}
@@ -4225,7 +4227,7 @@ MonoBehaviour:
   - enemyKind: 2
     skinId: 3
     moveSpeed: 4.5
-    maxHealth: 6
+    maxHealth: 7
     attackDamage: 1
     attackSpeed: 1.5
     maxJumps: 20
@@ -4240,7 +4242,7 @@ MonoBehaviour:
   - enemyKind: 2
     skinId: 2
     moveSpeed: 4.5
-    maxHealth: 6
+    maxHealth: 7.5
     attackDamage: 1
     attackSpeed: 1.5
     maxJumps: 35
@@ -4254,7 +4256,7 @@ MonoBehaviour:
       weight: 100
   - enemyKind: 1
     skinId: 2
-    moveSpeed: 4.5
+    moveSpeed: 6.5
     maxHealth: 6
     attackDamage: 1
     attackSpeed: 1.5
@@ -4264,6 +4266,21 @@ MonoBehaviour:
     colliderYOffset: 0
     useCustomPosition: 1
     spawnPosition: {x: 13.88, y: 6.81, z: 0}
+    toastDrops:
+    - profile: {fileID: 11400000, guid: d6fe5a361331c574a8e660fb58440aa1, type: 2}
+      weight: 100
+  - enemyKind: 0
+    skinId: 2
+    moveSpeed: 6.5
+    maxHealth: 12
+    attackDamage: 3
+    attackSpeed: 1.75
+    maxJumps: 25
+    scaleMultiplier: 1.25
+    characterRadius: 0
+    colliderYOffset: 0
+    useCustomPosition: 1
+    spawnPosition: {x: 6.82, y: -3.84, z: 0}
     toastDrops:
     - profile: {fileID: 11400000, guid: d6fe5a361331c574a8e660fb58440aa1, type: 2}
       weight: 100
