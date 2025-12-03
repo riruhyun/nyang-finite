@@ -837,6 +837,7 @@ MonoBehaviour:
   dogPrefab: {fileID: 5909691575073822240, guid: e4bc932b7676c3d4083d83133d932986, type: 3}
   pigeonPrefab: {fileID: 8855747918391366442, guid: 74b89373076a5d246bf3c2b2c9849177, type: 3}
   catPrefab: {fileID: 8706373526866783260, guid: 047428ef569e98342beaa232cebb24cb, type: 3}
+  ratPrefab: {fileID: 5909691575073822240, guid: 2c3638703ea618342962ba082d75bf99, type: 3}
   spawnParent: {fileID: 0}
   enemyToastPrefab: {fileID: 0}
   enemyToastOffset: {x: -0.01, y: 0.04, z: 0}
@@ -860,7 +861,7 @@ MonoBehaviour:
   spawnDefinitions:
   - enemyKind: 0
     skinId: 3
-    moveSpeed: 5.5
+    moveSpeed: 4.5
     maxHealth: 6
     attackDamage: 1
     attackSpeed: 1.5
@@ -4028,9 +4029,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 278e046903077094f87da782b9b3c95d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScreenFadeController
-  fadeCanvasGroup: {fileID: 0}
+  fadeCanvasGroup: {fileID: 613203703}
   fadeDuration: 1
   fadeOnSceneStart: 1
+  blackScreenDuration: 1
 --- !u!114 &1703371786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4842,6 +4844,10 @@ PrefabInstance:
     - target: {fileID: 1698446886360278062, guid: bfbb5f19e4b790c4fb7ee1af45000b2e, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356941905638609613, guid: bfbb5f19e4b790c4fb7ee1af45000b2e, type: 3}
+      propertyPath: maxHealth
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5356941905638609613, guid: bfbb5f19e4b790c4fb7ee1af45000b2e, type: 3}
       propertyPath: 'toastProfileSprites.Array.data[0]'

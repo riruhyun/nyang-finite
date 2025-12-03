@@ -277,6 +277,7 @@ MonoBehaviour:
   fadeCanvasGroup: {fileID: 0}
   fadeDuration: 1
   fadeOnSceneStart: 1
+  blackScreenDuration: 1
 --- !u!114 &235064608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1042,6 +1043,7 @@ MonoBehaviour:
   dogPrefab: {fileID: 5909691575073822240, guid: e4bc932b7676c3d4083d83133d932986, type: 3}
   pigeonPrefab: {fileID: 8855747918391366442, guid: 74b89373076a5d246bf3c2b2c9849177, type: 3}
   catPrefab: {fileID: 8706373526866783260, guid: 047428ef569e98342beaa232cebb24cb, type: 3}
+  ratPrefab: {fileID: 0}
   spawnParent: {fileID: 0}
   enemyToastPrefab: {fileID: 0}
   enemyToastOffset: {x: -0.01, y: 0.04, z: 0}
@@ -1063,35 +1065,35 @@ MonoBehaviour:
   view: 0
   reuseOwnerTrackingEngine: 1
   spawnDefinitions:
-  - enemyKind: 0
+  - enemyKind: 2
     skinId: 3
-    moveSpeed: 4.5
-    maxHealth: 6
-    attackDamage: 1
-    attackSpeed: 1.5
-    maxJumps: 20
-    scaleMultiplier: 1
+    moveSpeed: 7
+    maxHealth: 30
+    attackDamage: 3
+    attackSpeed: 2
+    maxJumps: 25
+    scaleMultiplier: 2
     characterRadius: 0
     colliderYOffset: 0
     useCustomPosition: 1
-    spawnPosition: {x: 10, y: -2.54, z: 0}
+    spawnPosition: {x: 24, y: -4.23, z: 0}
     toastDrops:
-    - profile: {fileID: 11400000, guid: d4d29e080341c7846af9e67fbd8b378f, type: 2}
+    - profile: {fileID: 11400000, guid: 7d43b8d13d1633c4fa70c79d0237f8c1, type: 2}
       weight: 100
-  - enemyKind: 0
-    skinId: 2
-    moveSpeed: 4.5
-    maxHealth: 6
-    attackDamage: 1
-    attackSpeed: 1.5
-    maxJumps: 35
-    scaleMultiplier: 1
+  - enemyKind: 2
+    skinId: 3
+    moveSpeed: 7
+    maxHealth: 30
+    attackDamage: 3
+    attackSpeed: 2
+    maxJumps: 25
+    scaleMultiplier: 2
     characterRadius: 0
     colliderYOffset: 0
     useCustomPosition: 1
-    spawnPosition: {x: 13, y: -2.54, z: 0}
+    spawnPosition: {x: 18.5, y: -4.23, z: 0}
     toastDrops:
-    - profile: {fileID: 11400000, guid: d6fe5a361331c574a8e660fb58440aa1, type: 2}
+    - profile: {fileID: 11400000, guid: a1c6aca9c1c3f8142b64331ffb86a734, type: 2}
       weight: 100
 --- !u!4 &508043682
 Transform:
@@ -1102,7 +1104,7 @@ Transform:
   m_GameObject: {fileID: 508043680}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.87, y: -1.0084, z: 0}
+  m_LocalPosition: {x: 5.94, y: -4.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3030,7 +3032,7 @@ Transform:
   m_GameObject: {fileID: 1296827836}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.97, y: 12.53, z: 0}
+  m_LocalPosition: {x: 18.5, y: -4.23, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children: []

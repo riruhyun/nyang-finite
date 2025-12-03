@@ -366,10 +366,8 @@ public class PigeonController : Enemy
         if (!isAlive) return;
 
         isAlive = false;
-        AlignCapsuleCollidersForDeath();
-        // 이미 Dead 상태로 전환됨 (PlayHurtThenDeath에서)
 
-        Debug.Log("[Pigeon] 사망!");
+        Debug.Log("[Pigeon] 사망! 중력 적용하여 낙하");
 
         // Death 애니메이션 재생 - CrossFade 사용
         if (animator != null)
@@ -378,13 +376,27 @@ public class PigeonController : Enemy
             Debug.Log("[Pigeon] Death 애니메이션 CrossFade 실행!");
         }
 
-        // Rigidbody 정지
+        // 중력 적용하여 떨어지도록 설정
         if (rb != null)
         {
-            rb.linearVelocity = Vector2.zero;
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            rb.gravityScale = 1f; // 중력 활성화
+            // velocity는 0으로 설정하지 않음 (떨어지도록)
         }
 
-        Destroy(gameObject, 1f);
+        // Enemy의 바닥 감지 로직 사용
+        awaitingDeathAlignment = rb != null;
+        deathAlignmentComplete = false;
+        deathFallStartTime = Time.time;
+        EnsureDeathColliderDisabled();
+
+        if (!awaitingDeathAlignment)
+        {
+            AlignCapsuleCollidersForDeath();
+        }
+
+        // 일정 시간 후 오브젝트 제거
+        Destroy(gameObject, 2f);
     }
 
     /// <summary>

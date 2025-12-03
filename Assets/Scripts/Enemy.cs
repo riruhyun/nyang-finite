@@ -113,6 +113,7 @@ public class Enemy : MonoBehaviour
   {
     if (awaitingDeathAlignment && !deathAlignmentComplete && ShouldFinalizeDeathPose())
     {
+      Debug.Log($"[Enemy] 바닥에 닿음! BoxCollider 생성 및 Layer 변경 실행");
       AlignCapsuleCollidersForDeath();
     }
   }
@@ -206,10 +207,12 @@ public class Enemy : MonoBehaviour
     if (rb != null)
     {
       rb.bodyType = RigidbodyType2D.Dynamic;
+      Debug.Log($"[Enemy] 사망! 바닥에 떨어질 때까지 대기 중... (awaitingDeathAlignment={awaitingDeathAlignment})");
     }
 
     if (!awaitingDeathAlignment)
     {
+      Debug.Log("[Enemy] Rigidbody 없음, 즉시 BoxCollider 생성");
       AlignCapsuleCollidersForDeath();
     }
 
@@ -222,18 +225,25 @@ public class Enemy : MonoBehaviour
     awaitingDeathAlignment = false;
     deathAlignmentComplete = true;
 
+    Debug.Log($"[Enemy] AlignCapsuleCollidersForDeath 시작");
+
     var capsules = GetComponentsInChildren<CapsuleCollider2D>();
     if (capsules != null)
     {
       foreach (var capsule in capsules)
       {
-        if (capsule != null) Destroy(capsule);
+        if (capsule != null)
+        {
+          Debug.Log($"[Enemy] CapsuleCollider 제거: {capsule.name}");
+          Destroy(capsule);
+        }
       }
     }
 
     var box = deathCollider != null ? deathCollider : GetComponent<BoxCollider2D>();
     if (box == null)
     {
+      Debug.Log($"[Enemy] BoxCollider2D 생성");
       box = gameObject.AddComponent<BoxCollider2D>();
     }
     ApplyDeathColliderPreset(box);
@@ -244,6 +254,7 @@ public class Enemy : MonoBehaviour
     int layer = LayerMask.NameToLayer("Obstacles");
     if (layer >= 0)
     {
+      Debug.Log($"[Enemy] Layer를 Obstacles로 변경");
       gameObject.layer = layer;
       foreach (Transform child in transform)
       {
@@ -256,7 +267,10 @@ public class Enemy : MonoBehaviour
       rb.linearVelocity = Vector2.zero;
       rb.angularVelocity = 0f;
       rb.bodyType = RigidbodyType2D.Static;
+      Debug.Log($"[Enemy] Rigidbody를 Static으로 변경 (정지)");
     }
+
+    Debug.Log($"[Enemy] AlignCapsuleCollidersForDeath 완료");
   }
 
   private void ApplyDeathColliderPreset(BoxCollider2D box)
@@ -357,45 +371,72 @@ public class Enemy : MonoBehaviour
     if (!awaitingDeathAlignment || deathAlignmentComplete) return false;
     if (rb == null) return true;
 
-    if (Time.time - deathFallStartTime < deathSettleMinTime)
+    float elapsedTime = Time.time - deathFallStartTime;
+    if (elapsedTime < deathSettleMinTime)
     {
       return false;
     }
 
-    if (!IsTouchingSettleGround())
+    bool touchingGround = IsTouchingSettleGround();
+    if (!touchingGround)
     {
+      // 디버그: 바닥에 닿지 않음
+      if (elapsedTime > 0.5f && (int)(elapsedTime * 2) % 2 == 0) // 0.5초마다 로그
+      {
+        Debug.Log($"[Enemy] 바닥 대기 중... 경과 시간: {elapsedTime:F2}초, 속도: {rb.linearVelocity.y:F2}");
+      }
       return false;
     }
 
-    return Mathf.Abs(rb.linearVelocity.y) <= deathSettleVelocityThreshold;
+    bool velocitySlow = Mathf.Abs(rb.linearVelocity.y) <= deathSettleVelocityThreshold;
+    if (!velocitySlow)
+    {
+      Debug.Log($"[Enemy] 바닥에 닿았지만 속도 높음: {rb.linearVelocity.y:F2} (threshold: {deathSettleVelocityThreshold})");
+    }
+
+    return velocitySlow;
   }
 
   private bool IsTouchingSettleGround()
   {
     var colliders = GetComponentsInChildren<Collider2D>();
-    if (colliders == null || colliders.Length == 0) return false;
+    if (colliders == null || colliders.Length == 0)
+    {
+      Debug.LogWarning($"[Enemy] IsTouchingSettleGround: Collider가 없음!");
+      return false;
+    }
 
+    int checkedCount = 0;
     foreach (var col in colliders)
     {
       if (col == null || !col.enabled) continue;
       if (deathCollider != null && col == deathCollider) continue;
+
+      checkedCount++;
       if (col.IsTouchingLayers(deathSettleGroundLayers))
       {
+        Debug.Log($"[Enemy] 바닥 감지 성공! Collider: {col.name}, Layer: {LayerMask.LayerToName(col.gameObject.layer)}");
         return true;
       }
     }
+
+    if (checkedCount == 0)
+    {
+      Debug.LogWarning($"[Enemy] IsTouchingSettleGround: 활성화된 Collider가 없음!");
+    }
+
     return false;
   }
 
-  private void EnsureDeathColliderDisabled()
+  protected void EnsureDeathColliderDisabled()
   {
     if (deathCollider == null) return;
     deathCollider.enabled = false;
   }
 
-  private bool awaitingDeathAlignment;
-  private bool deathAlignmentComplete;
-  private float deathFallStartTime;
+  protected bool awaitingDeathAlignment;
+  protected bool deathAlignmentComplete;
+  protected float deathFallStartTime;
 
   /// <summary>
   /// 공격 실행
