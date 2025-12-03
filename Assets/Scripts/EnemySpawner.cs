@@ -17,6 +17,9 @@ public class EnemySpawner : MonoBehaviour
   [Tooltip("Cat enemy prefab (optional)")]
   public GameObject catPrefab;
 
+  [Tooltip("Rat enemy prefab (optional)")]
+  public GameObject ratPrefab;
+
   [Tooltip("Optional parent Transform for spawned enemies")]
   public Transform spawnParent;
 
@@ -149,6 +152,7 @@ EnemySpawnHelper.SpawnEnemies(
       dogPrefab: runtimeDogPrefab,
       pigeonPrefab: pigeonPrefab,
       catPrefab: catPrefab,
+      ratPrefab: ratPrefab,
       count: positions.Length,
       positions: positions,
       enemyKind: enemyKind,

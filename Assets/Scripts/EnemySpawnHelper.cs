@@ -12,7 +12,8 @@ public static class EnemySpawnHelper
   {
     Dog,
     Pigeon,
-    Cat
+    Cat,
+    Rat
   }
 
   /// <summary>
@@ -54,7 +55,8 @@ public static class EnemySpawnHelper
     int enemyToastSortingOrder = 0,
     bool disableTemplateAfterSpawn = true,
     SpawnDefinition[] spawnDefinitions = null,
-    GameObject catPrefab = null
+    GameObject catPrefab = null,
+    GameObject ratPrefab = null
   )
   {
     if (ownerForSharedEngine == null)
@@ -149,9 +151,18 @@ public static class EnemySpawnHelper
         case EnemyKind.Cat:
           prefabForClone = catPrefab != null ? catPrefab : dogPrefab;
           break;
+        case EnemyKind.Rat:
+          prefabForClone = ratPrefab != null ? ratPrefab : (catPrefab != null ? catPrefab : dogPrefab);
+          break;
       }
 
       var go = Object.Instantiate(prefabForClone, pos, Quaternion.identity, parent);
+      var kindOverride = go.GetComponent<EnemyKindOverride>();
+      if (kindOverride == null)
+      {
+        kindOverride = go.AddComponent<EnemyKindOverride>();
+      }
+      kindOverride.kind = effectiveKind;
       // Ensure spawned clone is active even if the template was kept disabled in the scene.
       if (!go.activeSelf) go.SetActive(true);
 
@@ -367,6 +378,8 @@ public static class EnemySpawnHelper
       case EnemyKind.Dog:
         return Mathf.Clamp(requested, 1, 4);
       case EnemyKind.Cat:
+        return Mathf.Clamp(requested, 1, 3);
+      case EnemyKind.Rat:
         return Mathf.Clamp(requested, 1, 3);
       default:
         return 1;

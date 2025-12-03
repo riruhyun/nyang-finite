@@ -56,6 +56,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float slopeFriction = 0f;
     [SerializeField] private float flatNormalThreshold = 0.95f;
 
+    [Header("Input Override")]
+    [SerializeField] private MonoBehaviour inputSourceBehaviour;
+    private IPlayerInputSource inputSource;
+
     [Header("Momentum Settings")]
     public float baseMomentum = 0.5f;
     public float maxMomentum = 2.0f;
@@ -356,6 +360,11 @@ public class PlayerController : MonoBehaviour
     private static readonly int DashHash = Animator.StringToHash("Dash");
     private const float LegacyJumpForceThreshold = 100f;
 
+    private void Awake()
+    {
+        InitializeInputSource();
+    }
+
     private void Start()
     {
         SetupColliders();
@@ -485,8 +494,8 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovementInput()
     {
-        bool isPressingLeft = Input.GetKey(KeyCode.A);
-        bool isPressingRight = Input.GetKey(KeyCode.D);
+        bool isPressingLeft = inputSource.GetMoveLeft();
+        bool isPressingRight = inputSource.GetMoveRight();
 
         // ?�어지???�태?��? ?�인 (공중 + ?�강)
         bool isFalling = !isGrounded && playerRigidbody.linearVelocity.y < -0.1f;
@@ -584,7 +593,11 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.W))
+        bool jumpHeldInput = inputSource.GetJumpHeld();
+        bool jumpDownInput = inputSource.GetJumpDown();
+        bool jumpUpInput = inputSource.GetJumpUp();
+
+        if (jumpDownInput)
         {
             // 벽차기 체크 (공중에서 벽에 붙어있을 때)
             if (!isGrounded && (isCollidingLeftWall || isCollidingRightWall))
@@ -621,7 +634,7 @@ public class PlayerController : MonoBehaviour
                 Debug.Log($"[JUMP INPUT] Jump cooldown active ({wait:F2}s remaining)");
             }
         }
-        else if (Input.GetKey(KeyCode.W) && !isGrounded && playerRigidbody.linearVelocity.y > 0)
+        else if (jumpHeldInput && !isGrounded && playerRigidbody.linearVelocity.y > 0)
         {
             // 점프 키를 누르고 있는 동안 추가 힘 적용 (스태미나 소모)
             float forceToAdd = jumpHoldForcePerSecond * Time.deltaTime; // 1초 동안 jumpHoldForcePerSecond 만큼 추가
@@ -653,7 +666,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        else if (Input.GetKeyUp(KeyCode.W) && playerRigidbody.linearVelocity.y > 0)
+        else if (jumpUpInput && playerRigidbody.linearVelocity.y > 0)
         {
             playerRigidbody.linearVelocity = new Vector2(
                 playerRigidbody.linearVelocity.x,
@@ -666,7 +679,7 @@ public class PlayerController : MonoBehaviour
     private void HandleDashInput()
     {
         // Q 키를 누르면 Dash 실행 (바라보는 방향으로 임펄스)
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (inputSource.GetDashDown())
         {
             // Scratch/Punch 중에는 Dash 불가
             if (isScratching || isPunching)
@@ -1853,7 +1866,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.K))
+        if (inputSource.GetScratchDown())
         {
             StartScratch();
         }
@@ -2032,7 +2045,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.L))
+        if (inputSource.GetPunchDown())
         {
             StartPunch();
         }
@@ -2342,5 +2355,34 @@ public class PlayerController : MonoBehaviour
                 continue;
             }
         }
+    }
+
+    private void InitializeInputSource()
+    {
+        if (inputSourceBehaviour != null)
+        {
+            inputSource = inputSourceBehaviour as IPlayerInputSource;
+            if (inputSource == null)
+            {
+                Debug.LogWarning("[PlayerController] Assigned inputSourceBehaviour does not implement IPlayerInputSource.");
+            }
+        }
+
+        if (inputSource == null)
+        {
+            inputSource = new UnityPlayerInputSource();
+        }
+    }
+
+    private class UnityPlayerInputSource : IPlayerInputSource
+    {
+        public bool GetMoveLeft() => Input.GetKey(KeyCode.A);
+        public bool GetMoveRight() => Input.GetKey(KeyCode.D);
+        public bool GetJumpDown() => Input.GetKeyDown(KeyCode.W);
+        public bool GetJumpHeld() => Input.GetKey(KeyCode.W);
+        public bool GetJumpUp() => Input.GetKeyUp(KeyCode.W);
+        public bool GetScratchDown() => Input.GetKeyDown(KeyCode.K);
+        public bool GetPunchDown() => Input.GetKeyDown(KeyCode.L);
+        public bool GetDashDown() => Input.GetKeyDown(KeyCode.Q);
     }
 }

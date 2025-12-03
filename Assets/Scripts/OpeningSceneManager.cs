@@ -18,7 +18,7 @@ public class OpeningSceneManager : MonoBehaviour
     [Tooltip("Require a click/any key AFTER each scene completes to advance. Ignores early clicks during motions.")]
     public bool requireClickAfterSceneComplete = false;
 
-    [Header("Background Music")]
+[Header("Background Music")]
     [SerializeField] private bool playBgmOnStart = true;
     [SerializeField] private string bgmKey = "Opening_bgm";
     [SerializeField, Range(0f, 1f)] private float bgmVolume = 1f;
@@ -28,6 +28,12 @@ public class OpeningSceneManager : MonoBehaviour
     [SerializeField] private UnityEngine.Audio.AudioMixerGroup sfxMixerGroup;
 
     public static UnityEngine.Audio.AudioMixerGroup SfxMixerGroup { get; private set; }
+
+    [Header("Final Scene Options")]
+    [Tooltip("Override the wait duration (in seconds) after the last scene starts. -1 keeps default behavior (fade-in time + 1s).")]
+    public float finalSceneWaitOverride = -1f;
+    [Tooltip("Prevent skipping the last scene wait via clicks/keys.")]
+    public bool blockFinalSceneSkip = false;
 
     private void Awake()
     {
@@ -131,12 +137,14 @@ public class OpeningSceneManager : MonoBehaviour
             else
             {
                 // For the last scene: wait until fade-in completes, then 1s buffer before transition
-                float wait = scene.GetFadeInCompletionTime() + 1f;
+                float wait = finalSceneWaitOverride >= 0f
+                    ? finalSceneWaitOverride
+                    : scene.GetFadeInCompletionTime() + 1f;
                 Debug.Log($"OpeningSceneManager.PlayScenes: last scene, waiting {wait:F2}s (fade-in complete + 1s)");
                 if (wait > 0f)
                 {
                     // Do not allow skipping the last scene motion if require-click is enabled
-                    bool allowEarly = allowClickToAdvance && !effectiveRequireClick;
+                    bool allowEarly = (blockFinalSceneSkip ? false : (allowClickToAdvance && !effectiveRequireClick));
                     yield return WaitWithAdvance(wait, allowEarly);
                 }
                 if (effectiveRequireClick)

@@ -224,6 +224,7 @@ public class IntelligentDogMovement : Enemy
     private bool onSlope = false;
     private float lastFacingDir = 1f;
     private float forwardRunUntil = -1f;
+    private int currentWaypointIndex = 0;
     private float forwardRunDir = 0f;
     private float nextBypassTime = 0f;
     private float backOffUntil = -1f;
@@ -860,20 +861,23 @@ public class IntelligentDogMovement : Enemy
     {
         if (path.Count == 0) return Vector3.zero;
 
-        int closestIndex = 0;
-        float closestDist = float.MaxValue;
-
-        for (int i = 0; i < path.Count; i++)
+        float reachThreshold = Mathf.Clamp(waypointReachDistance, 0.05f, 1.5f);
+        for (int i = currentWaypointIndex; i < path.Count - 1; i++)
         {
             float dist = Vector2.Distance(currentPosition, path[i]);
-            if (dist < closestDist)
+            if (dist <= reachThreshold)
             {
-                closestDist = dist;
-                closestIndex = i;
+                currentWaypointIndex = i + 1;
+            }
+            else
+            {
+                break;
             }
         }
 
-        return path[Mathf.Min(closestIndex + lookAheadWaypoints, path.Count - 1)];
+        currentWaypointIndex = Mathf.Clamp(currentWaypointIndex, 0, path.Count - 1);
+        int lookAheadIndex = Mathf.Min(currentWaypointIndex + lookAheadWaypoints, path.Count - 1);
+        return path[lookAheadIndex];
     }
 
     private bool ShouldJump(Vector3 currentPosition, Vector3 nextWaypoint, System.Collections.Generic.List<Vector3> path)

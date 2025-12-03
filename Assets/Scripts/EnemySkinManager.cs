@@ -12,6 +12,8 @@ public class EnemySkinManager : MonoBehaviour
         new Dictionary<int, Dictionary<string, AnimationClip>>();
     private static readonly Dictionary<int, Dictionary<string, AnimationClip>> catClipCache =
         new Dictionary<int, Dictionary<string, AnimationClip>>();
+    private static readonly Dictionary<int, Dictionary<string, AnimationClip>> ratClipCache =
+        new Dictionary<int, Dictionary<string, AnimationClip>>();
 
     /// <summary>
     /// Apply skin to an enemy GameObject based on skin ID
@@ -50,6 +52,9 @@ public class EnemySkinManager : MonoBehaviour
                 break;
             case "Cat":
                 ApplyCatSkin(animator, skinId);
+                break;
+            case "Rat":
+                ApplyRatSkin(animator, skinId);
                 break;
         }
     }
@@ -258,10 +263,110 @@ public class EnemySkinManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Apply rat skin overrides (skinId >= 2).
+    /// Uses Resources/Animations/Rat{skinId}/ similar to cat skins.
+    /// </summary>
+    private static void ApplyRatSkin(Animator animator, int skinId)
+    {
+        RuntimeAnimatorController originalController = animator.runtimeAnimatorController;
+
+        if (originalController is AnimatorOverrideController existing && existing.name.Contains($"Rat{skinId}_Override"))
+        {
+            return;
+        }
+
+        Dictionary<string, AnimationClip> ratClips = LoadRatAnimationClips(skinId);
+        if (ratClips.Count == 0)
+        {
+            Debug.LogWarning($"EnemySkinManager: No rat{skinId} animation clips found in Resources/Animations/Rat{skinId}/");
+            return;
+        }
+
+        AnimatorOverrideController overrideController = new AnimatorOverrideController(originalController)
+        {
+            name = $"Rat{skinId}_Override"
+        };
+
+        AnimationClip[] originalClips = originalController.animationClips;
+        var overrides = new List<KeyValuePair<AnimationClip, AnimationClip>>();
+
+        foreach (AnimationClip originalClip in originalClips)
+        {
+            if (ratClips.TryGetValue(originalClip.name, out AnimationClip overrideClip))
+            {
+                overrides.Add(new KeyValuePair<AnimationClip, AnimationClip>(originalClip, overrideClip));
+                Debug.Log($"EnemySkinManager: Overriding {originalClip.name} with rat{skinId} version");
+            }
+        }
+
+        if (overrides.Count > 0)
+        {
+            overrideController.ApplyOverrides(overrides);
+            animator.runtimeAnimatorController = overrideController;
+            Debug.Log($"EnemySkinManager: Applied {overrides.Count} animation overrides for rat{skinId} skin");
+        }
+        else
+        {
+            Debug.LogWarning("EnemySkinManager: No matching animation clips found to override (rat skin)");
+        }
+    }
+
+    private static Dictionary<string, AnimationClip> LoadRatAnimationClips(int skinId)
+    {
+        if (!ratClipCache.TryGetValue(skinId, out Dictionary<string, AnimationClip> cache))
+        {
+            cache = new Dictionary<string, AnimationClip>();
+            ratClipCache[skinId] = cache;
+        }
+
+        Dictionary<string, AnimationClip> clips = new Dictionary<string, AnimationClip>();
+        foreach (string animName in SkinAnimationNames)
+        {
+            if (cache.TryGetValue(animName, out AnimationClip cachedClip) && cachedClip != null)
+            {
+                clips[animName] = cachedClip;
+                continue;
+            }
+
+            string folder = $"Animations/Rat{skinId}";
+            string resourcePath = $"{folder}/{animName}";
+            AnimationClip clip = Resources.Load<AnimationClip>(resourcePath);
+
+            if (clip == null)
+            {
+                resourcePath = $"{folder}/Rat{skinId}_{animName}";
+                clip = Resources.Load<AnimationClip>(resourcePath);
+            }
+
+            if (clip == null && animName == "Attack")
+            {
+                resourcePath = $"{folder}/Punch";
+                clip = Resources.Load<AnimationClip>(resourcePath) ??
+                        Resources.Load<AnimationClip>($"{folder}/Rat{skinId}_Punch");
+            }
+
+            if (clip != null)
+            {
+                clips[animName] = clip;
+                cache[animName] = clip;
+            }
+        }
+
+        return clips;
+    }
+
+    /// <summary>
     /// Determine enemy type from GameObject
     /// </summary>
     private static string DetermineEnemyType(GameObject go)
     {
+        // 0. Explicit override via component
+        var overrideComponent = go.GetComponent<EnemyKindOverride>();
+        if (overrideComponent != null)
+        {
+            return overrideComponent.kind.ToString();
+        }
+
         // 1. Sprite 이름으로 먼저 체크 (가장 정확함)
         var sr = go.GetComponentInChildren<SpriteRenderer>();
         if (sr != null && sr.sprite != null)
@@ -270,12 +375,14 @@ public class EnemySkinManager : MonoBehaviour
             if (spriteName.Contains("cat")) return "Cat";
             if (spriteName.Contains("dog")) return "Dog";
             if (spriteName.Contains("pigeon")) return "Pigeon";
+            if (spriteName.Contains("rat")) return "Rat";
         }
 
         // 2. GameObject 이름 체크
         string name = go.name.ToLower();
         if (name.Contains("cat")) return "Cat";
         if (name.Contains("pigeon")) return "Pigeon";
+        if (name.Contains("rat")) return "Rat";
         if (name.Contains("dog")) return "Dog";
 
         // 3. Animator Controller 이름 체크
@@ -286,6 +393,7 @@ public class EnemySkinManager : MonoBehaviour
             if (ctrlName.Contains("cat")) return "Cat";
             if (ctrlName.Contains("dog")) return "Dog";
             if (ctrlName.Contains("pigeon")) return "Pigeon";
+            if (ctrlName.Contains("rat")) return "Rat";
         }
 
         // 4. Component 체크 (마지막 fallback, Cat도 IntelligentDogMovement 사용하므로 가장 마지막에)
