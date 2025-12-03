@@ -59,7 +59,7 @@ public class ScreenFadeController : MonoBehaviour
         {
             SetAlpha(1f);
             StartCoroutine(FadeToAlpha(0f, false));
-            fadeOnSceneStart = false;
+            // fadeOnSceneStart = false;
         }
         else
         {
@@ -139,5 +139,37 @@ public class ScreenFadeController : MonoBehaviour
     {
         if (fadeCanvasGroup == null) return;
         fadeCanvasGroup.alpha = alpha;
+    }
+
+    /// <summary>
+    /// 플레이어 사망 시 리스폰 처리: 대기 -> 페이드 아웃 -> 같은 스테이지 리로드 -> 페이드 인
+    /// </summary>
+    /// <param name="waitBeforeFade">페이드 아웃 전 대기 시간 (기본 3초)</param>
+    public void RespawnWithFade(float waitBeforeFade = 3f)
+    {
+        if (isFading)
+        {
+            return;
+        }
+
+        string currentSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        StartCoroutine(RespawnSequence(currentSceneName, waitBeforeFade));
+    }
+
+    private IEnumerator RespawnSequence(string sceneName, float waitBeforeFade)
+    {
+        isFading = true;
+
+        // 죽고 나서 대기 시간 (페이드 없이 가만히)
+        yield return new WaitForSecondsRealtime(waitBeforeFade);
+
+        // 페이드 아웃 (화면이 검어짐)
+        yield return FadeToAlpha(1f, false);
+
+        // 씬 리로드 플래그 설정
+        pendingSceneFadeOut = true;
+
+        // 같은 스테이지 리로드
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }
 }

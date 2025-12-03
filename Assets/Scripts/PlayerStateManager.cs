@@ -106,11 +106,14 @@ public class PlayerStateManager : MonoBehaviour
       player.LoadSaveData(saveData);
     }
 
-    // 스태미나 복원
-    if (StaminaManager.instance != null)
+    // 스태미나 복원 (저장된 값이 있을 때만 - 리스폰 시에는 스태미나 키가 없으므로 기본 0에서 시작)
+    if (StaminaManager.instance != null && PlayerPrefs.HasKey(KEY_STAMINA))
     {
       SetStamina(PlayerPrefs.GetFloat(KEY_STAMINA, 0f));
     }
+
+    // 복원 후 저장된 상태 클리어 (일회성 복원)
+    ClearSavedState();
 
     Debug.Log("[PlayerStateManager] 복원 완료!");
   }
@@ -125,6 +128,33 @@ public class PlayerStateManager : MonoBehaviour
     PlayerPrefs.DeleteKey(KEY_HAS_SAVED_STATE);
     PlayerPrefs.Save();
     Debug.Log("[PlayerStateManager] 저장 데이터 클리어");
+  }
+
+  /// <summary>
+  /// 리스폰용: 토스트만 저장하고 체력/스태미나는 최대치로 리셋됩니다.
+  /// </summary>
+  public void SaveToastOnlyForRespawn()
+  {
+    var player = FindFirstObjectByType<PlayerController>();
+    if (player == null)
+    {
+      Debug.LogWarning("[PlayerStateManager] PlayerController를 찾을 수 없습니다!");
+      return;
+    }
+
+    // 현재 데이터를 가져와서 체력만 최대치로 설정 (토스트와 스탯은 유지)
+    var saveData = player.GetSaveData();
+    saveData.health = player.maxHealth; // 체력을 최대치로 리셋
+
+    PlayerPrefs.SetString(KEY_PLAYER_DATA, JsonUtility.ToJson(saveData));
+
+    // 스태미나는 저장하지 않음 (리스폰 시 기본값으로 시작)
+    PlayerPrefs.DeleteKey(KEY_STAMINA);
+
+    PlayerPrefs.SetInt(KEY_HAS_SAVED_STATE, 1);
+    PlayerPrefs.Save();
+
+    Debug.Log($"[PlayerStateManager] 리스폰용 저장 완료: Toast={saveData.toastId}, HP=최대치로 리셋");
   }
 
   private void SetStamina(float value)

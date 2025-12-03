@@ -104,17 +104,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // 플레이어 캐릭터가 사망시 게임 오버를 실행하는 메서드
+    // 플레이어 캐릭터가 사망시 리스폰을 실행하는 메서드
     public void OnPlayerDead()
     {
-        isGameover = true;
-        gameoverUI.SetActive(true);
-
-        // 게임 오버 시 저장된 플레이어 상태 클리어
+        // 토스트만 유지하고 체력/스태미나는 리셋되도록 저장
         if (PlayerStateManager.instance != null)
         {
-            PlayerStateManager.instance.ClearSavedState();
-            Debug.Log("[GameManager] 게임 오버로 인해 저장된 상태 클리어");
+            PlayerStateManager.instance.SaveToastOnlyForRespawn();
+            Debug.Log("[GameManager] 리스폰을 위해 토스트 상태만 저장");
+        }
+
+        // ScreenFadeController를 통해 페이드 아웃 -> 3초 대기 -> 페이드 인 -> 리스폰
+        if (ScreenFadeController.Instance != null)
+        {
+            ScreenFadeController.Instance.RespawnWithFade(3f);
+        }
+        else
+        {
+            // ScreenFadeController가 없으면 기존 방식으로 fallback
+            Debug.LogWarning("[GameManager] ScreenFadeController를 찾을 수 없어 기존 게임오버 처리");
+            isGameover = true;
+            gameoverUI.SetActive(true);
         }
     }
 
