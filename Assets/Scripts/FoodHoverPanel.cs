@@ -100,11 +100,9 @@ public class FoodHoverPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         {
             activePanel = null;
         }
-        if (!consumed)
-        {
-            Debug.Log($"[FoodHoverPanel] Calling FadeTo(0f)");
-            FadeTo(0f);
-        }
+        // ★ 항상 FadeTo(0f) 호출 (consumed 상태와 관계없이)
+        Debug.Log($"[FoodHoverPanel] Calling FadeTo(0f)");
+        FadeTo(0f);
     }
 
     private void Update()
