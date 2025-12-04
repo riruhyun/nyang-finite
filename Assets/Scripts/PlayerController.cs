@@ -279,6 +279,16 @@ public class PlayerController : MonoBehaviour
             StaminaManager.instance.ApplyStaminaRegenBonus(currentStaminaRegen);
         }
 
+        // 토스트 UI 업데이트
+        if (!string.IsNullOrEmpty(activeToastId) && System.Enum.TryParse(activeToastId, out ToastIndicator.ToastType parsedToast))
+        {
+            UpdateToastVisuals(parsedToast);
+        }
+        else
+        {
+            UpdateToastVisuals(null);
+        }
+
         Debug.Log($"[PlayerController] 상태 복원 완료: HP={currentHealth}, Toast={activeToastId}");
     }
 

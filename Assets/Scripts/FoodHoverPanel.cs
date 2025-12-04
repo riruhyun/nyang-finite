@@ -75,11 +75,13 @@ public class FoodHoverPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         Debug.Log($"[FoodHoverPanel] Show called. currentAlpha={canvasGroup?.alpha}");
         BuildUIIfNeeded();
         UpdateCanvasProps();
-        ApplyData();
 
-        // 상태 리셋
+        // ★ 상태 리셋 (새 음식에 대해 패널을 다시 사용할 수 있도록)
+        consumed = false;
         foodHover = true;
         pointerInside = false;
+
+        ApplyData();
         if (activePanel != null && activePanel != this)
         {
             activePanel.Hide();
