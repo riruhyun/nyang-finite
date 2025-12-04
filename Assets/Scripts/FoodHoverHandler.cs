@@ -92,10 +92,11 @@ public class FoodHoverHandler : MonoBehaviour
             }
             else if (hovering)
             {
-                // 다른 곳을 클릭했는데 패널이 열려있으면 닫기 (단, UI는 제외)
+                // 다른 곳을 클릭했는데 패널이 열려있으면 닫기 (단, UI 또는 패널 위는 제외)
                 bool clickedOnUI = EventSystem.current != null && EventSystem.current.IsPointerOverGameObject();
+                bool pointerOnPanel = panel != null && panel.IsPointerInside;
 
-                if (!clickedOnUI)
+                if (!clickedOnUI && !pointerOnPanel)
                 {
                     Debug.Log($"[FoodHoverHandler] Clicked outside FoodPanel, closing panel");
                     hovering = false;
@@ -103,7 +104,7 @@ public class FoodHoverHandler : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log($"[FoodHoverHandler] Clicked on FoodPanel, keeping panel open");
+                    Debug.Log($"[FoodHoverHandler] Clicked on FoodPanel, keeping panel open (clickedOnUI={clickedOnUI}, pointerOnPanel={pointerOnPanel})");
                 }
             }
         }
